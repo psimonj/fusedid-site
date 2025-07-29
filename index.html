@@ -1,0 +1,398 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>FUSED ID | AI-First Management & Business Leadership</title>
+  <meta name="description" content="FUSED ID delivers strategic direction and executive leadership powered by AI coworkers. Explore lean, AI-first management for modern business excellence.">
+  <meta name="keywords" content="AI coworkers, executive leadership, ISO9001 systems, AI management, digital coworkers, business strategy, FUSED ID, AI-first management, rental optimisation, AI business support">
+  <meta name="author" content="FUSED ID">
+<style>
+  body {
+    font-family: sans-serif;
+    margin: 0;
+    padding: 0;
+    background: #ffffff;
+    color: #000000;
+  }
+
+  header {
+    display: flex;
+    justify-content: space-between;
+    padding: 1.5rem 2rem;
+  }
+
+  nav a {
+    margin-left: 1.5rem;
+    text-decoration: none;
+    color: #000;
+  }
+
+  .hero {
+    padding: 4rem 2rem 2rem;
+  }
+
+  .hero h1 {
+    font-size: 2.5rem;
+    font-weight: bold;
+  }
+
+  .hero p {
+    margin-top: 1rem;
+    font-size: 1.2rem;
+  }
+
+  .btn {
+    background: #000;
+    color: #fff;
+    padding: 1rem 2rem;
+    border: none;
+    font-weight: bold;
+    margin-top: 2rem;
+    cursor: pointer;
+  }
+
+  .section {
+    padding: 4rem 2rem 2rem;
+  }
+
+  .section h2 {
+    font-size: 1.8rem;
+    font-weight: bold;
+    margin-bottom: 0.5rem;
+  }
+
+  .section p {
+    font-size: 1rem;
+    margin-bottom: 2rem;
+  }
+
+  /* GRID FIX: 4 → 2 → 1 layout across screen sizes */
+  .grid {
+    display: grid;
+    gap: 2rem;
+  }
+
+  @media (min-width: 1025px) {
+    .grid {
+      grid-template-columns: repeat(4, 1fr);
+    }
+  }
+
+  @media (min-width: 600px) and (max-width: 1024px) {
+    .grid {
+      grid-template-columns: repeat(2, 1fr);
+    }
+  }
+
+  @media (max-width: 599px) {
+    .grid {
+      grid-template-columns: 1fr;
+    }
+  }
+
+  .card {
+    border: 1px solid #eee;
+    border-radius: 8px;
+    padding: 2rem;
+    background: #fff;
+  }
+
+  .card img {
+    width: 100%;
+    border-radius: 8px;
+  }
+
+  .card-icon {
+    width: 100%;
+    height: 160px;
+    background-color: #f5f5f5;
+    border-radius: 8px;
+    margin-bottom: 1rem;
+    background-size: cover;
+    background-position: center;
+  }
+
+  .icon {
+    font-size: 1.5rem;
+    color: #c56a1d;
+  }
+
+  .download {
+    display: block;
+    margin-top: 1rem;
+    padding: 0.5rem 1rem;
+    border: 1px solid #000;
+    text-align: center;
+    text-decoration: none;
+    color: #000;
+    font-weight: bold;
+    border-radius: 5px;
+  }
+
+  .contact {
+    background-color: #f9f9f9;
+    padding: 4rem 2rem;
+    text-align: center;
+    border-top: 2px solid #e0e0e0;
+  }
+
+  .contact h2 {
+    font-size: 2rem;
+    margin-bottom: 1rem;
+  }
+
+  .contact img {
+    width: 200px;
+    height: auto;
+    border-radius: 8px;
+    margin-top: 2rem;
+  }
+
+  .contact p {
+    font-size: 1.1rem;
+    margin: 0.5rem 0;
+  }
+
+.contact {
+  background-color: #f9f9f9;
+  padding: 4rem 2rem;
+  border-top: 2px solid #e0e0e0;
+}
+
+.contact-wrapper {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: flex-start;
+  max-width: 1000px;
+  margin: 0 auto;
+  gap: 2rem;
+}
+
+.contact-image img {
+  width: 250px;
+  height: auto;
+  border-radius: 8px;
+}
+
+.contact-details {
+  flex: 1;
+  min-width: 250px;
+  text-align: left;
+  padding-left: 1rem; /* <-- this adds the spacing from the photo */
+}
+
+.contact-details h2 {
+  font-size: 2rem;
+  margin-bottom: 1rem;
+}
+
+.contact-details p {
+  font-size: 1.1rem;
+  margin: 0.5rem 0;
+}
+
+.contact-details a {
+  color: #000;
+  text-decoration: none;
+  font-weight: bold;
+}
+  .container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 1rem;
+  }
+
+
+.leadership-layout {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 2rem;
+  align-items: flex-start;
+}
+
+.leadership-layout > div {
+  flex: 1;
+  min-width: 0;
+}
+
+/* Force wrap at 1100px or smaller */
+@media (max-width: 1100px) {
+  .leadership-layout {
+    flex-direction: column;
+  }
+
+@media (max-width: 1000px) {
+  .leadership-layout {
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .leadership-layout > div:first-child {
+    order: 1;
+  }
+
+  .leadership-layout > div:last-child {
+    order: 2;
+  }
+
+  .leadership-layout img {
+    display: block;
+    max-width: 100%;
+    height: auto;
+    border-radius: 8px;
+    margin: 2rem auto 0 auto;
+  }
+
+  .leadership-layout > div {
+    width: 100%;
+    max-width: 700px;
+  }
+}}
+</style>
+</head>
+
+
+<body>
+<div class="container">  
+<header>
+    <h1>FUSED ID</h1>
+    <nav>
+      <a href="#services">Services</a>
+      <a href="#team">AI Coworkers</a>
+      <a href="#contact">Contact</a>
+    </nav>
+  </header>
+
+  <section class="hero">
+    <h1>AI-Augmented Management</h1>
+    <p>The future of work is human-led and AI-augmented. FUSED ID delivers executive leadership and operational muscle powered by AI coworkers embedded across your business.</p>
+    <button class="btn">Explore Our Services</button>
+  </section>
+
+  <section class="section" id="services">
+ <div class="leadership-layout">
+    <div style="flex: 1; min-width: 300px;">
+  <h2>SMB Board Roles & Strategy</h2>
+  <p>
+    When you bring in FUSED ID, you don’t get a passive advisor. You get a seasoned director—someone who’s sat at the boardroom table, and knows what it takes to turn vision into execution.
+  </p>
+  <p>
+    We offer hands-on leadership across strategic planning, operational oversight, risk management, and governance structures.
+    We’re not here to micromanage—we're here to guide, to challenge, to steward your business toward stronger decisions and smarter growth.
+  </p>
+  <p>
+    With AI tools handling the noise, we focus on the signal: the hard calls, the human judgement, and the long game.
+    Whether you need an independent board member, an interim executive, or a sharp set of eyes on your next move—we step in like we mean it.
+  </p>
+  <p>
+    This is human-led management. Backed by a powerful AI spine!
+</div>
+    <div style="flex: 1; min-width: 300px;">
+      <img src="leadership-governance.jpg" alt="Leadership and AI Governance" style="width: 100%; height: auto; border-radius: 8px;" />
+    </div>
+  </div>
+<br><br>
+    <h2>What We Deliver</h2>
+    <div class="grid">
+      <div class="card">
+        <div class="card-icon" style="background-image: url('placeholder-strategy.jpg');"></div>
+        <h3>Business Strategy</h3>
+        <p>Craft your direction with data-led insight and agile execution. We define clear paths and adaptive planning tailored to your growth goals.</p>
+      </div>
+      <div class="card">
+        <div class="card-icon" style="background-image: url('placeholder-aiworkforce.jpg');"></div>
+        <h3>Your AI Workforce</h3>
+        <p>Deployed across operations, marketing, admin and compliance. AI coworkers that scale with your business and never drop the ball.</p>
+      </div>
+      <div class="card">
+        <div class="card-icon" style="background-image: url('placeholder-rentals.jpg');"></div>
+        <h3>Holiday Rental Management</h3>
+        <p>Maximise yield and guest satisfaction with smart pricing, review automations and proactive digital concierge support.</p>
+      </div>
+      <div class="card">
+        <div class="card-icon" style="background-image: url('placeholder-iso9001.jpg');"></div>
+        <h3>ISO 9001 Systems</h3>
+        <p>We build your quality system from scratch—or take over your headache—and handle the compliance so you can focus on results.</p>
+      </div>
+    </div>
+  </section>
+
+  <section class="section" id="team">
+    <h2>Meet our AI Coworkers</h2>
+    <p>Our managed team of AI coworkers are task-driven, context-aware, experts in their field, and strategically embedded to support your core operations. Download their CVs to see how they work.</p>
+    <div class="grid">
+      <div class="card">
+        <div class="card-icon" style="background-image: url('placeholder-agent1.jpg');"></div>
+        <h3>Elias — Strategy Bot</h3>
+        <p>Turns vague direction into market analysis, plans, and proposals. Synthesises insight and opportunity at speed.</p>
+        <a class="download" href="#">Download CV</a>
+      </div>
+      <div class="card">
+        <div class="card-icon" style="background-image: url('placeholder-agent2.jpg');"></div>
+        <h3>Quinn — ISO Navigator</h3>
+        <p>Owns the lifecycle of your ISO system. From procedures and registers to audit logs and compliance planning.</p>
+        <a class="download" href="#">Download CV</a>
+      </div>
+      <div class="card">
+        <div class="card-icon" style="background-image: url('placeholder-agent3.jpg');"></div>
+        <h3>Rhea — Rental Optimiser</h3>
+        <p>Automates listings, pricing, calendar sync, guest reviews, and cleaning coordination. Airbnb on autopilot.</p>
+        <a class="download" href="#">Download CV</a>
+      </div>
+      <div class="card">
+        <div class="card-icon" style="background-image: url('placeholder-agent4.jpg');"></div>
+        <h3>Nova — EA Companion</h3>
+        <p>Email triage, diary sync, task prompts, and reminders. Always on, always aware of what matters next.</p>
+        <a class="download" href="#">Download CV</a>
+      </div>
+    </div>
+  </section>
+
+  <section class="section" id="team">
+      <div class="grid">
+      <div class="card">
+        <div class="card-icon" style="background-image: url('placeholder-agent5.jpg');"></div>
+        <h3>Nova — Strategy Bot</h3>
+        <p>Turns vague direction into market analysis, plans, and proposals. Synthesises insight and opportunity at speed.</p>
+        <a class="download" href="#">Download CV</a>
+      </div>
+      <div class="card">
+        <div class="card-icon" style="background-image: url('placeholder-agent6.jpg');"></div>
+        <h3>Quinn — ISO Navigator</h3>
+        <p>Owns the lifecycle of your ISO system. From procedures and registers to audit logs and compliance planning.</p>
+        <a class="download" href="#">Download CV</a>
+      </div>
+      <div class="card">
+        <div class="card-icon" style="background-image: url('placeholder-agent7.jpg');"></div>
+        <h3>Rhea — Rental Optimiser</h3>
+        <p>Automates listings, pricing, calendar sync, guest reviews, and cleaning coordination. Airbnb on autopilot.</p>
+        <a class="download" href="#">Download CV</a>
+      </div>
+      <div class="card">
+        <div class="card-icon" style="background-image: url('placeholder-agent8.jpg');"></div>
+        <h3>Elias — EA Companion</h3>
+        <p>Email triage, diary sync, task prompts, and reminders. Always on, always aware of what matters next.</p>
+        <a class="download" href="#">Download CV</a>
+      </div>
+    </div>
+  </section>
+
+  <section class="contact" id="contact">
+  <div class="contact-wrapper">
+    <div class="contact-image">
+      <img src="consulting-space-placeholder.jpg" alt="Consulting Office">
+    </div>
+    <div class="contact-details">
+      <h2>Contact Us</h2>
+      <p><strong>Simon, Director & Strategy Architect</strong></p>
+      <p>Email: <a href="mailto:simon@fusedid.com">simon@fusedid.com</a></p>
+      <p>Phone: <a href="tel:+61433011422">+61 433 011 422</a></p>
+      <p>Location: Melbourne, Australia</p>
+      <p>For consultations, strategic direction, or partnership discussions, get in touch. We're not just digital—we're deeply human too.</p>
+    </div>
+  </div>
+</section>
+</div>
+</body>
+</html>

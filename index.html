@@ -175,7 +175,19 @@
     @media (max-width:599px){.grid{grid-template-columns:1fr}}
 
     .card{border:1px solid #eee;border-radius:12px;padding:2rem;background:#fff}
-    .card-icon{width:100%;height:160px;background:#f5f5f5;border-radius:8px;margin-bottom:1rem;background-size:cover;background-position:center}
+
+/* Fluid portrait panels */
+.card-icon{
+  width:100%;
+  aspect-ratio: 10 / 8;        /* a bit taller than 16/9, shows more of the face */
+  background:#f5f5f5;
+  border-radius:8px;
+  margin-bottom:1rem;
+  background-size:cover;
+  background-position: 50% 5%; /* slight upward bias */
+}
+
+
     .download{
       display:inline-block;margin-top:1rem;padding:.6rem 1rem;border:1px solid #000;color:#000;font-weight:800;border-radius:8px
     }
@@ -188,14 +200,59 @@
     .contact-details h2{font-size:2rem;margin-bottom:1rem}
 
     /* ===== Responsive header & nav ===== */
-    @media (max-width:960px){
-      nav.primary{display:none}
-      .hamburger{display:flex}
-      .brand{font-size:1rem}
-    }
+@media (max-width:960px){
+  nav.primary {
+    display: none;
+  }
+  .hamburger {
+    display: flex;
+  }
+  .brand {
+    font-size: 1rem;
+    margin-left: 0.25rem; /* adds breathing room from left edge */
+  }
+  .header-inner {
+    padding-left: 1.25rem; /* increases left/right padding on mobile */
+    padding-right: 1.25rem;
+  }
+}
 
     /* Small polish */
     .shadow-sm{box-shadow:0 4px 18px rgba(0,0,0,.04)}
+
+/* === Fluid, safe-area-aware spacing (fix for in-between widths) === */
+
+/* Base: scale padding with viewport, respect iOS safe areas */
+.container,
+.header-inner {
+  /* clamp(min, preferred, max) prevents the "too close" look at mid widths */
+  padding-inline: max(env(safe-area-inset-left), clamp(16px, 5vw, 32px));
+}
+
+/* Keep your mobile tweaks from earlier, but you can drop the extra .brand margin now */
+@media (max-width: 960px) {
+  nav.primary { display: none; }
+  .hamburger { display: flex; }
+  .brand { font-size: 1rem; }
+}
+
+/* Optional: add a little extra breathing room on tablets only */
+@media (min-width: 768px) and (max-width: 1100px) {
+  .header-inner {
+    padding-inline: max(env(safe-area-inset-left), clamp(20px, 6vw, 40px));
+  }
+}
+
+@media (max-width: 768px) {
+  .leadership-layout {
+    flex-direction: column; /* stack vertically */
+  }
+  /* Swap so any image column comes first */
+  .leadership-layout > div:first-child { order: 2; } /* usually text */
+  .leadership-layout > div:last-child  { order: 1; } /* usually image */
+}
+
+
   </style>
 </head>
 <body>
@@ -208,7 +265,7 @@
       <a href="#team" onclick="toggleMenu(false)">AI Employees</a>
       <a href="#agencies" onclick="toggleMenu(false)">AI Agencies</a>
       <a href="#contact" onclick="toggleMenu(false)">Contact</a>
-      <a href="mailto:simon@fusedid.com" onclick="toggleMenu(false)" style="margin-top:.6rem;color:var(--copper-light)">simon@fusedid.com</a>
+      <a href="mailto:director@fusedid.com" onclick="toggleMenu(false)" style="margin-top:.6rem;color:var(--copper-light)">director@fusedid.com</a>
     </div>
   </div>
 
@@ -340,28 +397,28 @@
           <div class="card-icon" style="background-image: url('placeholder-agent9.jpg');"></div>
           <h3>Ethan — Sales Professional</h3>
           <p>Reads the market, spots opportunity, and delivers proposals that close deals. Ethan turns scattered ideas into revenue-focused strategies — fast.</p>
-          <a class="download" href="CV/ethan.html" target="_blank" rel="noopener">View / Print CV</a>
+          <a class="download" href="CV/ethan.html" target="_blank" rel="noopener">Download CV</a>
         </div>
 
         <div class="card">
           <div class="card-icon" style="background-image: url('placeholder-agent10.jpg');"></div>
           <h3>Mira — Marketing Professional</h3>
           <p>Builds campaigns with precision, creativity, and data insight. Mira blends brand storytelling with performance marketing to make every message land.</p>
-          <a class="download" href="CV/mira.html" target="_blank" rel="noopener">View / Print CV</a>
+          <a class="download" href="CV/mira.html" target="_blank" rel="noopener">Download CV</a>
         </div>
 
         <div class="card">
           <div class="card-icon" style="background-image: url('placeholder-agent4.jpg');"></div>
           <h3>Lara — People & Culture Manager</h3>
           <p>Creates a workplace people want to be part of. Lara streamlines hiring, onboarding, and engagement — keeping teams thriving.</p>
-          <a class="download" href="CV/Lara.html" target="_blank" rel="noopener">View / Print CV</a>
+          <a class="download" href="CV/Lara.html" target="_blank" rel="noopener">Download CV</a>
         </div>
 
         <div class="card">
           <div class="card-icon" style="background-image: url('placeholder-agent-custom.jpg');"></div>
           <h3>Nova — Customise Your Next Hire</h3>
           <p>Your role, your way. Nova adapts to your workflows, managing tasks, communications, and priorities with the focus of a full-time assistant.</p>
-          <a class="download" href="CV/nova.html" target="_blank" rel="noopener">View / Print CV</a>
+          <a class="download" href="CV/nova.html" target="_blank" rel="noopener">Download CV</a>
         </div>
       </div>
     </section>
@@ -549,9 +606,8 @@
       </div>
       <div class="contact-details">
         <h2>Contact Us</h2>
-        <p><strong>Simon, Director & Strategy Architect</strong></p>
-        <p>Email: <a href="mailto:simon@fusedid.com">simon@fusedid.com</a></p>
-        <p>Phone: <a href="tel:+61433011422">+61 433 011 422</a></p>
+        <p><strong>Contact Us To Discuss Your AI Strategy</strong></p>
+        <p>Email: <a href="mailto:director@fusedid.com">director@fusedid.com</a></p>
         <p>Location: Melbourne, Australia</p>
         <p>For consultations, strategic direction, or partnership discussions, get in touch. We're not just digital—we're deeply human too.</p>
       </div>

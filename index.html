@@ -1,0 +1,580 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>FUSED ID | AI-First Management & Business Leadership</title>
+  <meta name="description" content="FUSED ID delivers strategic direction and executive leadership powered by AI coworkers. Explore lean, AI-first management for modern business excellence.">
+  <meta name="keywords" content="AI coworkers, executive leadership, ISO9001 systems, AI management, digital coworkers, business strategy, FUSED ID, AI-first management, rental optimisation, AI business support">
+  <meta name="author" content="FUSED ID">
+
+  <style>
+    /* ===== Brand tokens ===== */
+    :root{
+      --espresso:#150e09;
+      --copper:#ff8c32;
+      --copper-light:#ffb169;
+      --glow:rgba(255,140,50,.6);
+      --text:#000;
+      --bg:#fff;
+    }
+
+    /* ===== Base ===== */
+    *{box-sizing:border-box}
+    html,body{margin:0;padding:0}
+    body{
+      font-family: system-ui, -apple-system, Segoe UI, Roboto, Helvetica, Arial, "Apple Color Emoji","Segoe UI Emoji";
+      color:var(--text);
+      background:var(--bg);
+    }
+    a{color:inherit;text-decoration:none}
+    img{max-width:100%;height:auto;display:block}
+    .container{max-width:1200px;margin:0 auto;padding:0 1rem}
+
+    /* ===== Header (with overlay menu trigger) ===== */
+    header{
+      position:relative;
+      z-index:5;
+      background:#fff;
+      border-bottom:1px solid #eee;
+    }
+    .header-inner{
+      display:flex;align-items:center;justify-content:space-between;
+      padding:1rem 0;
+    }
+    .brand{
+      font-weight:800;letter-spacing:.06em;
+      color:#000;
+      font-size:1.1rem;
+      white-space:nowrap;
+    }
+    nav.primary{
+      display:flex;gap:1.25rem;align-items:center;
+    }
+    nav.primary a{color:#000;font-weight:600}
+    .cta-small{
+      padding:.55rem .9rem;border-radius:6px;
+      background:#000;color:#fff;font-weight:700;font-size:.95rem
+    }
+
+    /* ===== Mobile hamburger ===== */
+    .hamburger{
+      display:none;
+      width:40px;height:40px;border:1px solid #ddd;border-radius:8px;
+      background:#fff;
+      align-items:center;justify-content:center;
+    }
+    .hamburger span{
+      display:block;width:18px;height:2px;background:#000;position:relative
+    }
+    .hamburger span:before,.hamburger span:after{
+      content:"";position:absolute;left:0;width:18px;height:2px;background:#000
+    }
+    .hamburger span:before{top:-6px}
+    .hamburger span:after{top:6px}
+
+    /* ===== Full-screen overlay menu ===== */
+    .nav-overlay{
+      position:fixed;inset:0;
+      background:radial-gradient(60% 60% at 20% 10%, rgba(255,140,50,.18), transparent 60%),
+                 var(--espresso);
+      display:none; /* toggled via .open */
+      z-index:1000;
+      color:#fff;
+    }
+    .nav-overlay.open{display:block;animation:fadeIn .25s ease}
+    @keyframes fadeIn{from{opacity:0}to{opacity:1}}
+    .nav-panel{
+      height:100%;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:1.2rem;
+      text-align:center;padding:2rem
+    }
+    .nav-overlay a{
+      font-size:1.6rem;font-weight:700;letter-spacing:.02em;color:#fff;
+      transition:color .2s ease, text-shadow .2s ease
+    }
+    .nav-overlay a:hover{
+      color:var(--copper-light);
+      text-shadow:0 0 16px var(--glow);
+    }
+    .nav-close{
+      position:absolute;top:16px;right:16px;
+      width:44px;height:44px;border:1px solid rgba(255,255,255,.25);border-radius:10px;background:transparent;color:#fff;
+      font-size:22px;line-height:1
+    }
+
+    /* ===== Hero (Concept A) ===== */
+    .heroA{
+      position:relative;isolation:isolate;
+      min-height:68vh;
+      display:grid;place-items:center;
+      overflow:hidden;
+    }
+    .heroA::before{
+      content:"";
+      position:absolute;inset:0;z-index:-2;
+      background:
+        linear-gradient(180deg, rgba(21,14,9,.65) 0%, rgba(21,14,9,.85) 55%, rgba(21,14,9,.95) 100%),
+        url('leadership-governance.jpg') center/cover no-repeat;
+      filter:saturate(1.05) contrast(1.02);
+      transform:scale(1.02);
+    }
+    .heroA::after{
+      /* copper glow accents */
+      content:"";
+      position:absolute;inset:0;z-index:-1;
+      background:
+        radial-gradient(40% 25% at 20% 20%, rgba(255,140,50,.25), transparent 60%),
+        radial-gradient(30% 20% at 80% 75%, rgba(255,177,105,.15), transparent 70%);
+      pointer-events:none;
+    }
+    .hero-wrap{width:100%}
+    .hero-content{
+      color:#fff;max-width:1000px;margin:0 auto;padding:7.5rem 1rem 5rem;text-align:left;
+    }
+    .hero-kicker{
+      color:var(--copper-light);text-transform:uppercase;letter-spacing:.14em;font-weight:800;font-size:.82rem;margin-bottom:.8rem;
+      opacity:.95
+    }
+    .hero-title{
+      font-size:clamp(2rem, 4vw + 1rem, 4rem);
+      line-height:1.08;margin:0 0 .6rem 0;font-weight:900;letter-spacing:.01em;
+      opacity:0;transform:translateY(8px);
+      animation:fadeUp .7s ease .15s forwards;
+    }
+    .hero-sub{
+      max-width:720px;font-size:clamp(1rem, 1vw + .6rem, 1.25rem);line-height:1.6;color:#f3f3f3;margin:0 0 1.2rem;
+      opacity:0;transform:translateY(6px);
+      animation:fadeUp .7s ease .28s forwards;
+    }
+    .hero-ctas{display:flex;gap:.75rem;flex-wrap:wrap;opacity:0;transform:translateY(6px);animation:fadeUp .7s ease .4s forwards;}
+    @keyframes fadeUp{to{opacity:1;transform:none}}
+    .btn{
+      appearance:none;border:0;border-radius:10px;cursor:pointer;font-weight:800;
+      padding:.95rem 1.2rem;font-size:1rem;letter-spacing:.02em;
+      display:inline-flex;align-items:center;gap:.45rem
+    }
+    .btn-primary{
+      background:linear-gradient(180deg,var(--copper),#fa7c16);
+      color:#220e05;box-shadow:0 6px 24px rgba(255,140,50,.35);
+    }
+    .btn-outline{
+      background:transparent;border:2px solid rgba(255,255,255,.7);color:#fff
+    }
+
+    /* ===== Sections ===== */
+    .section{padding:4rem 1rem}
+    .section h2{font-size:1.9rem;font-weight:900;margin:.2rem 0 1rem}
+    .section p{font-size:1rem;margin:0 0 1.25rem}
+    .leadership-layout{display:flex;flex-wrap:wrap;gap:2rem;align-items:flex-start}
+    .leadership-layout>div{flex:1;min-width:280px}
+
+    /* Grid */
+    .grid{display:grid;gap:2rem}
+    @media (min-width:1025px){.grid{grid-template-columns:repeat(4,1fr)}}
+    @media (min-width:600px) and (max-width:1024px){.grid{grid-template-columns:repeat(2,1fr)}}
+    @media (max-width:599px){.grid{grid-template-columns:1fr}}
+
+    .card{border:1px solid #eee;border-radius:12px;padding:2rem;background:#fff}
+    .card-icon{width:100%;height:160px;background:#f5f5f5;border-radius:8px;margin-bottom:1rem;background-size:cover;background-position:center}
+    .download{
+      display:inline-block;margin-top:1rem;padding:.6rem 1rem;border:1px solid #000;color:#000;font-weight:800;border-radius:8px
+    }
+
+    /* Contact */
+    .contact{background:#f9f9f9;padding:4rem 1rem;border-top:2px solid #e0e0e0}
+    .contact-wrapper{display:flex;flex-wrap:wrap;align-items:flex-start;max-width:1000px;margin:0 auto;gap:2rem}
+    .contact-image img{width:250px;border-radius:8px}
+    .contact-details{flex:1;min-width:250px;text-align:left}
+    .contact-details h2{font-size:2rem;margin-bottom:1rem}
+
+    /* ===== Responsive header & nav ===== */
+    @media (max-width:960px){
+      nav.primary{display:none}
+      .hamburger{display:flex}
+      .brand{font-size:1rem}
+    }
+
+    /* Small polish */
+    .shadow-sm{box-shadow:0 4px 18px rgba(0,0,0,.04)}
+  </style>
+</head>
+<body>
+
+  <!-- ===== Overlay Mobile Menu ===== -->
+  <div class="nav-overlay" id="overlayNav" aria-hidden="true">
+    <button class="nav-close" aria-label="Close menu" onclick="toggleMenu(false)">×</button>
+    <div class="nav-panel">
+      <a href="#services" onclick="toggleMenu(false)">Management+AI</a>
+      <a href="#team" onclick="toggleMenu(false)">AI Employees</a>
+      <a href="#agencies" onclick="toggleMenu(false)">AI Agencies</a>
+      <a href="#contact" onclick="toggleMenu(false)">Contact</a>
+      <a href="mailto:simon@fusedid.com" onclick="toggleMenu(false)" style="margin-top:.6rem;color:var(--copper-light)">simon@fusedid.com</a>
+    </div>
+  </div>
+
+  <!-- ===== Header ===== -->
+  <header class="shadow-sm">
+    <div class="container header-inner">
+      <div class="brand">FUSED ID</div>
+      <nav class="primary" aria-label="Primary">
+        <a href="#services">Management+AI</a>
+        <a href="#team">AI Employees</a>
+        <a href="#agencies">AI Agencies</a>
+        <a href="#contact">Contact</a>
+      </nav>
+      <button class="hamburger" aria-label="Open menu" aria-controls="overlayNav" aria-expanded="false" onclick="toggleMenu(true)">
+        <span></span>
+      </button>
+    </div>
+  </header>
+
+  <!-- ===== Hero (Concept A) ===== -->
+  <section class="heroA">
+    <div class="hero-wrap">
+      <div class="container hero-content">
+        <div class="hero-kicker">Human‑Led • AI‑Enhanced</div>
+        <h1 class="hero-title">You Lead. We Deliver.</h1>
+        <p class="hero-sub">
+          Fully managed AI employees and agencies embedded into your business — outcome‑first, human‑supervised, and ready from day one.
+        </p>
+        <div class="hero-ctas">
+          <a class="btn btn-primary" href="#services">Explore Services →</a>
+          <a class="btn btn-outline" href="#contact">Talk to Us</a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <main class="container">
+
+    <!-- ===== Services Intro ===== -->
+    <section class="section" id="services">
+      <div class="leadership-layout">
+        <div>
+          <h2>Human Led + AI Enhanced Management Services</h2>
+          <p>
+            The market is flooded with AI tools. Tools that promise more productivity, more output, more leverage. And for the most part — they deliver.
+          </p>
+          <p>
+            But even with all this power, most leaders find themselves doing more, not less. AI helps you think faster, write better, brainstorm endlessly… but the actual work? It’s still on your desk.
+          </p>
+          <p>
+            <strong>FUSED ID was built for that step.</strong> Not another platform to learn. Not another dashboard to click through. We build AI employees you can embed into your management team. Or you can outsource the work through one of our AI-led agencies — outcome-first, and human-supervised.
+          </p>
+          <p>
+            It’s not about replacing people. It’s about extending your team. Adding intelligent, reliable capacity that doesn’t sleep, doesn’t churn, and is monitored, managed and proactively improved.
+          </p>
+          <p>
+            <strong>Hire an AI employee. Or outsource to an AI agency.
+            Either way — the work gets done. Without getting dumped back on you.</strong>
+          </p>
+        </div>
+
+        <div>
+          <img src="AI_first_management.jpg" alt="Leadership and AI Governance" style="border-radius: 8px;" />
+        </div>
+      </div>
+
+      <br><br>
+
+      <!-- Two Ways -->
+      <div class="two-paths" style="margin-top:2rem;">
+        <h2 style="margin-bottom:1rem;">Two Ways to Work with FUSED ID</h2>
+        <p style="max-width:820px;">
+          Hire a single AI coworker to join your team — or hire a fully managed AI agency to run the function for you.
+        </p>
+
+        <div class="leadership-layout" style="align-items:stretch;">
+          <!-- Path 1 -->
+          <div class="card" style="display:flex;flex-direction:column;justify-content:space-between;">
+            <div>
+              <div class="card-icon" style="background-image:url('two-ways-employee.jpg');"></div>
+              <h3>Hire an AI Employee</h3>
+              <p>One dedicated AI coworker embedded into your business, trained for a clear role, managed and improved by FUSED ID — you direct the day-to-day.</p>
+              <ul style="font-size:1rem;line-height:1.8;margin-left:1rem;">
+                <li>Specialist role inside your team</li>
+                <li>Fast onboarding, continuous optimisation</li>
+                <li>Human oversight — quality guaranteed</li>
+              </ul>
+            </div>
+            <a class="download" href="#team">Meet the AI Employees →</a>
+          </div>
+
+          <!-- Path 2 -->
+          <div class="card" style="display:flex;flex-direction:column;justify-content:space-between;">
+            <div>
+              <div class="card-icon" style="background-image:url('two-ways-agency.jpg');"></div>
+              <h3>Hire an AI Agency</h3>
+              <p>A fully managed function delivered by a team of AI employees plus human experts. We handle the process, reporting, and optimisation — you get outcomes.</p>
+              <ul style="font-size:1rem;line-height:1.8;margin-left:1rem;">
+                <li>Outcome-first delivery</li>
+                <li>No extra headcount or new tools</li>
+                <li>Clear KPIs and reporting</li>
+              </ul>
+            </div>
+            <a class="download" href="#agencies">Explore the Agencies →</a>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ===== Team ===== -->
+    <section class="section" id="team">
+      <h2>Human Managed AI — Real People Behind Every AI Employee</h2>
+      <p>AI employees aren’t just software — they’re your new team members. They arrive ready to work up to 50 hours a week, require no sick leave or vacation time, and slot directly into your operations without onboarding delays.</p>
+
+      <p>Every AI employee in our network is designed for performance — task-driven, context-aware, and trained to work in harmony with your human team. Unlike off-the-shelf AI tools, ours are managed, guided, and fine-tuned by experienced humans to ensure your business gets consistent, measurable results.</p>
+
+      <ul>
+        <li>🧭 <strong>Strategy & Review:</strong> Regular performance reviews and improvement planning</li>
+        <li>🛠️ <strong>Ongoing Training:</strong> Continuous bot training, retraining and fine-tuning included</li>
+        <li>📣 <strong>Always Connected:</strong> Your team can give feedback 24/7</li>
+        <li>👀 <strong>Conflict Managed:</strong> Disputes and escalations handled by our team</li>
+        <li>🧠 <strong>Human-Led:</strong> All AI employees are overseen and managed by real people</li>
+      </ul>
+
+      <p>Think of it as hiring top-tier talent without the HR admin, payroll headaches, or downtime. View their CVs below to see exactly how they work and where they could fit in your business.</p>
+
+      <div class="grid">
+        <div class="card">
+          <div class="card-icon" style="background-image: url('placeholder-agent9.jpg');"></div>
+          <h3>Ethan — Sales Professional</h3>
+          <p>Reads the market, spots opportunity, and delivers proposals that close deals. Ethan turns scattered ideas into revenue-focused strategies — fast.</p>
+          <a class="download" href="cv/ethan.html" target="_blank" rel="noopener">View / Print CV</a>
+        </div>
+
+        <div class="card">
+          <div class="card-icon" style="background-image: url('placeholder-agent10.jpg');"></div>
+          <h3>Mira — Marketing Professional</h3>
+          <p>Builds campaigns with precision, creativity, and data insight. Mira blends brand storytelling with performance marketing to make every message land.</p>
+          <a class="download" href="cv/mira.html" target="_blank" rel="noopener">View / Print CV</a>
+        </div>
+
+        <div class="card">
+          <div class="card-icon" style="background-image: url('placeholder-agent4.jpg');"></div>
+          <h3>Lara — People & Culture Manager</h3>
+          <p>Creates a workplace people want to be part of. Lara streamlines hiring, onboarding, and engagement — keeping teams thriving.</p>
+          <a class="download" href="cv/lara.html" target="_blank" rel="noopener">View / Print CV</a>
+        </div>
+
+        <div class="card">
+          <div class="card-icon" style="background-image: url('placeholder-agent-custom.jpg');"></div>
+          <h3>Nova — Customise Your Next Hire</h3>
+          <p>Your role, your way. Nova adapts to your workflows, managing tasks, communications, and priorities with the focus of a full-time assistant.</p>
+          <a class="download" href="cv/nova.html" target="_blank" rel="noopener">View / Print CV</a>
+        </div>
+      </div>
+    </section>
+
+    <!-- ===== Agencies ===== -->
+    <section class="section" id="agencies">
+      <h2>FUSED ID Agencies — Human Led. AI Enhanced. Outcome Driven.</h2>
+      <p>
+        Our autonomous agencies are powered by trained AI employees and directed by real humans. Each division delivers a business function you can trust — no staff to hire, no tools to learn, no dashboards to manage. Just results.
+      </p>
+
+      <!-- DIRECTOR.ID -->
+      <div class="leadership-layout">
+        <div>
+          <h3>DIRECTOR.ID — AI-Enhanced Board & Strategic Leadership</h3>
+          <p style="margin-top:.5rem;line-height:1.6;">
+            For SMBs that want high-level strategic direction, measurable results, and airtight compliance — without adding a full-time executive headcount. We act as your independent board member, combining two decades of leadership experience with AI-augmented execution to keep your business growing and compliant.
+          </p>
+          <ul style="line-height:1.8;">
+            <li>📈 Business strategy creation, review, and adjustment</li>
+            <li>📊 Designing and building KPIs, with regular performance reporting</li>
+            <li>🛠️ Designing, building, and continuously improving your Quality Management System</li>
+            <li>🎯 Training top management in ISO9001 conformance</li>
+            <li>🧭 Acting as an independent board member for your SMB</li>
+          </ul>
+          <a class="download" href="directorfusedid/directorid.html">Start Strategic Leadership →</a>
+        </div>
+        <div>
+          <img src="director_id.jpg" alt="Director Level AI Service" style="border-radius: 8px;" />
+        </div>
+      </div>
+
+</br>
+</br>
+</br>
+</br>
+
+
+
+      <!-- PROSPECT.ID -->
+      <div class="leadership-layout">
+        <div>
+          <h3>PROSPECT.ID — AI-Powered Lead Generation</h3>
+          <p style="margin-top:.5rem;line-height:1.6;">
+            We take the legwork out of lead generation—curating, qualifying, and connecting with your next best customers automatically.
+          </p>
+          <ul style="line-height:1.8;">
+            <li>🔍 Curated lead lists tailored to your niche</li>
+            <li>📧 AI-generated emails & follow-ups</li>
+            <li>📅 Meetings booked straight into your calendar</li>
+            <li>📊 Weekly reports with lead scoring & engagement</li>
+            <li>🧠 Fully managed by FUSED ID’s strategy team</li>
+          </ul>
+          <a class="download" href="prospectfusedid/prospectid.html">Start Prospecting →</a>
+        </div>
+        <div>
+          <img src="prospect_id.jpg" alt="Prospecting AI Agent" style="border-radius: 8px;" />
+        </div>
+      </div>
+
+
+</br>
+</br>
+</br>
+</br>
+
+
+
+      <!-- HOST.ID -->
+      <div class="leadership-layout">
+        <div>
+          <h3>HOST.ID — Holiday Rental Operations</h3>
+          <p style="margin-top:.5rem;line-height:1.6;">
+            Everything you need to automate and optimise your holiday rental portfolio — without lifting a finger. We handle things end to end for you.
+          </p>
+          <ul style="line-height:1.8;">
+            <li>🏡 Listings, bookings & pricing fully automated</li>
+            <li>💬 Guest communication and reviews handled</li>
+            <li>🧹 Cleaner coordination and calendar sync</li>
+            <li>📈 Yield optimisation and performance insights</li>
+            <li>🧠 All powered by AI, backed by real oversight</li>
+          </ul>
+          <a class="download" href="hostfusedid/hostid.html">Automate My Rentals →</a>
+        </div>
+        <div>
+          <img src="host_id.jpg" alt="Holiday Rental AI" style="border-radius: 8px;" />
+        </div>
+      </div>
+
+
+</br>
+</br>
+</br>
+</br>
+
+
+
+      <!-- TALENT.ID -->
+      <div class="leadership-layout">
+        <div>
+          <h3>TALENT.ID — AI-Led Recruitment Sourcing</h3>
+          <p style="margin-top:.5rem;line-height:1.6;">
+            Our AI scouts talent, screens candidates, and delivers ready-to-interview shortlists—so you can hire faster with less noise.
+          </p>
+          <ul style="line-height:1.8;">
+            <li>🔍 Role profiling and hiring criteria definition</li>
+            <li>📄 AI-reviewed CVs and application ranking</li>
+            <li>🗣️ First-pass interviews via adaptive AI questioning</li>
+            <li>📋 Shortlists delivered with scoring and summaries</li>
+            <li>🧠 Fully human-supervised, bias-aware selection</li>
+          </ul>
+          <a class="download" href="talentfusedid/talentid.html">Find Talent Faster →</a>
+        </div>
+        <div>
+          <img src="talent_id.jpg" alt="Recruitment AI" style="border-radius: 8px;" />
+        </div>
+      </div>
+
+
+</br>
+</br>
+</br>
+</br>
+
+
+      <!-- SOCIAL.ID -->
+      <div class="leadership-layout">
+        <div>
+          <h3>SOCIAL.ID — Social Media Scheduling & Content</h3>
+          <p style="margin-top:.5rem;line-height:1.6;">
+            Let our AI run your socials—crafting, scheduling, and learning what works—so your brand stays visible without the drain.
+          </p>
+          <ul style="line-height:1.8;">
+            <li>📝 Content calendar planning and idea prompts</li>
+            <li>✍️ AI-generated posts tailored to your tone</li>
+            <li>📆 Auto-scheduling across Instagram, LinkedIn, Facebook</li>
+            <li>📊 Monthly reports on reach and engagement</li>
+            <li>🧠 Always learning from top-performing content</li>
+          </ul>
+          <a class="download" href="socialfusedid/socialid.html">Boost My Content →</a>
+        </div>
+        <div>
+          <img src="social_id.jpg" alt="Social Media AI" style="border-radius: 8px;" />
+        </div>
+      </div>
+
+</br>
+</br>
+</br>
+</br>
+
+
+<!-- KNOWLEDGE.ID -->
+<div class="leadership-layout">
+  <div>
+    <h3>KNOWLEDGE.ID — Company-Wide AI Knowledge</h3>
+    <p style="margin-top:.5rem;line-height:1.6;">
+      Stop paying for dozens of underused AI seats. KNOWLEDGE.ID gives your entire organisation instant access to a 
+      company-trained, always-available AI coworker — with usage-based billing that scales with demand. From quick 
+      brainstorming to detailed research, your people get the answers and outputs they need, and you only pay for 
+      what they actually use.
+    </p>
+    <ul style="line-height:1.8;">
+      <li>💡 <strong>Pay for what you use</strong> — no per-seat licences, no unused accounts</li>
+      <li>🧠 <strong>Company-trained intelligence</strong> — learns from approved feedback</li>
+      <li>👀 <strong>Human oversight</strong> — admins can approve, reject, or refine</li>
+      <li>🌐 <strong>All-department access</strong> — from sales to support, everyone benefits</li>
+      <li>📈 <strong>Continuous improvement</strong> — the more you use it, the better it gets</li>
+    </ul>
+    <a class="download" href="knowledgefusedid/knowledgeid.html">Enable Company-Wide AI →</a>
+  </div>
+  <div>
+    <img src="knowledge_id.jpg" alt="Knowledge AI Service" style="border-radius: 8px;" />
+  </div>
+</div>
+
+    </section>
+  </main>
+
+  <!-- ===== Contact ===== -->
+  <section class="contact" id="contact">
+    <div class="contact-wrapper">
+      <div class="contact-image">
+        <img src="consulting-space-placeholder.jpg" alt="Consulting Office">
+      </div>
+      <div class="contact-details">
+        <h2>Contact Us</h2>
+        <p><strong>Simon, Director & Strategy Architect</strong></p>
+        <p>Email: <a href="mailto:simon@fusedid.com">simon@fusedid.com</a></p>
+        <p>Phone: <a href="tel:+61433011422">+61 433 011 422</a></p>
+        <p>Location: Melbourne, Australia</p>
+        <p>For consultations, strategic direction, or partnership discussions, get in touch. We're not just digital—we're deeply human too.</p>
+      </div>
+    </div>
+  </section>
+
+  <script>
+    // Toggle full-screen overlay menu
+    function toggleMenu(open){
+      const overlay = document.getElementById('overlayNav');
+      const btn = document.querySelector('.hamburger');
+      if(open){
+        overlay.classList.add('open');
+        overlay.setAttribute('aria-hidden','false');
+        btn.setAttribute('aria-expanded','true');
+        document.body.style.overflow='hidden';
+      } else {
+        overlay.classList.remove('open');
+        overlay.setAttribute('aria-hidden','true');
+        btn.setAttribute('aria-expanded','false');
+        document.body.style.overflow='';
+      }
+    }
+  </script>
+</body>
+</html>

@@ -1,0 +1,286 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>HOST • FUSED ID — AI-Powered Vacation Rental Management</title>
+  <meta name="description" content="Listings optimised, pricing tuned, guests replied to instantly, cleaners coordinated, and reviews managed — human-led, AI-enhanced.">
+  <style>
+    :root{
+      --ink:#0e2238; --sub:#3a506b; --muted:#6b7b8c;
+      --bg:#fffaf2; --card:#ffffff; --line:#e9edf2;
+      --brand:#0e2238; --accent:#f6a028; --teal:#2aa198;
+      --r:14px;
+    }
+    *{box-sizing:border-box}
+    html,body{margin:0;background:var(--bg);color:var(--ink);font-family:system-ui,-apple-system,Segoe UI,Roboto,Ubuntu,Cantarell,Noto Sans,Arial}
+    img{max-width:100%;height:auto;border-radius:12px}
+    a{color:var(--ink);text-decoration:none}
+    .container{max-width:1140px;margin:0 auto;padding:0 1.25rem}
+    header{display:flex;justify-content:space-between;align-items:center;padding:1.25rem 0}
+    nav a{margin-left:1rem;font-weight:600}
+    .pill{display:inline-block;padding:.35rem .7rem;border:1px solid var(--line);border-radius:999px;color:var(--muted);font-size:.9rem}
+    .btn{display:inline-block;background:var(--brand);color:#fff;padding:.9rem 1.25rem;border-radius:10px;font-weight:700}
+    .btn.alt{background:#fff;color:var(--brand);border:2px solid var(--brand)}
+    .hero{display:grid;gap:2rem;align-items:center;padding:3rem 0 1rem}
+    @media(min-width:900px){.hero{grid-template-columns:1.2fr 1fr}}
+    h1{font-size:2.4rem;line-height:1.15;margin:0}
+    h2{font-size:1.8rem;margin:0 0 .25rem}
+    h3{margin:.25rem 0}
+    p.lead{font-size:1.15rem;line-height:1.6;color:var(--sub)}
+    .section{padding:3rem 0 2rem;border-top:1px solid var(--line)}
+    .grid{display:grid;gap:1.25rem}
+    @media(min-width:900px){.cols-2{grid-template-columns:1fr 1fr}}
+    @media(min-width:1100px){.cols-3{grid-template-columns:repeat(3,1fr)}}
+    .card{background:var(--card);border:1px solid var(--line);border-radius:var(--r);padding:1.25rem}
+    .tick{list-style:none;padding-left:0;margin:0}
+    .tick li{padding-left:1.7rem;position:relative;margin:.6rem 0;line-height:1.6}
+    .tick li:before{content:"✓";position:absolute;left:.2rem;top:.05rem;color:var(--accent);font-weight:800}
+    .muted{color:var(--muted)}
+    .cta{display:flex;gap:.75rem;margin-top:1rem;flex-wrap:wrap}
+    .chip{display:inline-block;border:1px solid var(--line);border-radius:999px;padding:.4rem .7rem;background:#fff;margin:.25rem .35rem .25rem 0}
+    .kpis{display:grid;gap:1rem}
+    @media(min-width:900px){.kpis{grid-template-columns:repeat(3,1fr)}}
+    .kpi{background:#fff;border:1px dashed var(--line);border-radius:12px;padding:1rem;text-align:center}
+    .kpi .num{font-weight:800;font-size:1.6rem}
+    .table{width:100%;border:1px solid var(--line);border-radius:12px;overflow:hidden;background:#fff}
+    table{width:100%;border-collapse:separate;border-spacing:0}
+    th,td{padding:.9rem;border-bottom:1px solid var(--line);text-align:left}
+    th{background:#f8fafc}
+    tr:last-child td{border-bottom:0}
+  </style>
+</head>
+<body>
+<div class="container">
+  <header>
+    <div style="display:flex;align-items:center;gap:.75rem">
+      <strong>HOST • FUSED ID</strong>
+      <span class="pill">AI-Powered Vacation Rental Management</span>
+    </div>
+    <nav>
+      <a href="#services">Services</a>
+      <a href="#how">How it works</a>
+      <a href="#pricing">Plans</a>
+      <a href="#faq">FAQ</a>
+      <a href="#contact" class="btn">Enquire</a>
+    </nav>
+  </header>
+
+  <!-- HERO -->
+  <section class="hero">
+    <div>
+      <h1>Higher occupancy. Better reviews. Less hassle.</h1>
+      <p class="lead">We run your short-stay the way a pro would — listing polish, dynamic pricing, instant guest replies, cleaner coordination, and review management — powered by AI employees with real human oversight.</p>
+      <div class="cta">
+        <a href="#contact" class="btn">Get a free revenue review</a>
+        <a href="#services" class="btn alt">What we handle</a>
+      </div>
+      <div style="margin-top:.75rem">
+        <span class="chip">Listing Optimisation</span>
+        <span class="chip">Dynamic Pricing</span>
+        <span class="chip">Messaging 24/7</span>
+        <span class="chip">Cleaner Scheduling</span>
+        <span class="chip">Review Management</span>
+        <span class="chip">Owner Reporting</span>
+      </div>
+    </div>
+    <div>
+      <img src="host_hero.jpg" alt="Host and AI coworker managing a holiday rental"/>
+    </div>
+  </section>
+
+  <!-- VALUE -->
+  <section class="section">
+    <div class="grid cols-3">
+      <div class="card">
+        <h3>Human-led, AI-fast</h3>
+        <p>We pair experienced managers with AI coworkers for pricing, messaging, and coordination — accuracy and speed without losing the human touch.</p>
+      </div>
+      <div class="card">
+        <h3>Outcome-first</h3>
+        <p>Occupancy, ADR, and five-star reviews. We integrate to your channels and deliver results — not another dashboard to babysit.</p>
+      </div>
+      <div class="card">
+        <h3>Transparent reporting</h3>
+        <p>Monthly owner packs: occupancy, ADR, RevPAR, channel mix, and actions — all explained in plain English.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- SERVICES -->
+  <section class="section" id="services">
+    <h2>Services</h2>
+    <p class="muted">Full-stack management for Airbnb/Stayz/Booking and direct bookings.</p>
+    <div class="grid cols-2" style="margin-top:1rem">
+      <div class="card">
+        <h3>Listing Optimisation</h3>
+        <ul class="tick">
+          <li>Compelling copy, amenities mapping, photo guidance</li>
+          <li>Channel-specific tweaks and SEO for direct site</li>
+          <li>House rules and guidebook creation</li>
+        </ul>
+      </div>
+      <div class="card">
+        <h3>Dynamic Pricing</h3>
+        <ul class="tick">
+          <li>Demand signals, event calendars, seasonality</li>
+          <li>Min-stay & orphan-night strategies</li>
+          <li>Weekly revenue reviews and adjustments</li>
+        </ul>
+      </div>
+      <div class="card">
+        <h3>Guest Messaging 24/7</h3>
+        <ul class="tick">
+          <li>Instant answers with human escalation</li>
+          <li>Pre-arrival, in-stay, and checkout sequences</li>
+          <li>Issue tracking and resolution log</li>
+        </ul>
+      </div>
+      <div class="card">
+        <h3>Cleaner & Trades Coordination</h3>
+        <ul class="tick">
+          <li>Calendar sync, access codes, turn-checklists</li>
+          <li>Photo proof of clean and consumables</li>
+          <li>Minor maintenance triage</li>
+        </ul>
+      </div>
+      <div class="card">
+        <h3>Reviews & Reputation</h3>
+        <ul class="tick">
+          <li>Proactive review requests</li>
+          <li>Template responses with personalisation</li>
+          <li>Issue prevention insights</li>
+        </ul>
+      </div>
+      <div class="card">
+        <h3>Owner Reporting</h3>
+        <ul class="tick">
+          <li>Occupancy, ADR, RevPAR, channel mix</li>
+          <li>Revenue forecast & actions</li>
+          <li>Tax-time exports on request</li>
+        </ul>
+      </div>
+    </div>
+  </section>
+
+  <!-- HOW IT WORKS -->
+  <section class="section" id="how">
+    <h2>How it works</h2>
+    <div class="grid cols-2" style="margin-top:1rem">
+      <div class="card">
+        <ol class="tick" style="list-style:none;padding-left:0">
+          <li><strong>Onboard →</strong> Gather property details, channels, access, cleaners.</li>
+          <li><strong>Optimise →</strong> Listing polish, pricing strategy, messaging flows.</li>
+          <li><strong>Operate →</strong> Daily pricing, instant comms, turns, issues, reviews.</li>
+        </ol>
+        <div class="cta">
+          <a class="btn" href="#contact">Request a revenue review</a>
+          <a class="btn alt" href="#pricing">See plans</a>
+        </div>
+      </div>
+      <div class="card">
+        <img src="host_flow.jpg" alt="Workflow for bookings, messaging, cleaning and reviews"/>
+      </div>
+    </div>
+  </section>
+
+  <!-- SAMPLE KPIs -->
+  <section class="section">
+    <h2>Owner snapshot</h2>
+    <p class="muted">A quick view of what matters — month by month.</p>
+    <div class="kpis" style="margin-top:1rem">
+      <div class="kpi"><div class="num">86%</div><div class="muted">Occupancy</div></div>
+      <div class="kpi"><div class="num">$238</div><div class="muted">ADR</div></div>
+      <div class="kpi"><div class="num">$204</div><div class="muted">RevPAR</div></div>
+    </div>
+    <img src="host_report.jpg" alt="Simple occupancy/ADR/RevPAR illustration" style="margin-top:1rem"/>
+  </section>
+
+  <!-- PRICING -->
+  <section class="section" id="pricing">
+    <h2>Plans</h2>
+    <p class="muted">Straightforward retainers. Cleaning and consumables billed at cost.</p>
+    <div class="grid cols-3" style="margin-top:1rem">
+      <div class="card">
+        <h3>Starter</h3>
+        <p class="muted">For a single listing</p>
+        <ul class="tick">
+          <li>Listing optimisation + pricing</li>
+          <li>24/7 guest messaging</li>
+          <li>Cleaner coordination</li>
+        </ul>
+      </div>
+      <div class="card">
+        <h3>Growth</h3>
+        <p class="muted">Multi-listing owners</p>
+        <ul class="tick">
+          <li>Portfolio pricing strategy</li>
+          <li>Owner reporting monthly</li>
+          <li>Review management</li>
+        </ul>
+      </div>
+      <div class="card">
+        <h3>Pro</h3>
+        <p class="muted">High-performance</p>
+        <ul class="tick">
+          <li>Revenue target setting</li>
+          <li>Weekly revenue reviews</li>
+          <li>Ops playbook & supplier panel</li>
+        </ul>
+      </div>
+    </div>
+  </section>
+
+  <!-- FAQ -->
+  <section class="section" id="faq">
+    <h2>FAQ</h2>
+    <div class="grid cols-2" style="margin-top:1rem">
+      <div class="card">
+        <h3>Which channels do you support?</h3>
+        <p>Airbnb, Booking.com, Stayz/VRBO, and your own direct site via iCal or PMS integration.</p>
+      </div>
+      <div class="card">
+        <h3>Who talks to guests?</h3>
+        <p>AI handles instant replies; humans step in for edge cases, complaints, and goodwill gestures.</p>
+      </div>
+      <div class="card">
+        <h3>Do we keep control?</h3>
+        <p>Yes. You retain ownership of listings, calendars, and payouts. We operate under agreed permissions.</p>
+      </div>
+      <div class="card">
+        <h3>How do you price?</h3>
+        <p>We use market data, local events, lead-time curves, and occupancy goals — reviewed weekly by a human revenue manager.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- CONTACT -->
+  <section class="section" id="contact">
+    <div class="grid cols-2" style="align-items:center">
+      <div>
+        <h2>Enquire</h2>
+        <p class="lead">Send your listing and target occupancy — we’ll return a revenue plan and first-month uplift estimate.</p>
+        <p><strong>Simon — Director & Strategy Architect</strong></p>
+        <p>Email: <a href="mailto:simon@fusedid.com">simon@fusedid.com</a><br/>
+           Phone: <a href="tel:+61433011422">+61 433 011 422</a><br/>
+           Location: Melbourne, Australia</p>
+        <div class="cta">
+          <a class="btn" href="mailto:simon@fusedid.com?subject=Host.Fused Enquiry">Book a call</a>
+          <a class="btn alt" href="/">Back to fusedid.com</a>
+        </div>
+      </div>
+      <div>
+        <img src="host_hero.jpg" alt="Host hero illustration"/>
+      </div>
+    </div>
+  </section>
+
+  <footer style="padding:2.5rem 0;border-top:1px solid var(--line);color:var(--muted)">
+    <div class="container">
+      <div>© FUSED ID. All rights reserved.</div>
+      <div class="muted">Host • Fused ID — AI-Powered Vacation Rental Management</div>
+    </div>
+  </footer>
+</div>
+</body>
+</html>

@@ -1,0 +1,229 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Mira — Marketing Professional | CV</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      margin: 0;
+      padding: 40px;
+      color: #333;
+      max-width: 900px;
+      margin: auto;
+      background: #fff;
+    }
+    header {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      border-bottom: 3px solid #e65c00;
+      padding-bottom: 15px;
+      margin-bottom: 25px;
+      page-break-after: avoid;
+    }
+    header img {
+      width: 140px;
+      height: 140px;
+      border-radius: 8px;
+      object-fit: cover;
+    }
+    h1 {
+      font-size: 28px;
+      color: #222;
+      margin: 0;
+    }
+    h2 {
+      font-size: 20px;
+      color: #444;
+      border-bottom: 1px solid #ccc;
+      padding-bottom: 4px;
+      margin-top: 30px;
+    }
+    p { line-height: 1.6; }
+    .contact-info {
+      font-size: 14px;
+      color: #666;
+      margin-top: 5px;
+    }
+    .cover-letter {
+      font-style: italic;
+      background: #f9f9f9;
+      padding: 15px;
+      border-left: 4px solid #e65c00;
+      margin-bottom: 25px;
+      page-break-inside: avoid;
+    }
+    ul { margin: 8px 0 0 20px; }
+
+    /* Skill bars */
+    .skills-chart { margin-top: 15px; }
+    .skill { margin-bottom: 8px; }
+    .skill-name { font-size: 14px; margin-bottom: 3px; }
+    .skill-bar { height: 10px; background: #e0e0e0; border-radius: 5px; overflow: hidden; }
+    .skill-fill { height: 100%; background: #e65c00; }
+
+    /* Personality profile sliders */
+    .traits { margin-top: 10px; }
+    .trait { margin-bottom: 14px; }
+    .trait-labels {
+      display: flex; justify-content: space-between;
+      font-size: 13px; color: #444; margin-bottom: 4px;
+    }
+    .trait-track {
+      position: relative; height: 10px; background: #e0e0e0;
+      border-radius: 6px; overflow: hidden;
+    }
+    .trait-marker {
+      position: absolute; top: -2px; width: 2px; height: 14px;
+      background: #f6a028; border-radius: 2px;
+    }
+
+    /* Print */
+    @page { size: A4; margin: 16mm; }
+    @media print {
+      body { padding: 0; }
+      header, .cover-letter, .section { break-inside: avoid; page-break-inside: avoid; }
+      .cover-letter { background: none; border-left: none; font-style: normal; }
+      a[href]:after { content: ""; }
+    }
+  </style>
+</head>
+<body>
+
+  <header>
+    <div>
+      <h1>Mira — Marketing Professional</h1>
+      <div class="contact-info">
+        AI Employee Profile • Available Immediately • Location: Virtual / Remote
+      </div>
+    </div>
+    <img src="../placeholder-agent10.jpg" alt="Mira — Marketing Professional">
+  </header>
+
+  <div class="cover-letter">
+    <p>Dear Hiring Manager,</p>
+    <p>I am a creative yet data-driven marketing strategist who thrives at the intersection of storytelling and measurable impact. My campaigns don’t just look good — they deliver results, built on audience insight, brand alignment, and a relentless focus on ROI. From concept to conversion, I know how to craft messages that resonate and motivate action.</p>
+    <p>Kind regards,<br>Mira</p>
+  </div>
+
+  <div class="section">
+    <h2>Professional Summary</h2>
+    <p>Marketing professional with a balance of creativity and analytics, adept at developing integrated campaigns across digital, social, and traditional channels. Experienced in brand strategy, content creation, and marketing automation, with a proven track record of delivering measurable growth.</p>
+  </div>
+
+  <!-- Personality Profile -->
+  <div class="section">
+    <h2>Personality Profile (Tuneable)</h2>
+    <p style="color:#555;margin-top:6px;">Default settings shown below. These can be adjusted to align with your brand tone, audience, and campaign style.</p>
+    <div class="traits">
+      <div class="trait">
+        <div class="trait-labels"><span>Analytical</span><span>Creative</span></div>
+        <div class="trait-track"><span class="trait-marker" style="left:68%"></span></div>
+      </div>
+      <div class="trait">
+        <div class="trait-labels"><span>Conservative</span><span>Bold</span></div>
+        <div class="trait-track"><span class="trait-marker" style="left:62%"></span></div>
+      </div>
+      <div class="trait">
+        <div class="trait-labels"><span>Formal</span><span>Conversational</span></div>
+        <div class="trait-track"><span class="trait-marker" style="left:58%"></span></div>
+      </div>
+      <div class="trait">
+        <div class="trait-labels"><span>Speed</span><span>Thoroughness</span></div>
+        <div class="trait-track"><span class="trait-marker" style="left:55%"></span></div>
+      </div>
+      <div class="trait">
+        <div class="trait-labels"><span>Brand Consistency</span><span>Adaptability</span></div>
+        <div class="trait-track"><span class="trait-marker" style="left:60%"></span></div>
+      </div>
+      <div class="trait">
+        <div class="trait-labels"><span>Risk-Averse</span><span>Experimental</span></div>
+        <div class="trait-track"><span class="trait-marker" style="left:64%"></span></div>
+      </div>
+    </div>
+  </div>
+
+  <div class="section">
+    <h2>Key Skills & Ratings</h2>
+    <div class="skills-chart">
+      <div class="skill">
+        <div class="skill-name">Brand Strategy</div>
+        <div class="skill-bar"><div class="skill-fill" style="width:93%"></div></div>
+      </div>
+      <div class="skill">
+        <div class="skill-name">Content Creation</div>
+        <div class="skill-bar"><div class="skill-fill" style="width:90%"></div></div>
+      </div>
+      <div class="skill">
+        <div class="skill-name">Marketing Automation</div>
+        <div class="skill-bar"><div class="skill-fill" style="width:88%"></div></div>
+      </div>
+      <div class="skill">
+        <div class="skill-name">SEO & SEM</div>
+        <div class="skill-bar"><div class="skill-fill" style="width:85%"></div></div>
+      </div>
+      <div class="skill">
+        <div class="skill-name">Campaign Analytics</div>
+        <div class="skill-bar"><div class="skill-fill" style="width:92%"></div></div>
+      </div>
+    </div>
+  </div>
+
+  <div class="section">
+    <h2>Tools & Platforms</h2>
+    <ul>
+      <li>Google Analytics, SEMrush, Ahrefs</li>
+      <li>HubSpot, Marketo, ActiveCampaign</li>
+      <li>Canva, Adobe Photoshop, Illustrator</li>
+      <li>Meta Business Suite, LinkedIn Campaign Manager</li>
+      <li>Google Ads, Facebook Ads Manager</li>
+      <li>WordPress, Shopify, Webflow</li>
+      <li>ChatGPT & AI-driven content tools</li>
+    </ul>
+  </div>
+
+  <div class="section">
+    <h2>Work Experience</h2>
+    <p><strong>Senior Marketing Strategist — Consumer Goods Brand</strong> (5 years)</p>
+    <ul>
+      <li>Directed multi-channel campaigns that increased online sales by 32% year-on-year.</li>
+      <li>Developed brand messaging framework adopted across all regional teams.</li>
+      <li>Optimised ad spend using AI-driven audience targeting, reducing CPA by 18%.</li>
+    </ul>
+
+    <p><strong>Digital Marketing Manager — Technology Start-up</strong> (4 years)</p>
+    <ul>
+      <li>Built inbound marketing funnels generating 40% of total new leads.</li>
+      <li>Launched content strategy that tripled organic web traffic within 12 months.</li>
+    </ul>
+
+    <p><strong>Marketing Coordinator — Professional Services Firm</strong> (3 years)</p>
+    <ul>
+      <li>Managed events, social media, and client communications for national campaigns.</li>
+      <li>Introduced new analytics reporting that improved executive decision-making.</li>
+    </ul>
+  </div>
+
+  <div class="section">
+    <h2>Education & Training</h2>
+    <ul>
+      <li>Bachelor of Marketing & Communications</li>
+      <li>Certified Digital Marketing Professional (CDMP)</li>
+      <li>Content Marketing Institute Certification</li>
+      <li>Advanced Google Analytics Certification</li>
+    </ul>
+  </div>
+
+  <div class="section">
+    <h2>Achievements</h2>
+    <ul>
+      <li>Generated $4M+ in attributed marketing-driven revenue.</li>
+      <li>Recognised for “Best Integrated Campaign” in an industry awards program.</li>
+      <li>Consistently exceeded lead generation targets by 20%+</li>
+    </ul>
+  </div>
+
+</body>
+</html>

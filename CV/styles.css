@@ -1,0 +1,60 @@
+:root{
+  --ink:#0e2238; --sub:#3a506b; --muted:#6b7b8c;
+  --line:#e9edf2; --accent:#f6a028;
+  --bg:#fff; --card:#ffffff; --r:14px;
+  --max:860px;
+}
+*{box-sizing:border-box}
+html,body{margin:0;padding:0;color:var(--ink);background:var(--bg);
+  font-family:system-ui,-apple-system,Segoe UI,Roboto,Ubuntu,Cantarell,Noto Sans,Arial}
+a{color:var(--ink);text-decoration:none;border-bottom:1px dashed var(--line)}
+a:hover{border-bottom-color:var(--accent)}
+.container{max-width:var(--max);margin:0 auto;padding:24px}
+.header{display:flex;gap:20px;align-items:center;margin-bottom:18px}
+.portrait{width:120px;height:120px;border-radius:12px;background-size:cover;background-position:center;flex:0 0 120px;border:1px solid var(--line)}
+.title h1{margin:0;font-size:1.8rem;line-height:1.2}
+.title h2{margin:.25rem 0 0;color:var(--sub);font-weight:600;font-size:1.05rem}
+.meta{color:var(--muted);font-size:.95rem;margin-top:.35rem}
+.bar{height:1px;background:var(--line);margin:16px 0}
+.section{margin:16px 0 10px}
+.section h3{margin:0 0 8px;font-size:1.05rem}
+.kv{display:grid;grid-template-columns:1fr 1fr;gap:16px}
+@media(max-width:720px){.kv{grid-template-columns:1fr}}
+.card{border:1px solid var(--line);border-radius:var(--r);padding:14px;background:#fff}
+.list{margin:0;padding-left:18px}
+.list li{margin:.35rem 0}
+.badges{display:flex;flex-wrap:wrap;gap:6px;margin-top:6px}
+.badge{border:1px solid var(--line);border-radius:999px;padding:.25rem .55rem;font-size:.85rem;background:#fff}
+.footer{display:flex;justify-content:space-between;align-items:center;margin-top:14px;color:var(--muted);font-size:.9rem}
+.print-btn{display:inline-block;background:var(--ink);color:#fff;padding:.55rem .9rem;border-radius:8px;font-weight:700;border:none;cursor:pointer}
+.print-btn:hover{opacity:.9}
+
+/* PRINT */
+@page{size:A4;margin:16mm}
+@media print {
+  /* General tidy-up for printing */
+  body { 
+    padding: 0;
+    background: #fff;
+  }
+
+  /* Avoid page breaks inside these blocks */
+  header, 
+  .cover-letter, 
+  .section {
+    page-break-inside: avoid;
+    break-inside: avoid;
+  }
+
+  /* Keep name + image together */
+  header {
+    page-break-after: avoid;
+  }
+
+  /* Remove coloured backgrounds and borders for clean print */
+  .cover-letter {
+    background: none;
+    border-left: none;
+    font-style: normal;
+  }
+}

@@ -1,0 +1,287 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>TALENT • FUSED ID — AI‑Led Recruitment Sourcing (Flat Fee)</title>
+  <meta name="description" content="Flat-fee recruitment sourcing. We craft your advert, place it, screen with AI + humans, interview (optional), and deliver a refined shortlist. Hire one, many, or none—for the same price."/>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <style>
+    :root{
+      /* Talent.ID palette — trust-forward blues & teals */
+      --ink:#0f1e2b;        /* deep navy text */
+      --sub:#334a62;        /* mid navy for leads */
+      --muted:#6c7a86;      /* slate */
+      --bg:#f7fbff;         /* very light blue/white */
+      --card:#ffffff;
+      --line:#e5edf5;
+      --brand:#0f1e2b;      /* buttons/links */
+      --accent:#2ba6a4;     /* teal accent (talent theme) */
+      --accent-2:#6cc1be;   /* soft teal secondary */
+      --radius:14px;
+    }
+
+    *{box-sizing:border-box}
+    html,body{margin:0;padding:0;background:var(--bg);color:var(--ink);
+      font-family:system-ui,-apple-system,Segoe UI,Roboto,Ubuntu,Cantarell,Noto Sans,"Helvetica Neue",Arial,"Apple Color Emoji","Segoe UI Emoji","Segoe UI Symbol";}
+    a{color:var(--ink);text-decoration:none}
+    img{max-width:100%;height:auto;border-radius:12px}
+    .container{max-width:1140px;margin:0 auto;padding:0 1.25rem}
+
+    header{display:flex;justify-content:space-between;align-items:center;padding:1.25rem 0}
+    nav a{margin-left:1rem;font-weight:600}
+    .btn{display:inline-block;background:var(--brand);color:#fff;padding:0.9rem 1.25rem;border-radius:10px;font-weight:800}
+    .btn-alt{background:#fff;color:var(--brand);border:2px solid var(--brand)}
+    .btn-ghost{background:#fff;color:var(--accent);border:2px solid var(--accent)}
+    .pill{display:inline-block;padding:.35rem .7rem;border:1px solid var(--line);
+          border-radius:999px;font-size:.9rem;color:var(--muted);background:#fff}
+
+    .hero{display:grid;gap:2rem;align-items:center;padding:3rem 0 1rem}
+    @media(min-width:900px){.hero{grid-template-columns:1.2fr 1fr}}
+    h1{font-size:2.4rem;line-height:1.15;margin:0}
+    h2{font-size:1.8rem;margin:0 0 .25rem}
+    h3{margin:.25rem 0}
+    p.lead{font-size:1.15rem;line-height:1.6;color:var(--sub)}
+    .section{padding:3rem 0 2rem;border-top:1px solid var(--line)}
+
+    .grid{display:grid;gap:1.25rem}
+    @media(min-width:900px){.grid.cols-2{grid-template-columns:1fr 1fr}}
+    @media(min-width:1100px){.grid.cols-3{grid-template-columns:repeat(3,1fr)}}
+
+    .card{background:var(--card);border:1px solid var(--line);border-radius:var(--radius);padding:1.25rem}
+    .tick{list-style:none;padding-left:0;margin:0}
+    .tick li{padding-left:1.7rem;position:relative;margin:.6rem 0;line-height:1.6}
+    .tick li:before{content:"✓";position:absolute;left:.2rem;top:.05rem;color:var(--accent);font-weight:800}
+
+    /* KPI-style chips used as role specialisms */
+    .strip{display:flex;flex-wrap:wrap;gap:.6rem;margin-top:1rem}
+    .strip .chip{border:1px solid var(--line);border-radius:999px;padding:.4rem .7rem;background:#fff}
+
+    /* Simple table */
+    table{width:100%;border-collapse:separate;border-spacing:0;border:1px solid var(--line);
+          border-radius:12px;overflow:hidden;background:#fff}
+    th,td{padding:.9rem;border-bottom:1px solid var(--line);text-align:left}
+    th{background:#f4f9fb}
+    tr:last-child td{border-bottom:0}
+
+    footer{padding:2.5rem 0;color:var(--muted);font-size:.95rem;border-top:1px solid var(--line)}
+  </style>
+</head>
+<body>
+  <div class="container">
+    <header>
+      <div style="display:flex;align-items:center;gap:.75rem">
+        <strong>TALENT • FUSED ID</strong>
+        <span class="pill">AI‑Led Recruitment Sourcing</span>
+      </div>
+      <nav>
+        <a href="#services">Services</a>
+        <a href="#how">How it works</a>
+        <a href="#pricing">Plans</a>
+        <a href="#faq">FAQ</a>
+        <a href="#contact" class="btn">Start a search</a>
+      </nav>
+    </header>
+
+    <!-- HERO -->
+    <section class="hero">
+      <div>
+        <h1>Find the right talent — faster, smarter, and at a flat fee.</h1>
+        <p class="lead">
+          We design and place your advert, screen every application with AI + human review, run interviews where needed, and deliver a refined shortlist.
+          You hire one, many, or none — the price doesn’t change.
+        </p>
+        <div class="strip">
+          <span class="chip">Role Profiling</span>
+          <span class="chip">Advert Creation & Placement</span>
+          <span class="chip">AI + Human Screening</span>
+          <span class="chip">Interviews (Optional)</span>
+          <span class="chip">Shortlist & Scores</span>
+        </div>
+        <div style="display:flex;gap:.75rem;margin-top:1rem;flex-wrap:wrap">
+          <a href="#contact" class="btn">Start your talent search</a>
+          <a href="#pricing" class="btn-ghost">See flat‑fee plans</a>
+        </div>
+      </div>
+      <div>
+        <!-- Replace with your new photo-real Talent image -->
+        <img src="talent_hero.jpg" alt="Recruiter reviewing a shortlist with AI-enhanced dashboard"/>
+      </div>
+    </section>
+
+    <!-- VALUE / DIFFERENTIATORS -->
+    <section class="section">
+      <div class="grid cols-3">
+        <div class="card">
+          <h3>Flat-fee, not percentage.</h3>
+          <p>Traditional agencies charge a slice of salary. We don’t. Your shortlist costs the same whether you hire one, three, or none.</p>
+        </div>
+        <div class="card">
+          <h3>AI speed, human judgement.</h3>
+          <p>AI ranks and filters applications; experienced recruiters review edge cases, notes, and cultural fit before candidates reach you.</p>
+        </div>
+        <div class="card">
+          <h3>Outcome-first process.</h3>
+          <p>No new tools to learn. We handle ad placement, screening, comms, and scheduling—then deliver candidates ready to interview.</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- SERVICES -->
+    <section class="section" id="services">
+      <h2>Services</h2>
+      <p class="muted">Pick the full funnel or start at the stage that hurts most.</p>
+      <div class="grid cols-2" style="margin-top:1rem">
+        <div class="card">
+          <h3>Role Profiling & Advert</h3>
+          <ul class="tick">
+            <li>Role requirements, must‑haves, and success profile</li>
+            <li>Compelling advert written to attract the right people</li>
+            <li>Channel plan that fits your budget and niche</li>
+          </ul>
+        </div>
+        <div class="card">
+          <h3>Placement & Sourcing</h3>
+          <ul class="tick">
+            <li>Targeted job boards + social sourcing</li>
+            <li>Active outreach to relevant talent pools</li>
+            <li>Weekly progress notes & response rates</li>
+          </ul>
+        </div>
+        <div class="card">
+          <h3>AI + Human Screening</h3>
+          <ul class="tick">
+            <li>CV parsing, skills matching, and red‑flag checks</li>
+            <li>Human review for context, potential, and anomalies</li>
+            <li>Bias‑aware scoring model with consistent criteria</li>
+          </ul>
+        </div>
+        <div class="card">
+          <h3>Interviews & Shortlist</h3>
+          <ul class="tick">
+            <li>AI first‑pass Q&A for consistency (optional)</li>
+            <li>Human interviews in the Premium plan</li>
+            <li>Shortlist with scores, notes, and recommended next steps</li>
+          </ul>
+        </div>
+      </div>
+    </section>
+
+    <!-- HOW IT WORKS -->
+    <section class="section" id="how">
+      <h2>How it works</h2>
+      <div class="grid cols-2" style="margin-top:1rem">
+        <div class="card">
+          <ol class="tick" style="list-style:none;padding-left:0">
+            <li><strong>Profile →</strong> Define the role, criteria, and budget (including ad spend).</li>
+            <li><strong>Attract →</strong> We craft the advert and place it on the right channels.</li>
+            <li><strong>Screen →</strong> AI ranking plus human review narrows the field.</li>
+            <li><strong>Interview →</strong> AI first‑pass or human interviews (Premium).</li>
+            <li><strong>Shortlist →</strong> Receive shortlist with summaries, scoring, and scheduling support.</li>
+          </ol>
+          <div style="display:flex;gap:.75rem;margin-top:1rem;flex-wrap:wrap">
+            <a class="btn" href="#contact">Start with a 20‑min brief</a>
+            <a class="btn-alt" href="#pricing">Compare plans</a>
+          </div>
+        </div>
+        <div class="card">
+          <img src="talent_process.jpg" alt="Process overview: advert → screening → interviews → shortlist"/>
+        </div>
+      </div>
+    </section>
+
+    <!-- PRICING (Flat fee) -->
+    <section class="section" id="pricing">
+      <h2>Plans</h2>
+      <p class="muted">Flat-fee pricing. Hire one, many, or none — your fee is the same. Advertising allocation and screening depth vary by plan.</p>
+      <div class="grid cols-3" style="margin-top:1rem">
+        <div class="card">
+          <h3>Core</h3>
+          <p class="muted">Best for straightforward roles</p>
+          <ul class="tick">
+            <li>Role profiling & advert creation</li>
+            <li>Placement on targeted boards (set ad budget)</li>
+            <li>AI screening + shortlist (top 5–8)</li>
+            <li>Email templates for your interviews</li>
+          </ul>
+        </div>
+        <div class="card">
+          <h3>Enhanced</h3>
+          <p class="muted">Deeper human review</p>
+          <ul class="tick">
+            <li>Everything in Core</li>
+            <li>Human CV review & candidate notes</li>
+            <li>Expanded sourcing + light outreach</li>
+            <li>Shortlist (top 6–10) with structured scorecards</li>
+          </ul>
+        </div>
+        <div class="card">
+          <h3>Premium</h3>
+          <p class="muted">Interview-ready shortlists</p>
+          <ul class="tick">
+            <li>Everything in Enhanced</li>
+            <li>Human, face‑to‑face (or live video) interviews</li>
+            <li>Detailed written assessments & references (on request)</li>
+            <li>Scheduling support for your final interviews</li>
+          </ul>
+        </div>
+      </div>
+      <p style="margin-top:1rem" class="muted">
+        <em>Note:</em> While we don’t guarantee a hire, you receive a full shortlist you can hire from now or later—at no additional fee.
+      </p>
+    </section>
+
+    <!-- FAQ -->
+    <section class="section" id="faq">
+      <h2>FAQ</h2>
+      <div class="grid cols-2" style="margin-top:1rem">
+        <div class="card">
+          <h3>Do you charge a percentage of salary?</h3>
+          <p>No. Our model is a flat fee per search. The cost is the same whether you hire none or several candidates from the shortlist.</p>
+        </div>
+        <div class="card">
+          <h3>Do you guarantee a hire?</h3>
+          <p>We don’t guarantee a hire. We guarantee a refined shortlist with transparent scoring and notes so you can choose with confidence.</p>
+        </div>
+        <div class="card">
+          <h3>What’s included in the advert “pack”?</h3>
+          <p>Advert creation plus an allocation of ad spend across selected channels. Higher tiers include broader reach and targeted outreach.</p>
+        </div>
+        <div class="card">
+          <h3>Can you handle interviews?</h3>
+          <p>Yes. The Premium plan includes human interviews and detailed assessments. We can also schedule interviews with your team.</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- CONTACT -->
+    <section class="section" id="contact">
+      <div class="grid cols-2" style="align-items:center">
+        <div>
+          <h2>Start a search</h2>
+          <p class="lead">Tell us about the role, budget, and timeline. We’ll craft the advert and begin sourcing within days.</p>
+          <p><strong>Talent.ID — Recruitment Team</strong></p>
+          <p>Email: <a href="mailto:simon@fusedid.com?subject=Talent.ID%20Search">simon@fusedid.com</a><br/>
+             Phone: <a href="tel:+61433011422">+61 433 011 422</a><br/>
+             Location: Melbourne, Australia</p>
+          <div style="display:flex;gap:.75rem;flex-wrap:wrap;margin-top:.5rem">
+            <a class="btn" href="mailto:simon@fusedid.com?subject=Talent.ID%20Search">Kick off my search</a>
+            <a class="btn-alt" href="/">Back to fusedid.com</a>
+          </div>
+        </div>
+        <div>
+          <img src="talent_shortlist.jpg" alt="Shortlist pack example: candidate summaries and scoring"/>
+        </div>
+      </div>
+    </section>
+
+    <footer>
+      <div class="container">
+        <div>© FUSED ID. All rights reserved.</div>
+        <div class="muted">Talent • Fused ID — AI‑Led Recruitment Sourcing</div>
+      </div>
+    </footer>
+  </div>
+</body>
+</html>

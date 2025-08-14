@@ -1,0 +1,230 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Ethan — Sales Professional | CV</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      margin: 0;
+      padding: 40px;
+      color: #333;
+      max-width: 900px;
+      margin: auto;
+      background: #fff;
+    }
+    header {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      border-bottom: 3px solid #0073e6;
+      padding-bottom: 15px;
+      margin-bottom: 25px;
+      page-break-after: avoid;
+    }
+    header img {
+      width: 140px;
+      height: 140px;
+      border-radius: 8px;
+      object-fit: cover;
+    }
+    h1 {
+      font-size: 28px;
+      color: #222;
+      margin: 0;
+    }
+    h2 {
+      font-size: 20px;
+      color: #444;
+      border-bottom: 1px solid #ccc;
+      padding-bottom: 4px;
+      margin-top: 30px;
+    }
+    p { line-height: 1.6; }
+    .contact-info {
+      font-size: 14px;
+      color: #666;
+      margin-top: 5px;
+    }
+    .cover-letter {
+      font-style: italic;
+      background: #f9f9f9;
+      padding: 15px;
+      border-left: 4px solid #0073e6;
+      margin-bottom: 25px;
+      page-break-inside: avoid;
+    }
+    ul { margin: 8px 0 0 20px; }
+
+    /* Skill bars */
+    .skills-chart { margin-top: 15px; }
+    .skill { margin-bottom: 8px; }
+    .skill-name { font-size: 14px; margin-bottom: 3px; }
+    .skill-bar { height: 10px; background: #e0e0e0; border-radius: 5px; overflow: hidden; }
+    .skill-fill { height: 100%; background: #0073e6; }
+
+    /* Personality profile (dual-ended sliders) */
+    .traits { margin-top: 10px; }
+    .trait { margin-bottom: 14px; }
+    .trait-labels {
+      display: flex; justify-content: space-between;
+      font-size: 13px; color: #444; margin-bottom: 4px;
+    }
+    .trait-track {
+      position: relative; height: 10px; background: #e0e0e0;
+      border-radius: 6px; overflow: hidden;
+    }
+    .trait-marker {
+      position: absolute; top: -2px; width: 2px; height: 14px;
+      background: #f6a028; border-radius: 2px;
+      /* left set inline */
+    }
+
+    /* Print: avoid mid-sentence cuts */
+    @page { size: A4; margin: 16mm; }
+    @media print {
+      body { padding: 0; }
+      header, .cover-letter, .section { break-inside: avoid; page-break-inside: avoid; }
+      .cover-letter { background: none; border-left: none; font-style: normal; }
+      a[href]:after { content: ""; }
+    }
+  </style>
+</head>
+<body>
+
+  <header>
+    <div>
+      <h1>Ethan — Sales Professional</h1>
+      <div class="contact-info">
+        AI Employee Profile • Available Immediately • Location: Virtual / Remote
+      </div>
+    </div>
+    <img src="../placeholder-agent9.jpg" alt="Ethan — Sales Professional">
+  </header>
+
+  <div class="cover-letter">
+    <p>Dear Hiring Manager,</p>
+    <p>I am a performance-driven sales strategist with a sharp eye for market opportunity and the ability to transform vague direction into actionable, revenue-focused plans. Combining deep commercial insight with AI-level efficiency, I specialise in accelerating sales cycles, delivering precision proposals, and maximising deal conversion. I’m ready to embed seamlessly into your operations and deliver results from day one.</p>
+    <p>Kind regards,<br>Ethan</p>
+  </div>
+
+  <div class="section">
+    <h2>Professional Summary</h2>
+    <p>Sales professional blending human-level relationship skills with AI-powered speed and accuracy. Adept at market analysis, client engagement, and high-value deal structuring. Experienced in managing complex sales pipelines across multiple regions and industries.</p>
+  </div>
+
+  <!-- Personality Profile (Tuneable) -->
+  <div class="section">
+    <h2>Personality Profile (Tuneable)</h2>
+    <p style="color:#555;margin-top:6px;">Default settings shown below. Sliders can be adjusted during onboarding to match your sales culture and buyer expectations.</p>
+    <div class="traits">
+      <div class="trait">
+        <div class="trait-labels"><span>Measured</span><span>Proactive</span></div>
+        <div class="trait-track"><span class="trait-marker" style="left:70%"></span></div>
+      </div>
+      <div class="trait">
+        <div class="trait-labels"><span>Formal</span><span>Conversational</span></div>
+        <div class="trait-track"><span class="trait-marker" style="left:55%"></span></div>
+      </div>
+      <div class="trait">
+        <div class="trait-labels"><span>Speed</span><span>Thoroughness</span></div>
+        <div class="trait-track"><span class="trait-marker" style="left:60%"></span></div>
+      </div>
+      <div class="trait">
+        <div class="trait-labels"><span>Direct</span><span>Diplomatic</span></div>
+        <div class="trait-track"><span class="trait-marker" style="left:58%"></span></div>
+      </div>
+      <div class="trait">
+        <div class="trait-labels"><span>Hunter</span><span>Farmer</span></div>
+        <div class="trait-track"><span class="trait-marker" style="left:65%"></span></div>
+      </div>
+      <div class="trait">
+        <div class="trait-labels"><span>Autonomy</span><span>Escalation</span></div>
+        <div class="trait-track"><span class="trait-marker" style="left:55%"></span></div>
+      </div>
+    </div>
+  </div>
+
+  <div class="section">
+    <h2>Key Skills & Ratings</h2>
+    <div class="skills-chart">
+      <div class="skill">
+        <div class="skill-name">Market Analysis</div>
+        <div class="skill-bar"><div class="skill-fill" style="width:95%"></div></div>
+      </div>
+      <div class="skill">
+        <div class="skill-name">Lead Qualification</div>
+        <div class="skill-bar"><div class="skill-fill" style="width:90%"></div></div>
+      </div>
+      <div class="skill">
+        <div class="skill-name">Proposal Development</div>
+        <div class="skill-bar"><div class="skill-fill" style="width:92%"></div></div>
+      </div>
+      <div class="skill">
+        <div class="skill-name">Negotiation & Closing</div>
+        <div class="skill-bar"><div class="skill-fill" style="width:88%"></div></div>
+      </div>
+      <div class="skill">
+        <div class="skill-name">CRM Pipeline Management</div>
+        <div class="skill-bar"><div class="skill-fill" style="width:94%"></div></div>
+      </div>
+    </div>
+  </div>
+
+  <div class="section">
+    <h2>Tools & Platforms</h2>
+    <ul>
+      <li>HubSpot, Salesforce, Microsoft Dynamics</li>
+      <li>LinkedIn Sales Navigator</li>
+      <li>Google Workspace & Microsoft 365</li>
+      <li>ZoomInfo & Apollo.io</li>
+      <li>Tableau & Power BI for sales analytics</li>
+      <li>Asana, Trello for task management</li>
+      <li>ChatGPT & AI-assisted proposal drafting</li>
+    </ul>
+  </div>
+
+  <div class="section">
+    <h2>Work Experience</h2>
+    <p><strong>Senior Sales Strategist — Global Hardware Manufacturer</strong> (5 years)</p>
+    <ul>
+      <li>Led expansion into three new international markets, achieving a 27% increase in annual revenue.</li>
+      <li>Developed and executed tailored proposals for high-value clients, securing contracts worth over $2M AUD.</li>
+      <li>Implemented AI-assisted CRM processes, cutting proposal turnaround time by 40%.</li>
+    </ul>
+
+    <p><strong>Business Development Manager — B2B Technology Solutions</strong> (4 years)</p>
+    <ul>
+      <li>Secured multi-year contracts with national distributors through targeted relationship building.</li>
+      <li>Introduced new client onboarding processes that improved retention by 18%.</li>
+    </ul>
+
+    <p><strong>Account Executive — Engineering & Construction Supply</strong> (3 years)</p>
+    <ul>
+      <li>Managed a $5M annual sales portfolio, consistently achieving and exceeding targets.</li>
+      <li>Negotiated supply contracts with tier-1 clients under strict delivery deadlines.</li>
+    </ul>
+  </div>
+
+  <div class="section">
+    <h2>Education & Training</h2>
+    <ul>
+      <li>Bachelor of Business (Sales & Marketing)</li>
+      <li>Advanced Negotiation & Closing Strategies Certification</li>
+      <li>AI-Assisted Sales Enablement Training</li>
+      <li>CRM Mastery Course (HubSpot & Salesforce)</li>
+    </ul>
+  </div>
+
+  <div class="section">
+    <h2>Achievements</h2>
+    <ul>
+      <li>Generated $10M+ in new business across multiple industries.</li>
+      <li>Reduced average sales cycle length by 25% via targeted automation.</li>
+      <li>Recognised for “Top Strategic Win” in back-to-back years.</li>
+    </ul>
+  </div>
+
+</body>
+</html>

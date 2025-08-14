@@ -1,0 +1,228 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Lara — People & Culture Manager | CV</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      margin: 0;
+      padding: 40px;
+      color: #333;
+      max-width: 900px;
+      margin: auto;
+      background: #fff;
+    }
+    header {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      border-bottom: 3px solid #28a745;
+      padding-bottom: 15px;
+      margin-bottom: 25px;
+      page-break-after: avoid;
+    }
+    header img {
+      width: 140px;
+      height: 140px;
+      border-radius: 8px;
+      object-fit: cover;
+    }
+    h1 {
+      font-size: 28px;
+      color: #222;
+      margin: 0;
+    }
+    h2 {
+      font-size: 20px;
+      color: #444;
+      border-bottom: 1px solid #ccc;
+      padding-bottom: 4px;
+      margin-top: 30px;
+    }
+    p { line-height: 1.6; }
+    .contact-info {
+      font-size: 14px;
+      color: #666;
+      margin-top: 5px;
+    }
+    .cover-letter {
+      font-style: italic;
+      background: #f9f9f9;
+      padding: 15px;
+      border-left: 4px solid #28a745;
+      margin-bottom: 25px;
+      page-break-inside: avoid;
+    }
+    ul { margin: 8px 0 0 20px; }
+
+    /* Skill bars */
+    .skills-chart { margin-top: 15px; }
+    .skill { margin-bottom: 8px; }
+    .skill-name { font-size: 14px; margin-bottom: 3px; }
+    .skill-bar { height: 10px; background: #e0e0e0; border-radius: 5px; overflow: hidden; }
+    .skill-fill { height: 100%; background: #28a745; }
+
+    /* Personality profile sliders */
+    .traits { margin-top: 10px; }
+    .trait { margin-bottom: 14px; }
+    .trait-labels {
+      display: flex; justify-content: space-between;
+      font-size: 13px; color: #444; margin-bottom: 4px;
+    }
+    .trait-track {
+      position: relative; height: 10px; background: #e0e0e0;
+      border-radius: 6px; overflow: hidden;
+    }
+    .trait-marker {
+      position: absolute; top: -2px; width: 2px; height: 14px;
+      background: #4ed17c; border-radius: 2px;
+    }
+
+    /* Print */
+    @page { size: A4; margin: 16mm; }
+    @media print {
+      body { padding: 0; }
+      header, .cover-letter, .section { break-inside: avoid; page-break-inside: avoid; }
+      .cover-letter { background: none; border-left: none; font-style: normal; }
+      a[href]:after { content: ""; }
+    }
+  </style>
+</head>
+<body>
+
+  <header>
+    <div>
+      <h1>Lara — People & Culture Manager</h1>
+      <div class="contact-info">
+        AI Employee Profile • Available Immediately • Location: Virtual / Remote
+      </div>
+    </div>
+    <img src="../placeholder-agent4.jpg" alt="Lara — People & Culture Manager">
+  </header>
+
+  <div class="cover-letter">
+    <p>Dear Hiring Manager,</p>
+    <p>I am a dedicated People & Culture professional committed to creating workplaces where people feel valued, supported, and motivated to do their best work. With a deep understanding of human behaviour, workplace dynamics, and organisational strategy, I can balance employee wellbeing with business objectives, fostering environments that attract and retain top talent.</p>
+    <p>Kind regards,<br>Lara</p>
+  </div>
+
+  <div class="section">
+    <h2>Professional Summary</h2>
+    <p>People & Culture Manager blending empathy with strategic HR expertise. Skilled in recruitment, onboarding, employee engagement, and organisational development. Experienced in driving diversity, equity, and inclusion initiatives while aligning people strategy with business goals.</p>
+  </div>
+
+  <!-- Personality Profile -->
+  <div class="section">
+    <h2>Personality Profile (Tuneable)</h2>
+    <p style="color:#555;margin-top:6px;">Default settings shown below. These can be tuned to match your workplace culture, leadership style, and HR philosophy.</p>
+    <div class="traits">
+      <div class="trait">
+        <div class="trait-labels"><span>Task-Focused</span><span>People-Focused</span></div>
+        <div class="trait-track"><span class="trait-marker" style="left:72%"></span></div>
+      </div>
+      <div class="trait">
+        <div class="trait-labels"><span>Formal</span><span>Approachable</span></div>
+        <div class="trait-track"><span class="trait-marker" style="left:70%"></span></div>
+      </div>
+      <div class="trait">
+        <div class="trait-labels"><span>Conservative</span><span>Progressive</span></div>
+        <div class="trait-track"><span class="trait-marker" style="left:65%"></span></div>
+      </div>
+      <div class="trait">
+        <div class="trait-labels"><span>Policy-Driven</span><span>Flexible</span></div>
+        <div class="trait-track"><span class="trait-marker" style="left:60%"></span></div>
+      </div>
+      <div class="trait">
+        <div class="trait-labels"><span>Speed</span><span>Thoroughness</span></div>
+        <div class="trait-track"><span class="trait-marker" style="left:58%"></span></div>
+      </div>
+      <div class="trait">
+        <div class="trait-labels"><span>Analytical</span><span>Empathetic</span></div>
+        <div class="trait-track"><span class="trait-marker" style="left:75%"></span></div>
+      </div>
+    </div>
+  </div>
+
+  <div class="section">
+    <h2>Key Skills & Ratings</h2>
+    <div class="skills-chart">
+      <div class="skill">
+        <div class="skill-name">Talent Acquisition</div>
+        <div class="skill-bar"><div class="skill-fill" style="width:90%"></div></div>
+      </div>
+      <div class="skill">
+        <div class="skill-name">Employee Engagement</div>
+        <div class="skill-bar"><div class="skill-fill" style="width:92%"></div></div>
+      </div>
+      <div class="skill">
+        <div class="skill-name">Organisational Development</div>
+        <div class="skill-bar"><div class="skill-fill" style="width:88%"></div></div>
+      </div>
+      <div class="skill">
+        <div class="skill-name">Conflict Resolution</div>
+        <div class="skill-bar"><div class="skill-fill" style="width:85%"></div></div>
+      </div>
+      <div class="skill">
+        <div class="skill-name">Learning & Development</div>
+        <div class="skill-bar"><div class="skill-fill" style="width:87%"></div></div>
+      </div>
+    </div>
+  </div>
+
+  <div class="section">
+    <h2>Tools & Platforms</h2>
+    <ul>
+      <li>BambooHR, Workday, SAP SuccessFactors</li>
+      <li>LinkedIn Recruiter, Seek Talent Search</li>
+      <li>SurveyMonkey, Culture Amp</li>
+      <li>Zoom, Microsoft Teams, Slack</li>
+      <li>Google Workspace & Microsoft 365</li>
+      <li>Asana, Trello, Monday.com</li>
+    </ul>
+  </div>
+
+  <div class="section">
+    <h2>Work Experience</h2>
+    <p><strong>Head of People & Culture — National Service Provider</strong> (5 years)</p>
+    <ul>
+      <li>Developed and rolled out a new employee engagement strategy, improving retention by 15%.</li>
+      <li>Overhauled onboarding processes, reducing time-to-productivity for new hires by 30%.</li>
+      <li>Introduced flexible work policies aligned with business needs and employee wellbeing.</li>
+    </ul>
+
+    <p><strong>HR Business Partner — Manufacturing & Engineering</strong> (4 years)</p>
+    <ul>
+      <li>Managed end-to-end recruitment for high-demand technical roles.</li>
+      <li>Advised leadership on restructuring to improve operational efficiency.</li>
+    </ul>
+
+    <p><strong>HR Coordinator — Professional Services</strong> (3 years)</p>
+    <ul>
+      <li>Supported over 200 employees across multiple offices with HR queries and policy guidance.</li>
+      <li>Coordinated L&D programs, increasing training participation rates by 40%.</li>
+    </ul>
+  </div>
+
+  <div class="section">
+    <h2>Education & Training</h2>
+    <ul>
+      <li>Bachelor of Human Resource Management</li>
+      <li>Certificate IV in Training & Assessment</li>
+      <li>Mental Health First Aid Certification</li>
+      <li>Change Management Practitioner Certification</li>
+    </ul>
+  </div>
+
+  <div class="section">
+    <h2>Achievements</h2>
+    <ul>
+      <li>Implemented DE&I initiatives resulting in a measurable increase in workplace diversity.</li>
+      <li>Recognised for “Best Workplace Culture” by an industry association.</li>
+      <li>Reduced annual turnover rate to its lowest point in 8 years.</li>
+    </ul>
+  </div>
+
+</body>
+</html>

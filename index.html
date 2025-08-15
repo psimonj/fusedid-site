@@ -176,17 +176,16 @@
 
     .card{border:1px solid #eee;border-radius:12px;padding:2rem;background:#fff}
 
-/* Fluid portrait panels */
-.card-icon{
-  width:100%;
-  aspect-ratio: 10 / 8;        /* a bit taller than 16/9, shows more of the face */
-  background:#f5f5f5;
-  border-radius:8px;
-  margin-bottom:1rem;
-  background-size:cover;
-  background-position: 50% 5%; /* slight upward bias */
-}
-
+    /* Fluid portrait panels */
+    .card-icon{
+      width:100%;
+      aspect-ratio: 10 / 8;        /* a bit taller than 16/9, shows more of the face */
+      background:#f5f5f5;
+      border-radius:8px;
+      margin-bottom:1rem;
+      background-size:cover;
+      background-position: 50% 5%; /* slight upward bias */
+    }
 
     .download{
       display:inline-block;margin-top:1rem;padding:.6rem 1rem;border:1px solid #000;color:#000;font-weight:800;border-radius:8px
@@ -200,59 +199,46 @@
     .contact-details h2{font-size:2rem;margin-bottom:1rem}
 
     /* ===== Responsive header & nav ===== */
-@media (max-width:960px){
-  nav.primary {
-    display: none;
-  }
-  .hamburger {
-    display: flex;
-  }
-  .brand {
-    font-size: 1rem;
-    margin-left: 0.25rem; /* adds breathing room from left edge */
-  }
-  .header-inner {
-    padding-left: 1.25rem; /* increases left/right padding on mobile */
-    padding-right: 1.25rem;
-  }
-}
+    @media (max-width:960px){
+      nav.primary { display: none; }
+      .hamburger { display: flex; }
+      .brand { font-size: 1rem; margin-left: 0.25rem; }
+      .header-inner { padding-left: 1.25rem; padding-right: 1.25rem; }
+    }
 
     /* Small polish */
     .shadow-sm{box-shadow:0 4px 18px rgba(0,0,0,.04)}
 
-/* === Fluid, safe-area-aware spacing (fix for in-between widths) === */
+    /* === Fluid, safe-area-aware spacing (fix for in-between widths) === */
+    .container,
+    .header-inner {
+      padding-inline: max(env(safe-area-inset-left), clamp(16px, 5vw, 32px));
+    }
 
-/* Base: scale padding with viewport, respect iOS safe areas */
-.container,
-.header-inner {
-  /* clamp(min, preferred, max) prevents the "too close" look at mid widths */
-  padding-inline: max(env(safe-area-inset-left), clamp(16px, 5vw, 32px));
-}
+    @media (max-width: 960px) {
+      nav.primary { display: none; }
+      .hamburger { display: flex; }
+      .brand { font-size: 1rem; }
+    }
 
-/* Keep your mobile tweaks from earlier, but you can drop the extra .brand margin now */
-@media (max-width: 960px) {
-  nav.primary { display: none; }
-  .hamburger { display: flex; }
-  .brand { font-size: 1rem; }
-}
+    @media (min-width: 768px) and (max-width: 1100px) {
+      .header-inner { padding-inline: max(env(safe-area-inset-left), clamp(20px, 6vw, 40px)); }
+    }
 
-/* Optional: add a little extra breathing room on tablets only */
-@media (min-width: 768px) and (max-width: 1100px) {
-  .header-inner {
-    padding-inline: max(env(safe-area-inset-left), clamp(20px, 6vw, 40px));
-  }
-}
+    @media (max-width: 768px) {
+      .leadership-layout { flex-direction: column; }
+      .leadership-layout > div:first-child { order: 2; }
+      .leadership-layout > div:last-child  { order: 1; }
+    }
 
-@media (max-width: 768px) {
-  .leadership-layout {
-    flex-direction: column; /* stack vertically */
-  }
-  /* Swap so any image column comes first */
-  .leadership-layout > div:first-child { order: 2; } /* usually text */
-  .leadership-layout > div:last-child  { order: 1; } /* usually image */
-}
-
-
+    /* ===== Agencies (2-col grid) ===== */
+    .agencies-grid{display:grid;gap:2rem}
+    @media (min-width: 768px){.agencies-grid{grid-template-columns:repeat(2,1fr)}}
+    .agency-card{display:flex;flex-direction:column;height:100%}
+    .agency-card .card-icon{aspect-ratio: 16 / 9; background-position:center}
+    .agency-card h3{margin-top:.25rem}
+    .agency-card ul{margin-left:1rem;line-height:1.8}
+    .agency-card .spacer{flex:1}
   </style>
 </head>
 <body>
@@ -423,178 +409,122 @@
       </div>
     </section>
 
-    <!-- ===== Agencies ===== -->
+    <!-- ===== Agencies (updated 2-col grid) ===== -->
     <section class="section" id="agencies">
       <h2>FUSED ID Agencies — Human Led. AI Enhanced. Outcome Driven.</h2>
       <p>
         Our autonomous agencies are powered by trained AI employees and directed by real humans. Each division delivers a business function you can trust — no staff to hire, no tools to learn, no dashboards to manage. Just results.
       </p>
 
-      <!-- DIRECTOR.ID -->
-      <div class="leadership-layout">
-        <div>
+      <div class="agencies-grid">
+        <!-- DIRECTOR.ID -->
+        <div class="card agency-card">
+          <div class="card-icon" style="background-image:url('director_id.jpg');"></div>
           <h3>DIRECTOR.ID — AI-Enhanced Board & Strategic Leadership</h3>
           <p style="margin-top:.5rem;line-height:1.6;">
-            For SMBs that want high-level strategic direction, measurable results, and airtight compliance — without adding a full-time executive headcount. We act as your independent board member, combining two decades of leadership experience with AI-augmented execution to keep your business growing and compliant.
+            Independent board-level leadership for SMBs: strategy, KPIs, ISO9001 systems, and governance — augmented by AI execution.
           </p>
-          <ul style="line-height:1.8;">
-            <li>📈 Business strategy creation, review, and adjustment</li>
-            <li>📊 Designing and building KPIs, with regular performance reporting</li>
-            <li>🛠️ Designing, building, and continuously improving your Quality Management System</li>
-            <li>🎯 Training top management in ISO9001 conformance</li>
-            <li>🧭 Acting as an independent board member for your SMB</li>
+          <ul>
+            <li>📈 Strategy creation, review, and adjustment</li>
+            <li>📊 KPI design with regular performance reporting</li>
+            <li>🛠️ Quality Management System build & improvement</li>
+            <li>🎯 ISO9001 top-management training</li>
+            <li>🧭 Independent board member support</li>
           </ul>
+          <div class="spacer"></div>
           <a class="download" href="DirectorFusedID/directorid.html">Start Strategic Leadership →</a>
         </div>
-        <div>
-          <img src="director_id.jpg" alt="Director Level AI Service" style="border-radius: 8px;" />
-        </div>
-      </div>
 
-</br>
-</br>
-</br>
-</br>
-
-
-
-      <!-- PROSPECT.ID -->
-      <div class="leadership-layout">
-        <div>
+        <!-- PROSPECT.ID -->
+        <div class="card agency-card">
+          <div class="card-icon" style="background-image:url('prospect_id.jpg');"></div>
           <h3>PROSPECT.ID — AI-Powered Lead Generation</h3>
           <p style="margin-top:.5rem;line-height:1.6;">
-            We take the legwork out of lead generation—curating, qualifying, and connecting with your next best customers automatically.
+            Curated lists, automated outreach, and booked meetings — with weekly reporting and scoring.
           </p>
-          <ul style="line-height:1.8;">
-            <li>🔍 Curated lead lists tailored to your niche</li>
-            <li>📧 AI-generated emails & follow-ups</li>
-            <li>📅 Meetings booked straight into your calendar</li>
-            <li>📊 Weekly reports with lead scoring & engagement</li>
-            <li>🧠 Fully managed by FUSED ID’s strategy team</li>
+          <ul>
+            <li>🔍 Niche-tailored lead lists</li>
+            <li>📧 AI emails & follow-ups</li>
+            <li>📅 Meetings straight to your calendar</li>
+            <li>📊 Weekly reports with lead scoring</li>
+            <li>🧠 FUSED ID strategy oversight</li>
           </ul>
+          <div class="spacer"></div>
           <a class="download" href="ProspectFusedID/prospectid.html">Start Prospecting →</a>
         </div>
-        <div>
-          <img src="prospect_id.jpg" alt="Prospecting AI Agent" style="border-radius: 8px;" />
-        </div>
-      </div>
 
-
-</br>
-</br>
-</br>
-</br>
-
-
-
-      <!-- HOST.ID -->
-      <div class="leadership-layout">
-        <div>
+        <!-- HOST.ID -->
+        <div class="card agency-card">
+          <div class="card-icon" style="background-image:url('host_id.jpg');"></div>
           <h3>HOST.ID — Holiday Rental Operations</h3>
           <p style="margin-top:.5rem;line-height:1.6;">
-            Everything you need to automate and optimise your holiday rental portfolio — without lifting a finger. We handle things end to end for you.
+            End-to-end automation for short-stay portfolios — listings, pricing, messaging, and cleaner coordination.
           </p>
-          <ul style="line-height:1.8;">
-            <li>🏡 Listings, bookings & pricing fully automated</li>
-            <li>💬 Guest communication and reviews handled</li>
-            <li>🧹 Cleaner coordination and calendar sync</li>
-            <li>📈 Yield optimisation and performance insights</li>
-            <li>🧠 All powered by AI, backed by real oversight</li>
+          <ul>
+            <li>🏡 Listings, bookings & pricing automation</li>
+            <li>💬 Guest comms & reviews handled</li>
+            <li>🧹 Cleaner coordination with calendar sync</li>
+            <li>📈 Yield optimisation & insights</li>
+            <li>🧠 AI-powered, human supervised</li>
           </ul>
+          <div class="spacer"></div>
           <a class="download" href="HostFusedID/hostid.html">Automate My Rentals →</a>
         </div>
-        <div>
-          <img src="host_id.jpg" alt="Holiday Rental AI" style="border-radius: 8px;" />
-        </div>
-      </div>
 
-
-</br>
-</br>
-</br>
-</br>
-
-
-
-      <!-- TALENT.ID -->
-      <div class="leadership-layout">
-        <div>
+        <!-- TALENT.ID -->
+        <div class="card agency-card">
+          <div class="card-icon" style="background-image:url('talent_id.jpg');"></div>
           <h3>TALENT.ID — AI-Led Recruitment Sourcing</h3>
           <p style="margin-top:.5rem;line-height:1.6;">
-            Our AI scouts talent, screens candidates, and delivers ready-to-interview shortlists—so you can hire faster with less noise.
+            Role profiling, AI screening, and shortlists with scoring — hire faster with less noise.
           </p>
-          <ul style="line-height:1.8;">
-            <li>🔍 Role profiling and hiring criteria definition</li>
-            <li>📄 AI-reviewed CVs and application ranking</li>
-            <li>🗣️ First-pass interviews via adaptive AI questioning</li>
-            <li>📋 Shortlists delivered with scoring and summaries</li>
-            <li>🧠 Fully human-supervised, bias-aware selection</li>
+          <ul>
+            <li>🔍 Role profiles & criteria definition</li>
+            <li>📄 AI-reviewed CVs and ranking</li>
+            <li>🗣️ First-pass AI interviews</li>
+            <li>📋 Scored shortlists & summaries</li>
+            <li>🧠 Human-supervised selection</li>
           </ul>
+          <div class="spacer"></div>
           <a class="download" href="TalentFusedID/talentid.html">Find Talent Faster →</a>
         </div>
-        <div>
-          <img src="talent_id.jpg" alt="Recruitment AI" style="border-radius: 8px;" />
-        </div>
-      </div>
 
-
-</br>
-</br>
-</br>
-</br>
-
-
-      <!-- SOCIAL.ID -->
-      <div class="leadership-layout">
-        <div>
+        <!-- SOCIAL.ID -->
+        <div class="card agency-card">
+          <div class="card-icon" style="background-image:url('social_id.jpg');"></div>
           <h3>SOCIAL.ID — Social Media Scheduling & Content</h3>
           <p style="margin-top:.5rem;line-height:1.6;">
-            Let our AI run your socials—crafting, scheduling, and learning what works—so your brand stays visible without the drain.
+            Planning, creation, and scheduling across channels — plus monthly performance insights.
           </p>
-          <ul style="line-height:1.8;">
-            <li>📝 Content calendar planning and idea prompts</li>
-            <li>✍️ AI-generated posts tailored to your tone</li>
-            <li>📆 Auto-scheduling across Instagram, LinkedIn, Facebook</li>
-            <li>📊 Monthly reports on reach and engagement</li>
-            <li>🧠 Always learning from top-performing content</li>
+          <ul>
+            <li>📝 Content calendars & prompts</li>
+            <li>✍️ Tone-matched AI posts</li>
+            <li>📆 Auto-scheduling (IG, LinkedIn, FB)</li>
+            <li>📊 Monthly reach & engagement</li>
+            <li>🧠 Learns from best-performers</li>
           </ul>
+          <div class="spacer"></div>
           <a class="download" href="SocialFusedID/socialid.html">Boost My Content →</a>
         </div>
-        <div>
-          <img src="social_id.jpg" alt="Social Media AI" style="border-radius: 8px;" />
+
+        <!-- ASK.ID -->
+        <div class="card agency-card">
+          <div class="card-icon" style="background-image:url('ask_id.jpg');"></div>
+          <h3>ASK.ID — On-Demand AI Q&amp;A Service</h3>
+          <p style="margin-top:.5rem;line-height:1.6;">
+            Instant, accurate answers — tailored to your business and verified by humans.
+          </p>
+          <ul>
+            <li>💬 Ask anything — quick to deep research</li>
+            <li>🧠 Context-aware, trained on your knowledge</li>
+            <li>👀 Human oversight for reliability</li>
+            <li>⚡ Rapid responses for faster decisions</li>
+            <li>📈 Improves with every query</li>
+          </ul>
+          <div class="spacer"></div>
+          <a class="download" href="AskFusedID/askid.html">Start Asking →</a>
         </div>
       </div>
-
-</br>
-</br>
-</br>
-</br>
-
-
-<!-- KNOWLEDGE.ID -->
-<div class="leadership-layout">
-  <div>
-    <h3>KNOWLEDGE.ID — Company-Wide AI Knowledge</h3>
-    <p style="margin-top:.5rem;line-height:1.6;">
-      Stop paying for dozens of underused AI seats. KNOWLEDGE.ID gives your entire organisation instant access to a 
-      company-trained, always-available AI coworker — with usage-based billing that scales with demand. From quick 
-      brainstorming to detailed research, your people get the answers and outputs they need, and you only pay for 
-      what they actually use.
-    </p>
-    <ul style="line-height:1.8;">
-      <li>💡 <strong>Pay for what you use</strong> — no per-seat licences, no unused accounts</li>
-      <li>🧠 <strong>Company-trained intelligence</strong> — learns from approved feedback</li>
-      <li>👀 <strong>Human oversight</strong> — admins can approve, reject, or refine</li>
-      <li>🌐 <strong>All-department access</strong> — from sales to support, everyone benefits</li>
-      <li>📈 <strong>Continuous improvement</strong> — the more you use it, the better it gets</li>
-    </ul>
-    <a class="download" href="KnowledgeFusedID/knowledgeid.html">Enable Company-Wide AI →</a>
-  </div>
-  <div>
-    <img src="knowledge_id.jpg" alt="Knowledge AI Service" style="border-radius: 8px;" />
-  </div>
-</div>
-
     </section>
   </main>
 

@@ -1,0 +1,324 @@
+<!--
+File: AskID/askid.html
+Purpose: Subsite-style landing page for Ask.ID with FUSED ID brand (espresso + copper), persistent back link to main site.
+Notes:
+- Author licences = agents + 1 (boss)
+- Ask-only vs Author access
+- Clean subsite shell with dark hero + subtle glow accents; link back to fusedid.com in header and footer.
+-->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>ASK.ID • FUSED ID — Department‑Grade Chatbot Agents</title>
+  <meta name="description" content="Clone your department managers as AI agents. Human‑managed, company‑trained, and continuously improved. Pay per agent; authors = agents + 1."/>
+  <link rel="icon" href="/favicon.ico"/>
+  <style>
+    /* ===== Brand tokens (FUSED ID) ===== */
+    :root{
+      --espresso:#150e09;  /* deep espresso brown */
+      --copper:#ff8c32;    /* molten copper */
+      --copper-light:#ffb169; /* warm highlight */
+      --glow:rgba(255,140,50,.6);
+      --ink:#111; --muted:#666; --card:#fff; --line:#e9e2dc;
+    }
+    *{box-sizing:border-box}
+    html,body{margin:0;padding:0}
+    body{font-family:system-ui,-apple-system,Segoe UI,Roboto,Helvetica,Arial;color:var(--ink);background:#fff}
+    a{color:inherit;text-decoration:none}
+    img{max-width:100%;height:auto;display:block}
+    .container{max-width:1180px;margin:0 auto;padding:0 clamp(16px,4vw,28px)}
+
+    /* ===== Subsite Header ===== */
+    .subsite{position:relative;z-index:5;background:#0f0a07;border-bottom:1px solid rgba(255,255,255,.08)}
+    .sub-head{display:flex;align-items:center;justify-content:space-between;padding:12px 0;color:#fff}
+    .left{display:flex;align-items:center;gap:.75rem}
+    .badge{display:inline-flex;align-items:center;gap:.45rem;padding:.4rem .65rem;border:1px solid rgba(255,255,255,.22);border-radius:10px;color:#fff;background:rgba(255,255,255,.06);font-weight:800;font-size:.9rem}
+    .brand{font-weight:900;letter-spacing:.06em}
+    .back{display:inline-flex;align-items:center;gap:.4rem;padding:.55rem .8rem;border-radius:10px;border:1px solid rgba(255,255,255,.22);color:#fff}
+    .back:hover{box-shadow:0 0 0 3px rgba(255,255,255,.06) inset}
+
+    /* ===== Hero (dark subsite look) ===== */
+    .hero{position:relative;isolation:isolate;min-height:66vh;display:grid;place-items:center;overflow:hidden}
+    
+.hero::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  z-index: -2;
+  background:
+    linear-gradient(180deg, rgba(21,14,9,.70) 0%, rgba(21,14,9,.92) 65%, rgba(21,14,9,.98) 100%),
+    url('askid-hero.jpg') center 30% / cover no-repeat;
+  filter: saturate(1.05) contrast(1.02);
+}
+    .hero::after{content:"";position:absolute;inset:0;z-index:-1;background:
+      radial-gradient(40% 25% at 20% 20%, rgba(255,140,50,.25), transparent 60%),
+      radial-gradient(30% 20% at 80% 75%, rgba(255,177,105,.15), transparent 70%)}
+    .hero-inner{width:100%}
+    .hero-content{color:#fff;max-width:1060px;margin:0 auto;padding:5.75rem 0 4rem}
+    .kicker{color:var(--copper-light);text-transform:uppercase;letter-spacing:.14em;font-weight:900;font-size:.82rem;margin-bottom:.8rem}
+    .title{font-size:clamp(2rem,4vw+1rem,4rem);line-height:1.08;margin:0 0 .5rem;font-weight:1000}
+    .sub{max-width:760px;font-size:clamp(1rem,1vw+.55rem,1.25rem);line-height:1.6;color:#f3f3f3;margin:0 0 1.2rem}
+    .ctas{display:flex;gap:.75rem;flex-wrap:wrap}
+    .btn{appearance:none;border:0;border-radius:10px;cursor:pointer;font-weight:900;padding:.95rem 1.2rem;font-size:1rem;display:inline-flex;align-items:center;gap:.45rem}
+    .btn-primary{background:linear-gradient(180deg,var(--copper),#fa7c16);color:#220e05;box-shadow:0 6px 24px rgba(255,140,50,.35)}
+    .btn-ghost{background:transparent;border:2px solid rgba(255,255,255,.75);color:#fff}
+
+    /* ===== Content Sections ===== */
+    .section{padding:3.25rem 0}
+    h2{font-size:1.9rem;margin:.2rem 0 1rem;font-weight:1000}
+    h3{margin:.2rem 0 .6rem}
+    p{margin:.4rem 0 1rem}
+    .muted{color:#555}
+    .grid{display:grid;gap:1.25rem}
+    @media(min-width:900px){.cols-2{grid-template-columns:1fr 1fr}}
+    @media(min-width:1120px){.cols-3{grid-template-columns:repeat(3,1fr)}}
+    .card{background:var(--card);border:1px solid var(--line);border-radius:14px;padding:1.25rem}
+    .tick{list-style:none;margin:0;padding:0}
+    .tick li{padding-left:1.6rem;position:relative;margin:.55rem 0;line-height:1.7}
+    .tick li::before{content:"✓";position:absolute;left:.2rem;top:.05rem;color:var(--copper);font-weight:1000}
+
+    /* Pricing */
+    .pricing{background:#fbf9f7;border-top:1px solid #eadfd7;border-bottom:1px solid #eadfd7}
+    .price-grid{display:grid;gap:1rem}
+    @media(min-width:1024px){.price-grid{grid-template-columns:repeat(3,1fr)}}
+    .plan{border:2px solid #efe2d9;border-radius:16px;background:#fff;padding:1.4rem;display:flex;flex-direction:column}
+    .plan h3{font-size:1.25rem}
+    .price{font-size:1.85rem;font-weight:1000;margin:.2rem 0 .55rem}
+    .meta{color:#666;font-size:.95rem;margin-bottom:.65rem}
+    .plan .btn{margin-top:auto}
+
+    /* Footer */
+    footer{background:#0f0a07;color:#ddd}
+    .foot-inner{display:flex;justify-content:space-between;align-items:center;gap:1rem;padding:1.25rem 0}
+    .foot a{color:#fff}
+  </style>
+</head>
+<body>
+  <!-- Subsite header with back link -->
+  <div class="subsite">
+    <div class="container sub-head">
+      <div class="left">
+        <span class="badge" title="Subsite of FUSED ID">ASK.ID</span>
+        <span class="brand">FUSED ID</span>
+      </div>
+      <a class="back" href="/" aria-label="Back to fusedid.com">← Back to FUSED ID</a>
+    </div>
+  </div>
+
+  <!-- Hero -->
+  <section class="hero">
+    <div class="hero-inner">
+      <div class="container hero-content">
+        <div class="kicker">Human‑Led • AI‑Enhanced</div>
+        <h1 class="title">Your Department Manager, On Demand</h1>
+        <p class="sub">Design AI agents that replicate your department heads — tone, knowledge and judgement — so your team gets instant, consistent answers 24/7 while managers stop repeating themselves and onboarding time drops.</p>
+        <div class="ctas">
+          <a class="btn btn-primary" href="#pricing">See Packages</a>
+          <a class="btn btn-ghost" href="#how">How It Works</a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+ 
+
+
+
+
+<main class="container">
+  <!-- Advantages -->
+  <section class="section" id="advantages">
+    <h2>Why Ask.ID</h2>
+    <div class="grid cols-3" style="margin-top:.6rem">
+      <div class="card">
+        <h3>Pay Per Agent</h3>
+        <p>Each agent is a role‑specific chatbot mirroring a department manager.</p>
+        <ul class="tick">
+          <li>Personality + process + knowledge captured</li>
+          <li>Ask‑only or Author access modes</li>
+          <li>Scale without per‑seat bloat</li>
+        </ul>
+      </div>
+      <div class="card">
+        <h3>Human‑Managed Improvement</h3>
+        <p>Managers email our team with changes, or approve/reject user feedback directly. We implement and tune.</p>
+        <ul class="tick">
+          <li>Continuous updates by FUSED ID</li>
+          <li>Manager‑driven, brand‑safe iteration</li>
+          <li>Rapid turnarounds on improvements</li>
+        </ul>
+      </div>
+      <div class="card">
+        <h3>Time Back to Manage</h3>
+        <p>Agents handle FAQs, onboarding and policy guidance—so leaders can lead.</p>
+        <ul class="tick">
+          <li>Reduce repetitive Q&A</li>
+          <li>Accelerate new‑hire ramp</li>
+          <li>Keep answers consistent</li>
+        </ul>
+      </div>
+    </div>
+  </section>
+
+
+  <!-- How it works -->
+  <section class="section" id="how">
+    <h2>How It Works</h2>
+    <div class="grid cols-2" style="margin-top:.6rem;align-items:center">
+      <div class="card">
+        <ol class="tick" style="list-style:decimal;padding-left:1.25rem">
+          <li><strong>Design your agent.</strong> We interview the department manager to capture tone, processes and knowledge. This becomes the initial agent spec.</li>
+          <li><strong>Launch to the team.</strong> Staff use Ask‑only mode to get answers, training and policy guidance.</li>
+          <li><strong>Improve continuously.</strong> Authors approve/reject feedback or email our team to ship refinements.</li>
+        </ol>
+      </div>
+      <div class="card"><img src="askid-process.jpg" alt="Ask.ID process diagram"></div>
+    </div>
+  </section>
+
+    <!-- Why Ask.ID vs generic AI tools -->
+    <section class="section" id="why">
+      <h2>Why Ask.ID Beats Generic AI Tools</h2>
+      <div class="grid cols-3" style="margin-top:.6rem">
+        <div class="card">
+          <h3>Specialised, Not Generalist</h3>
+          <p>Each agent is designed to mirror your department manager — tone, processes and knowledge — so answers fit your business, not the internet at large.</p>
+          <ul class="tick">
+            <li>On-brand guidance</li>
+            <li>Role-specific prompts & playbooks</li>
+            <li>Department FAQs baked in</li>
+          </ul>
+        </div>
+        <div class="card">
+          <h3>Managed For You</h3>
+          <p>We maintain, improve and align the agent continuously. Your team just uses it; we make it better.</p>
+          <ul class="tick">
+            <li>Human- reviewed updates</li>
+            <li>Manager email-to-update workflow</li>
+            <li>Fast iterations on feedback</li>
+          </ul>
+        </div>
+        <div class="card">
+          <h3>Simple, Scalable Pricing</h3>
+          <p>Pay per agent, not per seat — give everyone Ask access without ballooning licence costs.</p>
+          <ul class="tick">
+            <li>1 boss licence included</li>
+            <li>Authors = agents</li>
+            <li>Ask licences sized per tier</li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="grid cols-2" style="margin-top:1rem">
+        <div class="card">
+          <h3>Accountability & Control</h3>
+          <p>Answers stay accurate and on-brand with oversight and permissions.</p>
+          <ul class="tick">
+            <li>Ask-only vs Author access</li>
+            <li>Approval / rejection of feedback</li>
+            <li>Audit trail via activity reporting</li>
+          </ul>
+        </div>
+        <div class="card">
+          <h3>Time Back to Lead</h3>
+          <p>Managers stop repeating themselves and onboarding speeds up — the agent handles everyday Q&A.</p>
+          <ul class="tick">
+            <li>Consistent answers 24/7</li>
+            <li>Policy & process guidance</li>
+            <li>Faster new-hire ramp</li>
+          </ul>
+        </div>
+      </div>
+    </section>
+
+  </main>
+
+
+
+
+  <!-- Pricing -->
+<section class="pricing" id="pricing">
+  <div class="container section">
+    <h2>Packages</h2>
+
+    <div class="price-grid" style="margin-top:1rem">
+      <div class="plan">
+        <h3>Starter</h3>
+        <div class="price">$380 / month</div>
+        <div class="meta">
+          <strong>1 agent</strong><br>
+          1 boss licence • 1 author licence • up to 10 ask licences
+        </div>
+        <ul class="tick">
+          <li>Initial agent design & launch</li>
+          <li>Ongoing improvements by FUSED ID</li>
+          <li>Ask‑only & Author access modes</li>
+          <li>Technical support for your team</li>
+          <li>Activity & improvement reporting</li>
+        </ul>
+        <a class="btn btn-primary" href="#contact">Start with Starter</a>
+      </div>
+      <div class="plan">
+        <h3>Mid Level</h3>
+        <div class="price">$780 / month</div>
+        <div class="meta">
+          <strong>3 agents</strong><br>
+          1 boss licence • 3 author licences • up to 30 ask licences
+        </div>
+        <ul class="tick">
+          <li>Everything in Starter for 3 agents</li>
+          <li>Priority tuning & enhancements</li>
+          <li>Centralised feedback oversight</li>
+        </ul>
+        <a class="btn btn-primary" href="#contact">Start with Mid</a>
+      </div>
+      <div class="plan">
+        <h3>Top Level</h3>
+        <div class="price">$1,250 / month</div>
+        <div class="meta">
+          <strong>5 agents</strong><br>
+          1 boss licence • 5 author licences • up to 50 ask licences
+        </div>
+        <ul class="tick">
+          <li>Everything in Mid for 5 agents</li>
+          <li>Hands‑on optimisation & reviews</li>
+          <li>Manager enablement & playbooks</li>
+        </ul>
+        <a class="btn btn-primary" href="#contact">Start with Top</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+
+  <!-- Contact -->
+  <section class="section" id="contact">
+    <div class="container">
+      <div class="grid cols-2" style="align-items:center">
+        <div>
+          <h2>Enable Ask.ID</h2>
+          <p class="muted">Book a quick consult to scope your first agent and set up access.</p>
+          <p><strong>Ask.ID — FUSED ID</strong></p>
+          <p>Email: <a href="mailto:director@fusedid.com?subject=Ask.ID%20Enquiry">director@fusedid.com</a><br>
+             Location: Melbourne, Australia</p>
+          <div style="display:flex;gap:.75rem;flex-wrap:wrap;margin-top:.5rem">
+            <a class="btn btn-primary" href="mailto:director@fusedid.com?subject=Ask.ID%20Enquiry">Start now</a>
+            <a class="btn btn-ghost" href="/">Back to fusedid.com</a>
+          </div>
+        </div>
+        <div class="card"><img src="askid-examples.jpg" alt="Ask.ID example conversations"></div>
+      </div>
+    </div>
+  </section>
+
+  <footer class="foot">
+    <div class="container foot-inner">
+      <small>© FUSED ID. All rights reserved.</small>
+      <a class="back" href="/">← Back to FUSED ID</a>
+    </div>
+  </footer>
+</body>
+</html>
+

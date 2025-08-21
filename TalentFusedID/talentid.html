@@ -3,26 +3,17 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>TALENT.ID • FUSED ID — AI‑Led Recruitment Sourcing (Flat Fee)</title>
-  <meta name="description" content="Flat-fee recruitment sourcing. We craft your advert, place it, screen with AI + humans, interview (optional), and deliver a refined shortlist. Hire one, many, or none—for the same price."/>
+  <title>TALENT ENGINE • FUSED ID — Self-Serve AI Hiring Platform for HR Teams & Agencies</title>
+  <meta name="description" content="The Talent Engine: a fully automated, self-serve hiring platform. HR teams and recruitment agencies can define roles, generate adverts, match candidates from their own databases, and receive AI-ranked shortlists — all in one UI."/>
   <link rel="icon" href="/favicon.ico"/>
   <style>
-    /* ===== Brand tokens (FUSED ID) ===== */
-    :root{
-      --espresso:#150e09;        /* deep espresso brown */
-      --copper:#ff8c32;          /* molten copper */
-      --copper-light:#ffb169;    /* warm highlight */
-      --glow:rgba(255,140,50,.6);
-      --ink:#111; --muted:#555; --card:#fff; --line:#eadfd7;
-    }
+    :root{ --espresso:#150e09; --copper:#ff8c32; --copper-light:#ffb169; --glow:rgba(255,140,50,.6); --ink:#111; --muted:#555; --card:#fff; --line:#eadfd7; }
     *{box-sizing:border-box}
     html,body{margin:0;padding:0}
     body{font-family:system-ui,-apple-system,Segoe UI,Roboto,Helvetica,Arial;color:var(--ink);background:#fff}
     a{color:inherit;text-decoration:none}
     img{max-width:100%;height:auto;display:block;border-radius:14px}
     .container{max-width:1180px;margin:0 auto;padding:0 clamp(16px,4vw,28px)}
-
-    /* ===== Subsite Header (matches Ask.ID shell) ===== */
     .subsite{position:relative;z-index:5;background:#0f0a07;border-bottom:1px solid rgba(255,255,255,.08)}
     .sub-head{display:flex;align-items:center;justify-content:space-between;padding:12px 0;color:#fff}
     .left{display:flex;align-items:center;gap:.75rem}
@@ -30,21 +21,19 @@
     .brand{font-weight:1000;letter-spacing:.06em}
     .back{display:inline-flex;align-items:center;gap:.4rem;padding:.55rem .8rem;border-radius:10px;border:1px solid rgba(255,255,255,.22);color:#fff}
     .back:hover{box-shadow:0 0 0 3px rgba(255,255,255,.06) inset}
-
-    /* ===== Hero (dark) ===== */
     .hero{position:relative;isolation:isolate;min-height:66vh;display:grid;place-items:center;overflow:hidden}
-    .hero::before{
-      content:"";position:absolute;inset:0;z-index:-2;
-      background:
+    .hero::before{content:"";position:absolute;inset:0;z-index:-2;background:
         linear-gradient(180deg, rgba(21,14,9,.70) 0%, rgba(21,14,9,.92) 65%, rgba(21,14,9,.98) 100%),
-        url('talent-hero.jpg') center 35%/cover no-repeat;
-      filter:saturate(1.05) contrast(1.02);
-    }
+        url('talent-hero.jpg') center 35%/cover no-repeat;filter:saturate(1.05) contrast(1.02)}
     .hero::after{content:"";position:absolute;inset:0;z-index:-1;background:
       radial-gradient(40% 25% at 20% 20%, rgba(255,140,50,.25), transparent 60%),
       radial-gradient(30% 20% at 80% 75%, rgba(255,177,105,.15), transparent 70%)}
-    .hero-inner{width:100%}
-    .hero-content{color:#fff;max-width:1060px;margin:0 auto;padding:5.75rem 0 4rem}
+.hero-content {
+  color:#fff;
+  max-width:1060px;
+  margin:0 auto;
+  padding:5.75rem clamp(16px,4vw,28px) 4rem; /* top | sides | bottom */
+}
     .kicker{color:var(--copper-light);text-transform:uppercase;letter-spacing:.14em;font-weight:1000;font-size:.82rem;margin-bottom:.8rem}
     .title{font-size:clamp(2rem,4vw+1rem,4rem);line-height:1.08;margin:0 0 .5rem;font-weight:1000}
     .sub{max-width:760px;font-size:clamp(1rem,1vw+.55rem,1.25rem);line-height:1.6;color:#f3f3f3;margin:0 0 1.2rem}
@@ -52,8 +41,6 @@
     .btn{appearance:none;border:0;border-radius:10px;cursor:pointer;font-weight:900;padding:.95rem 1.2rem;font-size:1rem;display:inline-flex;align-items:center;gap:.45rem}
     .btn-primary{background:linear-gradient(180deg,var(--copper),#fa7c16);color:#220e05;box-shadow:0 6px 24px rgba(255,140,50,.35)}
     .btn-ghost{background:transparent;border:2px solid rgba(255,255,255,.75);color:#fff}
-
-    /* ===== Sections ===== */
     .section{padding:3.25rem 0}
     h2{font-size:1.9rem;margin:.2rem 0 1rem;font-weight:1000}
     h3{margin:.2rem 0 .6rem}
@@ -66,213 +53,177 @@
     .tick{list-style:none;margin:0;padding:0}
     .tick li{padding-left:1.6rem;position:relative;margin:.55rem 0;line-height:1.7}
     .tick li::before{content:"✓";position:absolute;left:.2rem;top:.05rem;color:var(--copper);font-weight:1000}
-
-    /* Pricing band */
     .pricing{background:#fbf9f7;border-top:1px solid #eadfd7;border-bottom:1px solid #eadfd7}
     .price-grid{display:grid;gap:1rem}
-    @media(min-width:1024px){.price-grid{grid-template-columns:repeat(3,1fr)}}
-    .plan{border:2px solid #efe2d9;border-radius:16px;background:#fff;padding:1.4rem;display:flex;flex-direction:column}
+    @media(min-width:1024px){.price-grid{grid-template-columns:repeat(2,1fr)}}
+    .plan{border:2px solid #efe2d9;border-radius:16px;background:#fff;padding:1.4rem;display:flex;flex-direction:column;position:relative;overflow:hidden}
     .plan h3{font-size:1.25rem}
-    .price{font-size:1.85rem;font-weight:1000;margin:.2rem 0 .55rem}
     .meta{color:#666;font-size:.95rem;margin-bottom:.65rem}
     .plan .btn{margin-top:auto}
-
-    /* Footer */
+    .price-tag{position:absolute;top:1rem;right:1rem;font-weight:900;color:var(--copper);font-size:1.1rem}
     footer{background:#0f0a07;color:#ddd}
     .foot-inner{display:flex;justify-content:space-between;align-items:center;gap:1rem;padding:1.25rem 0}
     .foot a{color:#fff}
+    /* Separator */
+    .separator{height:2px;width:100%;background:linear-gradient(to right, transparent, var(--copper), transparent);margin:2.5rem 0}
+    /* Scroll reveal */
+    .reveal{opacity:0;transform:translateY(40px);transition:all .8s ease}
+    .reveal.visible{opacity:1;transform:translateY(0)}
+
+
+@media (max-width: 899px) {
+  .grid.cols-2 { 
+    grid-template-columns: 1fr; /* force single column */
+  }
+  .grid.cols-2 > .media { 
+    grid-row: 1; /* images always on top */
+  }
+  .grid.cols-2 > :not(.media) { 
+    grid-row: 2; /* text below */
+  }
+}
+
   </style>
 </head>
 <body>
-  <!-- Subsite header -->
   <div class="subsite">
     <div class="container sub-head">
       <div class="left">
-        <span class="badge" title="Subsite of FUSED ID">TALENT.ID</span>
+        <span class="badge" title="Subsite of FUSED ID">TALENT ENGINE</span>
         <span class="brand">FUSED ID</span>
       </div>
       <a class="back" href="/" aria-label="Back to fusedid.com">← Back to FUSED ID</a>
     </div>
   </div>
 
-  <!-- Hero -->
   <section class="hero">
-    <div class="hero-inner">
-      <div class="container hero-content">
-        <div class="kicker">Human‑Led • AI‑Enhanced</div>
-        <h1 class="title">Find the right talent — faster, smarter, flat fee.</h1>
-        <p class="sub">We craft your advert, place it on the right channels, screen with AI + human judgement, optionally run interviews, and deliver a refined shortlist. Hire one, many, or none — the price doesn’t change.</p>
-        <div class="ctas">
-          <a class="btn btn-primary" href="#pricing">See Flat‑Fee Plans</a>
-          <a class="btn btn-ghost" href="#how">How It Works</a>
-        </div>
+    <div class="container hero-content">
+      <div class="kicker">Fully Automated • Self-Serve</div>
+      <h1 class="title">Spin up an AI hiring engine for your HR team.</h1>
+      <p class="sub">Designed for in-house HR and recruitment agencies. Define roles, generate adverts, match against your own database, and review AI-ranked shortlists — all inside one web UI.</p>
+      <div class="ctas">
+        <a class="btn btn-primary" href="#pricing">See Engine Plans</a>
+        <a class="btn btn-ghost" href="#how">How It Works</a>
       </div>
     </div>
   </section>
 
   <main class="container">
-    <!-- Advantages -->
-    <section class="section" id="advantages">
-      <h2>Why Talent.ID</h2>
-      <div class="grid cols-3" style="margin-top:.6rem">
-        <div class="card">
-          <h3>Flat‑fee, not percentage</h3>
-          <p>Traditional agencies take a slice of salary. We don’t. Your shortlist costs the same whether you hire one, three, or none.</p>
-        </div>
-        <div class="card">
-          <h3>AI speed, human judgement</h3>
-          <p>AI ranks and filters applications; experienced recruiters review edge cases, notes, and cultural fit before candidates reach you.</p>
-        </div>
-        <div class="card">
-          <h3>Outcome‑first delivery</h3>
-          <p>No new tools to learn. We handle ad placement, screening, comms, and scheduling—then deliver candidates ready to interview.</p>
-        </div>
-      </div>
-    </section>
-
-    <!-- How it works -->
     <section class="section" id="how">
       <h2>How It Works</h2>
+      <p class="muted">From role creation to detailed candidate analysis, Talent Engine automates the process while still allowing recruiters to steer the outcomes.</p>
       <div class="grid cols-2" style="margin-top:.6rem;align-items:center">
         <div class="card">
           <ol class="tick" style="list-style:decimal;padding-left:1.25rem">
-            <li><strong>Profile →</strong> Define the role, criteria, and budget (including ad spend).</li>
-            <li><strong>Attract →</strong> We craft the advert and place it on the right channels.</li>
-            <li><strong>Screen →</strong> AI ranking plus human review narrows the field.</li>
-            <li><strong>Interview →</strong> AI first‑pass or human interviews (Premium).</li>
-            <li><strong>Shortlist →</strong> Receive shortlist with summaries, scoring, and recommended next steps.</li>
+            <li><strong>Profile →</strong> Define the role, criteria, and storage plan in the dashboard.</li>
+            <li><strong>Generate →</strong> The engine creates the advert and application flow instantly.</li>
+            <li><strong>Intake →</strong> Applicants submit via your hosted page, with CV, cover letter, and can ask clarifying questions.</li>
+            <li><strong>Interview →</strong> AI conducts a 20-minute, adaptive interview of 30–40 lines of questioning, probing motivation, fit, and history.</li>
+            <li><strong>Screen →</strong> AI applies personality, sentiment, and gap analysis; red-flags intentional omissions for review.</li>
+            <li><strong>Shortlist →</strong> Review an interactive shortlist with scores, transcripts, and recruiter tools.</li>
           </ol>
-          <div style="display:flex;gap:.75rem;margin-top:1rem;flex-wrap:wrap">
-            <a class="btn btn-primary" href="#contact">Start with a 20‑min brief</a>
-            <a class="btn btn-ghost" href="#pricing">Compare plans</a>
-          </div>
         </div>
-        <div class="card"><img src="talent-process.jpg" alt="Process overview: advert → screening → interviews → shortlist"></div>
+        <div class="card media"><img src="talent-process.jpg" alt="Engine process"></div>
       </div>
     </section>
 
-    <!-- Services -->
-    <section class="section" id="services">
-      <h2>Services</h2>
-      <p class="muted">Pick the full funnel or start at the stage that hurts most.</p>
-      <div class="grid cols-2" style="margin-top:1rem">
-        <div class="card">
-          <h3>Role Profiling & Advert</h3>
-          <ul class="tick">
-            <li>Role requirements, must‑haves, and success profile</li>
-            <li>Compelling advert written to attract the right people</li>
-            <li>Channel plan that fits your budget and niche</li>
-          </ul>
+    <div class="separator"></div>
+
+    <section class="section reveal" id="disc">
+      <div class="grid cols-2" style="align-items:center">
+        <div>
+          <h2>DiSC-Based Personality Assessment</h2>
+          <p>DiSC profiling is integrated into the interview and analysis process. By evaluating traits such as Dominance, Influence, Steadiness, and Conscientiousness, the AI gives recruiters a view into how the candidate is likely to interact with colleagues, handle stress, and respond to challenges. This insight helps HR teams balance diversity with cultural cohesion, ensuring both innovation and stability in the workforce.</p>
         </div>
-        <div class="card">
-          <h3>Placement & Sourcing</h3>
-          <ul class="tick">
-            <li>Targeted job boards + social sourcing</li>
-            <li>Active outreach to relevant talent pools</li>
-            <li>Weekly progress notes & response rates</li>
-          </ul>
+        <div class="card media"><img src="disc-assessment.jpg" alt="DiSC Personality Assessment"></div>
+      </div>
+    </section>
+
+    <section class="section reveal" id="sentiment">
+      <div class="grid cols-2" style="align-items:center">
+        <div class="card media"><img src="sentiment-analysis.jpg" alt="Sentiment Analysis"></div>
+        <div>
+          <h2>Sentiment Analysis</h2>
+          <p>The AI analyses tone, enthusiasm, and depth of response across the conversation. An engaged, thoughtful applicant is likely more motivated than one offering minimal or vague responses. Sentiment scores help recruiters understand not just what was said, but how it was said — a key predictor of interest, attitude, and long-term commitment.</p>
         </div>
-        <div class="card">
-          <h3>AI + Human Screening</h3>
-          <ul class="tick">
-            <li>CV parsing, skills matching, and red‑flag checks</li>
-            <li>Human review for context, potential, and anomalies</li>
-            <li>Bias‑aware scoring model with consistent criteria</li>
-          </ul>
+      </div>
+    </section>
+
+    <section class="section reveal" id="gaps">
+      <div class="grid cols-2" style="align-items:center">
+        <div>
+          <h2>Gap Analysis</h2>
+          <p>Employment history often contains unexplained gaps. Our AI identifies these automatically and raises them in the interview. If an answer is vague or evasive, the bot rephrases the question in a different way, giving the applicant another chance to provide clarity. If intentional omissions persist, the system flags the candidate for closer human review. This ensures transparency and consistency while protecting against hidden risks.</p>
         </div>
-        <div class="card">
-          <h3>Interviews & Shortlist</h3>
-          <ul class="tick">
-            <li>AI first‑pass Q&A for consistency (optional)</li>
-            <li>Human interviews in the Premium plan</li>
-            <li>Shortlist with scores, notes, and recommended next steps</li>
-          </ul>
+        <div class="card media"><img src="gap-analysis.jpg" alt="Gap Analysis"></div>
+      </div>
+    </section>
+
+    <section class="section reveal" id="culture-fit">
+      <div class="grid cols-2" style="align-items:center">
+        <div class="card media"><img src="cultural-fit.jpg" alt="Cultural Fit"></div>
+        <div>
+          <h2>Cultural Fit Exploration</h2>
+          <p>Cultural alignment is as important as technical fit. Talent Engine compares applicant responses against employer-provided cultural profiles. It does not enforce uniformity — diversity is essential — but highlights where alignment will help a candidate thrive. Our AI ensures you see not only who can do the job, but who will succeed in your specific environment.</p>
+        </div>
+      </div>
+    </section>
+
+    <section class="section reveal" id="applicant-questions">
+      <div class="grid cols-2" style="align-items:center">
+        <div>
+          <h2>Answering Applicant Questions</h2>
+          <p>During the AI interview, applicants can also ask their own questions. The engine provides non-committal but informative answers based on the job advert and employer-provided notes. This creates a conversational flow that feels human-like while ensuring accuracy and consistency, without over-promising. Applicants feel engaged and informed, while recruiters retain control of the narrative.</p>
+        </div>
+        <div class="card media"><img src="applicant-questions.jpg" alt="Applicant Questions"></div>
+      </div>
+    </section>
+
+    <section class="pricing" id="pricing">
+      <div class="container section">
+        <h2>Plans</h2>
+        <div class="price-grid" style="margin-top:1rem">
+          <div class="plan">
+            <span class="price-tag">$149 AUD / month</span>
+            <h3>Business Pro Engine</h3>
+            <div class="meta">Storage: up to <strong>1,000 applicants</strong></div>
+            <ul class="tick">
+              <li>Applicant intake portal & 40-question interview bot</li>
+              <li>AI ranking, DiSC personality review, sentiment & gap analysis</li>
+              <li>Shortlists with notes, CSV export</li>
+              <li>Status workflows (shortlisted / interview / rejected)</li>
+            </ul>
+            <a class="btn btn-primary" href="/app/start">Start Business Pro</a>
+          </div>
+          <div class="plan">
+            <span class="price-tag">$249 AUD / month</span>
+            <h3>Recruiter Pro Engine</h3>
+            <div class="meta">Storage: up to <strong>20,000 applicants</strong></div>
+            <ul class="tick">
+              <li>Everything in Business Pro</li>
+              <li>Recruiter database matching to your own job adverts</li>
+              <li>Advanced analytics & candidate email summaries</li>
+              <li>API & ATS integration</li>
+            </ul>
+            <a class="btn btn-primary" href="/app/start">Start Recruiter Pro</a>
+          </div>
         </div>
       </div>
     </section>
   </main>
 
-<!-- PRICING (Tiers by jobs per month) -->
-<section class="pricing" id="pricing">
-  <div class="container section">
-    <h2>Plans</h2>
-    <p class="muted">Flat-fee engagement by hiring volume. Your shortlist fee is the same whether you hire one, many, or none. Ads budget and screening depth scale by tier.</p>
-
-    <div class="price-grid" style="margin-top:1rem">
-      <!-- SMALL BUSINESS -->
-      <div class="plan">
-        <h3>Small Business</h3>
-        <div class="meta">Up to <strong>2 jobs per month</strong></div>
-        <ul class="tick">
-          <li><strong>Job writing help</strong> — we create an advert bot that matches your approved tone/style</li>
-          <li><strong>Human-reviewed final advert</strong> before posting</li>
-          <li><strong>Posting on top 3</strong> recruitment platforms</li>
-          <li><strong>AI + human screening</strong> with a refined <strong>shortlist</strong></li>
-          <li><strong>Detailed notes & comments</strong> on each shortlisted candidate</li>
-          <li><strong>Weekly summaries</strong> of pipeline & next actions</li>
-        </ul>
-        <p class="muted" style="margin-top:.6rem"><em>Optional add-ons:</em> Human-run final interviews, reference checks (enquire for current pricing).</p>
-        <a class="btn btn-primary" href="#contact">Start Small Business</a>
-      </div>
-
-      <!-- ENTERPRISE -->
-      <div class="plan">
-        <h3>Enterprise</h3>
-        <div class="meta">Up to <strong>5 jobs per month</strong></div>
-        <ul class="tick">
-          <li><strong>Job writing help</strong> — final advert reviewed by our human team</li>
-          <li><strong>Posting on top 3</strong> recruitment platforms</li>
-          <li><strong>AI + human screening</strong> and <strong>shortlisting</strong></li>
-          <li><strong>Detailed notes & comments</strong> for hiring managers</li>
-          <li><strong>Weekly summaries</strong> with recommended next steps</li>
-          <li><strong>Priority turnaround</strong> on screening & comms</li>
-        </ul>
-        <p class="muted" style="margin-top:.6rem"><em>Optional add-ons:</em> Human-run final interviews, reference checks (enquire for current pricing).</p>
-        <a class="btn btn-primary" href="#contact">Start Enterprise</a>
-      </div>
-
-      <!-- RECRUITERS -->
-      <div class="plan">
-        <h3>Recruiters</h3>
-        <div class="meta">Up to <strong>20 jobs per month</strong></div>
-        <ul class="tick">
-          <li><strong>Job writing help</strong> — final advert reviewed by our human team</li>
-          <li><strong>Posting on top 3</strong> recruitment platforms</li>
-          <li><strong>AI + human screening</strong> and <strong>shortlisting</strong></li>
-          <li><strong>Detailed notes & comments</strong> across all roles</li>
-          <li><strong>Weekly summaries</strong> to keep pipelines moving</li>
-          <li><strong>Monthly usage stats & reporting</strong></li>
-          <li><strong>Best-performing jobs analysis</strong> with optimisation tips</li>
-        </ul>
-        <a class="btn btn-primary" href="#contact">Start Recruiters</a>
-      </div>
-    </div>
-
-    <p style="margin-top:1rem" class="muted">
-      <em>Note:</em> While we don’t guarantee a hire, you receive a full shortlist you can hire from now or later—at no additional fee.
-    </p>
-  </div>
-</section>
-
-
-
-  <!-- Contact -->
-  <section class="section" id="contact">
+  <section class="section" id="console">
     <div class="container">
       <div class="grid cols-2" style="align-items:center">
         <div>
-          <h2>Start a search</h2>
-          <p class="muted">Tell us about the role, budget, and timeline. We’ll craft the advert and begin sourcing within days.</p>
-          <p><strong>Talent.ID — Recruitment Team</strong></p>
-          <p>Email: <a href="mailto:simon@fusedid.com?subject=Talent.ID%20Search">simon@fusedid.com</a><br>
-             Phone: <a href="tel:+61433011422">+61 433 011 422</a><br>
-             Location: Melbourne, Australia</p>
+          <h2>Launch in minutes</h2>
+          <p class="muted">Create your account and start your first role now. No sales calls or onboarding required.</p>
           <div style="display:flex;gap:.75rem;flex-wrap:wrap;margin-top:.5rem">
-            <a class="btn btn-primary" href="mailto:simon@fusedid.com?subject=Talent.ID%20Search">Kick off my search</a>
+            <a class="btn btn-primary" href="/app/start">Launch Talent Engine</a>
             <a class="back" href="/">← Back to fusedid.com</a>
           </div>
         </div>
-        <div class="card"><img src="talent-examples.jpg" alt="Shortlist examples: candidate summaries and scoring"></div>
+        <div class="card media"><img src="talent-examples.jpg" alt="Shortlist dashboard preview"></div>
       </div>
     </div>
   </section>
@@ -283,5 +234,21 @@
       <a class="back" href="/">← Back to FUSED ID</a>
     </div>
   </footer>
+
+  <script>
+    // Scroll reveal logic
+    const reveals = document.querySelectorAll('.reveal');
+    const revealOnScroll = () => {
+      const triggerBottom = window.innerHeight * 0.85;
+      reveals.forEach(el => {
+        const boxTop = el.getBoundingClientRect().top;
+        if(boxTop < triggerBottom){
+          el.classList.add('visible');
+        }
+      });
+    };
+    window.addEventListener('scroll', revealOnScroll);
+    window.addEventListener('load', revealOnScroll);
+  </script>
 </body>
-</html>
+</html

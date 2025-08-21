@@ -1,0 +1,351 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>PROSPECT ENGINE • FUSED ID — Self‑Serve AI Prospecting for Sales Teams</title>
+  <meta name="description" content="Spin up an AI prospecting engine: define ICP, generate lead lists and sequences, send with deliverability guardrails, auto‑book meetings, and track performance — all in one UI."/>
+  <link rel="icon" href="/favicon.ico"/>
+  <style>
+    :root{ --espresso:#150e09; --copper:#ff8c32; --copper-light:#ffb169; --glow:rgba(255,140,50,.6); --ink:#111; --muted:#555; --card:#fff; --line:#eadfd7; }
+    *{box-sizing:border-box}
+    html,body{margin:0;padding:0}
+    body{font-family:system-ui,-apple-system,Segoe UI,Roboto,Helvetica,Arial;color:var(--ink);background:#fff}
+    a{color:inherit;text-decoration:none}
+    img{max-width:100%;height:auto;display:block;border-radius:14px}
+    .container{max-width:1180px;margin:0 auto;padding:0 clamp(16px,4vw,28px)}
+
+    /* Subsite header */
+    .subsite{position:relative;z-index:5;background:#0f0a07;border-bottom:1px solid rgba(255,255,255,.08)}
+    .sub-head{display:flex;align-items:center;justify-content:space-between;padding:12px 0;color:#fff}
+    .left{display:flex;align-items:center;gap:.75rem}
+    .badge{display:inline-flex;align-items:center;gap:.45rem;padding:.4rem .65rem;border:1px solid rgba(255,255,255,.22);border-radius:10px;color:#fff;background:rgba(255,255,255,.06);font-weight:900;font-size:.9rem}
+    .brand{font-weight:1000;letter-spacing:.06em}
+    .back{display:inline-flex;align-items:center;gap:.4rem;padding:.55rem .8rem;border-radius:10px;border:1px solid rgba(255,255,255,.22);color:#fff}
+    .back:hover{box-shadow:0 0 0 3px rgba(255,255,255,.06) inset}
+
+    /* Hero */
+    .hero{position:relative;isolation:isolate;min-height:66vh;display:grid;place-items:center;overflow:hidden}
+    .hero::before{content:"";position:absolute;inset:0;z-index:-2;background:
+        linear-gradient(180deg, rgba(21,14,9,.70) 0%, rgba(21,14,9,.92) 65%, rgba(21,14,9,.98) 100%),
+        url('prospect-hero.jpg') center 35%/cover no-repeat;filter:saturate(1.05) contrast(1.02)}
+    .hero::after{content:"";position:absolute;inset:0;z-index:-1;background:
+      radial-gradient(40% 25% at 20% 20%, rgba(255,140,50,.25), transparent 60%),
+      radial-gradient(30% 20% at 80% 75%, rgba(255,177,105,.15), transparent 70%)}
+    .hero-content{color:#fff;max-width:1060px;margin:0 auto;padding:5.75rem clamp(16px,4vw,28px) 4rem}
+    .kicker{color:var(--copper-light);text-transform:uppercase;letter-spacing:.14em;font-weight:1000;font-size:.82rem;margin-bottom:.8rem}
+    .title{font-size:clamp(2rem,4vw+1rem,4rem);line-height:1.08;margin:0 0 .5rem;font-weight:1000}
+    .sub{max-width:760px;font-size:clamp(1rem,1vw+.55rem,1.25rem);line-height:1.6;color:#f3f3f3;margin:0 0 1.2rem}
+    .ctas{display:flex;gap:.75rem;flex-wrap:wrap}
+    .btn{appearance:none;border:0;border-radius:10px;cursor:pointer;font-weight:900;padding:.95rem 1.2rem;font-size:1rem;display:inline-flex;align-items:center;gap:.45rem}
+    .btn-primary{background:linear-gradient(180deg,var(--copper),#fa7c16);color:#220e05;box-shadow:0 6px 24px rgba(255,140,50,.35)}
+    .btn-ghost{background:transparent;border:2px solid rgba(255,255,255,.75);color:#fff}
+
+    /* Content */
+    .section{padding:3.25rem 0}
+    h2{font-size:1.9rem;margin:.2rem 0 1rem;font-weight:1000}
+    h3{margin:.2rem 0 .6rem}
+    p{margin:.4rem 0 1rem}
+    .muted{color:#666}
+    .grid{display:grid;gap:1.25rem}
+    @media(min-width:900px){.cols-2{grid-template-columns:1fr 1fr}}
+    @media(min-width:1120px){.cols-3{grid-template-columns:repeat(3,1fr)}}
+    .card{background:var(--card);border:1px solid var(--line);border-radius:14px;padding:1.25rem}
+    .tick{list-style:none;margin:0;padding:0}
+    .tick li{padding-left:1.6rem;position:relative;margin:.55rem 0;line-height:1.7}
+    .tick li::before{content:"✓";position:absolute;left:.2rem;top:.05rem;color:var(--copper);font-weight:1000}
+
+    /* Separator */
+    .separator{height:2px;width:100%;background:linear-gradient(to right, transparent, var(--copper), transparent);margin:2.5rem 0}
+
+    /* Pricing */
+    .pricing{background:#fbf9f7;border-top:1px solid #eadfd7;border-bottom:1px solid #eadfd7}
+    .price-grid{display:grid;gap:1rem}
+    @media(min-width:1024px){.price-grid{grid-template-columns:repeat(2,1fr)}}
+    .plan{border:2px solid #efe2d9;border-radius:16px;background:#fff;padding:1.4rem;display:flex;flex-direction:column}
+    .plan h3{font-size:1.25rem}
+    .price{font-size:1.85rem;font-weight:1000;margin:.2rem 0 .55rem}
+    .meta{color:#666;font-size:.95rem;margin-bottom:.65rem}
+    .plan .btn{margin-top:auto}
+
+    /* Footer */
+    footer{background:#0f0a07;color:#ddd}
+    .foot-inner{display:flex;justify-content:space-between;align-items:center;gap:1rem;padding:1.25rem 0}
+    .foot a{color:#fff}
+
+    /* Reveal */
+    .reveal{opacity:0;transform:translateY(40px);transition:all .8s ease}
+    .reveal.visible{opacity:1;transform:translateY(0)}
+
+    /* Mobile image-first */
+    @media (max-width: 899px) {
+      .grid.cols-2 { grid-template-columns: 1fr; }
+      .grid.cols-2 > .media { grid-row: 1; }
+      .grid.cols-2 > :not(.media) { grid-row: 2; }
+    }
+  </style>
+</head>
+<body>
+  <div class="subsite">
+    <div class="container sub-head">
+      <div class="left">
+        <span class="badge" title="Subsite of FUSED ID">PROSPECT ENGINE</span>
+        <span class="brand">FUSED ID</span>
+      </div>
+      <a class="back" href="/" aria-label="Back to fusedid.com">← Back to FUSED ID</a>
+    </div>
+  </div>
+
+  <section class="hero">
+    <div class="container hero-content">
+      <div class="kicker">Fully Automated • Self‑Serve</div>
+      <h1 class="title">Spin up an AI prospecting engine for your sales team.</h1>
+      <p class="sub">Define your ICP, generate targeted lists and outreach sequences, send with deliverability guardrails, auto‑book meetings, and track performance — all inside one web UI.</p>
+      <div class="ctas">
+        <a class="btn btn-primary" href="#pricing">See Engine Plans</a>
+        <a class="btn btn-ghost" href="#how">How It Works</a>
+      </div>
+    </div>
+  </section>
+
+  <main class="container">
+    <!-- How It Works -->
+    <section class="section" id="how">
+      <h2>How It Works</h2>
+      <p class="muted">From ICP setup to booked meetings, Prospect Engine automates the workflow while letting sales leaders steer outcomes.</p>
+      <div class="grid cols-2" style="margin-top:.6rem;align-items:center">
+        <div class="card">
+          <ol class="tick" style="list-style:decimal;padding-left:1.25rem">
+            <li><strong>Profile →</strong> Define ICP, niches, and regions; set send limits and inboxes.</li>
+            <li><strong>Generate →</strong> Engine builds lead lists and multi‑step sequences with personalisation hooks.</li>
+            <li><strong>Safeguard →</strong> Warm‑up, throttling, and compliance checks prevent deliverability issues.</li>
+            <li><strong>Qualify →</strong> Positive replies are detected; handover rules trigger calendar booking.</li>
+            <li><strong>Report →</strong> Dashboards show volumes, replies, meetings, and next‑best tests.</li>
+          </ol>
+        </div>
+        <div class="card media"><img src="prospect-process.jpg" alt="Prospect Engine process"></div>
+      </div>
+    </section>
+
+    <div class="separator"></div>
+
+ <!-- Features -->
+<section class="section reveal" id="domain">
+  <div class="grid cols-2" style="align-items:center">
+    <div>
+      <h2>Domain Hunting</h2>
+      <p>The Prospect Engine analyses any domains you provide, scanning keywords and backlinks to uncover related sites. It automates hours of monotonous research and delivers a stream of similar, relevant leads.</p>
+      <ul class="tick">
+        <li>Keyword and backlink analysis</li>
+        <li>Find similar & related domains</li>
+        <li>Save hours of manual research</li>
+      </ul>
+    </div>
+    <div class="card media"><img src="prospect-domains.jpg" alt="Domain hunting"></div>
+  </div>
+</section>
+
+<section class="section reveal" id="linkedin">
+  <div class="grid cols-2" style="align-items:center">
+    <div class="card media"><img src="prospect-linkedin.jpg" alt="LinkedIn hunting"></div>
+    <div>
+      <h2>LinkedIn Hunting</h2>
+      <p>Feed the engine a profile with valuable connections, and it filters out the noise. The result: only the prospects relevant to your ICP, discovered directly from LinkedIn’s network.</p>
+      <ul class="tick">
+        <li>Import from high-value LinkedIn profiles</li>
+        <li>AI filters out irrelevant connections</li>
+        <li>Instantly expand your network</li>
+      </ul>
+    </div>
+  </div>
+</section>
+
+<section class="section reveal" id="sorting">
+  <div class="grid cols-2" style="align-items:center">
+    <div>
+      <h2>Smart Sorting</h2>
+      <p>Having endless prospects isn’t the goal — being targeted is. You define categories, and the engine automatically segments prospects into the right buckets for focused outreach.</p>
+      <ul class="tick">
+        <li>Custom categories & tags</li>
+        <li>Automated segmentation</li>
+        <li>Targeted prospecting lists</li>
+      </ul>
+    </div>
+    <div class="card media"><img src="prospect-sorting.jpg" alt="Sorting prospects"></div>
+  </div>
+</section>
+
+<section class="section reveal" id="enhancing">
+  <div class="grid cols-2" style="align-items:center">
+    <div class="card media"><img src="prospect-enhancing.jpg" alt="Prospect enrichment"></div>
+    <div>
+      <h2>Prospect Enrichment</h2>
+      <p>The engine enriches each record with useful context: location, brand message, website keywords, and best-fit category for your business. More knowledge, better targeting.</p>
+      <ul class="tick">
+        <li>Country & region detection</li>
+        <li>Extract brand messaging & keywords</li>
+        <li>Assign best-fit categories</li>
+      </ul>
+    </div>
+  </div>
+</section>
+
+<section class="section reveal" id="mailchimp">
+  <div class="grid cols-2" style="align-items:center">
+    <div>
+      <h2>Mailchimp Uploads</h2>
+      <p>Push only the right segment into Mailchimp when you’re ready. Avoid bloating your lists, while keeping campaigns tightly aligned with your latest prospecting results.</p>
+      <ul class="tick">
+        <li>One-click segment upload</li>
+        <li>Stay lean inside Mailchimp</li>
+        <li>Control when & what gets sent</li>
+      </ul>
+    </div>
+    <div class="card media"><img src="prospect-mailchimp.jpg" alt="Mailchimp upload"></div>
+  </div>
+</section>
+
+<section class="section reveal" id="reporting">
+  <div class="grid cols-2" style="align-items:center">
+    <div class="card media"><img src="prospect-reporting.jpg" alt="Lead reporting"></div>
+    <div>
+      <h2>Lead Reporting</h2>
+      <p>See how many new leads were found, how relevant they are, and which sources delivered the most value. Keep refining your outreach strategy with clear metrics.</p>
+      <ul class="tick">
+        <li>Daily & weekly lead counts</li>
+        <li>Source quality metrics</li>
+        <li>Refinement recommendations</li>
+      </ul>
+    </div>
+  </div>
+</section>
+
+<section class="section reveal" id="engine">
+  <div class="grid cols-2" style="align-items:center">
+    <div>
+      <h2>The Perpetual Engine</h2>
+      <p>Every domain you enter generates 50+ new ones. Each of those is also expanded, multiplying into thousands of prospects. The system always prioritises the most relevant leads, based on your definitions.</p>
+      <ul class="tick">
+        <li>50+ domains per input</li>
+        <li>Recursive prospect expansion</li>
+        <li>Ranked by your relevance criteria</li>
+      </ul>
+    </div>
+    <div class="card media"><img src="prospect-perpetual.jpg" alt="Perpetual prospecting engine"></div>
+  </div>
+</section>
+  </main>
+
+<!-- Pricing -->
+<section class="pricing" id="pricing">
+  <div class="container section">
+    <h2>Plans</h2>
+    <div class="plans-row">
+      
+      <div class="plan">
+        <h3>Starter</h3>
+        <div class="price">$95 / month</div>
+        <div class="meta">Ideal for small teams testing outbound</div>
+        <ul class="tick">
+          <li>10 new leads per day</li>
+          <li>Domain & LinkedIn hunting</li>
+          <li>Smart sorting & enrichment</li>
+          <li>Mailchimp integration</li>
+        </ul>
+        <a class="btn btn-primary" href="#contact">Start Starter</a>
+      </div>
+
+      <div class="plan">
+        <h3>Growth</h3>
+        <div class="price">$195 / month</div>
+        <div class="meta">Best for scaling teams</div>
+        <ul class="tick">
+          <li>25 new leads per day</li>
+          <li>Domain & LinkedIn hunting</li>
+          <li>Smart sorting & enrichment</li>
+          <li>Mailchimp integration</li>
+          <li>Lead quality reporting</li>
+        </ul>
+        <a class="btn btn-primary" href="#contact">Start Growth</a>
+      </div>
+
+      <div class="plan">
+        <h3>Scale</h3>
+        <div class="price">$395 / month</div>
+        <div class="meta">For serious prospecting ops</div>
+        <ul class="tick">
+          <li>50 new leads per day</li>
+          <li>Domain & LinkedIn hunting</li>
+          <li>Smart sorting & enrichment</li>
+          <li>Mailchimp integration</li>
+          <li>Lead quality reporting</li>
+          <li>Perpetual Engine expansion</li>
+        </ul>
+        <a class="btn btn-primary" href="#contact">Start Scale</a>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<style>
+  .plans-row {
+    display: flex;
+    gap: 1rem;
+    justify-content: center;
+    flex-wrap: wrap; /* wrap on small screens */
+  }
+  .plans-row .plan {
+    flex: 1;
+    min-width: 260px;
+    max-width: 340px;
+  }
+</style>
+
+    </div>
+  </div>
+</section>
+
+
+
+  <!-- Contact -->
+  <section class="section" id="contact">
+    <div class="container">
+      <div class="grid cols-2" style="align-items:center">
+        <div>
+          <h2>Enable Prospect Engine</h2>
+          <p class="muted">Kick off with your ICP and regions — we’ll configure sequences and sending rules.</p>
+          <p><strong>Prospect Engine — FUSED ID</strong></p>
+          <p>Email: <a href="mailto:director@fusedid.com?subject=Prospect%20Engine%20Enquiry">director@fusedid.com</a><br>
+             Location: Melbourne, Australia</p>
+          <div style="display:flex;gap:.75rem;flex-wrap:wrap;margin-top:.5rem">
+            <a class="btn btn-primary" href="mailto:director@fusedid.com?subject=Prospect%20Engine%20Enquiry">Start now</a>
+            <a class="btn btn-ghost" href="/">Back to fusedid.com</a>
+          </div>
+        </div>
+        <div class="card media"><img src="prospect-examples.jpg" alt="Prospect Engine dashboard previews"></div>
+      </div>
+    </div>
+  </section>
+
+  <footer class="foot">
+    <div class="container foot-inner">
+      <small>© FUSED ID. All rights reserved.</small>
+      <a class="back" href="/">← Back to FUSED ID</a>
+    </div>
+  </footer>
+
+  <script>
+    // Scroll reveal
+    document.addEventListener('DOMContentLoaded', () => {
+      const reveals = document.querySelectorAll('.reveal');
+      const revealOnScroll = () => {
+        const triggerBottom = window.innerHeight * 0.85;
+        reveals.forEach(el => { if (el.getBoundingClientRect().top < triggerBottom) el.classList.add('visible'); });
+      };
+      revealOnScroll();
+      window.addEventListener('scroll', revealOnScroll, { passive: true });
+    });
+  </script>
+</body>
+</html>

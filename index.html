@@ -42,12 +42,19 @@
       display:flex;align-items:center;justify-content:space-between;
       padding:1rem 0;
     }
-    .brand{
-      font-weight:800;letter-spacing:.06em;
-      color:#000;
-      font-size:1.1rem;
-      white-space:nowrap;
-    }
+.brand{
+  display:flex;            /* NEW: horizontal logo + text */
+  align-items:center;      /* NEW: vertical centering */
+  font-weight:800;
+  letter-spacing:.06em;
+  color:#000;
+  font-size:1.1rem;
+  white-space:nowrap;
+}
+.brand img {
+  height:28px;             /* NEW: scale logo */
+  margin-right:8px;        /* NEW: space between logo + text */
+}
     nav.primary{
       display:flex;gap:1.25rem;align-items:center;
     }
@@ -198,14 +205,25 @@
     .contact-details{flex:1;min-width:250px;text-align:left}
     .contact-details h2{font-size:2rem;margin-bottom:1rem}
 
-    /* ===== Responsive header & nav ===== */
-    @media (max-width:960px){
-      nav.primary { display: none; }
-      .hamburger { display: flex; }
-      .brand { font-size: 1rem; margin-left: 0.25rem; }
-      .header-inner { padding-left: 1.25rem; padding-right: 1.25rem; }
-    }
-
+/* ===== Responsive header & nav ===== */
+@media (max-width:960px){
+  nav.primary { display: none; }
+  .hamburger { display: flex; }
+.brand{
+  display:flex;            /* NEW: make it a row on desktop too */
+  align-items:center;      /* NEW: vertical centering */
+  font-weight:800;
+  letter-spacing:.06em;
+  color:#000;
+  font-size:1.1rem;
+  white-space:nowrap;
+}
+.brand img{
+  height:28px;
+  margin-right:8px;
+}
+  .header-inner { padding-left: 1.25rem; padding-right: 1.25rem; }
+}
     /* Small polish */
     .shadow-sm{box-shadow:0 4px 18px rgba(0,0,0,.04)}
 
@@ -296,7 +314,10 @@
   <!-- ===== Header ===== -->
   <header class="shadow-sm">
     <div class="container header-inner">
-      <div class="brand">FUSED ID</div>
+<div class="brand">
+  <img src="fusedid logo -white bg.png" alt="Fused ID Logo" style="height:28px;vertical-align:middle;margin-right:8px;">
+  FUSED ID
+</div>
       <nav class="primary" aria-label="Primary">
         <a href="#services">Human+AI</a>
         <a href="#team">AI Employees</a>

@@ -262,6 +262,11 @@ nav.primary a {
       .brand { font-size: 1rem; }
     }
 
+.hamburger {
+  cursor: pointer;  /* show hand icon on hover */
+}
+
+
     @media (min-width: 768px) and (max-width: 1100px) {
       .header-inner { padding-inline: max(env(safe-area-inset-left), clamp(20px, 6vw, 40px)); }
     }
@@ -316,6 +321,9 @@ nav.primary a {
 #engines .agency-card.reveal:nth-child(3) { transition-delay: .18s; }
 #engines .agency-card.reveal:nth-child(4) { transition-delay: .27s; }
 
+
+
+
   </style>
 </head>
 
@@ -325,13 +333,15 @@ nav.primary a {
   <!-- ===== Overlay Mobile Menu ===== -->
   <div class="nav-overlay" id="overlayNav" aria-hidden="true">
     <button class="nav-close" aria-label="Close menu" onclick="toggleMenu(false)">×</button>
-    <div class="nav-panel">
-      <a href="#services" onclick="toggleMenu(false)">Human+AI</a>
-      <a href="#team" onclick="toggleMenu(false)">AI Employees</a>
-      <a href="#engines" onclick="toggleMenu(false)">AI Engines</a>
-      <a href="#contact" onclick="toggleMenu(false)">Contact</a>
-      <a href="mailto:sales@fusedid.com" onclick="toggleMenu(false)" style="margin-top:.6rem;color:var(--copper-light)">sales@fusedid.com</a>
-    </div>
+<div class="nav-panel">
+  <a href="#services" onclick="toggleMenu(false)">Human+AI</a>
+  <a href="#team" onclick="toggleMenu(false)">AI Employees</a>
+  <a href="#engines" onclick="toggleMenu(false)">AI Engines</a>
+  <a href="stories.html" onclick="toggleMenu(false)">Stories</a>
+  <a href="contacts.html" onclick="toggleMenu(false)">Contact</a>
+  <a href="mailto:sales@fusedid.com" onclick="toggleMenu(false)" style="margin-top:.6rem;color:var(--copper-light)">sales@fusedid.com</a>
+</div>
+
   </div>
 
   <!-- ===== Header ===== -->
@@ -341,12 +351,14 @@ nav.primary a {
   <img src="fusedid logo -white bg.png" alt="Fused ID Logo" style="height:28px;vertical-align:middle;margin-right:8px;">
   FUSED ID
 </div>
-      <nav class="primary" aria-label="Primary">
-        <a href="#services">Human+AI</a>
-        <a href="#team">AI Employees</a>
-        <a href="#engines">AI Engines</a>
-        <a href="#contact">Contact</a>
-      </nav>
+<nav class="primary" aria-label="Primary">
+  <a href="#services">Human+AI</a>
+  <a href="#team">AI Employees</a>
+  <a href="#engines">AI Engines</a>
+  <a href="stories.html">Stories</a>
+  <a href="contacts.html">Contact</a>
+</nav>
+
       <button class="hamburger" aria-label="Open menu" aria-controls="overlayNav" aria-expanded="false" onclick="toggleMenu(true)">
         <span></span>
       </button>
@@ -365,8 +377,9 @@ Fully managed AI employees and modular AI Engines you can plug into your busines
 </p>
 <div class="hero-ctas">
   <a class="btn btn-primary" href="#engines">Explore the Engines →</a>
-  <a class="btn btn-outline" href="#contact">Talk to Us</a>
+  <a class="btn btn-outline" href="/contacts.html">Talk to Us</a>
 </div>
+
 
         </div>
       </div>
@@ -611,69 +624,57 @@ Each FUSED Engine is a self-contained business system powered by AI employees an
 
 
 <script>
-(() => {
-  const initObserver = () => {
-    const els = document.querySelectorAll('.reveal');
-    const io = new IntersectionObserver((entries, obs) => {
+  (function(){
+    const els = Array.from(document.querySelectorAll('.reveal'));
+
+    // Observer: reveal when even 1% is visible, with a bit of bottom rootMargin
+    const io = new IntersectionObserver((entries) => {
       entries.forEach(entry => {
         if (entry.isIntersecting) {
           entry.target.classList.add('visible');
-          obs.unobserve(entry.target);
+          io.unobserve(entry.target);
         }
       });
-    }, {
-      root: null,
-      rootMargin: "0px 0px -15% 0px", // trigger later so top-row cards don’t fire early
-      threshold: 0.1                  // ~10% visible before reveal
-    });
+    }, { root: null, rootMargin: '0px 0px -10% 0px', threshold: 0.01 });
+
     els.forEach(el => io.observe(el));
-  };
 
-  const start = () => {
-    window.removeEventListener('wheel', start);
-    window.removeEventListener('touchmove', start);
-    window.removeEventListener('pointerdown', start);
-    window.removeEventListener('keydown', start);
-    window.removeEventListener('hashchange', start);
-    initObserver();
-  };
-
-  // IMPORTANT: do NOT auto-start just because location.hash exists on load.
-  // Start on genuine interaction or when the hash changes during this session.
-  window.addEventListener('wheel', start, { once: true, passive: true });
-  window.addEventListener('touchmove', start, { once: true, passive: true });
-  window.addEventListener('pointerdown', start, { once: true, passive: true });
-  window.addEventListener('keydown', start, { once: true });
-  window.addEventListener('hashchange', start, { once: true });
-})();
-</script>
-
-<script>
-  (function () {
-    // Stop the browser restoring the previous scroll position
-    if ('scrollRestoration' in history) {
-      history.scrollRestoration = 'manual';
+    // Helper: reveal anything already in view (e.g., when arriving with #hash)
+    function revealNowIfInView(){
+      els.forEach(el => {
+        const r = el.getBoundingClientRect();
+        if (r.top < window.innerHeight * 0.98 && r.bottom > 0) {
+          el.classList.add('visible');
+          io.unobserve(el);
+        }
+      });
     }
 
-    // When returning via Back/Forward (incl. bfcache restores), jump to top
-    window.addEventListener('pageshow', function (e) {
-      // Detect back/forward navigation or bfcache restore
-      var nav = performance && performance.getEntriesByType
-        ? performance.getEntriesByType('navigation')[0]
-        : null;
-      var isBackForward = (nav && nav.type === 'back_forward') || e.persisted;
-
-      if (isBackForward) {
-        // Remove any in-page hash so we don't snap back to an anchor
-        if (location.hash) {
-          history.replaceState(null, '', location.pathname + location.search);
-        }
-        // Jump to the very top
-        window.scrollTo(0, 0);
+    // If we arrive with a hash, scroll to it and reveal immediately
+    function handleHashArrival(){
+      if (!location.hash) { revealNowIfInView(); return; }
+      const id = location.hash.slice(1);
+      const target = document.getElementById(id);
+      if (target) {
+        target.scrollIntoView({ block: 'start' });
+        // Next frame, reveal whatever is now in view
+        requestAnimationFrame(revealNowIfInView);
+      } else {
+        revealNowIfInView();
       }
-    });
+    }
+
+    // On load: handle initial anchor + anything already visible
+    window.addEventListener('load', handleHashArrival);
+
+    // If user clicks a link to another anchor later
+    window.addEventListener('hashchange', handleHashArrival);
   })();
 </script>
+
+
+
+
 
 
 </body>

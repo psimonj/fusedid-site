@@ -1,0 +1,367 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Stories • FUSED ID — AI Employees & Engines In Action</title>
+  <meta name="description" content="Short, practical stories showing how FUSED ID AI Employees and Engines deliver outcomes. Challenge → Action → Result."/>
+
+  <style>
+    /* ===== Brand tokens (match site) ===== */
+    :root{
+      --espresso:#150e09;
+      --copper:#ff8c32;
+      --copper-light:#ffb169;
+      --glow:rgba(255,140,50,.6);
+      --ink:#111;
+      --muted:#555;
+      --bg:#fff;
+      --line:#eee;
+    }
+
+    /* ===== Base ===== */
+    *{box-sizing:border-box}
+    html,body{margin:0;padding:0}
+    body{font-family:system-ui,-apple-system,Segoe UI,Roboto,Helvetica,Arial;color:var(--ink);background:var(--bg)}
+    a{color:inherit;text-decoration:none}
+    img{max-width:100%;height:auto;display:block}
+    .container{max-width:1200px;margin:0 auto;padding:0 1rem}  /* match index */
+
+    /* ===== Header (IDENTICAL to index) ===== */
+    header{position:relative;z-index:5;background:#fff;border-bottom:1px solid #eee}
+    .header-inner{display:flex;align-items:center;justify-content:space-between;padding:1rem 0} /* match index */
+    .brand{display:flex;align-items:center;font-weight:800;letter-spacing:.06em;color:#000;font-size:1.1rem;white-space:nowrap} /* match index */
+    .brand img{height:28px;margin-right:8px}
+    nav.primary{display:flex;gap:2.5rem;align-items:center}
+    nav.primary a{color:#000;font-weight:600;transition:color .25s ease} /* match index */
+    nav.primary a:hover{color:var(--copper)}
+
+    /* Mobile hamburger (same as index) */
+    .hamburger{display:none;width:40px;height:40px;border:1px solid #ddd;border-radius:8px;background:#fff;align-items:center;justify-content:center}
+    .hamburger span{display:block;width:18px;height:2px;background:#000;position:relative}
+    .hamburger span:before,.hamburger span:after{content:"";position:absolute;left:0;width:18px;height:2px;background:#000}
+    .hamburger span:before{top:-6px}
+    .hamburger span:after{top:6px}
+
+.hamburger {
+  cursor: pointer;  /* show hand icon on hover */
+}
+
+
+    /* Overlay nav (same as index) */
+    .nav-overlay{position:fixed;inset:0;background:radial-gradient(60% 60% at 20% 10%, rgba(255,140,50,.18), transparent 60%),var(--espresso);display:none;z-index:1000;color:#fff}
+    .nav-overlay.open{display:block;animation:fadeIn .25s ease}
+    @keyframes fadeIn{from{opacity:0}to{opacity:1}}
+    .nav-panel{height:100%;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:1.2rem;text-align:center;padding:2rem}
+    .nav-overlay a{font-size:1.6rem;font-weight:700;letter-spacing:.02em;color:#fff;transition:color .2s ease, text-shadow .2s ease}
+    .nav-overlay a:hover{color:var(--copper-light);text-shadow:0 0 16px var(--glow)}
+    .nav-close{position:absolute;top:16px;right:16px;width:44px;height:44px;border:1px solid rgba(255,255,255,.25);border-radius:10px;background:transparent;color:#fff;font-size:22px;line-height:1}
+
+    /* ===== Hero ===== */
+    .hero{position:relative;isolation:isolate;min-height:46vh;display:grid;place-items:center;overflow:hidden;background:#0f0a07}
+    .hero::before{content:"";position:absolute;inset:0;z-index:-2;background:
+      linear-gradient(180deg, rgba(21,14,9,.65) 0%, rgba(21,14,9,.85) 55%, rgba(21,14,9,.95) 100%),
+      url('leadership-governance.jpg') center/cover no-repeat;filter:saturate(1.05) contrast(1.02)}
+    .hero::after{content:"";position:absolute;inset:0;z-index:-1;background:
+      radial-gradient(40% 25% at 20% 20%, rgba(255,140,50,.25), transparent 60%),
+      radial-gradient(30% 20% at 80% 75%, rgba(255,177,105,.15), transparent 70%)}
+    .hero-content{color:#fff;max-width:1060px;margin:0 auto;padding:4.5rem clamp(16px,4vw,28px) 3rem}
+    .kicker{color:var(--copper-light);text-transform:uppercase;letter-spacing:.14em;font-weight:1000;font-size:.82rem;margin-bottom:.8rem}
+    .title{font-size:clamp(2rem,4vw+1rem,3.2rem);line-height:1.08;margin:0 0 .5rem;font-weight:1000}
+    .sub{max-width:760px;font-size:clamp(1rem,1vw+.55rem,1.15rem);line-height:1.6;color:#f3f3f3;margin:0}
+
+    /* ===== Stories grid ===== */
+    .section{padding:3rem 0}
+    h2{font-size:1.9rem;margin:.2rem 0 1rem;font-weight:1000}
+    .grid{display:grid;gap:1.25rem}
+    @media(min-width:900px){.cols-3{grid-template-columns:repeat(3,1fr)}}
+    @media(min-width:700px) and (max-width:899px){.cols-3{grid-template-columns:repeat(2,1fr)}}
+
+    .story{border:1px solid #eadfd7;border-radius:14px;background:#fff;display:flex;flex-direction:column;overflow:hidden}
+    .story .media{height:148px;background:linear-gradient(135deg, rgba(255,140,50,.18), transparent 60%), #faf7f4;display:flex;align-items:center;justify-content:center}
+    .story .badge{position:absolute;margin:12px;padding:.35rem .6rem;border-radius:10px;border:1px solid rgba(0,0,0,.08);background:#fff;font-size:.78rem;font-weight:800}
+    .story .body{padding:1rem 1rem 1.1rem}
+    .story h3{margin:.1rem 0 .35rem}
+    .meta{color:#666;font-size:.92rem;margin-bottom:.5rem}
+    .story a.btn{margin-top:.35rem}
+
+    .btn{appearance:none;border:0;border-radius:10px;cursor:pointer;font-weight:900;padding:.8rem 1rem;font-size:.98rem;display:inline-flex;align-items:center;gap:.45rem}
+    .btn-outline{background:transparent;border:2px solid #000;color:#000}
+    .btn-primary{background:linear-gradient(180deg,var(--copper),#fa7c16);color:#220e05;box-shadow:0 6px 24px rgba(255,140,50,.25)}
+
+    /* Details (expanders) */
+    details{border-top:1px dashed #eadfd7;margin-top:.65rem;padding-top:.65rem}
+    details summary{cursor:pointer;font-weight:800}
+    details[open] summary{color:#7a4a2e}
+    .car{display:grid;grid-template-columns:110px 1fr;gap:.8rem;align-items:start;margin:.6rem 0}
+    .pill{display:inline-block;padding:.2rem .55rem;border-radius:999px;border:1px solid #eadfd7;background:#fbf9f7;font-size:.78rem;font-weight:800;color:#7a4a2e}
+
+    /* CTA band */
+    .cta-band{background:#fbf9f7;border-top:1px solid #eadfd7;border-bottom:1px solid #eadfd7}
+    .cta-inner{display:flex;flex-wrap:wrap;align-items:center;justify-content:space-between;gap:1rem;padding:1.4rem 0}
+
+    /* Reveal on scroll */
+    .reveal{opacity:0;transform:translateY(32px);transition:all .6s ease}
+    .reveal.visible{opacity:1;transform:translateY(0)}
+
+    /* Responsive header */
+    @media (max-width:960px){
+      nav.primary{display:none}
+      .hamburger{display:flex}
+      .brand{font-size:1rem}
+    }
+
+    /* Stories media fixes */
+    .story{overflow:hidden}
+    .story .media{
+      position:relative;height:220px;background:#fbf9f7;overflow:hidden;border-bottom:1px solid #eadfd7
+    }
+    .story .media img{width:100%;height:100%;object-fit:cover;display:block}
+    .story .pill{position:absolute;left:12px;top:12px;z-index:2}
+    .story .body h3{margin-top:.6rem}
+
+/* Match index container/header spacing */
+.container,
+.header-inner {
+  padding-inline: max(env(safe-area-inset-left), clamp(16px, 5vw, 32px));
+}
+
+/* Match index mobile header padding */
+@media (max-width:960px){
+  .header-inner { padding-left: 1.25rem; padding-right: 1.25rem; }
+}
+
+  </style>
+</head>
+
+<script>
+  function toggleMenu(open){
+    const overlay = document.getElementById('overlayNav');
+    const btn = document.querySelector('.hamburger');
+    if(open){
+      overlay.classList.add('open');
+      overlay.setAttribute('aria-hidden','false');
+      btn.setAttribute('aria-expanded','true');
+      document.body.style.overflow='hidden';
+    } else {
+      overlay.classList.remove('open');
+      overlay.setAttribute('aria-hidden','true');
+      btn.setAttribute('aria-expanded','false');
+      document.body.style.overflow='';
+    }
+  }
+</script>
+
+<body>
+  <!-- Mobile Overlay Nav -->
+  <div class="nav-overlay" id="overlayNav" aria-hidden="true">
+    <button class="nav-close" aria-label="Close menu" onclick="toggleMenu(false)">×</button>
+    <div class="nav-panel">
+      <a href="index.html#services" onclick="toggleMenu(false)">Human+AI</a>
+      <a href="index.html#team" onclick="toggleMenu(false)">AI Employees</a>
+      <a href="index.html#engines" onclick="toggleMenu(false)">AI Engines</a>
+      <a href="stories.html" onclick="toggleMenu(false)">Stories</a>
+      <a href="contacts.html" onclick="toggleMenu(false)">Contact</a>
+      <a href="mailto:sales@fusedid.com" onclick="toggleMenu(false)" style="margin-top:.6rem;color:var(--copper-light)">sales@fusedid.com</a>
+    </div>
+  </div>
+
+  <!-- Header -->
+  <header class="shadow-sm">
+    <div class="container header-inner">
+      <div class="brand">
+        <img src="fusedid logo -white bg.png" alt="Fused ID Logo">
+        FUSED ID
+      </div>
+      <nav class="primary" aria-label="Primary">
+        <a href="index.html#services">Human+AI</a>
+        <a href="index.html#team">AI Employees</a>
+        <a href="index.html#engines">AI Engines</a>
+        <a href="stories.html">Stories</a>
+        <a href="contacts.html">Contact</a>
+      </nav>
+      <button class="hamburger" aria-label="Open menu" aria-controls="overlayNav" aria-expanded="false" onclick="toggleMenu(true)">
+        <span></span>
+      </button>
+    </div>
+  </header>
+
+
+  <!-- Hero -->
+  <section class="hero">
+    <div class="container hero-content">
+      <div class="kicker">Challenge → Action → Result</div>
+      <h1 class="title">Stories of Action</h1>
+      <p class="sub">Short, practical snapshots of how FUSED ID Employees and Engines deliver outcomes in the real world. Some examples are based on pilots and internal demonstrations; full evidence available on request.</p>
+    </div>
+  </section>
+
+<main class="container" id="stories">
+  <section class="section">
+    <div class="grid cols-3">
+
+      <!-- Ethan + Prospect -->
+      <article class="story reveal">
+        <div class="media" aria-hidden="true">
+          <img src="prospecting.jpg" alt="Prospect Engine funnel gauge">
+          <span class="pill">Ethan • Prospect Engine</span>
+        </div>
+        <div class="body">
+          <h3>Turn quiet weeks into booked meetings</h3>
+          <div class="meta">Outbound • B2B SaaS • 3 weeks</div>
+          <details>
+            <summary>Read the snapshot</summary>
+            <div class="car">
+              <strong>Challenge</strong>
+              <div>Sales were spending hours on list building with poor reply rates and inconsistent CRM updates.</div>
+              <strong>Action</strong>
+              <div>Ethan defined the ICP, generated a 600-contact list, set respectful LinkedIn + email sequences with deliverability guardrails, and kept CRM tidy and current.</div>
+              <strong>Result</strong>
+              <div>42 warm replies and 11 meetings booked inside 3 weeks. Sales calendar filled for the quarter; clear weekly reports out of the engine.</div>
+            </div>
+            <a class="btn btn-outline" href="ethan.html" target="_blank" rel="noopener">See Ethan’s CV →</a>
+            <a class="btn btn-primary" href="prospecting.html" target="_blank" rel="noopener">Explore Prospect Engine →</a>
+          </details>
+        </div>
+      </article>
+
+      <!-- Kaia + Kaizen -->
+      <article class="story reveal">
+        <div class="media" aria-hidden="true">
+          <img src="kaizen.jpg" alt="Kaizen Engine infinity loop">
+          <span class="pill">Kaia • Kaizen Engine</span>
+        </div>
+        <div class="body">
+          <h3>Lift audit readiness & compress CAPA time</h3>
+          <div class="meta">Manufacturing • ISO 9001 • 60 days</div>
+          <details>
+            <summary>Read the snapshot</summary>
+            <div class="car">
+              <strong>Challenge</strong>
+              <div>Document control lagging; NCRs open; certification audit approaching.</div>
+              <strong>Action</strong>
+              <div>Kaia rebuilt the internal audit plan, tidied document registers, logged NCRs, and ran AI-guided root cause with clear owner SLAs.</div>
+              <strong>Result</strong>
+              <div>Audit pass rate lifted to 98% (+11pp). CAPA cycle time reduced from 28 → 12 days. Audit packs exported with zero missing evidence.</div>
+            </div>
+            <a class="btn btn-outline" href="kaia.html" target="_blank" rel="noopener">See Kaia’s CV →</a>
+            <a class="btn btn-primary" href="kaizen.html" target="_blank" rel="noopener">Explore Kaizen Engine →</a>
+          </details>
+        </div>
+      </article>
+
+      <!-- Lara + Talent -->
+      <article class="story reveal">
+        <div class="media" aria-hidden="true">
+          <img src="placeholder-agent4.jpg" alt="Lara — People & Culture AI Employee">
+          <span class="pill">Lara • Talent Engine</span>
+        </div>
+        <div class="body">
+          <h3>From vague adverts to ready shortlists</h3>
+          <div class="meta">Agency • Hiring Ops • 10 days</div>
+          <details>
+            <summary>Read the snapshot</summary>
+            <div class="car">
+              <strong>Challenge</strong>
+              <div>Unclear role scopes; inconsistent interviews; slow shortlists.</div>
+              <strong>Action</strong>
+              <div>Lara clarified the role charter, generated a crisp advert, and ran adaptive AI interviews with gap & sentiment analysis.</div>
+              <strong>Result</strong>
+              <div>Three high-fit candidates shortlisted with transcripts and scores; offer accepted and onboarding completed inside two weeks.</div>
+            </div>
+            <a class="btn btn-outline" href="Lara.html" target="_blank" rel="noopener">See Lara’s CV →</a>
+            <a class="btn btn-primary" href="talent.html" target="_blank" rel="noopener">Explore Talent Engine →</a>
+          </details>
+        </div>
+      </article>
+
+      <!-- FusedKnowledge -->
+      <article class="story reveal">
+        <div class="media" aria-hidden="true">
+          <img src="knowledge.jpg" alt="FusedKnowledge engine lightbulb & book">
+          <span class="pill">FusedKnowledge</span>
+        </div>
+        <div class="body">
+          <h3>Make policies answer back (with citations)</h3>
+          <div class="meta">Consulting • Knowledge Ops • 14 days</div>
+          <details>
+            <summary>Read the snapshot</summary>
+            <div class="car">
+              <strong>Challenge</strong>
+              <div>Policies spread across email/SharePoint; duplicate guidance and contradictions caused rework.</div>
+              <strong>Action</strong>
+              <div>Ingested source docs, flagged conflicts, and stood up specialised agents for HR and Compliance with ask-only roles for staff.</div>
+              <strong>Result</strong>
+              <div>Faster, consistent answers with citations; conflicting policies resolved within hours; usage and gap reports drove tidy simplifications.</div>
+            </div>
+            <a class="btn btn-primary" href="knowledge.html" target="_blank" rel="noopener">Explore FusedKnowledge →</a>
+          </details>
+        </div>
+      </article>
+
+      <!-- Nova (custom) -->
+      <article class="story reveal">
+        <div class="media" aria-hidden="true">
+          <img src="placeholder-agent-custom.jpg" alt="Nova — Customisable AI Employee">
+          <span class="pill">Nova • Custom Employee</span>
+        </div>
+        <div class="body">
+          <h3>Operational lift without extra headcount</h3>
+          <div class="meta">Ops • Exec Support • 30 days</div>
+          <details>
+            <summary>Read the snapshot</summary>
+            <div class="car">
+              <strong>Challenge</strong>
+              <div>Leaders drowning in admin; missed follow-ups; scattered documents.</div>
+              <strong>Action</strong>
+              <div>Nova set up a clean briefing rhythm, consolidated docs, and implemented version-controlled templates with tidy action tracking.</div>
+              <strong>Result</strong>
+              <div>Leaders regained 6–8 hours per week; decisions landed earlier with options and evidence; fewer dropped balls.</div>
+            </div>
+            <a class="btn btn-outline" href="nova.html" target="_blank" rel="noopener">See Nova’s CV →</a>
+          </details>
+        </div>
+      </article>
+
+    </div>
+  </section>
+</main>
+
+  <!-- CTA band -->
+  <section class="cta-band">
+    <div class="container cta-inner">
+      <div>
+        <strong style="font-size:1.15rem">Want a story like this in your team?</strong>
+        <div class="muted">Start with a small pilot. We’ll show you measurable impact quickly.</div>
+      </div>
+      <div>
+        <a class="btn btn-primary" href="/index.html#contact">Talk to us</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- Footer (simple back link to home) -->
+  <footer style="background:#0f0a07;color:#ddd">
+    <div class="container" style="display:flex;justify-content:space-between;align-items:center;gap:1rem;padding:1rem 0">
+      <span>© FUSED ID</span>
+      <a href="/index.html" style="color:#fff">← Back to FUSED ID</a>
+    </div>
+  </footer>
+
+  <script>
+    // Mobile menu toggle (match index behaviour)
+    function toggleMenu(open){
+      const o = document.getElementById('overlayNav');
+      if(!o) return; o.classList.toggle('open', !!open);
+    }
+    // Reveal on scroll
+    const els=[...document.querySelectorAll('.reveal')];
+    const io=new IntersectionObserver((entries)=>{
+      entries.forEach(e=>{if(e.isIntersecting){e.target.classList.add('visible');io.unobserve(e.target)}})
+    },{threshold:.12});
+    els.forEach(el=>io.observe(el));
+  </script>
+</body>
+</div>
+
+</html>

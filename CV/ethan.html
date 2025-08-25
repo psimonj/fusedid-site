@@ -104,6 +104,21 @@
   }
 }
 
+@media (max-width:680px){
+  .skill-bar {
+    display: none !important;
+  }
+  .skill {
+    justify-content: space-between;   /* spread name and rating */
+  }
+  .skill-name {
+    flex: unset;                      /* free skill name from fixed width */
+  }
+  .lvl {
+    text-align: right;
+    min-width: auto;                  /* remove the forced width */
+  }
+}
 
   </style>
 </head>

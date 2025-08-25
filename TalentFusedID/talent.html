@@ -116,6 +116,13 @@
 /* Retire the old corner tag */
 .price-tag{ display:none !important; }
 
+/* Mobile image-first */
+@media (max-width: 899px) {
+  .grid.cols-2 { grid-template-columns: 1fr; }
+  .grid.cols-2 > .media { grid-row: 1; }
+  .grid.cols-2 > :not(.media) { grid-row: 2; }
+}
+
 </style>
 
 

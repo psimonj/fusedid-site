@@ -69,13 +69,23 @@
   margin-right:8px;        /* NEW: space between logo + text */
 }
     nav.primary{
-      display:flex;gap:1.25rem;align-items:center;
+      display:flex;gap:2.5rem;align-items:center;
     }
     nav.primary a{color:#000;font-weight:600}
     .cta-small{
       padding:.55rem .9rem;border-radius:6px;
       background:#000;color:#fff;font-weight:700;font-size:.95rem
     }
+
+nav.primary a:hover {
+  color: var(--copper);
+}
+nav.primary a {
+  color:#000;
+  font-weight:600;
+  transition: color .25s ease;
+}
+
 
     /* ===== Mobile hamburger ===== */
     .hamburger{

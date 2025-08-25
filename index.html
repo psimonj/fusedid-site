@@ -638,5 +638,33 @@ Each FUSED Engine is a self-contained business system powered by AI employees an
 })();
 </script>
 
+<script>
+  (function () {
+    // Stop the browser restoring the previous scroll position
+    if ('scrollRestoration' in history) {
+      history.scrollRestoration = 'manual';
+    }
+
+    // When returning via Back/Forward (incl. bfcache restores), jump to top
+    window.addEventListener('pageshow', function (e) {
+      // Detect back/forward navigation or bfcache restore
+      var nav = performance && performance.getEntriesByType
+        ? performance.getEntriesByType('navigation')[0]
+        : null;
+      var isBackForward = (nav && nav.type === 'back_forward') || e.persisted;
+
+      if (isBackForward) {
+        // Remove any in-page hash so we don't snap back to an anchor
+        if (location.hash) {
+          history.replaceState(null, '', location.pathname + location.search);
+        }
+        // Jump to the very top
+        window.scrollTo(0, 0);
+      }
+    });
+  })();
+</script>
+
+
 </body>
 </html>

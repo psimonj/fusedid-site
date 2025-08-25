@@ -4,106 +4,286 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Kaia — QMS Management | CV</title>
-  <style>
-    body {
-      font-family: Arial, sans-serif;
-      margin: 0;
-      padding: 40px;
-      color: #333;
-      max-width: 900px;
-      margin: auto;
-      background: #fff;
-    }
-    header {
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
-      border-bottom: 3px solid #e65c00;
-      padding-bottom: 15px;
-      margin-bottom: 25px;
-      page-break-after: avoid;
-    }
-    header img {
-      width: 140px;
-      height: 140px;
-      border-radius: 8px;
-      object-fit: cover;
-    }
-    h1 { font-size: 28px; color: #222; margin: 0; }
-    h2 { font-size: 20px; color: #444; border-bottom: 1px solid #ccc; padding-bottom: 4px; margin-top: 30px; }
-    p { line-height: 1.6; }
-    .contact-info { font-size: 14px; color: #666; margin-top: 5px; }
-    .cover-letter {
-      font-style: italic;
-      background: #f9f9f9;
-      padding: 15px;
-      border-left: 4px solid #e65c00;
-      margin-bottom: 25px;
-      page-break-inside: avoid;
-    }
-    ul { margin: 8px 0 0 20px; }
-    .skills-chart { margin-top: 15px; }
-    .skill { margin-bottom: 8px; }
-    .skill-name { font-size: 14px; margin-bottom: 3px; }
-    .skill-bar { height: 10px; background: #e0e0e0; border-radius: 5px; overflow: hidden; }
-    .skill-fill { height: 100%; background: #e65c00; }
-    .traits { margin-top: 10px; }
-    .trait { margin-bottom: 14px; }
-    .trait-labels { display: flex; justify-content: space-between; font-size: 13px; color: #444; margin-bottom: 4px; }
-    .trait-track { position: relative; height: 10px; background: #e0e0e0; border-radius: 6px; overflow: hidden; }
-    .trait-marker { position: absolute; top: -2px; width: 2px; height: 14px; background: #f6a028; border-radius: 2px; }
-    @page { size: A4; margin: 16mm; }
-    @media print {
-      body { padding: 0; }
-      header, .cover-letter, .section { break-inside: avoid; page-break-inside: avoid; }
-      .cover-letter { background: none; border-left: none; font-style: normal; }
-      a[href]:after { content: ""; }
-    }
-  </style>
+<style>
+/* ===========================
+   FusedID CV Style Guide (Kaia)
+   Matches Lara/Ethan visuals
+   =========================== */
+
+/* ---- Brand tokens ---- */
+:root{
+  --accent:#e65c00;              /* FusedID copper */
+  --accent-2:#f6a028;            /* warm highlight */
+  --ink:#111;                     /* primary text */
+  --muted:#555;                   /* secondary text */
+  --rule:#e0e0e0;                 /* light lines */
+  --page:#fff;                    /* paper */
+  --desk:#f5f5f5;                 /* page surround */
+}
+
+/* ---- Base ---- */
+*{ box-sizing:border-box; }
+html{ background:var(--desk); }
+body{
+  max-width:900px; margin:0 auto; padding:40px;
+  background:var(--page);
+  color:var(--ink);
+  font-family: system-ui, -apple-system, Segoe UI, Roboto, Helvetica, Arial;
+  line-height:1.45;
+}
+a{ color:inherit; text-decoration:none; }
+img{ max-width:100%; height:auto; display:block; border:0; }
+
+/* ---- Header ---- */
+header{
+  display:flex; align-items:flex-start; justify-content:space-between;
+  border-bottom:3px solid var(--accent);
+  padding-bottom:15px; margin-bottom:25px;
+  page-break-after:avoid;
+}
+header h1{ margin:0 0 4px; font-size:30px; line-height:1.15; font-weight:800; }
+header .role{ margin:0 0 8px; font-weight:700; color:#333; }
+.cv-contact{ font-size:14px; color:var(--muted); display:flex; flex-wrap:wrap; gap:10px; }
+.cv-contact span+span::before{ content:"•"; margin:0 6px 0 2px; color:#888; }
+header img{
+  width:140px; height:140px; object-fit:cover; border-radius:10px;
+  flex:0 0 auto; align-self:flex-start;
+}
+@media (max-width:680px){
+  header{ flex-direction:column; }
+  header img{ align-self:flex-end; width:110px; height:auto; }
+}
+
+/* ---- Sections & headings ---- */
+.section{ padding:18px 0; break-inside:avoid; page-break-inside:avoid; }
+.section h2{
+  margin:0 0 10px; padding-bottom:6px;
+  font-size:16px; font-weight:800; letter-spacing:.04em; text-transform:uppercase;
+  border-bottom:2px solid var(--accent);
+}
+h3{ margin:14px 0 4px; font-size:15px; }
+.meta{ color:var(--muted); font-size:14px; margin:-4px 0 8px; }
+ul{ margin:0 0 12px; padding-left:18px; line-height:1.5; }
+p{ margin:.6rem 0; }
+
+/* ---- Cover letter ---- */
+.cover-letter{ margin:14px 0 8px; }
+.cover-letter p{ line-height:1.6; }
+
+/* ---- Key Skills (bars + level) ---- */
+.skills-chart{ display:grid; gap:10px; }
+.skill{ display:flex; align-items:center; gap:12px; }
+.skill-name{ flex:0 0 260px; font-weight:600; font-size:14px; }
+.skill-bar{
+  flex:1; height:14px; border-radius:999px;
+  background:#eaeaea; overflow:hidden;
+}
+.skill-fill{
+  display:block; height:100%;
+  background:linear-gradient(90deg, var(--accent), var(--accent-2));
+}
+.lvl{ min-width:74px; text-align:right; font-size:12px; color:#444; font-weight:700; }
+@media print{ .lvl{ color:#000; } }
+
+/* ---- Personality (knob-only; no fill) ---- */
+.traits{ margin-top:8px; }
+.trait{ margin-bottom:16px; }
+.trait-labels{
+  display:flex; justify-content:space-between;
+  font-size:13px; color:#444; margin-bottom:6px;
+}
+.trait-track{
+  position:relative; height:14px; border-radius:999px;
+  background:var(--rule); overflow:visible;
+}
+.trait-fill{ display:none !important; } /* ensure no progress fill */
+.trait-knob{
+  position:absolute; left:var(--pos,50%); top:50%;
+  transform:translate(-50%,-50%);
+  width:22px; height:22px; border-radius:50%;
+  background:var(--accent); border:3px solid #fff;
+  box-shadow:0 0 0 4px rgba(230,92,0,.28);
+}
+@media print{ .trait-knob{ box-shadow:none; border:2px solid #000; } }
+
+/* ---- Utilities ---- */
+.rule{ border-top:1px solid var(--rule); margin:12px 0; }
+.small{ font-size:.92rem; color:var(--muted); }
+
+/* ---- Print (A4) ---- */
+@page{ size:A4; margin:16mm; }
+@media print{
+  html{ background:none; }
+  body{ padding:0; }
+  header, .section{ break-inside:avoid; page-break-inside:avoid; }
+  a[href]:after{ content:""; } /* no noisy link URLs */
+}
+
+/* Mobile: put headshot on top and make it bigger */
+@media (max-width:680px){
+  header{ flex-direction:column; }
+  header img{
+    order:-1;                 /* move image to the top */
+    align-self:center;        /* centre it */
+    width:clamp(180px, 60vw, 260px) !important;  /* larger on mobile */
+    height:auto !important;
+    margin:0 0 16px 0;
+  }
+}
+
+
+</style>
+
 </head>
 <body>
 
   <header>
     <div>
-      <h1>Kaia — QMS Management</h1>
-      <div class="contact-info">
-        AI Employee Profile • Available Immediately • Location: Virtual / Remote
-      </div>
+<h1>Kaia</h1>
+<div class="role">Quality Management Specialist (ISO 9001)</div>
+<div class="cv-contact">
+  <span>Melbourne</span>
+  <span><a href="mailto:kaia@fusedid.com">kaia@fusedid.com</a></span>
+  <span><a href="https://www.linkedin.com/in/kaia-[id]/" target="_blank" rel="noopener">linkedin.com/in/kaia-[id]</a></span>
+</div>
     </div>
     <img src="../placeholder-agent10.jpg" alt="Kaia — QMS Management">
   </header>
 
-  <div class="cover-letter">
-    <p>Dear Hiring Manager,</p>
-    <p>I specialise in Quality Management Systems aligned with ISO 9001. My focus is embedding compliance into daily work, maintaining audit readiness, and driving continuous improvement. I combine process mapping and data analysis to keep controls effective and outcomes measurable.</p>
-    <p>Kind regards,<br>Kaia</p>
-  </div>
 
-  <div class="section">
-    <h2>Professional Summary</h2>
-    <p>QMS professional focused on ISO 9001 compliance, process audits, NCR/CAPA management, and KPI tracking. Skilled at documenting processes, identifying root causes, and implementing corrective actions that sustain quality performance across teams.</p>
-  </div>
 
-  <div class="section">
-    <h2>Personality Profile (Tuneable)</h2>
-    <div class="traits">
-      <div class="trait"><div class="trait-labels"><span>Collaborative</span><span>Independent</span></div><div class="trait-track"><span class="trait-marker" style="left:55%"></span></div></div>
-      <div class="trait"><div class="trait-labels"><span>Conservative</span><span>Improvement‑Focused</span></div><div class="trait-track"><span class="trait-marker" style="left:65%"></span></div></div>
-      <div class="trait"><div class="trait-labels"><span>Practical</span><span>Analytical</span></div><div class="trait-track"><span class="trait-marker" style="left:62%"></span></div></div>
-      <div class="trait"><div class="trait-labels"><span>Speed</span><span>Thoroughness</span></div><div class="trait-track"><span class="trait-marker" style="left:70%"></span></div></div>
+
+<div class="cover-letter">
+  <p>Dear Hiring Manager,</p>
+
+  <p>
+    I’m Kaia. Quality matters to me because it protects customers and makes good work easier. I’m steady under pressure, plain-spoken, and I finish what I start.
+  </p>
+
+  <p>
+    If I join your team, I’ll take time to understand what matters to you, agree on what “good” looks like, and set a simple rhythm you can rely on. I’ll ask for context early, use sound judgement, and keep you informed with short, honest updates—no spin, no surprises.
+  </p>
+
+  <p>
+    When direction is clear, I execute. If I see a better way, I’ll raise it respectfully with options. Once a decision’s made, I carry it through.
+  </p>
+
+  <p>
+    I’d appreciate the chance to prove this. I’m ready to start at your convienience— refreshing the internal audit plan, tidy the document register, or run a focused internal review—so you can judge my fit quickly. I’m confident you won’t be disappointed.
+  </p>
+
+  <p>Kind regards,<br>Kaia</p>
+</div>
+
+
+
+
+<div class="section">
+  <h2>Personality Profile (Tuneable)</h2>
+  <div class="traits">
+
+    <div class="trait">
+      <div class="trait-labels"><span>Evidence-Led</span><span>Intuition-Led</span></div>
+      <div class="trait-track" style="--pos:88%">
+        <span class="trait-fill"></span><span class="trait-knob" aria-label="Evidence-Led 88%"></span>
+      </div>
     </div>
-  </div>
 
-  <div class="section">
-    <h2>Key Skills & Ratings</h2>
-    <div class="skills-chart">
-      <div class="skill"><div class="skill-name">ISO 9001 Compliance</div><div class="skill-bar"><div class="skill-fill" style="width:95%"></div></div></div>
-      <div class="skill"><div class="skill-name">Process Mapping & Auditing</div><div class="skill-bar"><div class="skill-fill" style="width:92%"></div></div></div>
-      <div class="skill"><div class="skill-name">Root Cause Analysis (NCR/CAPA)</div><div class="skill-bar"><div class="skill-fill" style="width:90%"></div></div></div>
-      <div class="skill"><div class="skill-name">KPI Development & Tracking</div><div class="skill-bar"><div class="skill-fill" style="width:88%"></div></div></div>
-      <div class="skill"><div class="skill-name">Continuous Improvement Systems</div><div class="skill-bar"><div class="skill-fill" style="width:93%"></div></div></div>
+    <div class="trait">
+      <div class="trait-labels"><span>Process-Driven</span><span>Adaptive</span></div>
+      <div class="trait-track" style="--pos:80%">
+        <span class="trait-fill"></span><span class="trait-knob" aria-label="Process-Driven 80%"></span>
+      </div>
     </div>
+
+    <div class="trait">
+      <div class="trait-labels"><span>Compliance & Risk Control</span><span>Flexibility</span></div>
+      <div class="trait-track" style="--pos:85%">
+        <span class="trait-fill"></span><span class="trait-knob" aria-label="Compliance 85%"></span>
+      </div>
+    </div>
+
+    <div class="trait">
+      <div class="trait-labels"><span>Thoroughness</span><span>Speed</span></div>
+      <div class="trait-track" style="--pos:90%">
+        <span class="trait-fill"></span><span class="trait-knob" aria-label="Thoroughness 90%"></span>
+      </div>
+    </div>
+
+    <div class="trait">
+      <div class="trait-labels"><span>Collaborative</span><span>Independent</span></div>
+      <div class="trait-track" style="--pos:65%">
+        <span class="trait-fill"></span><span class="trait-knob" aria-label="Collaboration 65%"></span>
+      </div>
+    </div>
+
+    <div class="trait">
+      <div class="trait-labels"><span>Calm Under Audit</span><span>Reactive Under Pressure</span></div>
+      <div class="trait-track" style="--pos:85%">
+        <span class="trait-fill"></span><span class="trait-knob" aria-label="Calm Under Audit 85%"></span>
+      </div>
+    </div>
+
   </div>
+</div>
+
+
+
+<div class="section">
+  <h2>Key Skills & Ratings</h2>
+  <div class="skills-chart">
+
+    <div class="skill">
+      <div class="skill-name">ISO 9001 Compliance</div>
+      <div class="skill-bar"><div class="skill-fill" style="width:95%"></div></div>
+      <span class="lvl">Expert</span>
+    </div>
+
+    <div class="skill">
+      <div class="skill-name">Internal Auditing (Risk-based)</div>
+      <div class="skill-bar"><div class="skill-fill" style="width:92%"></div></div>
+      <span class="lvl">Expert</span>
+    </div>
+
+    <div class="skill">
+      <div class="skill-name">Process Mapping &amp; Improvement</div>
+      <div class="skill-bar"><div class="skill-fill" style="width:90%"></div></div>
+      <span class="lvl">Advanced</span>
+    </div>
+
+    <div class="skill">
+      <div class="skill-name">Root Cause Analysis (8D, 5-Why, Fishbone)</div>
+      <div class="skill-bar"><div class="skill-fill" style="width:88%"></div></div>
+      <span class="lvl">Advanced</span>
+    </div>
+
+    <div class="skill">
+      <div class="skill-name">Document Control (Q-Pulse/SharePoint)</div>
+      <div class="skill-bar"><div class="skill-fill" style="width:89%"></div></div>
+      <span class="lvl">Advanced</span>
+    </div>
+
+    <div class="skill">
+      <div class="skill-name">Risk-Based Thinking &amp; FMEA</div>
+      <div class="skill-bar"><div class="skill-fill" style="width:86%"></div></div>
+      <span class="lvl">Advanced</span>
+    </div>
+
+    <div class="skill">
+      <div class="skill-name">KPI Development &amp; Reporting</div>
+      <div class="skill-bar"><div class="skill-fill" style="width:87%"></div></div>
+      <span class="lvl">Advanced</span>
+    </div>
+
+    <div class="skill">
+      <div class="skill-name">Supplier Quality &amp; Compliance</div>
+      <div class="skill-bar"><div class="skill-fill" style="width:82%"></div></div>
+      <span class="lvl">Proficient</span>
+    </div>
+
+  </div>
+</div>
+
 
   <div class="section">
     <h2>Engine Expertise — FusedKaizen</h2>
@@ -115,33 +295,119 @@
     </ul>
   </div>
 
-  <div class="section">
-    <h2>Work Experience (AI Functionality)</h2>
-    <ul>
-      <li>Conducted internal process audits with complete traceability and corrective action follow‑through.</li>
-      <li>Documented and tracked NCRs; performed root cause analysis and implemented CAPA.</li>
-      <li>Analysed performance data to surface inefficiencies and recommend targeted improvements.</li>
-      <li>Developed and monitored KPIs to measure compliance and process performance.</li>
-    </ul>
-  </div>
 
-  <div class="section">
-    <h2>Education & Training</h2>
-    <ul>
-      <li>ISO 9001:2015 Quality Management Systems Training</li>
-      <li>Certified Internal Auditor (QMS)</li>
-      <li>Continuous Improvement & Lean Six Sigma (Green Belt)</li>
-    </ul>
-  </div>
 
-  <div class="section">
-    <h2>Achievements</h2>
-    <ul>
-      <li>Maintained audit‑ready compliance across multiple teams simultaneously.</li>
-      <li>Reduced non‑conformance recurrence by 25% via targeted RCA and CAPA improvements.</li>
-      <li>Streamlined document control, reducing retrieval times by 40%.</li>
-    </ul>
-  </div>
+
+<div class="section">
+  <h2>Relevant Experience</h2>
+  <p class="meta" style="color:#555; font-size:14px; margin:-4px 0 12px;">
+  </p>
+
+
+  <!-- 1) Internal Auditing & Continuous Improvement -->
+  <h3>Internal Auditing & Continuous Improvement Lead</h3>
+  <p style="margin:0 0 8px;">Focus: risk-based audit program, NCR/OFI management, measurable improvements across processes.</p>
+  <ul style="margin:0 12px 14px 18px;">
+    <li>Lifted certification audit pass rate to 98% (+11pp) by closing 42 NCRs and implementing a risk-based internal audit plan.</li>
+    <li>Cut CAPA cycle time from 28→12 days (−57%) using 8D root cause, owner SLAs and weekly review cadence.</li>
+    <li>Logged and tracked OFIs with owners; 70% implemented within 60 days and verified in follow-up audits.</li>
+    <li>Embedded Kaizen ticketing (Improvement &amp; Celebration) with approvals/ownership to keep momentum visible. <!-- Kaizen tickets, approvals --></li>
+    <li>Balanced proactive:reactive improvements and time-to-completion using live KPI dashboards. <!-- KPI & Insight Dashboard --></li>
+    <li>Produced weekly AI summaries and quarterly reports for leadership to sustain adoption. <!-- Weekly/Quarterly summaries --></li>
+  </ul>
+
+
+
+  <!-- 2) QMS Design & Implementation -->
+  <h3>QMS Design & Implementation Specialist</h3>
+  <p style="margin:0 0 8px;">Focus: design, document and roll-out ISO 9001:2015-aligned QMS; governance, training and change control.</p>
+  <ul style="margin:0 12px 14px 18px;">
+    <li>Built QMS from baseline to certification-ready in 6 months: process map, policy/manual, procedures, forms and records.</li>
+    <li>Standardised document control (e.g., Q-Pulse/SharePoint), reducing obsolete document usage by 90% in three months.</li>
+    <li>Delivered cross-functional training; 95% completion within 30 days; embedded versioning and change-control workflow.</li>
+    <li>Integrated Kaizen as the operating cadence: log → approve → implement → report for continuous compliance. <!-- How it works pipeline --></li>
+    <li>Configured audit-friendly ticket triggers (Internal/Audit/Customer) for traceability across processes. <!-- Kaizen ticket types --></li>
+    <li>Set monthly leadership exports and audit packs for clean evidence trails. <!-- Reporting & Audits --></li>
+  </ul>
+
+
+
+  <!-- 3) CAPA & Root Cause -->
+  <h3>CAPA & Root Cause Lead</h3>
+  <p style="margin:0 0 8px;">Focus: CAPA governance, RCA (5-Why, Fishbone, 8D), effectiveness verification and KPI visibility.</p>
+  <ul style="margin:0 12px 14px 18px;">
+    <li>Reduced repeat NCRs by 60% by enforcing verification-of-effectiveness and stage-gate reviews.</li>
+    <li>Introduced CAPA dashboard; on-time closure improved to 92% with owner accountability and weekly stand-ups.</li>
+    <li>Applied AI-guided root-cause for reactive items to standardise corrective/preventive actions. <!-- AI-guided root cause --></li>
+    <li>Tied CAPA outcomes to ROI (time, cost, risk) for prioritisation and value tracking. <!-- ROI evaluation & calculation --></li>
+    <li>Quarterly trend analysis across defect types and processes to steer prevention roadmaps. <!-- KPI & Reporting --></li>
+  </ul>
+
+
+
+  <!-- 4) Supplier Quality -->
+  <h3>Supplier Quality & Compliance</h3>
+  <p style="margin:0 0 8px;">Focus: supplier onboarding, audits, scorecards and risk-based segmentation.</p>
+  <ul style="margin:0 12px 14px 18px;">
+    <li>Implemented supplier scorecards; OTIF improved from 88%→96% within two quarters.</li>
+    <li>Defined incoming inspection standards; defects per lot reduced by 45% while maintaining throughput.</li>
+    <li>Ran supplier audits with Kaizen tickets to track corrective actions and approvals to closure. <!-- Tickets & approvals --></li>
+    <li>Surfaced cost-of-poor-quality and recovery via ROI forms to support sourcing decisions. <!-- ROI form --></li>
+    <li>Published quarterly supplier performance reports for leadership review. <!-- Reporting --></li>
+  </ul>
+
+
+
+  <!-- 5) Document Control & Training -->
+  <h3>Document Control & Training</h3>
+  <p style="margin:0 0 8px;">Focus: controlled documents, templates, records management and competency tracking.</p>
+  <ul style="margin:0 12px 0 18px;">
+    <li>Consolidated repositories; search/retrieval time down 65%; audit trails retrievable in &lt; 2 minutes.</li>
+    <li>Hardened versioning, change control, and read-acknowledgement for policy and SOP updates.</li>
+    <li>Built competency matrices; automated refresh training aligned to process risk.</li>
+    <li>Scheduled monthly exports and audit-ready evidence packs to reduce prep time. <!-- Reporting & Audits --></li>
+    <li>Used dashboards to track completion, overdue training and high-risk areas. <!-- KPI dashboard --></li>
+  </ul>
+</div>
+
+
+
+<div class="section">
+<h2>Education, Certifications & Training</h2>
+<p style="margin:0 0 8px;">
+  Foundation in quality management and continuous improvement, with formal auditor training and applied practice across root-cause analysis, risk and document control.
+</p>
+<ul>
+  <li><strong>ISO 9001:2015 Process Auditor </strong> — audit planning, conduct, reporting and follow-up; risk-based internal audits.</li>
+  <li><strong>Six Sigma Green Belt</strong> — DMAIC, process capability, variation reduction, data-driven problem solving.</li>
+  <li><strong>Root Cause Analysis</strong> — 8D, 5-Why, Fishbone; action design, verification and lessons learned.</li>
+  <li><strong>Risk-Based Thinking & FMEA</strong> — process mapping, PFMEA, control plans and preventive controls.</li>
+  <li><strong>Document Control Systems</strong> — Q-Pulse, SharePoint; versioning, change control and audit trails.</li>
+  <li><strong>Data & Reporting</strong> — Excel/Power Query and dashboarding for audits and continuous improvement KPI packs.</li>
+  <li><strong>Training & Competency</strong> — competency matrices, induction/refresh programs and evidence capture.</li>
+</ul>
+
+
+  <!-- Optional: include formal study without dates -->
+  <p style="margin:12px 0 0;">
+    <em>Formal study:</em> background in <strong> Engineering & Business</strong> with emphasis on systems thinking and process improvement.
+  </p>
+</div>
+
+
+
+
+<div class="section">
+  <h2>Selected Outcomes (evidence-based)</h2>
+  <ul>
+    <li>Maintained certification readiness with no major nonconformities in the latest surveillance; <em>evidence:</em> audit report and action log.</li>
+    <li>Implemented a risk-based internal audit program across core processes; <em>evidence:</em> annual schedule, checklists and findings register.</li>
+    <li>Established single-source document control with approvals and read-acknowledgement; <em>evidence:</em> master register and change history.</li>
+    <li>Completed root-cause investigations for each issue category with effectiveness verified in follow-up checks; <em>evidence:</em> issue tracker with verification notes.</li>
+    <li>Ran a live improvement pipeline via Kaizen tickets and owner approvals; <em>evidence:</em> ticket board and monthly summary pack.</li>
+    <li>Gave supplier performance visibility through scorecards and audit follow-ups; <em>evidence:</em> scorecards and action plans.</li>
+  </ul>
+</div>
 
 </body>
 </html>

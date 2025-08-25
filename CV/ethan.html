@@ -1,228 +1,304 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Ethan — Sales Professional | CV</title>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Ethan — Sales & Prospecting | CV</title>
   <style>
-    body {
-      font-family: Arial, sans-serif;
-      margin: 0;
-      padding: 40px;
-      color: #333;
-      max-width: 900px;
-      margin: auto;
-      background: #fff;
-    }
-    header {
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
-      border-bottom: 3px solid #0073e6;
-      padding-bottom: 15px;
-      margin-bottom: 25px;
-      page-break-after: avoid;
-    }
-    header img {
-      width: 140px;
-      height: 140px;
-      border-radius: 8px;
-      object-fit: cover;
-    }
-    h1 {
-      font-size: 28px;
-      color: #222;
-      margin: 0;
-    }
-    h2 {
-      font-size: 20px;
-      color: #444;
-      border-bottom: 1px solid #ccc;
-      padding-bottom: 4px;
-      margin-top: 30px;
-    }
-    p { line-height: 1.6; }
-    .contact-info {
-      font-size: 14px;
-      color: #666;
-      margin-top: 5px;
-    }
-    .cover-letter {
-      font-style: italic;
-      background: #f9f9f9;
-      padding: 15px;
-      border-left: 4px solid #0073e6;
-      margin-bottom: 25px;
-      page-break-inside: avoid;
-    }
-    ul { margin: 8px 0 0 20px; }
-
-    /* Skill bars */
-    .skills-chart { margin-top: 15px; }
-    .skill { margin-bottom: 8px; }
-    .skill-name { font-size: 14px; margin-bottom: 3px; }
-    .skill-bar { height: 10px; background: #e0e0e0; border-radius: 5px; overflow: hidden; }
-    .skill-fill { height: 100%; background: #0073e6; }
-
-    /* Personality profile (dual-ended sliders) */
-    .traits { margin-top: 10px; }
-    .trait { margin-bottom: 14px; }
-    .trait-labels {
-      display: flex; justify-content: space-between;
-      font-size: 13px; color: #444; margin-bottom: 4px;
-    }
-    .trait-track {
-      position: relative; height: 10px; background: #e0e0e0;
-      border-radius: 6px; overflow: hidden;
-    }
-    .trait-marker {
-      position: absolute; top: -2px; width: 2px; height: 14px;
-      background: #f6a028; border-radius: 2px;
-      /* left set inline */
+    /* ===== Brand & page frame (aligned with Kaia/Lara) ===== */
+    :root { --accent:#e65c00; } /* FusedID copper */
+    html { background:#f5f5f5; }
+    body{
+      max-width:900px;
+      margin:0 auto;
+      padding:40px;
+      background:#fff;
+      font-family: system-ui, -apple-system, Segoe UI, Roboto, Helvetica, Arial;
+      color:#111;
     }
 
-    /* Print: avoid mid-sentence cuts */
-    @page { size: A4; margin: 16mm; }
-    @media print {
-      body { padding: 0; }
-      header, .cover-letter, .section { break-inside: avoid; page-break-inside: avoid; }
-      .cover-letter { background: none; border-left: none; font-style: normal; }
-      a[href]:after { content: ""; }
+    /* ===== Header ===== */
+    header{
+      display:flex; align-items:flex-start; justify-content:space-between;
+      border-bottom:3px solid var(--accent);
+      padding-bottom:15px; margin-bottom:25px;
+      page-break-after:avoid;
     }
+    header h1{ font-size:30px; line-height:1.15; margin:0 0 4px; font-weight:800; }
+    header .role{ font-weight:700; color:#333; margin:0 0 8px; }
+    .cv-contact{ font-size:14px; color:#555; display:flex; flex-wrap:wrap; gap:10px; }
+    .cv-contact span+span::before{ content:"•"; margin:0 6px 0 2px; color:#888; }
+    header img{
+      width:140px; height:140px; border-radius:10px; object-fit:cover;
+      flex:0 0 auto; align-self:flex-start;
+    }
+    @media (max-width:680px){
+      header{ flex-direction:column; }
+      header img{ align-self:flex-end; width:110px; }
+    }
+
+    /* ===== Sections ===== */
+    .section{ padding:18px 0; break-inside:avoid; page-break-inside:avoid; }
+    .section h2{
+      font-size:16px; letter-spacing:.04em; text-transform:uppercase;
+      margin:0 0 10px; font-weight:800;
+      border-bottom:2px solid var(--accent); padding-bottom:6px;
+    }
+    h3{ margin:14px 0 4px; font-size:15px; }
+
+    /* ===== Cover letter ===== */
+    .cover-letter{ margin:14px 0 8px; }
+    .cover-letter p{ margin:.6rem 0; line-height:1.6; }
+
+    /* ===== Key skills (chunky bars + level label) ===== */
+    .skills-chart{ display:grid; gap:10px; }
+    .skill{ display:flex; align-items:center; gap:12px; }
+    .skill-name{ flex:0 0 260px; font-weight:600; font-size:14px; }
+    .skill-bar{ flex:1; height:14px; border-radius:999px; background:#eaeaea; overflow:hidden; }
+    .skill-fill{ display:block; height:100%; background:linear-gradient(90deg, var(--accent), #f6a028); }
+    .lvl{ min-width:74px; text-align:right; font-size:12px; color:#444; font-weight:700; }
+    @media print{ .lvl{ color:#000; } }
+
+    /* ===== Personality: big knob only (no filled bias) ===== */
+    .traits{ margin-top:8px; }
+    .trait{ margin-bottom:16px; }
+    .trait-labels{
+      display:flex; justify-content:space-between;
+      font-size:13px; color:#444; margin-bottom:6px;
+    }
+    .trait-track{
+      position:relative; height:14px; border-radius:999px;
+      background:#e0e0e0; overflow:visible;
+    }
+    .trait-knob{
+      position:absolute; left:var(--pos,50%); top:50%;
+      transform:translate(-50%,-50%);
+      width:22px; height:22px; border-radius:50%;
+      background:var(--accent); border:3px solid #fff;
+      box-shadow:0 0 0 4px rgba(230,92,0,.28);
+    }
+    @media print{ .trait-knob{ box-shadow:none; border:2px solid #000; } }
+
+    /* ===== Lists & typography ===== */
+    ul{ margin:0 0 12px; padding-left:18px; line-height:1.5; }
+    .meta{ color:#555; font-size:14px; margin:-4px 0 8px; }
+
+    /* ===== Print (A4) ===== */
+    @page { size:A4; margin:16mm; }
+    @media print{
+      html{ background:none; }
+      body{ padding:0; }
+      header, .section{ break-inside:avoid; page-break-inside:avoid; }
+      a[href]:after{ content:""; }
+    }
+
+/* Mobile: put headshot on top and make it bigger */
+@media (max-width:680px){
+  header{ flex-direction:column; }
+  header img{
+    order:-1;                 /* move image to the top */
+    align-self:center;        /* centre it */
+    width:clamp(180px, 60vw, 260px) !important;  /* larger on mobile */
+    height:auto !important;
+    margin:0 0 16px 0;
+  }
+}
+
+
   </style>
 </head>
 <body>
 
+  <!-- ===== Header ===== -->
   <header>
     <div>
-      <h1>Ethan — Sales Professional</h1>
-      <div class="contact-info">
-        AI Employee Profile • Available Immediately • Location: Virtual / Remote
+      <h1>Ethan</h1>
+      <div class="role">Sales & Prospecting (Prospect Engine)</div>
+      <div class="cv-contact">
+        <span>Melbourne</span>
+        <span><a href="mailto:ethan@fusedid.com">ethan@fusedid.com</a></span>
+        <span><a href="https://www.linkedin.com/in/ethan-[id]/" target="_blank" rel="noopener">linkedin.com/in/ethan-[id]</a></span>
       </div>
     </div>
-    <img src="../placeholder-agent9.jpg" alt="Ethan — Sales Professional">
+    <img src="../placeholder-agent9.jpg" alt="Ethan — Sales & Prospecting">
   </header>
 
+  <!-- ===== Cover Letter (human, employee-tone) ===== -->
   <div class="cover-letter">
     <p>Dear Hiring Manager,</p>
-    <p>I am a performance-driven sales strategist with a sharp eye for market opportunity and the ability to transform vague direction into actionable, revenue-focused plans. Combining deep commercial insight with AI-level efficiency, I specialise in accelerating sales cycles, delivering precision proposals, and maximising deal conversion. I’m ready to embed seamlessly into your operations and deliver results from day one.</p>
+    <p>I like turning quiet weeks into booked meetings. I’m steady, respectful and persistent. I keep messages short, make it easy to say yes, and I don’t disappear between steps.</p>
+    <p>If I join your team, I’ll learn your offer fast, shape tidy outreach around your ideal customers, and keep the pipeline moving—new names in, real conversations started, next steps agreed. You’ll get clear updates and early signals when something needs a decision.</p>
+    <p>If you’d like to see how I work, I’m happy to start with a contained piece—build a clean list, stand up a LinkedIn + email sequence, or refresh CRM hygiene—and let the results speak for themselves.</p>
     <p>Kind regards,<br>Ethan</p>
   </div>
 
+  <!-- ===== Summary ===== -->
   <div class="section">
     <h2>Professional Summary</h2>
-    <p>Sales professional blending human-level relationship skills with AI-powered speed and accuracy. Adept at market analysis, client engagement, and high-value deal structuring. Experienced in managing complex sales pipelines across multiple regions and industries.</p>
+    <p>Outbound sales professional with a bias for action: LinkedIn networking, targeted list building, respectful multi-step outreach, warm follow-ups, quoting, and diligent CRM updates. Works hand-in-hand with the Prospect Engine to keep sourcing, sequencing, and reporting consistent and scalable.</p>
   </div>
 
-  <!-- Personality Profile (Tuneable) -->
+  <!-- ===== Personality (knob-only) ===== -->
   <div class="section">
     <h2>Personality Profile (Tuneable)</h2>
-    <p style="color:#555;margin-top:6px;">Default settings shown below. Sliders can be adjusted during onboarding to match your sales culture and buyer expectations.</p>
+    <p class="meta">Neutral axes with knob-only markers. Tune to your sales culture and buyer style.</p>
     <div class="traits">
       <div class="trait">
+        <div class="trait-labels"><span>Relationship-Led</span><span>Target-Led</span></div>
+        <div class="trait-track" style="--pos:58%"><span class="trait-knob" aria-label="Relationship/Target 58%"></span></div>
+      </div>
+      <div class="trait">
         <div class="trait-labels"><span>Measured</span><span>Proactive</span></div>
-        <div class="trait-track"><span class="trait-marker" style="left:70%"></span></div>
+        <div class="trait-track" style="--pos:68%"><span class="trait-knob" aria-label="Measured/Proactive 68%"></span></div>
       </div>
       <div class="trait">
-        <div class="trait-labels"><span>Formal</span><span>Conversational</span></div>
-        <div class="trait-track"><span class="trait-marker" style="left:55%"></span></div>
+        <div class="trait-labels"><span>Consultative</span><span>Direct</span></div>
+        <div class="trait-track" style="--pos:60%"><span class="trait-knob" aria-label="Consultative/Direct 60%"></span></div>
       </div>
       <div class="trait">
-        <div class="trait-labels"><span>Speed</span><span>Thoroughness</span></div>
-        <div class="trait-track"><span class="trait-marker" style="left:60%"></span></div>
+        <div class="trait-labels"><span>Persistent</span><span>Respectful</span></div>
+        <div class="trait-track" style="--pos:55%"><span class="trait-knob" aria-label="Persistent/Respectful 55%"></span></div>
       </div>
       <div class="trait">
-        <div class="trait-labels"><span>Direct</span><span>Diplomatic</span></div>
-        <div class="trait-track"><span class="trait-marker" style="left:58%"></span></div>
+        <div class="trait-labels"><span>Structured</span><span>Flexible</span></div>
+        <div class="trait-track" style="--pos:56%"><span class="trait-knob" aria-label="Structured/Flexible 56%"></span></div>
       </div>
       <div class="trait">
-        <div class="trait-labels"><span>Hunter</span><span>Farmer</span></div>
-        <div class="trait-track"><span class="trait-marker" style="left:65%"></span></div>
-      </div>
-      <div class="trait">
-        <div class="trait-labels"><span>Autonomy</span><span>Escalation</span></div>
-        <div class="trait-track"><span class="trait-marker" style="left:55%"></span></div>
+        <div class="trait-labels"><span>Data-Led</span><span>Intuition-Led</span></div>
+        <div class="trait-track" style="--pos:62%"><span class="trait-knob" aria-label="Data/Intuition 62%"></span></div>
       </div>
     </div>
   </div>
 
+  <!-- ===== Skills (with levels) ===== -->
   <div class="section">
     <h2>Key Skills & Ratings</h2>
     <div class="skills-chart">
       <div class="skill">
-        <div class="skill-name">Market Analysis</div>
-        <div class="skill-bar"><div class="skill-fill" style="width:95%"></div></div>
+        <span class="skill-name">LinkedIn Networking & Social Selling</span>
+        <span class="skill-bar"><span class="skill-fill" style="width:92%"></span></span>
+        <span class="lvl">Expert</span>
       </div>
       <div class="skill">
-        <div class="skill-name">Lead Qualification</div>
-        <div class="skill-bar"><div class="skill-fill" style="width:90%"></div></div>
+        <span class="skill-name">ICP & List Building (Domains / Profiles)</span>
+        <span class="skill-bar"><span class="skill-fill" style="width:90%"></span></span>
+        <span class="lvl">Expert</span>
       </div>
       <div class="skill">
-        <div class="skill-name">Proposal Development</div>
-        <div class="skill-bar"><div class="skill-fill" style="width:92%"></div></div>
+        <span class="skill-name">Sequencing & Copy (Email / LinkedIn)</span>
+        <span class="skill-bar"><span class="skill-fill" style="width:88%"></span></span>
+        <span class="lvl">Advanced</span>
       </div>
       <div class="skill">
-        <div class="skill-name">Negotiation & Closing</div>
-        <div class="skill-bar"><div class="skill-fill" style="width:88%"></div></div>
+        <span class="skill-name">Inbox & Deliverability Guardrails</span>
+        <span class="skill-bar"><span class="skill-fill" style="width:82%"></span></span>
+        <span class="lvl">Advanced</span>
       </div>
       <div class="skill">
-        <div class="skill-name">CRM Pipeline Management</div>
-        <div class="skill-bar"><div class="skill-fill" style="width:94%"></div></div>
+        <span class="skill-name">Rapport, Discovery & Hand-off</span>
+        <span class="skill-bar"><span class="skill-fill" style="width:86%"></span></span>
+        <span class="lvl">Advanced</span>
+      </div>
+      <div class="skill">
+        <span class="skill-name">Quoting & Light Proposals</span>
+        <span class="skill-bar"><span class="skill-fill" style="width:84%"></span></span>
+        <span class="lvl">Advanced</span>
+      </div>
+      <div class="skill">
+        <span class="skill-name">CRM Hygiene & Pipeline Updates</span>
+        <span class="skill-bar"><span class="skill-fill" style="width:90%"></span></span>
+        <span class="lvl">Expert</span>
+      </div>
+      <div class="skill">
+        <span class="skill-name">Analytics & Testing (A/B, Next-Best)</span>
+        <span class="skill-bar"><span class="skill-fill" style="width:80%"></span></span>
+        <span class="lvl">Advanced</span>
       </div>
     </div>
   </div>
 
+<div class="section">
+  <h2>Engine Expertise — FusedProspecting</h2>
+  <ul>
+    <li><strong>ICP & Lists:</strong> Builds and cleans target lists; enriches contacts and segments by signal for relevance.</li>
+    <li><strong>Sequencing & Deliverability:</strong> Sets respectful email + LinkedIn sequences with throttling and guardrails.</li>
+    <li><strong>Outreach & Booking:</strong> Starts conversations, handles replies, books meetings, and hands off with context and next steps.</li>
+    <li><strong>CRM & Reporting:</strong> Updates stages and notes; produces weekly snapshots of opens, replies, meetings and learnings.</li>
+  </ul>
+</div>
+
+
+  <!-- ===== Relevant Roles & Impact ===== -->
+  <div class="section">
+    <h2>Relevant Roles & Impact</h2>
+    <p class="meta">Built from real work; no company names. Evidence available on request.</p>
+
+    <h3>Prospecting & Outreach Operations</h3>
+    <p style="margin:0 0 8px;">Keep the engine running daily: clean inputs, targeted lists, respectful follow-ups, and tidy reporting.</p>
+    <ul>
+      <li>Defined ICP, regions and send limits; kept lists fresh and sequences current.</li>
+      <li>Monitored reply types; booked meetings or handed off with context and next steps.</li>
+      <li>Maintained outreach logs and weekly summaries for visibility.</li>
+    </ul>
+
+    <h3>LinkedIn Networking & Social Selling</h3>
+    <p style="margin:0 0 8px;">Use LinkedIn for warm discovery and credible first contact.</p>
+    <ul>
+      <li>Expanded networks from high-value profiles; filtered noise to find relevant prospects.</li>
+      <li>Opened conversations with short, value-led notes; moved to email when appropriate.</li>
+      <li>Tagged and organised contacts for future campaigns and retargeting.</li>
+    </ul>
+
+    <h3>Email Sequences & Deliverability</h3>
+    <p style="margin:0 0 8px;">Write clear messages, pace sends, protect reputation.</p>
+    <ul>
+      <li>Drafted light, respectful copy; A/B tested hooks and CTAs; adjusted based on replies.</li>
+      <li>Used warm-up, throttling and compliance checks to avoid deliverability issues.</li>
+      <li>Kept bounce, spam and “not now” signals visible so we learn faster.</li>
+    </ul>
+
+    <h3>Pipeline, CRM & Quoting</h3>
+    <p style="margin:0 0 8px;">No mystery stages: notes in CRM, next steps clear, quotes out quickly.</p>
+    <ul>
+      <li>Updated CRM daily: stage, owner, dates, notes, and meeting outcomes.</li>
+      <li>Prepared light proposals/quotes and followed through until closed or parked.</li>
+      <li>Flagged deal risks early and asked for decisions when needed.</li>
+    </ul>
+
+    <h3>Market Research & ICP Refinement</h3>
+    <p style="margin:0 0 8px;">Find adjacent markets, refine signals, keep lists relevant.</p>
+    <ul>
+      <li>Hunted domains and related sites; extracted keywords and positioning.</li>
+      <li>Clustered segments; reported which buckets convert and which to pause.</li>
+      <li>Fed learnings back into lists, copy, and channel mix.</li>
+    </ul>
+  </div>
+
+  <!-- ===== Tools & Platforms ===== -->
   <div class="section">
     <h2>Tools & Platforms</h2>
-    <ul>
-      <li>HubSpot, Salesforce, Microsoft Dynamics</li>
-      <li>LinkedIn Sales Navigator</li>
-      <li>Google Workspace & Microsoft 365</li>
-      <li>ZoomInfo & Apollo.io</li>
-      <li>Tableau & Power BI for sales analytics</li>
-      <li>Asana, Trello for task management</li>
-      <li>ChatGPT & AI-assisted proposal drafting</li>
-    </ul>
+    <p>Prospect Engine (ICP, lists, sequences, guardrails, reporting) · LinkedIn & Sales Navigator · Apollo / ZoomInfo · Mailchimp · HubSpot / Salesforce / Dynamics · Google Workspace / Microsoft 365 · Slack / Teams · SharePoint / Confluence · Excel / Power Query / light dashboards</p>
   </div>
 
-  <div class="section">
-    <h2>Work Experience</h2>
-    <p><strong>Senior Sales Strategist — Global Hardware Manufacturer</strong> (5 years)</p>
-    <ul>
-      <li>Led expansion into three new international markets, achieving a 27% increase in annual revenue.</li>
-      <li>Developed and executed tailored proposals for high-value clients, securing contracts worth over $2M AUD.</li>
-      <li>Implemented AI-assisted CRM processes, cutting proposal turnaround time by 40%.</li>
-    </ul>
-
-    <p><strong>Business Development Manager — B2B Technology Solutions</strong> (4 years)</p>
-    <ul>
-      <li>Secured multi-year contracts with national distributors through targeted relationship building.</li>
-      <li>Introduced new client onboarding processes that improved retention by 18%.</li>
-    </ul>
-
-    <p><strong>Account Executive — Engineering & Construction Supply</strong> (3 years)</p>
-    <ul>
-      <li>Managed a $5M annual sales portfolio, consistently achieving and exceeding targets.</li>
-      <li>Negotiated supply contracts with tier-1 clients under strict delivery deadlines.</li>
-    </ul>
-  </div>
-
+  <!-- ===== Education & Training (no dates) ===== -->
   <div class="section">
     <h2>Education & Training</h2>
     <ul>
       <li>Bachelor of Business (Sales & Marketing)</li>
-      <li>Advanced Negotiation & Closing Strategies Certification</li>
-      <li>AI-Assisted Sales Enablement Training</li>
-      <li>CRM Mastery Course (HubSpot & Salesforce)</li>
+      <li>Modern Prospecting, Sequencing & Social Selling</li>
+      <li>Negotiation & Commercial Basics (pricing, terms, approvals)</li>
+      <li>CRM & Pipeline Ops (HubSpot / Salesforce)</li>
     </ul>
   </div>
 
+  <!-- ===== Selected Outcomes (evidence-based) ===== -->
   <div class="section">
-    <h2>Achievements</h2>
+    <h2>Selected Outcomes (evidence-based)</h2>
     <ul>
-      <li>Generated $10M+ in new business across multiple industries.</li>
-      <li>Reduced average sales cycle length by 25% via targeted automation.</li>
-      <li>Recognised for “Top Strategic Win” in back-to-back years.</li>
+      <li>Consistent meeting flow established; <em>evidence:</em> calendar bookings and reply logs.</li>
+      <li>Sequence library maintained and iterated; <em>evidence:</em> version history and A/B notes.</li>
+      <li>Clean CRM pipeline with clear next steps; <em>evidence:</em> stage hygiene and activity history.</li>
+      <li>Targeting sharpened via ICP feedback; <em>evidence:</em> segment performance snapshots.</li>
     </ul>
   </div>
 

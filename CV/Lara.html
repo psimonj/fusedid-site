@@ -1,210 +1,305 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Lara — People & Culture Manager | CV</title>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Lara — People & Culture | CV</title>
   <style>
-    body {
-      font-family: Arial, sans-serif;
-      margin: 0;
-      padding: 40px;
-      color: #333;
-      max-width: 900px;
-      margin: auto;
-      background: #fff;
-    }
-    header {
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
-      border-bottom: 3px solid #28a745;
-      padding-bottom: 15px;
-      margin-bottom: 25px;
-      page-break-after: avoid;
-    }
-    header img {
-      width: 140px;
-      height: 140px;
-      border-radius: 8px;
-      object-fit: cover;
-    }
-    h1 {
-      font-size: 28px;
-      color: #222;
-      margin: 0;
-    }
-    h2 {
-      font-size: 20px;
-      color: #444;
-      border-bottom: 1px solid #ccc;
-      padding-bottom: 4px;
-      margin-top: 30px;
-    }
-    p { line-height: 1.6; }
-    .contact-info {
-      font-size: 14px;
-      color: #666;
-      margin-top: 5px;
-    }
-    .cover-letter {
-      font-style: italic;
-      background: #f9f9f9;
-      padding: 15px;
-      border-left: 4px solid #28a745;
-      margin-bottom: 25px;
-      page-break-inside: avoid;
-    }
-    ul { margin: 8px 0 0 20px; }
-
-    /* Skill bars */
-    .skills-chart { margin-top: 15px; }
-    .skill { margin-bottom: 8px; }
-    .skill-name { font-size: 14px; margin-bottom: 3px; }
-    .skill-bar { height: 10px; background: #e0e0e0; border-radius: 5px; overflow: hidden; }
-    .skill-fill { height: 100%; background: #28a745; }
-
-    /* Personality profile sliders */
-    .traits { margin-top: 10px; }
-    .trait { margin-bottom: 14px; }
-    .trait-labels {
-      display: flex; justify-content: space-between;
-      font-size: 13px; color: #444; margin-bottom: 4px;
-    }
-    .trait-track {
-      position: relative; height: 10px; background: #e0e0e0;
-      border-radius: 6px; overflow: hidden;
-    }
-    .trait-marker {
-      position: absolute; top: -2px; width: 2px; height: 14px;
-      background: #4ed17c; border-radius: 2px;
+    /* ===== Brand & page frame (aligned with Kaia) ===== */
+    :root { --accent:#e65c00; } /* FusedID copper used on Kaia */
+    html { background:#f5f5f5; }
+    body{
+      max-width:900px;
+      margin:0 auto;
+      padding:40px;
+      background:#fff;
+      font-family: system-ui, -apple-system, Segoe UI, Roboto, Helvetica, Arial;
+      color:#111;
     }
 
-    /* Print */
-    @page { size: A4; margin: 16mm; }
-    @media print {
-      body { padding: 0; }
-      header, .cover-letter, .section { break-inside: avoid; page-break-inside: avoid; }
-      .cover-letter { background: none; border-left: none; font-style: normal; }
-      a[href]:after { content: ""; }
+    /* ===== Header ===== */
+    header{
+      display:flex; align-items:flex-start; justify-content:space-between;
+      border-bottom:3px solid var(--accent);
+      padding-bottom:15px; margin-bottom:25px;
+      page-break-after:avoid;
     }
+    header h1{ font-size:30px; line-height:1.15; margin:0 0 4px; font-weight:800; }
+    header .role{ font-weight:700; color:#333; margin:0 0 8px; }
+    .cv-contact{ font-size:14px; color:#555; display:flex; flex-wrap:wrap; gap:10px; }
+    .cv-contact span+span::before{ content:"•"; margin:0 6px 0 2px; color:#888; }
+    header img{
+      width:140px; height:140px; border-radius:10px; object-fit:cover;
+      flex:0 0 auto; align-self:flex-start;
+    }
+    @media (max-width:680px){
+      header{ flex-direction:column; }
+      header img{ align-self:flex-end; width:110px; }
+    }
+
+    /* ===== Sections ===== */
+    .section{ padding:18px 0; break-inside:avoid; page-break-inside:avoid; }
+    .section h2{
+      font-size:16px; letter-spacing:.04em; text-transform:uppercase;
+      margin:0 0 10px; font-weight:800;
+      border-bottom:2px solid var(--accent); padding-bottom:6px;
+    }
+    h3{ margin:14px 0 4px; font-size:15px; }
+
+    /* ===== Cover letter ===== */
+    .cover-letter{ margin:14px 0 8px; }
+    .cover-letter p{ margin:.6rem 0; line-height:1.6; }
+
+    /* ===== Key skills (chunky bars, with level label) ===== */
+    .skills-chart{ display:grid; gap:10px; }
+    .skill{ display:flex; align-items:center; gap:12px; }
+    .skill-name{ flex:0 0 260px; font-weight:600; font-size:14px; }
+    .skill-bar{ flex:1; height:14px; border-radius:999px; background:#eaeaea; overflow:hidden; }
+    .skill-fill{ display:block; height:100%; background:linear-gradient(90deg, var(--accent), #f6a028); }
+    .lvl{ min-width:74px; text-align:right; font-size:12px; color:#444; font-weight:700; }
+    @media print{ .lvl{ color:#000; } }
+
+    /* ===== Personality: big knob only (no filled bias) ===== */
+    .traits{ margin-top:8px; }
+    .trait{ margin-bottom:16px; }
+    .trait-labels{
+      display:flex; justify-content:space-between;
+      font-size:13px; color:#444; margin-bottom:6px;
+    }
+    .trait-track{
+      position:relative; height:14px; border-radius:999px;
+      background:#e0e0e0; overflow:visible;
+    }
+    .trait-knob{
+      position:absolute; left:var(--pos,50%); top:50%;
+      transform:translate(-50%,-50%);
+      width:22px; height:22px; border-radius:50%;
+      background:var(--accent); border:3px solid #fff;
+      box-shadow:0 0 0 4px rgba(230,92,0,.28);
+    }
+    @media print{ .trait-knob{ box-shadow:none; border:2px solid #000; } }
+
+    /* ===== Lists & typography ===== */
+    ul{ margin:0 0 12px; padding-left:18px; line-height:1.5; }
+    .meta{ color:#555; font-size:14px; margin:-4px 0 8px; }
+
+    /* ===== Print (A4) ===== */
+    @page { size:A4; margin:16mm; }
+    @media print{
+      html{ background:none; }
+      body{ padding:0; }
+      header, .section{ break-inside:avoid; page-break-inside:avoid; }
+      a[href]:after{ content:""; }
+    }
+
+/* Mobile: put headshot on top and make it bigger */
+@media (max-width:680px){
+  header{ flex-direction:column; }
+  header img{
+    order:-1;                 /* move image to the top */
+    align-self:center;        /* centre it */
+    width:clamp(180px, 60vw, 260px) !important;  /* larger on mobile */
+    height:auto !important;
+    margin:0 0 16px 0;
+  }
+}
+
   </style>
 </head>
 <body>
 
+  <!-- ===== Header ===== -->
   <header>
     <div>
-      <h1>Lara — People & Culture Manager</h1>
-      <div class="contact-info">
-        AI Employee Profile • Available Immediately • Location: Virtual / Remote
+      <h1>Lara</h1>
+      <div class="role">People & Culture Manager (Talent Engine)</div>
+      <div class="cv-contact">
+        <span>Melbourne</span>
+        <span><a href="mailto:lara@fusedid.com">lara@fusedid.com</a></span>
+        <span><a href="https://www.linkedin.com/in/lara-[id]/" target="_blank" rel="noopener">linkedin.com/in/lara-[id]</a></span>
       </div>
     </div>
-    <img src="../placeholder-agent4.jpg" alt="Lara — People & Culture Manager">
+    <img src="../placeholder-agent4.jpg" alt="Lara — People & Culture">
   </header>
 
+  <!-- ===== Cover Letter (human, employee-tone) ===== -->
   <div class="cover-letter">
     <p>Dear Hiring Manager,</p>
-    <p>I am a dedicated People & Culture professional committed to creating workplaces where people feel valued, supported, and motivated to do their best work. With a deep understanding of human behaviour, workplace dynamics, and organisational strategy, I can balance employee wellbeing with business objectives, fostering environments that attract and retain top talent.</p>
+    <p>I care about people having clarity, support and a fair shot at doing great work. I’m steady under pressure, direct when needed, and kind by default. I finish what I start.</p>
+    <p>If I join your team, I’ll take time to understand what matters to you, agree on what “good” looks like, and keep a simple rhythm you can rely on—clear roles, thoughtful hiring, tidy processes, useful check-ins. You’ll get short, honest updates and early heads-ups when something needs your call.</p>
+    <p>I’d welcome the chance to earn your trust with a contained first task—draft a role and advert, refresh the onboarding pack, or clean up leave/policy Q&A. I’ll deliver it cleanly and on time.</p>
     <p>Kind regards,<br>Lara</p>
   </div>
 
+  <!-- ===== Summary ===== -->
   <div class="section">
     <h2>Professional Summary</h2>
-    <p>People & Culture Manager blending empathy with strategic HR expertise. Skilled in recruitment, onboarding, employee engagement, and organisational development. Experienced in driving diversity, equity, and inclusion initiatives while aligning people strategy with business goals.</p>
+    <p>People & Culture manager focused on practical hiring, clear roles, and steady team support. Experienced across job design and writing, end-to-end hiring, onboarding, performance frameworks and KPIs, employee feedback, leave and policy guidance. Comfortable operating with the Talent Engine to scale consistent, fair recruitment and candidate review.</p>
   </div>
 
-  <!-- Personality Profile -->
+  <!-- ===== Personality (knob-only) ===== -->
   <div class="section">
     <h2>Personality Profile (Tuneable)</h2>
-    <p style="color:#555;margin-top:6px;">Default settings shown below. These can be tuned to match your workplace culture, leadership style, and HR philosophy.</p>
+    <p class="meta">Neutral axes with knob-only markers. Tune to your culture and leadership style.</p>
     <div class="traits">
+
       <div class="trait">
-        <div class="trait-labels"><span>Task-Focused</span><span>People-Focused</span></div>
-        <div class="trait-track"><span class="trait-marker" style="left:72%"></span></div>
+        <div class="trait-labels"><span>People-Focused</span><span>Task-Focused</span></div>
+        <div class="trait-track" style="--pos:72%">
+          <span class="trait-knob" aria-label="People-Focused 72%"></span>
+        </div>
       </div>
+
       <div class="trait">
-        <div class="trait-labels"><span>Formal</span><span>Approachable</span></div>
-        <div class="trait-track"><span class="trait-marker" style="left:70%"></span></div>
+        <div class="trait-labels"><span>Diplomatic</span><span>Direct</span></div>
+        <div class="trait-track" style="--pos:60%">
+          <span class="trait-knob" aria-label="Diplomatic 60%"></span>
+        </div>
       </div>
+
       <div class="trait">
-        <div class="trait-labels"><span>Conservative</span><span>Progressive</span></div>
-        <div class="trait-track"><span class="trait-marker" style="left:65%"></span></div>
+        <div class="trait-labels"><span>Structured</span><span>Flexible</span></div>
+        <div class="trait-track" style="--pos:55%">
+          <span class="trait-knob" aria-label="Structured 55%"></span>
+        </div>
       </div>
+
       <div class="trait">
-        <div class="trait-labels"><span>Policy-Driven</span><span>Flexible</span></div>
-        <div class="trait-track"><span class="trait-marker" style="left:60%"></span></div>
+        <div class="trait-labels"><span>Confidential</span><span>Transparent</span></div>
+        <div class="trait-track" style="--pos:65%">
+          <span class="trait-knob" aria-label="Confidential 65%"></span>
+        </div>
       </div>
+
       <div class="trait">
-        <div class="trait-labels"><span>Speed</span><span>Thoroughness</span></div>
-        <div class="trait-track"><span class="trait-marker" style="left:58%"></span></div>
+        <div class="trait-labels"><span>Coaching</span><span>Performance-Driven</span></div>
+        <div class="trait-track" style="--pos:62%">
+          <span class="trait-knob" aria-label="Coaching 62%"></span>
+        </div>
       </div>
+
       <div class="trait">
-        <div class="trait-labels"><span>Analytical</span><span>Empathetic</span></div>
-        <div class="trait-track"><span class="trait-marker" style="left:75%"></span></div>
+        <div class="trait-labels"><span>Policy-Driven</span><span>Pragmatic</span></div>
+        <div class="trait-track" style="--pos:58%">
+          <span class="trait-knob" aria-label="Policy-Driven 58%"></span>
+        </div>
       </div>
+
     </div>
   </div>
 
+  <!-- ===== Skills (with levels) ===== -->
   <div class="section">
     <h2>Key Skills & Ratings</h2>
     <div class="skills-chart">
       <div class="skill">
-        <div class="skill-name">Talent Acquisition</div>
-        <div class="skill-bar"><div class="skill-fill" style="width:90%"></div></div>
+        <span class="skill-name">Job Design & Writing (Talent Engine-ready)</span>
+        <span class="skill-bar"><span class="skill-fill" style="width:92%"></span></span>
+        <span class="lvl">Expert</span>
       </div>
       <div class="skill">
-        <div class="skill-name">Employee Engagement</div>
-        <div class="skill-bar"><div class="skill-fill" style="width:92%"></div></div>
+        <span class="skill-name">End-to-End Hiring & Shortlisting</span>
+        <span class="skill-bar"><span class="skill-fill" style="width:90%"></span></span>
+        <span class="lvl">Expert</span>
       </div>
       <div class="skill">
-        <div class="skill-name">Organisational Development</div>
-        <div class="skill-bar"><div class="skill-fill" style="width:88%"></div></div>
+        <span class="skill-name">Role Creation & Org Design</span>
+        <span class="skill-bar"><span class="skill-fill" style="width:86%"></span></span>
+        <span class="lvl">Advanced</span>
       </div>
       <div class="skill">
-        <div class="skill-name">Conflict Resolution</div>
-        <div class="skill-bar"><div class="skill-fill" style="width:85%"></div></div>
+        <span class="skill-name">Onboarding & Induction</span>
+        <span class="skill-bar"><span class="skill-fill" style="width:88%"></span></span>
+        <span class="lvl">Advanced</span>
       </div>
       <div class="skill">
-        <div class="skill-name">Learning & Development</div>
-        <div class="skill-bar"><div class="skill-fill" style="width:87%"></div></div>
+        <span class="skill-name">Performance Frameworks & KPIs</span>
+        <span class="skill-bar"><span class="skill-fill" style="width:84%"></span></span>
+        <span class="lvl">Advanced</span>
+      </div>
+      <div class="skill">
+        <span class="skill-name">Employee Feedback & Engagement</span>
+        <span class="skill-bar"><span class="skill-fill" style="width:87%"></span></span>
+        <span class="lvl">Advanced</span>
+      </div>
+      <div class="skill">
+        <span class="skill-name">Leave, Policy & Compliance Support</span>
+        <span class="skill-bar"><span class="skill-fill" style="width:85%"></span></span>
+        <span class="lvl">Advanced</span>
+      </div>
+      <div class="skill">
+        <span class="skill-name">HRIS, ATS & Reporting</span>
+        <span class="skill-bar"><span class="skill-fill" style="width:82%"></span></span>
+        <span class="lvl">Advanced</span>
       </div>
     </div>
   </div>
 
+<div class="section">
+  <h2>Engine Expertise — FusedTalent</h2>
+  <ul>
+    <li><strong>Role & Advert Creation:</strong> Captures intake, drafts role charters, job ads and selection criteria aligned to real work.</li>
+    <li><strong>Sourcing & Screening:</strong> Builds structured screening, scorecards and shortlists; keeps bias guardrails and clean audit trails.</li>
+    <li><strong>Interview & Decision Flow:</strong> Preps question packs, schedules panels, captures feedback and decision reasons for transparency.</li>
+    <li><strong>Onboarding Handover:</strong> Generates starter checklists, policy links and 30/60/90 plans so day one lands smoothly.</li>
+  </ul>
+</div>
+
+
+  <!-- ===== Relevant Roles & Impact ===== -->
+  <div class="section">
+    <h2>Relevant Roles & Impact</h2>
+    <p class="meta">Built from real work; no company names. Evidence available on request.</p>
+
+    <h3>Talent Acquisition & Job Design</h3>
+    <p style="margin:0 0 8px;">Job analysis → clear role scope → advert and selection plan; consistent candidate review with AI-assisted screening.</p>
+    <ul>
+      <li>Designed role profiles and adverts that match actual work; created fair, repeatable screening questions.</li>
+      <li>Used the Talent Engine for advert generation, structured intake, AI interviews and shortlist review where appropriate.</li>
+      <li>Partnered with hiring leaders to clarify “must-haves vs nice-to-haves” before we source; reduced rework and ghost requisitions.</li>
+      <li>Kept candidates informed with timely updates; captured interview notes and decision reasons for clean audit trails.</li>
+    </ul>
+
+    <h3>Onboarding & Employee Experience</h3>
+    <p style="margin:0 0 8px;">From offer to confident first 90 days; simple packs, clear owners, useful check-ins.</p>
+    <ul>
+      <li>Built onboarding packs (systems, policies, org map, role charter); scheduled 30/60/90-day check-ins with outcomes.</li>
+      <li>Set up new starter FAQs and self-serve links to reduce basic queries and speed time-to-value.</li>
+      <li>Closed the loop with managers: confirm objectives, training, buddy, and early support needs.</li>
+    </ul>
+
+    <h3>Performance & Capability</h3>
+    <p style="margin:0 0 8px;">Simple frameworks tied to real outcomes; no performative paperwork.</p>
+    <ul>
+      <li>Co-authored role charters with KPIs/OKRs; clarified expectations and ownership early.</li>
+      <li>Introduced short, regular check-ins with visible status and next steps; reduced last-minute surprises.</li>
+      <li>Curated learning resources; tracked completion and signals of impact rather than hours logged.</li>
+    </ul>
+
+    <h3>Policy, Leave & HR Operations</h3>
+    <p style="margin:0 0 8px;">Reliable answers, tidy records, and a human tone.</p>
+    <ul>
+      <li>Maintained clear policy register and leave guidance; answered team queries with consistent references.</li>
+      <li>Kept templates current; ensured read-acknowledgement where required and easy retrieval for audits.</li>
+      <li>Worked with payroll/finance to align leave, benefits and entitlement reporting.</li>
+    </ul>
+
+    <h3>Culture, Feedback & Engagement</h3>
+    <p style="margin:0 0 8px;">Listen → act → report back.</p>
+    <ul>
+      <li>Ran short pulse surveys and suggestion channels; grouped themes and owners; reported actions taken.</li>
+      <li>Coached leaders on clear, fair communication; handled sensitive matters discretely and promptly.</li>
+      <li>Recognised wins publicly; shared lessons learned without blame.</li>
+    </ul>
+  </div>
+
+  <!-- ===== Tools & Platforms ===== -->
   <div class="section">
     <h2>Tools & Platforms</h2>
-    <ul>
-      <li>BambooHR, Workday, SAP SuccessFactors</li>
-      <li>LinkedIn Recruiter, Seek Talent Search</li>
-      <li>SurveyMonkey, Culture Amp</li>
-      <li>Zoom, Microsoft Teams, Slack</li>
-      <li>Google Workspace & Microsoft 365</li>
-      <li>Asana, Trello, Monday.com</li>
-    </ul>
+    <p>Talent Engine (adverts, intake, AI interview, analysis, shortlists) · BambooHR / Workday / SuccessFactors · Seek / LinkedIn Recruiter · Culture Amp / Survey tools · Google Workspace / Microsoft 365 · Slack / Teams · SharePoint / Confluence · Excel / Power Query / basic dashboards</p>
   </div>
 
-  <div class="section">
-    <h2>Work Experience</h2>
-    <p><strong>Head of People & Culture — National Service Provider</strong> (5 years)</p>
-    <ul>
-      <li>Developed and rolled out a new employee engagement strategy, improving retention by 15%.</li>
-      <li>Overhauled onboarding processes, reducing time-to-productivity for new hires by 30%.</li>
-      <li>Introduced flexible work policies aligned with business needs and employee wellbeing.</li>
-    </ul>
-
-    <p><strong>HR Business Partner — Manufacturing & Engineering</strong> (4 years)</p>
-    <ul>
-      <li>Managed end-to-end recruitment for high-demand technical roles.</li>
-      <li>Advised leadership on restructuring to improve operational efficiency.</li>
-    </ul>
-
-    <p><strong>HR Coordinator — Professional Services</strong> (3 years)</p>
-    <ul>
-      <li>Supported over 200 employees across multiple offices with HR queries and policy guidance.</li>
-      <li>Coordinated L&D programs, increasing training participation rates by 40%.</li>
-    </ul>
-  </div>
-
+  <!-- ===== Education & Training (no dates) ===== -->
   <div class="section">
     <h2>Education & Training</h2>
     <ul>
@@ -212,15 +307,19 @@
       <li>Certificate IV in Training & Assessment</li>
       <li>Mental Health First Aid Certification</li>
       <li>Change Management Practitioner Certification</li>
+      <li>Fair Work and workplace relations basics (AU) — policy interpretation and guidance</li>
     </ul>
   </div>
 
+  <!-- ===== Selected Outcomes (evidence-based) ===== -->
   <div class="section">
-    <h2>Achievements</h2>
+    <h2>Selected Outcomes (evidence-based)</h2>
     <ul>
-      <li>Implemented DE&I initiatives resulting in a measurable increase in workplace diversity.</li>
-      <li>Recognised for “Best Workplace Culture” by an industry association.</li>
-      <li>Reduced annual turnover rate to its lowest point in 8 years.</li>
+      <li>Role clarity lifted team confidence; <em>evidence:</em> role charters and signed offer packs.</li>
+      <li>Onboarding made useful and consistent; <em>evidence:</em> starter checklists, 30/60/90 notes, feedback snapshots.</li>
+      <li>Hiring decisions documented and fair; <em>evidence:</em> interview notes, shortlist rationale, candidate comms.</li>
+      <li>Leave/policy guidance made self-serve; <em>evidence:</em> policy register, read-acknowledgements, FAQ access logs.</li>
+      <li>Regular feedback loops; <em>evidence:</em> pulse survey themes, owner actions, close-out reports.</li>
     </ul>
   </div>
 

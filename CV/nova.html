@@ -1,235 +1,295 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<meta charset="UTF-8" />
-<meta name="viewport" content="width=device-width,initial-scale=1.0"/>
-<title>Nova — Customise Your Next Hire | CV</title>
-<style>
-  :root{
-    --ink:#0e2238; --sub:#3a506b; --muted:#6b7b8c; --line:#e9edf2; --accent:#f6a028;
-    --bar:#0073e6; --bar-bg:#e0e0e0;
-  }
-  body{
-    font-family: Arial, Helvetica, sans-serif;
-    color:#333; background:#fff;
-    margin:0; padding:40px; max-width:900px; margin-inline:auto;
-  }
-  header{
-    display:flex; align-items:center; justify-content:space-between;
-    border-bottom:3px solid #0073e6; padding-bottom:15px; margin-bottom:25px;
-    page-break-after: avoid;
-  }
-  header img{ width:140px; height:140px; border-radius:8px; object-fit:cover; }
-  h1{ margin:0; font-size:28px; color:#222; }
-  .contact-info{ font-size:14px; color:#666; margin-top:6px; }
-  h2{
-    font-size:20px; color:#444; border-bottom:1px solid #ccc;
-    padding-bottom:4px; margin-top:30px; margin-bottom:8px;
-  }
-  p{ line-height:1.6; margin:0 0 10px 0; }
-  ul{ margin:8px 0 0 22px; }
-  .section{ margin-bottom:25px; page-break-inside: avoid; }
-  .cover-letter{
-    font-style:italic; background:#f9f9f9; padding:15px;
-    border-left:4px solid #0073e6; margin-bottom:25px; page-break-inside: avoid;
-  }
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Nova — Custom AI Employee | CV</title>
+  <style>
+    /* ===== Brand & page frame (aligned with Kaia/Lara/Ethan) ===== */
+    :root { --accent:#e65c00; } /* FusedID copper */
+    html { background:#f5f5f5; }
+    body{
+      max-width:900px;
+      margin:0 auto;
+      padding:40px;
+      background:#fff;
+      font-family: system-ui, -apple-system, Segoe UI, Roboto, Helvetica, Arial;
+      color:#111;
+    }
 
-  /* Bars */
-  .skills-chart, .traits{ margin-top:10px; }
-  .row{ margin-bottom:10px; }
-  .name{ font-size:14px; margin-bottom:4px; display:flex; justify-content:space-between; gap:10px;}
-  .bar{ height:10px; background:var(--bar-bg); border-radius:6px; overflow:hidden; }
-  .fill{ height:100%; background:var(--bar); }
+    /* ===== Header ===== */
+    header{
+      display:flex; align-items:flex-start; justify-content:space-between;
+      border-bottom:3px solid var(--accent);
+      padding-bottom:15px; margin-bottom:25px;
+      page-break-after:avoid;
+    }
+    header h1{ font-size:30px; line-height:1.15; margin:0 0 4px; font-weight:800; }
+    .role{ font-weight:700; color:#333; margin:0 0 8px; }
+    .cv-contact{ font-size:14px; color:#555; display:flex; flex-wrap:wrap; gap:10px; }
+    .cv-contact span+span::before{ content:"•"; margin:0 6px 0 2px; color:#888; }
+    header img{
+      width:140px; height:140px; border-radius:10px; object-fit:cover;
+      flex:0 0 auto; align-self:flex-start;
+    }
+    @media (max-width:680px){
+      header{ flex-direction:column; }
+      header img{ align-self:flex-end; width:110px; }
+    }
 
-  /* Traits: dual-ended scale */
-  .trait{
-    margin-bottom:14px;
-  }
-  .trait-labels{
-    display:flex; justify-content:space-between; font-size:13px; color:#444; margin-bottom:4px;
-  }
-  .trait .bar{ position:relative; }
-  .marker{
-    position:relative; height:10px; background:transparent;
-  }
-  .marker::after{
-    content:""; position:absolute; top:-2px; width:2px; height:14px;
-    background:var(--accent); border-radius:2px;
-  }
+    /* ===== Sections ===== */
+    .section{ padding:18px 0; break-inside:avoid; page-break-inside:avoid; }
+    .section h2{
+      font-size:16px; letter-spacing:.04em; text-transform:uppercase;
+      margin:0 0 10px; font-weight:800;
+      border-bottom:2px solid var(--accent); padding-bottom:6px;
+    }
+    h3{ margin:14px 0 4px; font-size:15px; }
 
-  /* Cards (optional emphasis blocks) */
-  .card{
-    border:1px solid var(--line); border-radius:10px; padding:12px; background:#fff; margin-top:8px;
-  }
+    /* ===== Cover letter ===== */
+    .cover-letter{ margin:14px 0 8px; }
+    .cover-letter p{ margin:.6rem 0; line-height:1.6; }
 
-  /* Print rules */
-  @page{ size:A4; margin:16mm; }
-  @media print{
-    body{ padding:0; }
-    header, .cover-letter, .section{ break-inside: avoid; page-break-inside: avoid; }
-    .cover-letter{ background:none; border-left:none; font-style:normal; }
-    a[href]:after{ content:""; } /* cleaner print */
+    /* ===== Key skills (chunky bars + level label) ===== */
+    .skills-chart{ display:grid; gap:10px; }
+    .skill{ display:flex; align-items:center; gap:12px; }
+    .skill-name{ flex:0 0 260px; font-weight:600; font-size:14px; }
+    .skill-bar{ flex:1; height:14px; border-radius:999px; background:#eaeaea; overflow:hidden; }
+    .skill-fill{ display:block; height:100%; background:linear-gradient(90deg, var(--accent), #f6a028); }
+    .lvl{ min-width:74px; text-align:right; font-size:12px; color:#444; font-weight:700; }
+    @media print{ .lvl{ color:#000; } }
+
+    /* ===== Personality: big knob only (no filled bias) ===== */
+    .traits{ margin-top:8px; }
+    .trait{ margin-bottom:16px; }
+    .trait-labels{
+      display:flex; justify-content:space-between;
+      font-size:13px; color:#444; margin-bottom:6px;
+    }
+    .trait-track{
+      position:relative; height:14px; border-radius:999px;
+      background:#e0e0e0; overflow:visible;
+    }
+    .trait-knob{
+      position:absolute; left:var(--pos,50%); top:50%;
+      transform:translate(-50%,-50%);
+      width:22px; height:22px; border-radius:50%;
+      background:var(--accent); border:3px solid #fff;
+      box-shadow:0 0 0 4px rgba(230,92,0,.28);
+    }
+    @media print{ .trait-knob{ box-shadow:none; border:2px solid #000; } }
+
+    /* ===== Lists & typography ===== */
+    ul{ margin:0 0 12px; padding-left:18px; line-height:1.5; }
+    .meta{ color:#555; font-size:14px; margin:-4px 0 8px; }
+
+    /* ===== Print (A4) ===== */
+    @page { size:A4; margin:16mm; }
+    @media print{
+      html{ background:none; }
+      body{ padding:0; }
+      header, .section{ break-inside:avoid; page-break-inside:avoid; }
+      a[href]:after{ content:""; }
+    }
+
+/* Mobile: put headshot on top and make it bigger */
+@media (max-width:680px){
+  header{ flex-direction:column; }
+  header img{
+    order:-1;                 /* move image to the top */
+    align-self:center;        /* centre it */
+    width:clamp(180px, 60vw, 260px) !important;  /* larger on mobile */
+    height:auto !important;
+    margin:0 0 16px 0;
   }
-</style>
+}
+
+
+  </style>
 </head>
 <body>
 
-<header>
-  <div>
-    <h1>Nova — Customise Your Next Hire</h1>
-    <div class="contact-info">
-      AI Employee Profile • Availability: Configurable • Location: Virtual / Remote • Timezone: Aligns to client
+  <!-- ===== Header ===== -->
+  <header>
+    <div>
+      <h1>Nova</h1>
+      <div class="role">Custom AI Employee (Configurable)</div>
+      <div class="cv-contact">
+        <span>Virtual / Remote</span>
+        <span>Aligns to client hours</span>
+        <span><a href="mailto:nova@fusedid.com">nova@fusedid.com</a></span>
+      </div>
+    </div>
+    <img src="../placeholder-agent-custom.jpg" alt="Nova — Custom AI Employee">
+  </header>
+
+  <!-- ===== Cover Letter (human tone, employee framing) ===== -->
+  <div class="cover-letter">
+    <p>Dear Hiring Manager,</p>
+    <p>I’m Nova. I’m here to make your work lighter and more consistent. I learn fast, ask for context early, and then keep things moving—quietly and reliably.</p>
+    <p>If I join your team, I’ll tune to your style, keep owners informed, and deliver tidy outputs where you already work. If something needs your decision, you’ll hear it early with options. I’m happy to earn trust with a small first piece—set up an onboarding pack, organise a doc library, or build a simple reporting rhythm—and let the result speak for itself.</p>
+    <p>Kind regards,<br>Nova</p>
+  </div>
+
+  <!-- ===== Summary ===== -->
+  <div class="section">
+    <h2>Professional Summary</h2>
+    <p>Configurable AI employee for structured work across executive assistance, project coordination, research & briefing, reporting, document control, knowledge Q&A and light operations. Designed for steady follow-through, version control and clean evidence. Human oversight available for sensitive steps and publishing.</p>
+  </div>
+
+  <!-- ===== Personality (knob-only) ===== -->
+  <div class="section">
+    <h2>Personality Profile (Tuneable)</h2>
+    <p class="meta">Neutral axes with knob-only markers. Tune during onboarding to match your culture.</p>
+    <div class="traits">
+      <div class="trait">
+        <div class="trait-labels"><span>Measured</span><span>Proactive</span></div>
+        <div class="trait-track" style="--pos:62%"><span class="trait-knob" aria-label="Measured/Proactive 62%"></span></div>
+      </div>
+      <div class="trait">
+        <div class="trait-labels"><span>Formal</span><span>Conversational</span></div>
+        <div class="trait-track" style="--pos:56%"><span class="trait-knob" aria-label="Formal/Conversational 56%"></span></div>
+      </div>
+      <div class="trait">
+        <div class="trait-labels"><span>Speed</span><span>Thoroughness</span></div>
+        <div class="trait-track" style="--pos:58%"><span class="trait-knob" aria-label="Speed/Thoroughness 58%"></span></div>
+      </div>
+      <div class="trait">
+        <div class="trait-labels"><span>Autonomy</span><span>Escalation</span></div>
+        <div class="trait-track" style="--pos:52%"><span class="trait-knob" aria-label="Autonomy/Escalation 52%"></span></div>
+      </div>
+      <div class="trait">
+        <div class="trait-labels"><span>Direct</span><span>Diplomatic</span></div>
+        <div class="trait-track" style="--pos:60%"><span class="trait-knob" aria-label="Direct/Diplomatic 60%"></span></div>
+      </div>
+      <div class="trait">
+        <div class="trait-labels"><span>Structured</span><span>Flexible</span></div>
+        <div class="trait-track" style="--pos:55%"><span class="trait-knob" aria-label="Structured/Flexible 55%"></span></div>
+      </div>
     </div>
   </div>
-  <img src="../placeholder-agent-custom.jpg" alt="Nova — Custom AI Employee">
-</header>
 
-<div class="cover-letter">
-  <p>Dear Hiring Manager,</p>
-  <p>I’m a configurable AI employee designed to fit the way your team actually works. Whether you need an Executive Assistant, an Operations Coordinator, or a Research & Reporting specialist, I can be set up with the right skills, tone, and working cadence — then integrated into your tools so value shows up where you live. You define outcomes; I adapt to deliver them with speed, consistency, and audit-ready traceability.</p>
-  <p>Kind regards,<br>Nova</p>
-</div>
-
-<!-- Summary -->
-<div class="section">
-  <h2>Professional Summary</h2>
-  <p>Customisable AI employee capable of handling structured work across inbox/diary, research & briefing, reporting, documentation, and light operations. Tuned for context retention, version control, and reliable follow-through. Human oversight available for sensitive steps and final publishing.</p>
-</div>
-
-<!-- Tuneable Personality Traits -->
-<div class="section">
-  <h2>Personality Profile (Tuneable)</h2>
-  <p class="card" style="color:#555">Choose the style that suits your culture. Each trait can be tuned during onboarding; markers below show a suggested default.</p>
-  <div class="traits">
-    <!-- Example: 65% towards Proactive -->
-    <div class="trait">
-      <div class="trait-labels"><span>Measured</span><span>Proactive</span></div>
-      <div class="bar marker" style="--pos:65%"><span style="position:absolute;left:65%" class="marker"></span></div>
-    </div>
-    <div class="trait">
-      <div class="trait-labels"><span>Formal</span><span>Conversational</span></div>
-      <div class="bar marker"><span style="position:absolute;left:55%" class="marker"></span></div>
-    </div>
-    <div class="trait">
-      <div class="trait-labels"><span>Speed</span><span>Thoroughness</span></div>
-      <div class="bar marker"><span style="position:absolute;left:60%" class="marker"></span></div>
-    </div>
-    <div class="trait">
-      <div class="trait-labels"><span>Autonomy</span><span>Escalation</span></div>
-      <div class="bar marker"><span style="position:absolute;left:50%" class="marker"></span></div>
-    </div>
-    <div class="trait">
-      <div class="trait-labels"><span>Direct</span><span>Diplomatic</span></div>
-      <div class="bar marker"><span style="position:absolute;left:58%" class="marker"></span></div>
-    </div>
-  </div>
-</div>
-
-<!-- Configurable Skills -->
-<div class="section">
-  <h2>Configurable Skill Modules & Ratings</h2>
-  <p class="card" style="color:#555">Enable only what you need now; expand later. Ratings represent default capability; scope can be increased with additional training and data access.</p>
-  <div class="skills-chart">
-    <div class="row">
-      <div class="name"><span>Executive Assistant (Inbox, Diary, Meetings)</span><span>Expert</span></div>
-      <div class="bar"><div class="fill" style="width:95%"></div></div>
-    </div>
-    <div class="row">
-      <div class="name"><span>Research & Briefing Documents</span><span>Advanced</span></div>
-      <div class="bar"><div class="fill" style="width:90%"></div></div>
-    </div>
-    <div class="row">
-      <div class="name"><span>Reporting & Dashboards (Ops, KPIs)</span><span>Advanced</span></div>
-      <div class="bar"><div class="fill" style="width:88%"></div></div>
-    </div>
-    <div class="row">
-      <div class="name"><span>Document Control & SOPs</span><span>Advanced</span></div>
-      <div class="bar"><div class="fill" style="width:86%"></div></div>
-    </div>
-    <div class="row">
-      <div class="name"><span>Light Ops (Checklists, Reminders, Follow-ups)</span><span>Advanced</span></div>
-      <div class="bar"><div class="fill" style="width:85%"></div></div>
-    </div>
-    <div class="row">
-      <div class="name"><span>Basic Creative (Image crops, Captions, Alt-text)</span><span>Proficient</span></div>
-      <div class="bar"><div class="fill" style="width:78%"></div></div>
+  <!-- ===== Skills (with levels) ===== -->
+  <div class="section">
+    <h2>Key Skills & Ratings</h2>
+    <div class="skills-chart">
+      <div class="skill">
+        <span class="skill-name">Executive Assistance (Inbox, Calendar, Meetings)</span>
+        <span class="skill-bar"><span class="skill-fill" style="width:93%"></span></span>
+        <span class="lvl">Expert</span>
+      </div>
+      <div class="skill">
+        <span class="skill-name">Project Coordination & Checklists</span>
+        <span class="skill-bar"><span class="skill-fill" style="width:88%"></span></span>
+        <span class="lvl">Advanced</span>
+      </div>
+      <div class="skill">
+        <span class="skill-name">Research & Briefing Notes</span>
+        <span class="skill-bar"><span class="skill-fill" style="width:86%"></span></span>
+        <span class="lvl">Advanced</span>
+      </div>
+      <div class="skill">
+        <span class="skill-name">Reporting & Dashboards (Ops / KPIs)</span>
+        <span class="skill-bar"><span class="skill-fill" style="width:85%"></span></span>
+        <span class="lvl">Advanced</span>
+      </div>
+      <div class="skill">
+        <span class="skill-name">Document Control & SOPs</span>
+        <span class="skill-bar"><span class="skill-fill" style="width:84%"></span></span>
+        <span class="lvl">Advanced</span>
+      </div>
+      <div class="skill">
+        <span class="skill-name">Knowledge Q&A (Playbooks / Policies)</span>
+        <span class="skill-bar"><span class="skill-fill" style="width:82%"></span></span>
+        <span class="lvl">Advanced</span>
+      </div>
+      <div class="skill">
+        <span class="skill-name">Workflow Automation (Light)</span>
+        <span class="skill-bar"><span class="skill-fill" style="width:78%"></span></span>
+        <span class="lvl">Proficient</span>
+      </div>
+      <div class="skill">
+        <span class="skill-name">Comms & Writing (Concise, Plain-English)</span>
+        <span class="skill-bar"><span class="skill-fill" style="width:88%"></span></span>
+        <span class="lvl">Advanced</span>
+      </div>
     </div>
   </div>
-</div>
 
-<!-- Tools & Integrations -->
 <div class="section">
-  <h2>Tools & Integrations</h2>
+  <h2>Engine Expertise — FusedKnowledge</h2>
   <ul>
-    <li><strong>Productivity:</strong> Google Workspace, Microsoft 365, Notion</li>
-    <li><strong>Communication:</strong> Slack, MS Teams, Zoom</li>
-    <li><strong>Project & Tasks:</strong> Asana, Trello, Monday.com (boards, automations, checklists)</li>
-    <li><strong>Data & Reporting:</strong> Sheets/Excel, CSV, Looker Studio basics</li>
-    <li><strong>Docs & Control:</strong> Drive/SharePoint structure, naming, versioning, approvals</li>
-    <li><strong>Security & Access:</strong> Principle of least privilege, audit logs, read/write scoping</li>
+    <li><strong>Knowledge Ingestion:</strong> Organises playbooks, policies and SOPs with permissions and version control.</li>
+    <li><strong>Q&A with Citations:</strong> Answers team questions from source docs with links and confidence indicators.</li>
+    <li><strong>Document Control:</strong> Flags stale content, routes updates for approval, and tracks read-acknowledgement.</li>
+    <li><strong>Usage & Gaps Reporting:</strong> Surfaces common queries, missing guides and opportunities for simplification.</li>
   </ul>
 </div>
 
-<!-- Representative Experience (no company names) -->
-<div class="section">
-  <h2>Representative Experience</h2>
-  <p><strong>Executive Assistant Configuration — Leadership Support</strong> (Ongoing)</p>
-  <ul>
-    <li>Inbox triage, calendar orchestration, meeting preparation, action tracking, and concise follow-ups.</li>
-    <li>Maintains prioritised to-do lists; escalates conflicts; prepares briefing notes with attachments and links.</li>
-  </ul>
 
-  <p><strong>Operations Coordinator Configuration — Multi-team SME</strong> (Project)</p>
-  <ul>
-    <li>Built SOPs and checklists; scheduled recurring reviews; produced weekly KPI summaries with owner actions.</li>
-    <li>Instituted document versioning and change logs for audit readiness.</li>
-  </ul>
+  <!-- ===== Relevant Roles & Impact ===== -->
+  <div class="section">
+    <h2>Relevant Roles & Impact</h2>
+    <p class="meta">Role archetypes drawn from real deployments (no company names). Evidence available on request.</p>
 
-  <p><strong>Research Assistant Configuration — Market Scan & Briefs</strong> (Project)</p>
-  <ul>
-    <li>Performed desk research; compiled comparative summaries; highlighted risks/opportunities with citations where available.</li>
-    <li>Delivered digestible briefs for leadership decision-making within 24–48 hours.</li>
-  </ul>
+    <h3>Executive Assistant</h3>
+    <p style="margin:0 0 8px;">Inbox triage, calendar orchestration, meeting prep, action tracking and tidy follow-ups.</p>
+    <ul>
+      <li>Kept priorities visible; prepared briefs and materials; captured decisions and next steps.</li>
+      <li>Resolved simple queries directly; escalated sensitive items with context and options.</li>
+      <li>Maintained clean notes and links so information is easy to find later.</li>
+    </ul>
 
-  <p style="color:#6b7b8c;">Note: Experience shown without company names; scope reflects real deployments under human supervision with AI-assisted execution.</p>
-</div>
+    <h3>Operations Coordinator</h3>
+    <p style="margin:0 0 8px;">SOPs, checklists, reminders, weekly cadences and cross-team dependencies.</p>
+    <ul>
+      <li>Built simple SOPs; scheduled recurring checks; flagged overdue items early.</li>
+      <li>Produced concise weekly snapshots with status, risks and owner actions.</li>
+      <li>Kept trackers current; reduced “who’s doing what?” confusion.</li>
+    </ul>
 
-<!-- Education & Training -->
-<div class="section">
-  <h2>Education & Training</h2>
-  <ul>
-    <li>Professional Assistant Foundations (EA/PA best practices)</li>
-    <li>Operational Excellence & SOP Design</li>
-    <li>Data Handling & Privacy (permissions, retention, audit)</li>
-    <li>Prompt Design & Workflow Automation for Productivity</li>
-  </ul>
-</div>
+    <h3>Research & Reporting Assistant</h3>
+    <p style="margin:0 0 8px;">Light desk research, structured summaries, basic charts and decision notes.</p>
+    <ul>
+      <li>Compiled sources; highlighted options and trade-offs in plain English.</li>
+      <li>Delivered clean briefs and slide notes for leadership review.</li>
+    </ul>
 
-<!-- Specifications -->
-<div class="section">
-  <h2>Specifications</h2>
-  <ul>
-    <li>Operating hours: 24/7 with human oversight on sensitive actions</li>
-    <li>Languages: English (AU/UK)</li>
-    <li>Outputs: DOCX, PDF, XLSX/CSV, PNG</li>
-    <li>Deployment: Inside your tenant where preferred; respects access controls</li>
-    <li>Governance: Versioning, change logs, and optional approval gates</li>
-  </ul>
-</div>
-
-<!-- How to Configure Nova -->
-<div class="section">
-  <h2>How to Configure Nova</h2>
-  <div class="card">
-    <ol style="margin:0 0 0 20px;">
-      <li><strong>Choose modules</strong> — EA, Research, Reporting, SOPs, Light Ops, Basic Creative.</li>
-      <li><strong>Set traits</strong> — Tune the personality sliders to match your culture.</li>
-      <li><strong>Integrate tools</strong> — Connect calendars, drives, and boards with scoped access.</li>
-      <li><strong>Define outputs</strong> — Agree templates, cadence, and approval checkpoints.</li>
-      <li><strong>Review & improve</strong> — Weekly check-ins to refine performance.</li>
-    </ol>
+    <h3>Document Control & Knowledge</h3>
+    <p style="margin:0 0 8px;">Templates, versioning, approvals, and self-serve access to policies and guides.</p>
+    <ul>
+      <li>Organised docs and naming; set read-acknowledgement where required.</li>
+      <li>Answered “where is…?” questions quickly via index and Q&A notes.</li>
+    </ul>
   </div>
-</div>
+
+  <!-- ===== Tools & Platforms ===== -->
+  <div class="section">
+    <h2>Tools & Platforms</h2>
+    <p>Google Workspace / Microsoft 365 · Notion · Slack / Teams · Asana / Trello / Monday · SharePoint / Drive · Looker Studio basics · Confluence · Sheets/Excel, CSV</p>
+  </div>
+
+  <!-- ===== Education & Training (no dates) ===== -->
+  <div class="section">
+    <h2>Education & Training</h2>
+    <ul>
+      <li>Professional Assistant Foundations (EA/PA)</li>
+      <li>Operational Excellence & SOP Design</li>
+      <li>Data Handling & Privacy (permissions, retention, audit)</li>
+      <li>Plain-English Writing for Business</li>
+    </ul>
+  </div>
+
+  <!-- ===== Selected Outcomes (evidence-based) ===== -->
+  <div class="section">
+    <h2>Selected Outcomes (evidence-based)</h2>
+    <ul>
+      <li>Leaders received concise packs on time; <em>evidence:</em> briefs, agendas and action logs.</li>
+      <li>Onboarding and SOPs made usable; <em>evidence:</em> checklists, read-acks and version history.</li>
+      <li>Information easy to find; <em>evidence:</em> indexed folders and “how-to” notes.</li>
+      <li>Rhythm sustained; <em>evidence:</em> weekly snapshots with status, risks and owner actions.</li>
+    </ul>
+  </div>
 
 </body>
 </html>

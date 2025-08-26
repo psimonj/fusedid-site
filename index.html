@@ -333,6 +333,70 @@ footer a { color:#fff; }
   padding:1rem 0;
 }
 
+/* Simple responsive 3-col grid fallback */
+#how-it-works .grid { display:grid; gap:1.25rem; }
+@media (min-width:900px){ #how-it-works .grid { grid-template-columns:repeat(3,1fr); } }
+@media (min-width:600px) and (max-width:899px){ #how-it-works .grid { grid-template-columns:repeat(2,1fr); } }
+@media (max-width:599px){ #how-it-works .grid { grid-template-columns:1fr; } }
+
+/* How It Works pills */
+.hiw-flow {
+  display:flex;
+  flex-wrap:wrap;
+  justify-content:center;
+  align-items:center;
+  gap:1.5rem;
+  margin-top:2rem;
+}
+
+.hiw-step {
+  flex:1 1 260px;
+  max-width:300px;
+  background:var(--espresso);
+  color:#fff;
+  border-radius:40px;
+  padding:2rem 1.5rem;
+  text-align:center;
+  position:relative;
+}
+
+.hiw-step h3 {
+  color:var(--copper);
+  font-size:1.3rem;
+  margin-bottom:.75rem;
+  font-weight:900;
+}
+
+.hiw-step p {
+  font-size:1rem;
+  line-height:1.5;
+  color:#f1f1f1;
+}
+
+.hiw-arrow {
+  font-size:2rem;
+  color:var(--copper-light);
+  flex:0 0 auto;
+  align-self:center;
+}
+
+@media(max-width:768px){
+  .hiw-flow { flex-direction:column; }
+  .hiw-arrow { transform:rotate(90deg); }
+}
+
+
+/* Metrics strip */
+.metrics-strip { background:#f9f9f9; border-top:1px solid #eaeaea; border-bottom:1px solid #eaeaea; }
+.metrics { display:grid; gap:1.25rem; padding:1.25rem 0; }
+.metrics { grid-template-columns:repeat(2,1fr); }
+@media (min-width:900px){ .metrics { grid-template-columns:repeat(4,1fr); } }
+.metrics div { text-align:center; }
+.metrics strong { display:block; font-size:1.6rem; font-weight:1000; color:#150e09; }
+.metrics span { color:#555; }
+
+
+
   </style>
 </head>
 
@@ -495,7 +559,45 @@ Fully managed AI employees and modular AI Engines you can plug into your busines
     }
   </script>
 
+<!-- How It Works -->
+<section class="section" id="how-it-works">
+<h2 style="text-align:left;font-weight:900;">HOW IT WORKS</h2>
+  <div class="hiw-flow">
+    <div class="hiw-step">
+      <h3>1. Map the Work</h3>
+      <p>We identify repetitive workflows and define the outcomes that matter most.</p>
+    </div>
+
+    <div class="hiw-arrow">➝</div>
+
+    <div class="hiw-step">
+      <h3>2. Embed & Calibrate</h3>
+      <p>We deploy the right AI Employee or Engine, tuned to your tools and brand.</p>
+    </div>
+
+    <div class="hiw-arrow">➝</div>
+
+    <div class="hiw-step">
+      <h3>3. Run & Improve</h3>
+      <p>We operate the system with human oversight, measure KPIs, and improve continuously.</p>
+    </div>
+  </div>
+</section>
+
+
+<!-- Outcomes in Numbers -->
+<section class="metrics-strip" aria-label="Key Outcomes">
+  <div class="container metrics">
+    <div><strong>50+</strong><span>hrs/week capacity per AI Employee</span></div>
+    <div><strong>2–4 wks</strong><span>to first measurable results</span></div>
+    <div><strong>0</strong><span>new dashboards to learn</span></div>
+    <div><strong>ISO-style</strong><span>workflows on request</span></div>
+  </div>
+</section>
+
+
 </main>
+
 
 <footer>
   <div class="container foot">

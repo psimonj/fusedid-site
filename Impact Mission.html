@@ -1,10 +1,21 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
+
+<!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-REPRFPPLDB"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'G-REPRFPPLDB');
+</script>
+
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>Stories • FUSED ID — AI Employees & Engines In Action</title>
-  <meta name="description" content="Short, practical stories showing how FUSED ID AI Employees and Engines deliver outcomes. Challenge → Action → Result."/>
+  <title>Impact Mission • FUSED ID — AI Employees & Engines In Action</title>
+  <meta name="description" content="Short, practical Impact Mission showing how FUSED ID AI Employees and Engines deliver outcomes. Challenge → Action → Result."/>
 
   <style>
     /* ===== Brand tokens (match site) ===== */
@@ -70,7 +81,7 @@
     .title{font-size:clamp(2rem,4vw+1rem,3.2rem);line-height:1.08;margin:0 0 .5rem;font-weight:1000}
     .sub{max-width:760px;font-size:clamp(1rem,1vw+.55rem,1.15rem);line-height:1.6;color:#f3f3f3;margin:0}
 
-    /* ===== Stories grid ===== */
+    /* ===== Impact Mission grid ===== */
     .section{padding:3rem 0}
     h2{font-size:1.9rem;margin:.2rem 0 1rem;font-weight:1000}
     .grid{display:grid;gap:1.25rem}
@@ -111,7 +122,7 @@
       .brand{font-size:1rem}
     }
 
-    /* Stories media fixes */
+    /* Impact Mission media fixes */
     .story{overflow:hidden}
     .story .media{
       position:relative;height:220px;background:#fbf9f7;overflow:hidden;border-bottom:1px solid #eadfd7
@@ -130,6 +141,34 @@
 @media (max-width:960px){
   .header-inner { padding-left: 1.25rem; padding-right: 1.25rem; }
 }
+
+.mission-pill-block {
+  background: var(--espresso);
+  color: #fff;
+  border-radius: 40px;       /* pill shape */
+  padding: 3rem 2rem;
+  max-width: 1000px;
+  margin: 4rem auto;
+  text-align: center;
+  box-shadow: 0 6px 24px rgba(0,0,0,.25);
+}
+.mission-pill-block h2 {
+  color: var(--copper-light);
+  text-transform: uppercase;
+  letter-spacing: .14em;
+  font-weight: 900;
+  margin-bottom: 1.5rem;
+}
+.mission-pill-block p {
+  font-size: 1.15rem;
+  line-height: 1.7;
+  margin: 0 auto 1.2rem;
+  max-width: 800px;
+}
+.mission-pill-block p strong {
+  color: var(--copper-light);
+}
+
 
   </style>
 </head>
@@ -153,17 +192,20 @@
 </script>
 
 <body>
-  <!-- Mobile Overlay Nav -->
+
+  <!-- ===== Overlay Mobile Menu ===== -->
   <div class="nav-overlay" id="overlayNav" aria-hidden="true">
     <button class="nav-close" aria-label="Close menu" onclick="toggleMenu(false)">×</button>
-    <div class="nav-panel">
-      <a href="index.html#services" onclick="toggleMenu(false)">Human+AI</a>
-      <a href="index.html#team" onclick="toggleMenu(false)">AI Employees</a>
-      <a href="index.html#engines" onclick="toggleMenu(false)">AI Engines</a>
-      <a href="stories.html" onclick="toggleMenu(false)">Stories</a>
-      <a href="contacts.html" onclick="toggleMenu(false)">Contact</a>
-      <a href="mailto:sales@fusedid.com" onclick="toggleMenu(false)" style="margin-top:.6rem;color:var(--copper-light)">sales@fusedid.com</a>
-    </div>
+<div class="nav-panel">
+  <a href="index.html#embedding" onclick="toggleMenu(false)">Human+AI</a>
+  <a href="ai-employees-engines.html" onclick="toggleMenu(false)">AI Employees & Engines</a>
+  <a href="Impact Mission.html" onclick="toggleMenu(false)">Impact Mission</a>
+  <a href="contacts.html" onclick="toggleMenu(false)">Contact</a>
+  <a href="mailto:sales@fusedid.com" onclick="toggleMenu(false)" style="margin-top:.6rem;color:var(--copper-light)">sales@fusedid.com</a>
+</div>
+
+
+
   </div>
 
   <!-- Header -->
@@ -173,13 +215,13 @@
   <img src="fusedid logo -white bg.png" alt="Fused ID Logo" style="height:28px;vertical-align:middle;margin-right:8px;">
   FUSED ID
 </a>
-      <nav class="primary" aria-label="Primary">
-        <a href="index.html#services">Human+AI</a>
-        <a href="index.html#team">AI Employees</a>
-        <a href="index.html#engines">AI Engines</a>
-        <a href="stories.html">Stories</a>
-        <a href="contacts.html">Contact</a>
-      </nav>
+<nav class="primary" aria-label="Primary">
+  <a href="index.html#embedding">Human+AI</a>
+  <a href="ai-employees-engines.html">AI Employees & Engines</a>
+  <a href="Impact Mission.html">Impact Mission</a>
+  <a href="contacts.html">Contact</a>
+</nav>
+
       <button class="hamburger" aria-label="Open menu" aria-controls="overlayNav" aria-expanded="false" onclick="toggleMenu(true)">
         <span></span>
       </button>
@@ -187,16 +229,34 @@
   </header>
 
 
-  <!-- Hero -->
-  <section class="hero">
-    <div class="container hero-content">
-      <div class="kicker">Challenge → Action → Result</div>
-      <h1 class="title">Stories of Action</h1>
-      <p class="sub">Short, practical snapshots of how FUSED ID Employees and Engines deliver outcomes in the real world. Some examples are based on pilots and internal demonstrations; full evidence available on request.</p>
-    </div>
-  </section>
+<!-- Hero -->
+<section class="hero">
+  <div class="container hero-content">
+    <div class="kicker">Mission • Impact • Action</div>
+    <h1 class="title">Where Ideas Scale Into Impact</h1>
+    <p class="sub">
+      Every business starts with creativity. At FUSED ID, we help turn that spark into outcomes — fast, measurable, and built to last.
+    </p>
+  </div>
+</section>
 
-<main class="container" id="stories">
+
+
+<section class="mission-pill-block">
+  <h2>Our Mission</h2>
+  <p>Every business is born from creativity — the spark that drives new ventures, fuels growth, and sustains even the largest enterprises.</p>
+  <p>But too often, that creativity is shackled. Leaders spend their energy maintaining the engine instead of steering the vision.</p>
+  <p>At FusedID, our mission is to change that. To unshackle businesses from the weight of manual effort. To give new ventures the lift to launch, and established companies the capacity to accelerate. To free leaders everywhere to think bigger, bolder, faster.</p>
+  <p><strong>Because when creativity leads and the engines run, business moves at the speed of imagination.</strong></p>
+</section>
+
+<!-- Impact heading before case studies -->
+<section class="section">
+  <h2 style="text-align:center;font-weight:1000;margin-top:0;">Our Impact</h2>
+</section>
+
+
+<main class="container" id="Impact Mission">
   <section class="section">
     <div class="grid cols-3">
 
@@ -335,7 +395,7 @@
         <div class="muted">Start with a small pilot. We’ll show you measurable impact quickly.</div>
       </div>
       <div>
-        <a class="btn btn-primary" href="/index.html#contact">Talk to us</a>
+        <a class="btn btn-primary" href="contacts.html">Talk to us</a>
       </div>
     </div>
   </section>

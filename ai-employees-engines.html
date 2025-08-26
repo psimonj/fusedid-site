@@ -1,0 +1,314 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+
+<!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-REPRFPPLDB"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'G-REPRFPPLDB');
+</script>
+
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>AI Employees & AI Engines • FUSED ID</title>
+  <meta name="description" content="Explore FUSED ID AI Employees and modular AI Engines — outcome-first capacity with human oversight." />
+
+  <style>
+    /* ===== Brand tokens ===== */
+    :root{
+      --espresso:#150e09;
+      --copper:#ff8c32;
+      --copper-light:#ffb169;
+      --glow:rgba(255,140,50,.6);
+      --ink:#111;
+      --muted:#555;
+      --card:#fff;
+      --line:#eadfd7;
+      --tint:#fbf9f7;
+      --bg:#fff;
+      --text:#000;
+    }
+
+    /* ===== Base ===== */
+    *{box-sizing:border-box}
+    html,body{margin:0;padding:0}
+    body{font-family:system-ui,-apple-system,Segoe UI,Roboto,Helvetica,Arial;color:var(--ink);background:var(--bg)}
+    a{color:inherit;text-decoration:none}
+    img{max-width:100%;height:auto;display:block}
+    .container{max-width:1200px;margin:0 auto;padding:0 1rem}
+
+    /* ===== Header + overlay menu (match Contacts) ===== */
+    header{position:relative;z-index:5;background:#fff;border-bottom:1px solid #eee}
+    .header-inner{display:flex;align-items:center;justify-content:space-between;padding:1rem 0}
+    .brand{display:flex;align-items:center;font-weight:800;letter-spacing:.06em;color:#000;font-size:1.1rem;white-space:nowrap}
+    .brand img{height:28px;margin-right:8px}
+    nav.primary{display:flex;gap:2.5rem;align-items:center}
+    nav.primary a{color:#000;font-weight:600;transition:color .25s ease}
+    nav.primary a:hover{color:var(--copper)}
+
+    .hamburger{display:none;width:40px;height:40px;border:1px solid #ddd;border-radius:8px;background:#fff;align-items:center;justify-content:center;cursor:pointer}
+    .hamburger span{display:block;width:18px;height:2px;background:#000;position:relative}
+    .hamburger span:before,.hamburger span:after{content:"";position:absolute;left:0;width:18px;height:2px;background:#000}
+    .hamburger span:before{top:-6px}.hamburger span:after{top:6px}
+
+    .nav-overlay{position:fixed;inset:0;background:radial-gradient(60% 60% at 20% 10%, rgba(255,140,50,.18), transparent 60%),var(--espresso);display:none;z-index:1000;color:#fff}
+    .nav-overlay.open{display:block;animation:fadeIn .25s ease}
+    @keyframes fadeIn{from{opacity:0}to{opacity:1}}
+    .nav-panel{height:100%;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:1.2rem;text-align:center;padding:2rem}
+    .nav-overlay a{font-size:1.6rem;font-weight:700;letter-spacing:.02em;color:#fff;transition:color .2s ease, text-shadow .2s ease}
+    .nav-overlay a:hover{color:var(--copper-light);text-shadow:0 0 16px var(--glow)}
+    .nav-close{position:absolute;top:16px;right:16px;width:44px;height:44px;border:1px solid rgba(255,255,255,.25);border-radius:10px;background:transparent;color:#fff;font-size:22px;line-height:1}
+
+    @media (max-width:960px){
+      nav.primary{display:none}
+      .hamburger{display:flex}
+      .brand{font-size:1rem}
+      .header-inner{padding-left:1.25rem;padding-right:1.25rem}
+    }
+
+    /* Hero (consistent with site) */
+    .hero{position:relative;isolation:isolate;min-height:46vh;display:grid;place-items:center;overflow:hidden;background:#0f0a07}
+    .hero::before{content:"";position:absolute;inset:0;z-index:-2;background:
+      linear-gradient(180deg, rgba(21,14,9,.65) 0%, rgba(21,14,9,.85) 55%, rgba(21,14,9,.95) 100%),
+      url('leadership-governance.jpg') center/cover no-repeat}
+    .hero::after{content:"";position:absolute;inset:0;z-index:-1;background:
+      radial-gradient(40% 25% at 20% 20%, rgba(255,140,50,.25), transparent 60%),
+      radial-gradient(30% 20% at 80% 75%, rgba(255,177,105,.15), transparent 70%)}
+    .hero-inner{color:#fff;max-width:1060px;margin:0 auto;padding:4.5rem clamp(16px,4vw,28px) 3rem}
+    .kicker{color:var(--copper-light);text-transform:uppercase;letter-spacing:.14em;font-weight:1000;font-size:.82rem;margin-bottom:.8rem}
+    .title{font-size:clamp(2rem,4vw+1rem,3.2rem);line-height:1.08;margin:0 0 .5rem;font-weight:1000}
+    .sub{max-width:760px;line-height:1.6;color:#f3f3f3;margin:0}
+
+    /* Sections */
+    .section{padding:4rem 1rem}
+    .section h2{font-size:1.9rem;font-weight:900;margin:.2rem 0 1rem}
+    .section p{font-size:1rem;margin:0 0 1.25rem}
+
+    /* Layouts reused from index */
+    .leadership-layout{display:flex;flex-wrap:wrap;gap:2rem;align-items:flex-start}
+    .leadership-layout>div{flex:1;min-width:280px}
+    .grid{display:grid;gap:2rem}
+    @media (min-width:1025px){.grid{grid-template-columns:repeat(4,1fr)}}
+    @media (min-width:600px) and (max-width:1024px){.grid{grid-template-columns:repeat(2,1fr)}}
+    @media (max-width:599px){.grid{grid-template-columns:1fr}}
+
+    .card{border:1px solid #eee;border-radius:12px;padding:2rem;background:#fff}
+    .card-icon{width:100%;aspect-ratio:10/8;background:#f5f5f5;border-radius:8px;margin-bottom:1rem;background-size:cover;background-position:50% 5%}
+    .download{display:inline-block;margin-top:1rem;padding:.6rem 1rem;border:1px solid #000;color:#000;font-weight:800;border-radius:8px}
+
+    .agencies-grid{display:grid;gap:2rem}
+    @media (min-width:768px){.agencies-grid{grid-template-columns:repeat(2,1fr)}}
+    .agency-card{display:flex;flex-direction:column;height:100%}
+    .agency-card .card-icon{aspect-ratio:16/9;background-position:center}
+    .agency-card h3{margin-top:.25rem}
+    .agency-card ul{margin-left:1rem;line-height:1.8}
+    .agency-card .spacer{flex:1}
+
+    /* CTA band & footer */
+    .cta-band{background:var(--tint);border-top:1px solid #eadfd7;border-bottom:1px solid #eadfd7}
+    .cta-inner{display:flex;flex-wrap:wrap;align-items:center;justify-content:space-between;gap:1rem;padding:1.4rem 0}
+    footer{background:#0f0a07;color:#ddd}
+    .foot{display:flex;justify-content:space-between;align-items:center;gap:1rem;padding:1rem 0}
+
+    /* Reveal */
+    .reveal{opacity:0;transform:translateY(40px);transition:all .4s ease}
+    .reveal.visible{opacity:1;transform:none}
+
+    /* Safe-area spacing parity */
+    .container, .header-inner { padding-inline: max(env(safe-area-inset-left), clamp(16px, 5vw, 32px)); }
+
+#team .grid .card.reveal {
+  /* slightly quicker + snappier ease than the default `.reveal` */
+  transition: transform .7s cubic-bezier(.22, .61, .36, 1), 
+              opacity   .7s cubic-bezier(.22, .61, .36, 1);
+}
+
+/* Stagger the four employee cards */
+#team .grid .card.reveal:nth-child(1) { transition-delay: 0s;    }
+#team .grid .card.reveal:nth-child(2) { transition-delay: .09s;  }
+#team .grid .card.reveal:nth-child(3) { transition-delay: .18s;  }
+#team .grid .card.reveal:nth-child(4) { transition-delay: .27s;  }
+
+/* Respect reduced motion */
+@media (prefers-reduced-motion: reduce) {
+  #team .grid .card.reveal { transition: none; }
+}
+
+#engines .agency-card.reveal:nth-child(1) { transition-delay: 0s; }
+#engines .agency-card.reveal:nth-child(2) { transition-delay: .09s; }
+#engines .agency-card.reveal:nth-child(3) { transition-delay: .18s; }
+#engines .agency-card.reveal:nth-child(4) { transition-delay: .27s; }
+
+
+  </style>
+</head>
+<body>
+
+  <!-- ===== Overlay Mobile Menu ===== -->
+  <div class="nav-overlay" id="overlayNav" aria-hidden="true">
+    <button class="nav-close" aria-label="Close menu" onclick="toggleMenu(false)">×</button>
+<div class="nav-panel">
+  <a href="index.html#embedding" onclick="toggleMenu(false)">Human+AI</a>
+  <a href="ai-employees-engines.html" onclick="toggleMenu(false)">AI Employees & Engines</a>
+  <a href="Impact Mission.html" onclick="toggleMenu(false)">Impact Mission</a>
+  <a href="contacts.html" onclick="toggleMenu(false)">Contact</a>
+  <a href="mailto:sales@fusedid.com" onclick="toggleMenu(false)" style="margin-top:.6rem;color:var(--copper-light)">sales@fusedid.com</a>
+</div>
+
+
+
+  </div>
+
+  <!-- Header -->
+  <header class="shadow-sm">
+    <div class="container header-inner">
+<a href="https://www.fusedid.com" class="brand">
+  <img src="fusedid logo -white bg.png" alt="Fused ID Logo" style="height:28px;vertical-align:middle;margin-right:8px;">
+  FUSED ID
+</a>
+<nav class="primary" aria-label="Primary">
+  <a href="index.html#embedding">Human+AI</a>
+  <a href="ai-employees-engines.html">AI Employees & Engines</a>
+  <a href="Impact Mission.html">Impact Mission</a>
+  <a href="contacts.html">Contact</a>
+</nav>
+      <button class="hamburger" aria-label="Open menu" aria-controls="overlayNav" aria-expanded="false" onclick="toggleMenu(true)">
+        <span></span>
+      </button>
+    </div>
+  </header>
+
+  <!-- ===== Hero ===== -->
+  <section class="hero">
+    <div class="container hero-inner">
+      <div class="kicker">Human-Led • AI-Enhanced</div>
+      <h1 class="title">AI Employees & AI Engines</h1>
+      <p class="sub">Two ways to add outcome-first capacity — embedded AI colleagues or plug-in Engines, both managed with human oversight.</p>
+    </div>
+  </section>
+
+  <main class="container">
+    <!-- ===== TEAM — AI EMPLOYEES ===== -->
+    <section class="section" id="team">
+      <h2>FUSED AI EMPLOYEES — Real People Behind Every AI Employee</h2>
+      <p>AI employees aren’t software. They’re team members. They join ready to deliver up to 50 hours a week, never call in sick, and integrate into your operations without the friction of recruitment or onboarding delays.</p>
+      <p>Every AI Employee in our network is built for performance — task-driven, context-aware, and tuned to work seamlessly alongside your human team. Unlike off-the-shelf tools, our Employees are actively managed and refined by experienced humans, ensuring consistency, accountability, and measurable results.</p>
+
+      <ul>
+        <li>🧭 <strong>Strategy & Review:</strong> Regular performance reviews and improvement planning</li>
+        <li>🛠️ <strong>Ongoing Training:</strong> Continuous bot training, retraining and fine-tuning included</li>
+        <li>📣 <strong>Always Connected:</strong> Your team can give feedback 24/7</li>
+        <li>👀 <strong>Conflict Managed:</strong> Disputes and escalations handled by our team</li>
+        <li>🧠 <strong>Human-Led:</strong> All AI employees are overseen and managed by real people</li>
+      </ul>
+
+      <p>Think of it as hiring top-tier talent without the HR admin, payroll headaches, or downtime. View their CVs below to see exactly how they work and where they could fit in your business.</p>
+
+      <div class="grid">
+        <div class="card reveal">
+          <div class="card-icon" style="background-image:url('ethan.jpg');"></div>
+          <h3>Ethan — Sales Professional</h3>
+          <p class="blurb">Ethan builds pipeline without the hard sell. He networks on LinkedIn, researches targets, runs cold email and social outreach, explains products and services, answers questions, and prepares quotations to progress qualified opportunities.</p>
+          <a class="download" href="CV/ethan.html" target="_blank" rel="noopener">Download CV</a>
+        </div>
+
+        <div class="card reveal">
+          <div class="card-icon" style="background-image:url('kaia.jpg');"></div>
+          <h3>Kaia — QMS Management</h3>
+          <p>Kaia embeds ISO 9001 in everyday work. She maps processes, analyses data, tracks KPIs, conducts process audits, documents and investigates NCRs with root cause analysis, and drives continuous improvement through a practical, hands-on approach.</p>
+          <a class="download" href="CV/kaia.html" target="_blank" rel="noopener">Download CV</a>
+        </div>
+
+        <div class="card reveal">
+          <div class="card-icon" style="background-image:url('lara.jpg');"></div>
+          <h3>Lara — People & Culture</h3>
+          <p class="blurb">Lara keeps people and culture running smoothly. She coordinates hiring and onboarding, manages reviews and engagement rhythms, resolves issues early, and keeps communication clear so teams remain compliant, supported, and productive.</p>
+          <a class="download" href="CV/Lara.html" target="_blank" rel="noopener">Download CV</a>
+        </div>
+
+        <div class="card reveal">
+          <div class="card-icon" style="background-image:url('nova.jpg');"></div>
+          <h3>Nova — Customise Your Next Hire</h3>
+          <p class="blurb">Nova adapts to your role and tools. They learn workflows fast, manage tasks, schedules and communications, prepare drafts and updates, and keep priorities moving — flexible capacity that plugs into your team without extra headcount.</p>
+          <a class="download" href="CV/nova.html" target="_blank" rel="noopener">Download CV</a>
+        </div>
+      </div>
+    </section>
+
+    <!-- ===== ENGINES — MODULAR AI ===== -->
+    <section class="section" id="engines">
+      <h2>FUSED ENGINES — Modular AI That Runs Your Business</h2>
+      <p>Each FUSED Engine is a self-contained business system powered by AI employees and real human oversight. Plug them in and let them run — no extra tools, no new headcount, no management overhead.</p>
+
+      <div class="agencies-grid">
+        <div class="card agency-card reveal">
+          <div class="card-icon" style="background-image:url('kaizen.jpg');">
+            <img src="kaizen.jpg" alt="Continuous improvement engine for ISO standards and business process optimisation" style="display:none;" />
+          </div>
+          <h3>FusedKaizen — Continuous Improvement Engine</h3>
+          <p>The FusedKaizen Engine drives organisation-wide improvements through AI-powered workflows. From ISO standards compliance to operational efficiency and team engagement, it provides a structured system for continuous business growth.</p>
+          <a class="download" href="KaizenFusedID/kaizen.html">Learn More About The ISO9001 Improvement Engine →</a>
+        </div>
+
+        <div class="card agency-card reveal">
+          <div class="card-icon" style="background-image:url('prospecting.jpg');">
+            <img src="prospecting.jpg" alt="AI engine that hunts, organises, and flags sales opportunities" style="display:none;" />
+          </div>
+          <h3>FusedProspecting — Lead Intelligence Engine</h3>
+          <p>FusedProspecting hunts for leads, enriches records, and <em>sorts, categorises, and organises</em> them into clean segments. It scores intent, deduplicates, and flags high-value opportunities straight to your sales team — keeping your CRM tidy and your pipeline prioritised without extra headcount.</p>
+          <a class="download" href="ProspectFusedID/prospecting.html">Learn More About the Prospecting Engine →</a>
+        </div>
+
+        <div class="card agency-card reveal">
+          <div class="card-icon" style="background-image:url('talent.jpg');">
+            <img src="talent.jpg" alt="AI recruitment engine for talent acquisition, screening, and hiring automation" style="display:none;" />
+          </div>
+          <h3>FusedTalent — Recruitment Engine</h3>
+          <p>The FusedTalent Engine streamlines recruitment with AI-powered role profiling, automated candidate screening, and shortlist generation. Accelerate hiring while ensuring the right fit for every role.</p>
+          <a class="download" href="TalentFusedID/talent.html">Learn More About The Recruitment Engine →</a>
+        </div>
+
+        <div class="card agency-card reveal">
+          <div class="card-icon" style="background-image:url('knowledge.jpg');">
+            <img src="knowledge.jpg" alt="AI knowledge engine for business insights, Q&A, and knowledge management" style="display:none;" />
+          </div>
+          <h3>FusedKnowledge — Knowledge Engine</h3>
+          <p>The FusedKnowledge Engine delivers on-demand answers from your knowledge base — fast, accurate, and constantly learning. Transform static documentation into a dynamic AI-powered knowledge system.</p>
+          <a class="download" href="KnowledgeFusedID/knowledge.html">Learn More About The Knowledge Engine →</a>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <!-- ===== Footer (simple, consistent) ===== -->
+  <footer>
+    <div class="container foot">
+      <span>© FUSED ID</span>
+      <a href="/index.html" style="color:#fff">← Back to FUSED ID</a>
+    </div>
+  </footer>
+
+  <script>
+    // Mobile menu toggle
+    function toggleMenu(open){
+      const o = document.getElementById('overlayNav');
+      if(!o) return;
+      o.classList.toggle('open', !!open);
+      document.body.style.overflow = open ? 'hidden' : '';
+    }
+
+    // Simple reveal effect
+    (function(){
+      const els=[...document.querySelectorAll('.reveal')];
+      const io=new IntersectionObserver((entries)=>{
+        entries.forEach(e=>{if(e.isIntersecting){e.target.classList.add('visible');io.unobserve(e.target)}})
+      },{threshold:.12});
+      els.forEach(el=>io.observe(el));
+    })();
+  </script>
+</body>
+</html>

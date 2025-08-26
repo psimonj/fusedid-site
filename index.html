@@ -25,7 +25,7 @@
     /* ===== Brand tokens ===== */
     :root{
       --espresso:#150e09;
-      --copper:#ff8c32;can
+      --copper:#ff8c32;
       --copper-light:#ffb169;
       --glow:rgba(255,140,50,.6);
       --text:#000;
@@ -322,7 +322,16 @@ nav.primary a {
 #engines .agency-card.reveal:nth-child(4) { transition-delay: .27s; }
 
 
-
+/* Footer (match Impact Mission look) */
+footer { background:#0f0a07; color:#ddd; }
+footer a { color:#fff; }
+.foot {
+  display:flex;
+  justify-content:space-between;
+  align-items:center;
+  gap:1rem;
+  padding:1rem 0;
+}
 
   </style>
 </head>
@@ -334,13 +343,13 @@ nav.primary a {
   <div class="nav-overlay" id="overlayNav" aria-hidden="true">
     <button class="nav-close" aria-label="Close menu" onclick="toggleMenu(false)">×</button>
 <div class="nav-panel">
-  <a href="#services" onclick="toggleMenu(false)">Human+AI</a>
-  <a href="#team" onclick="toggleMenu(false)">AI Employees</a>
-  <a href="#engines" onclick="toggleMenu(false)">AI Engines</a>
-  <a href="stories.html" onclick="toggleMenu(false)">Stories</a>
+  <a href="#embedding" onclick="toggleMenu(false)">Human+AI</a>
+  <a href="ai-employees-engines.html" onclick="toggleMenu(false)">AI Employees & Engines</a>
+  <a href="Impact Mission.html" onclick="toggleMenu(false)">Impact Mission</a>
   <a href="contacts.html" onclick="toggleMenu(false)">Contact</a>
   <a href="mailto:sales@fusedid.com" onclick="toggleMenu(false)" style="margin-top:.6rem;color:var(--copper-light)">sales@fusedid.com</a>
 </div>
+
 
   </div>
 
@@ -352,12 +361,12 @@ nav.primary a {
   FUSED ID
 </a>
 <nav class="primary" aria-label="Primary">
-  <a href="#services">Human+AI</a>
-  <a href="#team">AI Employees</a>
-  <a href="#engines">AI Engines</a>
-  <a href="stories.html">Stories</a>
+  <a href="#embedding">Human+AI</a>
+  <a href="ai-employees-engines.html">AI Employees & Engines</a>
+  <a href="Impact Mission.html">Impact Mission</a>
   <a href="contacts.html">Contact</a>
 </nav>
+
 
       <button class="hamburger" aria-label="Open menu" aria-controls="overlayNav" aria-expanded="false" onclick="toggleMenu(true)">
         <span></span>
@@ -376,8 +385,8 @@ nav.primary a {
 Fully managed AI employees and modular AI Engines you can plug into your business — task-complete, outcome-focused, and managed by human experts.
 </p>
 <div class="hero-ctas">
-  <a class="btn btn-primary" href="#engines">Explore the Engines →</a>
-  <a class="btn btn-outline" href="/contacts.html">Talk to Us</a>
+<a class="btn btn-primary" href="ai-employees-engines.html">Explore Employees & Engines →</a>
+  <a class="btn btn-outline" href="contacts.html">Talk to Us</a>
 </div>
 
 
@@ -427,7 +436,7 @@ Fully managed AI employees and modular AI Engines you can plug into your busines
 
 
       <!-- Two Ways -->
-<section class="section two-paths reveal" style="margin-top:2rem;">
+<section class="section two-paths reveal" id="embedding" style="margin-top:2rem;">
   <h2>EMBEDDING FUSED ID: AI Employees & Engines for Business</h2>
 
 
@@ -445,7 +454,7 @@ Fully managed AI employees and modular AI Engines you can plug into your busines
                 <li>Human oversight, quality guaranteed</li>
               </ul>
             </div>
-            <a class="download" href="#team">Meet the AI Employees →</a>
+            <a class="download" href="ai-employees-engines.html">Meet the AI Employees →</a>
           </div>
 
           <!-- Path 2 -->
@@ -460,124 +469,12 @@ Fully managed AI employees and modular AI Engines you can plug into your busines
                 <li>Clear KPIs and reporting</li>
               </ul>
             </div>
-            <a class="download" href="#engines">Explore the Engines →</a>
+            <a class="download" href="ai-employees-engines.html">Explore the Engines →</a>
           </div>
         </div>
       </div>
     </section>
 
-    <!-- ===== Team ===== -->
-    <section class="section" id="team">
-      <h2>FUSED AI EMPLOYEES — Real People Behind Every AI Employee</h2>
-      <p>AI employees aren’t software. They’re team members. They join ready to deliver up to 50 hours a week, never call in sick, and integrate into your operations without the friction of recruitment or onboarding delays.
-          <p>
-Every AI Employee in our network is built for performance — task-driven, context-aware, and tuned to work seamlessly alongside your human team. Unlike off-the-shelf tools, our Employees are actively managed and refined by experienced humans, ensuring consistency, accountability, and measurable results.</p>
-
-      <ul>
-        <li>🧭 <strong>Strategy & Review:</strong> Regular performance reviews and improvement planning</li>
-        <li>🛠️ <strong>Ongoing Training:</strong> Continuous bot training, retraining and fine-tuning included</li>
-        <li>📣 <strong>Always Connected:</strong> Your team can give feedback 24/7</li>
-        <li>👀 <strong>Conflict Managed:</strong> Disputes and escalations handled by our team</li>
-        <li>🧠 <strong>Human-Led:</strong> All AI employees are overseen and managed by real people</li>
-      </ul>
-
-      <p>Think of it as hiring top-tier talent without the HR admin, payroll headaches, or downtime. View their CVs below to see exactly how they work and where they could fit in your business.</p>
-
-<div class="grid">
-  <div class="card reveal">
-    <div class="card-icon" style="background-image: url('ethan.jpg');"></div>
-    <h3>Ethan — Sales Professional</h3>
-    <p class="blurb">Ethan builds pipeline without the hard sell. He networks on LinkedIn, researches targets, runs cold email and social outreach, explains products and services, answers questions, and prepares quotations to progress qualified opportunities.</p>
-    <a class="download" href="CV/ethan.html" target="_blank" rel="noopener">Download CV</a>
-  </div>
-
-<div class="card reveal">
-  <div class="card-icon" style="background-image: url('kaia.jpg');"></div>
-  <h3>Kaia — QMS Management</h3>
-  <p>Kaia embeds ISO 9001 in everyday work. She maps processes, analyses data, tracks KPIs, conducts process audits, documents and investigates NCRs with root cause analysis, and drives continuous improvement through a practical, hands-on approach.</p>
-  <a class="download" href="CV/kaia.html" target="_blank" rel="noopener">Download CV</a>
-</div>
-
-
-  <div class="card reveal">
-    <div class="card-icon" style="background-image: url('lara.jpg');"></div>
-    <h3>Lara — People & Culture</h3>
-    <p class="blurb">Lara keeps people and culture running smoothly. She coordinates hiring and onboarding, manages reviews and engagement rhythms, resolves issues early, and keeps communication clear so teams remain compliant, supported, and productive.</p>
-    <a class="download" href="CV/Lara.html" target="_blank" rel="noopener">Download CV</a>
-  </div>
-
-  <div class="card reveal">
-    <div class="card-icon" style="background-image: url('nova.jpg');"></div>
-    <h3>Nova — Customise Your Next Hire</h3>
-    <p class="blurb">Nova adapts to your role and tools. They learn workflows fast, manage tasks, schedules and communications, prepare drafts and updates, and keep priorities moving — flexible capacity that plugs into your team without extra headcount.</p>
-    <a class="download" href="CV/nova.html" target="_blank" rel="noopener">Download CV</a>
-  </div>
-</div>
-
-
-    </section>
-
-<section class="section reveal" id="engines">
-<h2>FUSED ENGINES — Modular AI That Runs Your Business</h2>
-<p>
-Each FUSED Engine is a self-contained business system powered by AI employees and real human oversight. Plug them in and let them run — no extra tools, no new headcount, no management overhead.
-</p>
-
-
-<div class="agencies-grid">
-<div class="card agency-card reveal">
-  <div class="card-icon" style="background-image:url('kaizen.jpg');">
-    <img src="kaizen.jpg" alt="Continuous improvement engine for ISO standards and business process optimization" style="display:none;" />
-  </div>
-  <h3>FusedKaizen — Continuous Improvement Engine</h3>
-  <p>
-    The FusedKaizen Engine drives organisation-wide improvements through AI-powered workflows. 
-    From ISO standards compliance to operational efficiency and team engagement, it provides 
-    a structured system for continuous business growth.
-  </p>
-  <a class="download" href="KaizenFusedID/kaizen.html">Learn More About The ISO9001 Improvement Engine →</a>
-</div>
-
-
-<div class="card agency-card reveal">
-  <div class="card-icon" style="background-image:url('prospecting.jpg');">
-    <img src="prospecting.jpg" alt="AI engine that hunts, organises, and flags sales opportunities" style="display:none;" />
-  </div>
-  <h3>FusedProspecting — Lead Intelligence Engine</h3>
-  <p>
-    FusedProspecting hunts for leads across sources, enriches records, and <em>sorts, categorises, and organises</em> them into clean segments. 
-    It scores intent, deduplicates, and flags high‑value opportunities straight to your sales team — keeping your CRM tidy and your pipeline prioritised without extra headcount.
-  </p>
-  <a class="download" href="ProspectFusedID/prospecting.html">Learn More About the Prospecting Engine →</a>
-</div>
-
-
-<div class="card agency-card reveal">
-  <div class="card-icon" style="background-image:url('talent.jpg');">
-    <img src="talent.jpg" alt="AI recruitment engine for talent acquisition, screening, and hiring automation" style="display:none;" />
-  </div>
-  <h3>FusedTalent — Recruitment Engine</h3>
-  <p>
-    The FusedTalent Engine streamlines recruitment with AI-powered role profiling, automated candidate 
-    screening, and shortlist generation. Accelerate hiring while ensuring the right fit for every role.
-  </p>
-  <a class="download" href="TalentFusedID/talent.html">Learn More About The Recruitment Engine →</a>
-</div>
-
-
-<div class="card agency-card reveal">
-  <div class="card-icon" style="background-image:url('knowledge.jpg');">
-    <img src="knowledge.jpg" alt="AI knowledge engine for business insights, Q&A, and knowledge management" style="display:none;" />
-  </div>
-  <h3>FusedKnowledge — Knowledge Engine</h3>
-  <p>
-    The FusedKnowledge Engine delivers on-demand answers from your knowledge base — fast, accurate, 
-    and constantly learning. Transform static documentation into a dynamic AI-powered knowledge system.
-  </p>
-  <a class="download" href="KnowledgeFusedID/knowledge.html">Learn More About The Knowledge Engine →</a>
-</div>
-
-</section>
 
   <script>
     // Toggle full-screen overlay menu
@@ -600,26 +497,16 @@ Each FUSED Engine is a self-contained business system powered by AI employees an
 
 </main>
 
-    <!-- ===== Contact ===== -->
-    <section class="contact" id="contact">
-      <div class="contact-wrapper">
-        <div class="contact-image">
-          <img src="consulting-space-placeholder.jpg" alt="Consulting Space" />
-        </div>
-        <div class="contact-details">
-          <h2>Contact Us</h2>
-          <p><strong>Contact Us To Discuss Your AI Strategy</strong></p>
-          <p>Email: <a href="mailto:sales@fusedid.com">sales@fusedid.com</a></p>
-          <p>Location: Melbourne, Australia</p>
-          <p>
-            For consultations, strategic direction, or partnership discussions, get in touch. 
-            We're not just digital — we're deeply human too.
-          </p>
-        </div>
-      </div>
-    </section>
-
-
+<footer>
+  <div class="container foot">
+    <span>© FUSED ID</span>
+    <div style="display:flex;gap:1rem;flex-wrap:wrap;align-items:center">
+      <a href="ai-employees-engines.html">Employees & Engines</a>
+      <a href="Impact Mission.html">Impact Mission</a>
+      <a href="contacts.html">Contact</a>
+    </div>
+  </div>
+</footer>
 
 
 

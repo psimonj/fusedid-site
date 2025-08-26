@@ -1,6 +1,17 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
+
+<!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-REPRFPPLDB"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'G-REPRFPPLDB');
+</script>
+
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <title>Contact • FUSED ID — Start a Pilot or Say Hello</title>
@@ -15,11 +26,11 @@
     body{font-family:system-ui,-apple-system,Segoe UI,Roboto,Helvetica,Arial;color:var(--ink);background:#fff}
     a{color:inherit;text-decoration:none}
 
-    /* Base container (match index/stories) */
+    /* Base container (match index/Impact Mission) */
     .container{max-width:1200px;margin:0 auto;padding:0 1rem}
     img{max-width:100%;height:auto;display:block}
 
-    /* ===== Header (IDENTICAL to index/stories) ===== */
+    /* ===== Header (IDENTICAL to index/Impact Mission) ===== */
     header{position:relative;z-index:5;background:#fff;border-bottom:1px solid #eee}
     .header-inner{display:flex;align-items:center;justify-content:space-between;padding:1rem 0}
     .brand{display:flex;align-items:center;font-weight:800;letter-spacing:.06em;color:#000;font-size:1.1rem;white-space:nowrap}
@@ -100,17 +111,26 @@
     footer{background:#0f0a07;color:#ddd}
     .foot{display:flex;justify-content:space-between;align-items:center;gap:1rem;padding:1rem 0}
 
-    /* Match index/stories extra spacing behaviour */
+    /* Match index/Impact Mission extra spacing behaviour */
     .container, .header-inner { padding-inline: max(env(safe-area-inset-left), clamp(16px, 5vw, 32px)); }
     @media (max-width:960px){ .header-inner { padding-left:1.25rem; padding-right:1.25rem; } }
 
     /* Helpers */
     .hint{font-size:.9rem;color:#666}
     .badge{display:inline-flex;align-items:center;gap:.4rem;padding:.35rem .6rem;border:1px solid #eadfd7;border-radius:10px;background:#fff;font-weight:900}
+
+/* Contact-page FAQ */
+.faq .card{padding:1rem 1.25rem}
+.faq details{border-top:1px dashed #eadfd7;padding:.85rem 0}
+.faq details:first-of-type{border-top:0;padding-top:0}
+.faq summary{cursor:pointer;font-weight:900}
+.faq details[open] summary{color:#7a4a2e}
+.faq p{margin:.45rem 0 0; color:#333}
+
   </style>
 
   <script>
-    // Overlay toggle (same as index/stories)
+    // Overlay toggle (same as index/Impact Mission)
     function toggleMenu(open){
       const overlay = document.getElementById('overlayNav');
       const btn = document.querySelector('.hamburger');
@@ -130,33 +150,34 @@
 </head>
 
 <body>
-  <!-- Mobile Overlay Nav -->
+  <!-- ===== Overlay Mobile Menu ===== -->
   <div class="nav-overlay" id="overlayNav" aria-hidden="true">
     <button class="nav-close" aria-label="Close menu" onclick="toggleMenu(false)">×</button>
-    <div class="nav-panel">
-      <a href="index.html#services" onclick="toggleMenu(false)">Human+AI</a>
-      <a href="index.html#team" onclick="toggleMenu(false)">AI Employees</a>
-      <a href="index.html#engines" onclick="toggleMenu(false)">AI Engines</a>
-      <a href="stories.html" onclick="toggleMenu(false)">Stories</a>
-      <a href="contacts.html" onclick="toggleMenu(false)">Contact</a>
-      <a href="mailto:sales@fusedid.com" onclick="toggleMenu(false)" style="margin-top:.6rem;color:var(--copper-light)">sales@fusedid.com</a>
-    </div>
+<div class="nav-panel">
+  <a href="index.html#embedding" onclick="toggleMenu(false)">Human+AI</a>
+  <a href="ai-employees-engines.html" onclick="toggleMenu(false)">AI Employees & Engines</a>
+  <a href="Impact Mission.html" onclick="toggleMenu(false)">Impact Mission</a>
+  <a href="contacts.html" onclick="toggleMenu(false)">Contact</a>
+  <a href="mailto:sales@fusedid.com" onclick="toggleMenu(false)" style="margin-top:.6rem;color:var(--copper-light)">sales@fusedid.com</a>
+</div>
+
+
+
   </div>
 
   <!-- Header -->
-  <header>
+  <header class="shadow-sm">
     <div class="container header-inner">
 <a href="https://www.fusedid.com" class="brand">
   <img src="fusedid logo -white bg.png" alt="Fused ID Logo" style="height:28px;vertical-align:middle;margin-right:8px;">
   FUSED ID
 </a>
-      <nav class="primary" aria-label="Primary">
-        <a href="index.html#services">Human+AI</a>
-        <a href="index.html#team">AI Employees</a>
-        <a href="index.html#engines">AI Engines</a>
-        <a href="stories.html">Stories</a>
-        <a href="contacts.html">Contact</a>
-      </nav>
+<nav class="primary" aria-label="Primary">
+  <a href="index.html#embedding">Human+AI</a>
+  <a href="ai-employees-engines.html">AI Employees & Engines</a>
+  <a href="Impact Mission.html">Impact Mission</a>
+  <a href="contacts.html">Contact</a>
+</nav>
       <button class="hamburger" aria-label="Open menu" aria-controls="overlayNav" aria-expanded="false" onclick="toggleMenu(true)">
         <span></span>
       </button>
@@ -270,6 +291,33 @@
         </form>
       </div>
     </section>
+
+<!-- FAQ -->
+<section class="section faq" id="faq">
+  <h2>FAQ — Common Questions</h2>
+  <div class="card">
+    <details>
+      <summary>Will AI Employees replace my team?</summary>
+      <p>No. Our AI Employees extend capacity so your people can focus on leadership, creativity, and growth.</p>
+    </details>
+
+    <details>
+      <summary>How quickly can we get started?</summary>
+      <p>Most pilots show measurable results within 2–4 weeks. Setup is lightweight — no new tools or dashboards.</p>
+    </details>
+
+    <details>
+      <summary>What about data security and compliance?</summary>
+      <p>We work to strict data-handling standards and can align to your controls (including ISO-style workflows). NDAs welcome.</p>
+    </details>
+
+    <details>
+      <summary>How do we know it’s working?</summary>
+      <p>Every Employee and Engine runs with clear KPIs, reporting, and human oversight — outcomes, not guesswork.</p>
+    </details>
+  </div>
+</section>
+
   </main>
 
   <!-- CTA band -->

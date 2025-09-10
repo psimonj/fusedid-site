@@ -399,6 +399,54 @@ footer a { color:#fff; }
 .metrics span { color:#555; }
 
 
+/* —— Brand-consistent panels / accents —— */
+.panel-illustration{
+  border:1px solid #eee;border-radius:12px;background:#f9f9f9;
+  height:260px; /* placeholder area; swap for an image if desired */
+  background-image:
+    radial-gradient(40% 30% at 20% 25%, rgba(255,140,50,.12), transparent 60%),
+    radial-gradient(35% 25% at 80% 75%, rgba(255,177,105,.10), transparent 70%);
+}
+
+/* —— Checklist (copper ticks) —— */
+.checklist{margin:0;padding-left:0;list-style:none;line-height:1.8}
+.checklist li{position:relative;padding-left:1.45rem}
+.checklist li::before{
+  content:"✔";position:absolute;left:0;top:0;font-weight:800;color:var(--copper);
+}
+
+/* —— KPI cards —— */
+.kpi{display:flex;flex-direction:column;gap:.25rem}
+.kpi-badge{
+  align-self:flex-start;
+  padding:.25rem .55rem;border-radius:999px;border:1px solid #eee;background:#fff;
+  font-weight:800;font-size:.85rem;letter-spacing:.02em;color:#220e05;
+  box-shadow:0 4px 18px rgba(0,0,0,.04);
+}
+
+/* —— Compare emphasis —— */
+.card.compare.muted{opacity:.75}
+.card.highlight{
+  border-color: rgba(255,140,50,.35);
+  box-shadow:0 6px 24px rgba(255,140,50,.18);
+}
+
+/* —— Metrics strip (matches brand accents) —— */
+.metrics-strip{
+  padding:2.25rem 0;
+  background:
+    radial-gradient(40% 60% at 15% 20%, rgba(255,140,50,.08), transparent 60%),
+    #f9f9f9;
+  border-top:2px solid #eee;border-bottom:2px solid #eee;
+}
+.metrics{display:grid;gap:1.25rem;grid-template-columns:repeat(4,minmax(0,1fr))}
+.metric{display:flex;flex-direction:column;align-items:center;text-align:center}
+.metric strong{font-size:clamp(1.6rem,3.2vw,2.2rem);line-height:1;letter-spacing:.02em;color:var(--espresso)}
+.metric span{margin-top:.35rem;font-weight:600;color:#444}
+@media (max-width:900px){.metrics{grid-template-columns:repeat(2,minmax(0,1fr))}}
+@media (max-width:520px){.metrics{grid-template-columns:1fr}}
+
+
 
   </style>
 </head>
@@ -500,47 +548,90 @@ Fully managed AI employees and modular AI Engines you can plug into your busines
   </section>
 
 
+<!-- === Employees vs Engines vs “Agents” === -->
+<section class="section" id="compare">
+  <div class="grid">
+    <div class="card reveal compare">
+      <h3>AI Employees</h3>
+      <p>Role-based, embedded, adaptive. Managed like real team members.</p>
+    </div>
+    <div class="card reveal compare">
+      <h3>AI Engines</h3>
+      <p>Task-complete systems with clear inputs → outputs. Scales instantly.</p>
+    </div>
+    <div class="card reveal compare muted">
+      <h3>“Agents”</h3>
+      <p>Generic term. Often DIY, unclear ownership, and variable outcomes.</p>
+    </div>
+    <div class="card reveal highlight">
+      <h3>Why FUSED ID</h3>
+      <p>Executive-run delivery. Governance. KPIs. No setup. Results you can measure.</p>
+    </div>
+  </div>
+</section>
 
+
+<section class="section" id="operating-model">
+  <div class="leadership-layout">
+    <div class="reveal">
+      <h2>The Executive Operating Layer</h2>
+      <p><strong>Configured. Monitored. Improved.</strong> Seasoned operators run your AI workforce — calibrating prompts, data, and workflows; reviewing outputs; and driving continuous improvement.</p>
+      <ul class="checklist">
+        <li>Outcome contracts and KPIs (no dashboards to learn)</li>
+        <li>ISO-style SOPs and audit trails on request</li>
+        <li>Weekly ops reviews; monthly strategy resets</li>
+      </ul>
+</br>
+      <a class="btn btn-primary" href="contacts.html">Talk to an Operator →</a>
+    </div>
+    <div class="reveal">
+      <img src="executive-operating-layer.jpg" 
+           alt="Executive operating layer metaphor with copper chess pieces" 
+           style="max-width:100%;border-radius:12px;box-shadow:0 6px 20px rgba(0,0,0,.25);" />
+    </div>
+  </div>
+</section>
 
       <!-- Two Ways -->
 <section class="section two-paths reveal" id="embedding" style="margin-top:2rem;">
   <h2>EMBEDDING FUSED ID: AI Employees & Engines for Business</h2>
 
 
-        <div class="leadership-layout" style="align-items:stretch;">
-          <!-- Path 1 -->
-<div class="card reveal" style="display:flex;flex-direction:column;justify-content:space-between;">
-            <div>
-              <div class="card-icon" style="background-image:url('ai-employee.jpg');"></div>
-              <h3>Hire an AI Employee</h3>
-              <p>Hire a dedicated AI coworker, embedded directly into your business. Each Employee is trained for a clear role, tuned to your workflows, and continuously improved by FUSED ID. You direct their day-to-day — they show up, deliver, and grow with your team.
-</p>
-              <ul style="font-size:1rem;line-height:1.8;margin-left:1rem;">
-                <li>Specialist role, inside your team</li>
-                <li>Onboarded fast, optimised continuously</li>
-                <li>Human oversight, quality guaranteed</li>
-              </ul>
-            </div>
-            <a class="download" href="ai-employees-engines.html">Meet the AI Employees →</a>
-          </div>
 
-          <!-- Path 2 -->
-<div class="card reveal" style="display:flex;flex-direction:column;justify-content:space-between;">
-            <div>
-              <div class="card-icon" style="background-image:url('ai-engine.jpg');"></div>
-              <h3>Power up an AI Engine</h3>
-              <p>Engines are precise machines. You feed them inputs, they pump out results. That’s it. Each Engine is built for a specific function — recruitment, knowledge, continuous improvement, prospecting — and it executes relentlessly, on demand. Use them when you want more work, less talk.</p>
-              <ul style="font-size:1rem;line-height:1.8;margin-left:1rem;">
-                <li>Outcome-first delivery</li>
-                <li>No extra headcount or new tools</li>
-                <li>Clear KPIs and reporting</li>
-              </ul>
-            </div>
-            <a class="download" href="ai-employees-engines.html">Explore the Engines →</a>
-          </div>
-        </div>
-      </div>
-    </section>
+<div class="leadership-layout" style="align-items:stretch;">
+  <!-- Path 1 -->
+  <div class="card reveal" style="display:flex;flex-direction:column;justify-content:space-between;">
+    <div>
+      <div class="card-icon" style="background-image:url('ai-employee.jpg');"></div>
+      <h3>Hire an AI Employee</h3>
+      <p>Hire a dedicated AI coworker, embedded directly into your business. Each Employee is trained for a clear role, tuned to your workflows, and continuously improved by FUSED ID. You direct their day-to-day — they show up, deliver, and grow with your team.</p>
+      <ul style="font-size:1rem;line-height:1.8;margin-left:1rem;">
+        <li>Specialist role, inside your team</li>
+        <li>Onboarded fast, optimised continuously</li>
+        <li>Human oversight, quality guaranteed</li>
+      </ul>
+    </div>
+    <a class="btn btn-primary" href="ai-employees-engines.html">Meet the AI Employees →</a>
+  </div>
+
+  <!-- Path 2 -->
+  <div class="card reveal" style="display:flex;flex-direction:column;justify-content:space-between;">
+    <div>
+      <div class="card-icon" style="background-image:url('ai-engine.jpg');"></div>
+      <h3>Power up an AI Engine</h3>
+      <p>Engines are precise machines. You feed them inputs, they pump out results. That’s it. Each Engine is built for a specific function — recruitment, knowledge, continuous improvement, prospecting — and it executes relentlessly, on demand. Use them when you want more work, less talk.</p>
+      <ul style="font-size:1rem;line-height:1.8;margin-left:1rem;">
+        <li>Outcome-first delivery</li>
+        <li>No extra headcount or new tools</li>
+        <li>Clear KPIs and reporting</li>
+      </ul>
+    </div>
+    <a class="btn btn-primary" href="ai-employees-engines.html">Explore the Engines →</a>
+  </div>
+</div>
+
+
+
 
 
   <script>
@@ -561,6 +652,8 @@ Fully managed AI employees and modular AI Engines you can plug into your busines
       }
     }
   </script>
+
+
 
 <!-- How It Works -->
 <section class="section" id="how-it-works">
@@ -588,15 +681,150 @@ Fully managed AI employees and modular AI Engines you can plug into your busines
 </section>
 
 
-<!-- Outcomes in Numbers -->
-<section class="metrics-strip" aria-label="Key Outcomes">
-  <div class="container metrics">
-    <div><strong>50+</strong><span>hrs/week capacity per AI Employee</span></div>
-    <div><strong>2–4 wks</strong><span>to first measurable results</span></div>
-    <div><strong>0</strong><span>new dashboards to learn</span></div>
-    <div><strong>ISO-style</strong><span>workflows on request</span></div>
+<section class="section" id="easy">
+  <div class="leadership-layout" style="align-items:center;">
+    <div>
+      <img src="easy-implementation.jpg" 
+           alt="AI workflow setup example" 
+           style="max-width:460px;border-radius:12px;" />
+    </div>
+
+    <div>
+      <h2>AI Doesn’t Have to Be Hard to Implement</h2>
+      <p>
+        With FUSED ID, there’s no tech setup, no dashboards to learn, and no guesswork.
+        Every AI Employee and Engine is <strong>configured and operated by seasoned managers</strong>
+        who know what it takes to run real teams.
+      </p>
+<ul class="checklist">
+        <li>Deploy in days — we handle the heavy lifting</li>
+        <li>Continuously improved and tuned by experts</li>
+        <li>Secure, compliant, and aligned to your business goals</li>
+      </ul>
+      <a class="btn btn-primary" href="#contact" style="margin-top:1rem;">
+        Talk to an Operator →
+      </a>
+    </div>
   </div>
 </section>
+
+<!-- ===== Business Enhancement Tools ===== -->
+<section class="section" id="enhancement-tools">
+  <div class="leadership-layout" style="align-items:center;">
+    <div>
+      <h2>Business Enhancement Tools</h2>
+
+<ul class="checklist">
+        <li>Sales Prospecting — outbound AI Employees identify and engage new prospects with precision</li>
+        <li>Lead Evaluation & Qualification — inbound Employees nurture and book meetings 24/7</li>
+        <li>Talent Engine — runs role intake, candidate screening, interviews, and research</li>
+        <li>Continuous Improvement — Kaizen-inspired initiatives by ISO9001-certified professionals</li>
+      </ul>
+      <a class="btn btn-primary" href="#engines" style="margin-top:1rem;">Learn More →</a>
+    </div>
+    <div>
+      <img src="revenue-acceleration.jpg"
+           alt="AI-powered tools for sales, hiring, and continuous improvement"
+           style="max-width:460px;border-radius:12px;" />
+    </div>
+  </div>
+</section>
+
+
+<!-- ===== Reliability & Consistency ===== -->
+<section class="section" id="reliability">
+  <div class="leadership-layout" style="align-items:center;">
+    <div>
+      <img src="executive-ops.jpg"
+           alt="Reliable AI operations with consistent performance"
+           style="max-width:460px;border-radius:12px;" />
+    </div>
+    <div>
+      <h2>Reliable. Consistent. Always On.</h2>
+<ul class="checklist">
+        <li>Never takes a day off — always available when you need them</li>
+        <li>Delivers steady, high-quality work without interruptions</li>
+        <li>Overseen by experienced managers to ensure consistency and accountability</li>
+      </ul>
+      <a class="btn btn-primary" href="#contact" style="margin-top:1rem;">Schedule a Consultation →</a>
+    </div>
+  </div>
+</section>
+
+
+<section class="section" id="trust">
+  <div class="leadership-layout" style="align-items:center;">
+    <div>
+      <h2>Our Employees & Engines Work for Teams Like Yours</h2>
+      <p>
+        From owner-led businesses to multi-site organisations, FUSED ID powers growth without headcount
+        or dashboards. Every deployment is overseen by seasoned executives — not junior IT staff —
+        ensuring quality, compliance, and results.
+      </p>
+<ul class="checklist">
+        <li>Compliance-forward, ISO-style governance</li>
+        <li>White-glove onboarding run by experienced managers</li>
+        <li>AI Employees & Engines configured, monitored, and improved for you</li>
+      </ul>
+      <a class="btn btn-primary" href="#contact" style="margin-top:1rem;">Schedule a Consultation →</a>
+    </div>
+
+    <div>
+      <img src="awards.png" alt="Industry badges and recognition" style="max-width:420px;border-radius:12px;" />
+    </div>
+  </div>
+</section>
+
+
+<!-- === Key Advantages === -->
+<section class="section" id="advantages">
+  <h2 class="reveal">Built to Deliver — and Built for You.</h2>
+  <div class="grid">
+    <div class="card reveal">
+      <h3>Executive-Run Setup</h3>
+      <p>Every deployment configured and monitored by experienced managers.</p>
+    </div>
+    <div class="card reveal">
+      <h3>No Technical Overhead</h3>
+      <p>No dashboards, no extra headcount — just outcomes delivered.</p>
+    </div>
+    <div class="card reveal">
+      <h3>Smart Adaptation</h3>
+      <p>Each interaction improves future performance automatically.</p>
+    </div>
+    <div class="card reveal">
+      <h3>Proven Outcomes</h3>
+      <p>Time-to-value in weeks, measurable results within months.</p>
+    </div>
+
+    <div class="card reveal">
+      <h3>SMBs & Mid-Market</h3>
+      <p>Leaders who want outcomes without headcount or platform sprawl.</p>
+    </div>
+    <div class="card reveal">
+      <h3>Franchise & Multi-Site</h3>
+      <p>Consistent brand execution across locations, run centrally.</p>
+    </div>
+    <div class="card reveal">
+      <h3>Ops-Mature Teams</h3>
+      <p>SOPs, compliance, and measurable improvement by design.</p>
+    </div>
+    <div class="card reveal">
+      <h3>Founder-Led</h3>
+      <p>Owners who want to lead — and let the engines run.</p>
+
+  </div>
+</section>
+
+
+
+
+
+
+
+
+
+
 
 
 </main>

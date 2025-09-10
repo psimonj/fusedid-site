@@ -170,6 +170,69 @@
 }
 
 
+/* Masonry-style grid for blog/case studies */
+.blog-grid {
+  column-count: 3;
+  column-gap: 1.5rem;
+}
+
+.post-card {
+  display: inline-block;
+  width: 100%;
+  margin: 0 0 1.5rem;
+  break-inside: avoid;
+}
+
+@media (max-width: 1024px) {
+  .blog-grid { column-count: 2; }
+}
+@media (max-width: 640px) {
+  .blog-grid { column-count: 1; }
+}
+
+
+/* Subtle variation in excerpt clamp */
+.post-excerpt {
+  display: -webkit-box;
+  -webkit-line-clamp: var(--lines, 4);
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+}
+.post-card:nth-child(3n) .post-excerpt { --lines: 6; }
+.post-card:nth-child(4n) .post-excerpt { --lines: 3; }
+
+.post-card {
+  border: 1px solid #eadfd7;
+  border-radius: 16px;
+  background: #fff;
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+  box-shadow: 0 6px 20px rgba(0,0,0,.04);
+}
+.post-media { display:block; aspect-ratio: 16/9; background:#fbf9f7; }
+.post-media img { width:100%; height:100%; object-fit: cover; display:block; }
+
+.post-body { padding: 1rem 1rem 1.2rem; display:flex; flex-direction:column; gap:.6rem; }
+.post-meta { display:flex; align-items:center; gap:.6rem; font-size:.9rem; color:#666; }
+.post-title { margin:.1rem 0 .1rem; font-size:1.15rem; line-height:1.3; }
+.post-title a { text-decoration:none; }
+.post-excerpt { color:#444; margin:0 0 .2rem; }
+
+.blog-more { margin-top: 2rem; text-align: center; }
+
+/* Reuse existing pill style; ensure it renders well here */
+.post-meta .pill {
+  border:1px solid #eadfd7;
+  background:#fbf9f7;
+  color:#7a4a2e;
+  padding:.2rem .55rem;
+  border-radius: 999px;
+  font-weight:800;
+  font-size:.78rem;
+}
+
+
   </style>
 </head>
 
@@ -250,141 +313,167 @@
   <p><strong>Because when creativity leads and the engines run, business moves at the speed of imagination.</strong></p>
 </section>
 
-<!-- Impact heading before case studies -->
-<section class="section">
-  <h2 style="text-align:center;font-weight:1000;margin-top:0;">Our Impact</h2>
-</section>
 
 
 <main class="container" id="Impact Mission">
-  <section class="section">
-    <div class="grid cols-3">
 
-      <!-- Ethan + Prospect -->
-      <article class="story reveal">
-        <div class="media" aria-hidden="true">
-          <img src="prospecting.jpg" alt="Prospect Engine funnel gauge">
-          <span class="pill">Ethan • Prospect Engine</span>
-        </div>
-        <div class="body">
-          <h3>Turn quiet weeks into booked meetings</h3>
-          <div class="meta">Outbound • B2B SaaS • 3 weeks</div>
-          <details>
-            <summary>Read the snapshot</summary>
-            <div class="car">
-              <strong>Challenge</strong>
-              <div>Sales were spending hours on list building with poor reply rates and inconsistent CRM updates.</div>
-              <strong>Action</strong>
-              <div>Ethan defined the ICP, generated a 600-contact list, set respectful LinkedIn + email sequences with deliverability guardrails, and kept CRM tidy and current.</div>
-              <strong>Result</strong>
-              <div>42 warm replies and 11 meetings booked inside 3 weeks. Sales calendar filled for the quarter; clear weekly reports out of the engine.</div>
-            </div>
-            <a class="btn btn-outline" href="ethan.html" target="_blank" rel="noopener">See Ethan’s CV →</a>
-            <a class="btn btn-primary" href="prospecting.html" target="_blank" rel="noopener">Explore Prospect Engine →</a>
-          </details>
-        </div>
-      </article>
 
-      <!-- Kaia + Kaizen -->
-      <article class="story reveal">
-        <div class="media" aria-hidden="true">
-          <img src="kaizen.jpg" alt="Kaizen Engine infinity loop">
-          <span class="pill">Kaia • Kaizen Engine</span>
-        </div>
-        <div class="body">
-          <h3>Lift audit readiness & compress CAPA time</h3>
-          <div class="meta">Manufacturing • ISO 9001 • 60 days</div>
-          <details>
-            <summary>Read the snapshot</summary>
-            <div class="car">
-              <strong>Challenge</strong>
-              <div>Document control lagging; NCRs open; certification audit approaching.</div>
-              <strong>Action</strong>
-              <div>Kaia rebuilt the internal audit plan, tidied document registers, logged NCRs, and ran AI-guided root cause with clear owner SLAs.</div>
-              <strong>Result</strong>
-              <div>Audit pass rate lifted to 98% (+11pp). CAPA cycle time reduced from 28 → 12 days. Audit packs exported with zero missing evidence.</div>
-            </div>
-            <a class="btn btn-outline" href="kaia.html" target="_blank" rel="noopener">See Kaia’s CV →</a>
-            <a class="btn btn-primary" href="kaizen.html" target="_blank" rel="noopener">Explore Kaizen Engine →</a>
-          </details>
-        </div>
-      </article>
+<!-- ===== Insights & Case Studies (unified grid) ===== -->
+<section class="section" id="insights">
+  <h2 class="reveal">Insights & Case Studies</h2>
+  <p class="reveal">Stories, strategies and practical lessons from AI Employees & Engines in action.</p>
 
-      <!-- Lara + Talent -->
-      <article class="story reveal">
-        <div class="media" aria-hidden="true">
-          <img src="lara.jpg" alt="Lara — People & Culture AI Employee">
-          <span class="pill">Lara • Talent Engine</span>
+  <div class="blog-grid">
+    <!-- Blog 1 -->
+    <article class="post-card reveal">
+      <a class="post-media" href="blog/customer-engagement.html">
+        <img src="blog-seo.jpg" alt="Magnifying glass on analytics diagrams">
+      </a>
+      <div class="post-body">
+        <div class="post-meta">
+          <span class="pill">AI Marketing</span>
+          <time datetime="2025-07-09">Jul 9, 2025</time>
         </div>
-        <div class="body">
-          <h3>From vague adverts to ready shortlists</h3>
-          <div class="meta">Agency • Hiring Ops • 10 days</div>
-          <details>
-            <summary>Read the snapshot</summary>
-            <div class="car">
-              <strong>Challenge</strong>
-              <div>Unclear role scopes; inconsistent interviews; slow shortlists.</div>
-              <strong>Action</strong>
-              <div>Lara clarified the role charter, generated a crisp advert, and ran adaptive AI interviews with gap & sentiment analysis.</div>
-              <strong>Result</strong>
-              <div>Three high-fit candidates shortlisted with transcripts and scores; offer accepted and onboarding completed inside two weeks.</div>
-            </div>
-            <a class="btn btn-outline" href="Lara.html" target="_blank" rel="noopener">See Lara’s CV →</a>
-            <a class="btn btn-primary" href="talent.html" target="_blank" rel="noopener">Explore Talent Engine →</a>
-          </details>
-        </div>
-      </article>
+        <h3 class="post-title"><a href="blog/customer-engagement.html">Leveraging AI Employees for Customer Engagement</a></h3>
+        <p class="post-excerpt">AI Employees can personalise outreach and service without extra headcount. From campaign tuning to real-time responses, here’s how leading teams scale engagement.</p>
+        <a class="btn btn-primary" href="blog/customer-engagement.html">Read more →</a>
+      </div>
+    </article>
 
-      <!-- FusedKnowledge -->
-      <article class="story reveal">
-        <div class="media" aria-hidden="true">
-          <img src="knowledge.jpg" alt="FusedKnowledge engine lightbulb & book">
-          <span class="pill">FusedKnowledge</span>
+    <!-- Blog 2 -->
+    <article class="post-card reveal">
+      <a class="post-media" href="blog/ai-prospecting-mistakes.html">
+        <img src="blog-linkedin.jpg" alt="Smartphone showing a network of connections">
+      </a>
+      <div class="post-body">
+        <div class="post-meta">
+          <span class="pill">Sales Ops</span>
+          <time datetime="2025-07-08">Jul 8, 2025</time>
         </div>
-        <div class="body">
-          <h3>Make policies answer back (with citations)</h3>
-          <div class="meta">Consulting • Knowledge Ops • 14 days</div>
-          <details>
-            <summary>Read the snapshot</summary>
-            <div class="car">
-              <strong>Challenge</strong>
-              <div>Policies spread across email/SharePoint; duplicate guidance and contradictions caused rework.</div>
-              <strong>Action</strong>
-              <div>Ingested source docs, flagged conflicts, and stood up specialised agents for HR and Compliance with ask-only roles for staff.</div>
-              <strong>Result</strong>
-              <div>Faster, consistent answers with citations; conflicting policies resolved within hours; usage and gap reports drove tidy simplifications.</div>
-            </div>
-            <a class="btn btn-primary" href="knowledge.html" target="_blank" rel="noopener">Explore FusedKnowledge →</a>
-          </details>
-        </div>
-      </article>
+        <h3 class="post-title"><a href="blog/ai-prospecting-mistakes.html">Common Mistakes to Avoid in AI-Powered Prospecting</a></h3>
+        <p class="post-excerpt">From list bloat to generic outreach, engines go off the rails if left unchecked. Keep quality high and replies coming with a few simple guardrails.</p>
+        <a class="btn btn-primary" href="blog/ai-prospecting-mistakes.html">Read more →</a>
+      </div>
+    </article>
 
-      <!-- Nova (custom) -->
-      <article class="story reveal">
-        <div class="media" aria-hidden="true">
-          <img src="nova.jpg" alt="Nova — Customisable AI Employee">
-          <span class="pill">Nova • Custom Employee</span>
+    <!-- Blog 3 -->
+    <article class="post-card reveal">
+      <a class="post-media" href="blog/inbound-vs-outbound.html">
+        <img src="blog-inbound-vs-outbound.jpg" alt="Megaphone versus speech bubble">
+      </a>
+      <div class="post-body">
+        <div class="post-meta">
+          <span class="pill">Franchise Ops</span>
+          <time datetime="2025-07-07">Jul 7, 2025</time>
         </div>
-        <div class="body">
-          <h3>Operational lift without extra headcount</h3>
-          <div class="meta">Ops • Exec Support • 30 days</div>
-          <details>
-            <summary>Read the snapshot</summary>
-            <div class="car">
-              <strong>Challenge</strong>
-              <div>Leaders drowning in admin; missed follow-ups; scattered documents.</div>
-              <strong>Action</strong>
-              <div>Nova set up a clean briefing rhythm, consolidated docs, and implemented version-controlled templates with tidy action tracking.</div>
-              <strong>Result</strong>
-              <div>Leaders regained 6–8 hours per week; decisions landed earlier with options and evidence; fewer dropped balls.</div>
-            </div>
-            <a class="btn btn-outline" href="nova.html" target="_blank" rel="noopener">See Nova’s CV →</a>
-          </details>
-        </div>
-      </article>
+        <h3 class="post-title"><a href="blog/inbound-vs-outbound.html">Inbound vs Outbound: Which AI Approach Wins?</a></h3>
+        <p class="post-excerpt">Deploy inbound Employees that qualify and delight, or outbound Engines that spark conversations? We compare models so you can place the best bet for ROI.</p>
+        <a class="btn btn-primary" href="blog/inbound-vs-outbound.html">Read more →</a>
+      </div>
+    </article>
 
+    <!-- Case Study 1 -->
+    <article class="post-card reveal">
+      <a class="post-media" href="cases/ethan-prospect.html">
+        <img src="revenue-acceleration.jpg" alt="Prospecting engine growth visual">
+      </a>
+      <div class="post-body">
+        <div class="post-meta">
+          <span class="pill">Case Study</span>
+          <time datetime="2025-03-21">3 weeks</time>
+        </div>
+        <h3 class="post-title"><a href="cases/ethan-prospect.html">Ethan: Turning Quiet Weeks into Booked Meetings</a></h3>
+        <p class="post-excerpt">From ICP definition to multi-channel outreach, Ethan generated 42 warm replies and 11 meetings in three weeks.</p>
+        <a class="btn btn-primary" href="cases/ethan-prospect.html">Read case study →</a>
+      </div>
+    </article>
+
+    <!-- Case Study 2 -->
+    <article class="post-card reveal">
+      <a class="post-media" href="cases/kaia-kaizen.html">
+        <img src="executive-ops.jpg" alt="Continuous improvement operations">
+      </a>
+      <div class="post-body">
+        <div class="post-meta">
+          <span class="pill">Case Study</span>
+          <time datetime="2025-02-10">60 days</time>
+        </div>
+        <h3 class="post-title"><a href="cases/kaia-kaizen.html">Kaia: Compressing CAPA Time with Kaizen</a></h3>
+        <p class="post-excerpt">ISO-aligned Kaizen initiatives lifted audit readiness to 98% and cut CAPA cycle time from 28 to 12 days.</p>
+        <a class="btn btn-primary" href="cases/kaia-kaizen.html">Read case study →</a>
+      </div>
+    </article>
+
+<!-- Case Study: Talent Engine -->
+<article class="post-card reveal">
+  <a class="post-media" href="cases/lara-talent.html">
+    <img src="talent-engine.jpg" alt="AI-powered hiring and candidate evaluation">
+  </a>
+  <div class="post-body">
+    <div class="post-meta">
+      <span class="pill">Case Study</span>
+      <time datetime="2025-06-15">14 days</time>
     </div>
-  </section>
+    <h3 class="post-title"><a href="cases/lara-talent.html">Lara: From 40 Applicants to a 3-Candidate Shortlist</a></h3>
+    <p class="post-excerpt">
+      The Talent Engine turned a vague job brief into a precise role profile. It screened 40 applicants,
+      conducted structured AI-led interviews, and ranked them by fit. Within 14 days, the manager had a
+      shortlist of 3 strong candidates.
+    </p>
+    <a class="btn btn-primary" href="cases/lara-talent.html">Read case study →</a>
+  </div>
+</article>
+
+<!-- Case Study: Knowledge Engine -->
+<article class="post-card reveal">
+  <a class="post-media" href="cases/knowledge-engine.html">
+    <img src="knowledge-engine.jpg" alt="AI Knowledge Engine illustration">
+  </a>
+  <div class="post-body">
+    <div class="post-meta">
+      <span class="pill">Case Study</span>
+      <time datetime="2025-05-20">2 weeks</time>
+    </div>
+    <h3 class="post-title"><a href="cases/knowledge-engine.html">Knowledge Engine: Making 200 Pages of Policy Searchable</a></h3>
+    <p class="post-excerpt">
+      The Knowledge Engine ingested a dense library of HR and compliance policies. Within two weeks, staff
+      could ask natural questions and get instant, citation-backed answers. Managers saved hours of hunting
+      and reduced policy disputes.
+    </p>
+    <a class="btn btn-primary" href="cases/knowledge-engine.html">Read case study →</a>
+  </div>
+</article>
+
+<!-- Case Study: Nova, Custom Ops Employee -->
+<article class="post-card reveal">
+  <a class="post-media" href="cases/nova-ops.html">
+    <img src="nova-ops.jpg" alt="AI Employee handling operational support tasks">
+  </a>
+  <div class="post-body">
+    <div class="post-meta">
+      <span class="pill">Case Study</span>
+      <time datetime="2025-04-30">30 days</time>
+    </div>
+    <h3 class="post-title"><a href="cases/nova-ops.html">Nova: Cutting Admin Workload by 8 Hours a Week</a></h3>
+    <p class="post-excerpt">
+      Nova, a custom AI Ops Employee, was deployed to handle reporting, meeting notes, and template prep.
+      Within 30 days, executives reported an average of 8 hours a week freed up, with fewer formatting errors
+      and rework.
+    </p>
+    <a class="btn btn-primary" href="cases/nova-ops.html">Read case study →</a>
+  </div>
+</article>
+
+  </div>
+
+  <div class="blog-more">
+    <a class="btn btn-outline" href="blog/index.html">View all articles</a>
+  </div>
+</section>
+
+
+
+
 </main>
 
   <!-- CTA band -->

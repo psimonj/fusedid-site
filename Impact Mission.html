@@ -232,6 +232,45 @@
   font-size:.78rem;
 }
 
+.closing-cta {
+  position: relative;
+  background: #150e09;
+  color: #fff;
+  text-align: center;
+  padding: 4rem 1rem;
+  border-top: 2px solid rgba(255,140,50,0.4);
+  overflow: hidden;
+}
+
+.closing-cta::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background:
+    linear-gradient(180deg, rgba(21,14,9,.55) 0%, rgba(21,14,9,.75) 100%),
+    url('copper-glow.jpg') center/cover no-repeat;
+  opacity: 0.7;   /* was 0.5 */
+  z-index: 0;
+}
+
+
+.closing-cta-inner {
+  position: relative;
+  z-index: 1;
+}
+
+.closing-cta h2 {
+  font-size: clamp(1.8rem, 3vw, 2.4rem);
+  font-weight: 900;
+  margin-bottom: 1rem;
+  color: var(--copper-light);
+}
+
+.closing-cta p {
+  font-size: 1.1rem;
+  margin-bottom: 2rem;
+  color: #f3f3f3;
+}
 
   </style>
 </head>
@@ -260,7 +299,7 @@
   <div class="nav-overlay" id="overlayNav" aria-hidden="true">
     <button class="nav-close" aria-label="Close menu" onclick="toggleMenu(false)">×</button>
 <div class="nav-panel">
-  <a href="index.html#embedding" onclick="toggleMenu(false)">Human+AI</a>
+  <a href="index.html" onclick="toggleMenu(false)">Human+AI</a>
   <a href="ai-employees-engines.html" onclick="toggleMenu(false)">AI Employees & Engines</a>
   <a href="Impact Mission.html" onclick="toggleMenu(false)">Impact Mission</a>
   <a href="contacts.html" onclick="toggleMenu(false)">Contact</a>
@@ -279,7 +318,7 @@
   FUSED ID
 </a>
 <nav class="primary" aria-label="Primary">
-  <a href="index.html#embedding">Human+AI</a>
+  <a href="index.html">Human+AI</a>
   <a href="ai-employees-engines.html">AI Employees & Engines</a>
   <a href="Impact Mission.html">Impact Mission</a>
   <a href="contacts.html">Contact</a>
@@ -476,18 +515,15 @@
 
 </main>
 
-  <!-- CTA band -->
-  <section class="cta-band">
-    <div class="container cta-inner">
-      <div>
-        <strong style="font-size:1.15rem">Want a story like this in your team?</strong>
-        <div class="muted">Start with a small pilot. We’ll show you measurable impact quickly.</div>
-      </div>
-      <div>
-        <a class="btn btn-primary" href="contacts.html">Talk to us</a>
-      </div>
-    </div>
-  </section>
+<!-- ===== Closing CTA Band ===== -->
+<section class="closing-cta">
+  <div class="container closing-cta-inner">
+    <h2>You Lead. The Engines Run.</h2>
+    <p>Ready to embed AI Employees or power up an Engine? Let’s get started.</p>
+    <a href="contacts.html" class="btn btn-primary">Talk to an Operator →</a>
+  </div>
+</section>
+
 
   <!-- Footer (simple back link to home) -->
   <footer style="background:#0f0a07;color:#ddd">

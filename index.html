@@ -319,10 +319,10 @@ nav.primary a {
   #team .grid .card.reveal { transition: none; }
 }
 
-#engines .agency-card.reveal:nth-child(1) { transition-delay: 0s; }
-#engines .agency-card.reveal:nth-child(2) { transition-delay: .09s; }
-#engines .agency-card.reveal:nth-child(3) { transition-delay: .18s; }
-#engines .agency-card.reveal:nth-child(4) { transition-delay: .27s; }
+ai-employees-engines.html .agency-card.reveal:nth-child(1) { transition-delay: 0s; }
+ai-employees-engines.html .agency-card.reveal:nth-child(2) { transition-delay: .09s; }
+ai-employees-engines.html .agency-card.reveal:nth-child(3) { transition-delay: .18s; }
+ai-employees-engines.html .agency-card.reveal:nth-child(4) { transition-delay: .27s; }
 
 
 /* Footer (match Impact Mission look) */
@@ -425,10 +425,22 @@ footer a { color:#fff; }
 }
 
 /* —— Compare emphasis —— */
-.card.compare.muted{opacity:.75}
-.card.highlight{
-  border-color: rgba(255,140,50,.35);
-  box-shadow:0 6px 24px rgba(255,140,50,.18);
+.card.compare.muted {
+  opacity: .75;
+}
+
+.card.highlight {
+  border: 1px solid rgba(255,140,50,0.8); /* thicker, brighter border */
+  box-shadow: 0 0 20px rgba(255,140,50,0.45),
+              0 0 40px rgba(255,140,50,0.25); /* stronger glowing effect */
+  border-radius: 14px;
+  transition: box-shadow 0.3s ease, transform 0.2s ease;
+}
+
+.card.highlight:hover {
+  box-shadow: 0 0 25px rgba(255,140,50,0.6),
+              0 0 50px rgba(255,140,50,0.35);
+  transform: translateY(-3px);
 }
 
 /* —— Metrics strip (matches brand accents) —— */
@@ -448,6 +460,57 @@ footer a { color:#fff; }
 
 
 
+/* --- Mobile fixes for new sections --- */
+.section img {
+  width: 100%;
+  max-width: 100%;
+  height: auto;
+  display: block;
+}
+
+/* Two-column layout that stacks on mobile */
+.leadership-layout {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 5rem;
+  align-items: center;
+}
+
+/* Blog images never overflow */
+.post-media img { width:100%; height:100%; object-fit:cover; }
+
+/* Kill any horizontal overflow caused by legacy widths */
+html, body { overflow-x: hidden; }
+
+/* Stack at <= 820px AND put the image block first */
+@media (max-width: 820px) {
+  .leadership-layout { grid-template-columns: 1fr; }
+
+  /* If you add class="media" to the image container, it will float to top */
+  .leadership-layout .media { order: -1; }
+
+  /* Safety: make each child full width */
+  .leadership-layout > * { width: 100%; }
+}
+
+
+/* Make section images fill their grid column */
+.leadership-layout .media { align-self: stretch; width: 100%; }
+.leadership-layout .media.cover { position: relative; }
+.leadership-layout .media.cover img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;     /* fills the column, crops gracefully */
+  border-radius: 12px;
+  display: block;
+}
+
+/* Stack on mobile and let images size naturally */
+@media (max-width: 820px) {
+  .leadership-layout { grid-template-columns: 1fr; }
+  .leadership-layout .media.cover img { height: auto; object-fit: contain; }
+}
+
   </style>
 </head>
 
@@ -458,7 +521,7 @@ footer a { color:#fff; }
   <div class="nav-overlay" id="overlayNav" aria-hidden="true">
     <button class="nav-close" aria-label="Close menu" onclick="toggleMenu(false)">×</button>
 <div class="nav-panel">
-  <a href="#embedding" onclick="toggleMenu(false)">Human+AI</a>
+  <a href="index.html" onclick="toggleMenu(false)">Human+AI</a>
   <a href="ai-employees-engines.html" onclick="toggleMenu(false)">AI Employees & Engines</a>
   <a href="Impact Mission.html" onclick="toggleMenu(false)">Impact Mission</a>
   <a href="contacts.html" onclick="toggleMenu(false)">Contact</a>
@@ -476,7 +539,7 @@ footer a { color:#fff; }
   FUSED ID
 </a>
 <nav class="primary" aria-label="Primary">
-  <a href="#embedding">Human+AI</a>
+  <a href="index.html">Human+AI</a>
   <a href="ai-employees-engines.html">AI Employees & Engines</a>
   <a href="Impact Mission.html">Impact Mission</a>
   <a href="contacts.html">Contact</a>
@@ -681,12 +744,13 @@ Fully managed AI employees and modular AI Engines you can plug into your busines
 </section>
 
 
+<!-- ===== Easy ===== -->
 <section class="section" id="easy">
   <div class="leadership-layout" style="align-items:center;">
-    <div>
-      <img src="easy-implementation.jpg" 
-           alt="AI workflow setup example" 
-           style="max-width:460px;border-radius:12px;" />
+    <div class="media cover">
+      <img src="easy-implementation.jpg"
+           alt="AI workflow setup example"
+           style="border-radius:12px;" />
     </div>
 
     <div>
@@ -696,14 +760,12 @@ Fully managed AI employees and modular AI Engines you can plug into your busines
         Every AI Employee and Engine is <strong>configured and operated by seasoned managers</strong>
         who know what it takes to run real teams.
       </p>
-<ul class="checklist">
+      <ul class="checklist">
         <li>Deploy in days — we handle the heavy lifting</li>
         <li>Continuously improved and tuned by experts</li>
         <li>Secure, compliant, and aligned to your business goals</li>
       </ul>
-      <a class="btn btn-primary" href="#contact" style="margin-top:1rem;">
-        Talk to an Operator →
-      </a>
+      <a class="btn btn-primary" href="contacts.html" style="margin-top:1rem;">Talk to an Operator →</a>
     </div>
   </div>
 </section>
@@ -713,40 +775,39 @@ Fully managed AI employees and modular AI Engines you can plug into your busines
   <div class="leadership-layout" style="align-items:center;">
     <div>
       <h2>Business Enhancement Tools</h2>
-
-<ul class="checklist">
+      <ul class="checklist">
         <li>Sales Prospecting — outbound AI Employees identify and engage new prospects with precision</li>
         <li>Lead Evaluation & Qualification — inbound Employees nurture and book meetings 24/7</li>
         <li>Talent Engine — runs role intake, candidate screening, interviews, and research</li>
         <li>Continuous Improvement — Kaizen-inspired initiatives by ISO9001-certified professionals</li>
       </ul>
-      <a class="btn btn-primary" href="#engines" style="margin-top:1rem;">Learn More →</a>
+      <a class="btn btn-primary" href="ai-employees-engines.html" style="margin-top:1rem;">Learn More →</a>
     </div>
-    <div>
+
+    <div class="media cover">
       <img src="revenue-acceleration.jpg"
            alt="AI-powered tools for sales, hiring, and continuous improvement"
-           style="max-width:460px;border-radius:12px;" />
+           style="border-radius:12px;" />
     </div>
   </div>
 </section>
 
-
 <!-- ===== Reliability & Consistency ===== -->
 <section class="section" id="reliability">
   <div class="leadership-layout" style="align-items:center;">
-    <div>
+    <div class="media cover">
       <img src="executive-ops.jpg"
-           alt="Reliable AI operations with consistent performance"
-           style="max-width:460px;border-radius:12px;" />
+           alt="Reliable AI operations with consistent performance" />
     </div>
+
     <div>
       <h2>Reliable. Consistent. Always On.</h2>
-<ul class="checklist">
+      <ul class="checklist">
         <li>Never takes a day off — always available when you need them</li>
         <li>Delivers steady, high-quality work without interruptions</li>
         <li>Overseen by experienced managers to ensure consistency and accountability</li>
       </ul>
-      <a class="btn btn-primary" href="#contact" style="margin-top:1rem;">Schedule a Consultation →</a>
+      <a class="btn btn-primary" href="contacts.html" style="margin-top:1rem;">Schedule a Consultation →</a>
     </div>
   </div>
 </section>
@@ -756,65 +817,82 @@ Fully managed AI employees and modular AI Engines you can plug into your busines
   <div class="leadership-layout" style="align-items:center;">
     <div>
       <h2>Our Employees & Engines Work for Teams Like Yours</h2>
-      <p>
-        From owner-led businesses to multi-site organisations, FUSED ID powers growth without headcount
+      <p>From owner-led businesses to multi-site organisations, FUSED ID powers growth without headcount
         or dashboards. Every deployment is overseen by seasoned executives — not junior IT staff —
-        ensuring quality, compliance, and results.
-      </p>
-<ul class="checklist">
+        ensuring quality, compliance, and results.</p>
+      <ul class="checklist">
         <li>Compliance-forward, ISO-style governance</li>
         <li>White-glove onboarding run by experienced managers</li>
         <li>AI Employees & Engines configured, monitored, and improved for you</li>
       </ul>
-      <a class="btn btn-primary" href="#contact" style="margin-top:1rem;">Schedule a Consultation →</a>
+      <a class="btn btn-primary" href="contacts.html" style="margin-top:1rem;">Schedule a Consultation →</a>
     </div>
 
-    <div>
-      <img src="awards.png" alt="Industry badges and recognition" style="max-width:420px;border-radius:12px;" />
+    <div class="media cover">
+      <img src="awards.png" alt="Industry badges and recognition" />
     </div>
   </div>
 </section>
+
 
 
 <!-- === Key Advantages === -->
 <section class="section" id="advantages">
   <h2 class="reveal">Built to Deliver — and Built for You.</h2>
+<br/>
+
   <div class="grid">
-    <div class="card reveal">
-      <h3>Executive-Run Setup</h3>
-      <p>Every deployment configured and monitored by experienced managers.</p>
-    </div>
-    <div class="card reveal">
-      <h3>No Technical Overhead</h3>
-      <p>No dashboards, no extra headcount — just outcomes delivered.</p>
-    </div>
-    <div class="card reveal">
-      <h3>Smart Adaptation</h3>
-      <p>Each interaction improves future performance automatically.</p>
-    </div>
-    <div class="card reveal">
-      <h3>Proven Outcomes</h3>
-      <p>Time-to-value in weeks, measurable results within months.</p>
-    </div>
 
     <div class="card reveal">
       <h3>SMBs & Mid-Market</h3>
       <p>Leaders who want outcomes without headcount or platform sprawl.</p>
     </div>
+
+  <div class="card reveal highlight">
+    <h3>Executive-Run Setup</h3>
+    <p>Every deployment configured and monitored by experienced managers.</p>
+  </div>
+
     <div class="card reveal">
-      <h3>Franchise & Multi-Site</h3>
-      <p>Consistent brand execution across locations, run centrally.</p>
+      <h3>No Technical Overhead</h3>
+      <p>No dashboards, no extra headcount — just outcomes delivered.</p>
     </div>
-    <div class="card reveal">
-      <h3>Ops-Mature Teams</h3>
-      <p>SOPs, compliance, and measurable improvement by design.</p>
+
+    <div class="card reveal highlight">
+      <h3>Continuous Improvement</h3>
+      <p>Human-led optimisation, ISO-style reviews, and governance ensure steady performance gains.</p>
     </div>
+
+
+
+
+
+
     <div class="card reveal">
       <h3>Founder-Led</h3>
       <p>Owners who want to lead — and let the engines run.</p>
+    </div>
+
+    <div class="card reveal highlight">
+      <h3>Scalable Capacity</h3>
+      <p>Add AI Employees or Engines instantly as your needs grow — without hiring delays or new tools.</p>
+    </div>
+
+   <div class="card reveal">
+      <h3>Process-Driven Teams</h3>
+      <p>For organisations that value SOPs, compliance, and measurable improvement by design.</p>
+    </div>
+
+
+    <div class="card reveal highlight">
+      <h3>Proven Outcomes</h3>
+      <p>Time-to-value in weeks, measurable results within months.</p>
+    </div>
+
 
   </div>
 </section>
+
 
 
 

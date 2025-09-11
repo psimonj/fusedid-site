@@ -128,10 +128,10 @@
 }
 
 /* Stagger the four employee cards */
-#team .grid .card.reveal:nth-child(1) { transition-delay: 0s;    }
-#team .grid .card.reveal:nth-child(2) { transition-delay: .09s;  }
-#team .grid .card.reveal:nth-child(3) { transition-delay: .18s;  }
-#team .grid .card.reveal:nth-child(4) { transition-delay: .27s;  }
+#employees .grid .card.reveal:nth-child(1) { transition-delay: 0s;    }
+#employees .grid .card.reveal:nth-child(2) { transition-delay: .09s;  }
+#employees .grid .card.reveal:nth-child(3) { transition-delay: .18s;  }
+#employees .grid .card.reveal:nth-child(4) { transition-delay: .27s;  }
 
 /* Respect reduced motion */
 @media (prefers-reduced-motion: reduce) {
@@ -144,6 +144,184 @@
 #engines .agency-card.reveal:nth-child(4) { transition-delay: .27s; }
 
 
+.card.highlight {
+  border: 1px solid rgba(255,140,50,0.8); /* thicker, brighter border */
+  box-shadow: 0 0 20px rgba(255,140,50,0.45),
+              0 0 40px rgba(255,140,50,0.25); /* stronger glowing effect */
+  border-radius: 14px;
+  transition: box-shadow 0.3s ease, transform 0.2s ease;
+}
+
+.card.highlight:hover {
+  box-shadow: 0 0 25px rgba(255,140,50,0.6),
+              0 0 50px rgba(255,140,50,0.35);
+  transform: translateY(-3px);
+}
+
+/* Compact highlight cards for feature grid */
+.feature-card.card.highlight {
+  padding: 1rem 1.25rem;     /* reduce padding */
+  border-radius: 10px;       /* slightly smaller corners */
+  box-shadow: 0 0 12px rgba(255,140,50,0.25),
+              0 0 20px rgba(255,140,50,0.15); /* softer glow */
+}
+
+.feature-card.card.highlight h3 {
+  font-size: 1rem;           /* smaller heading */
+  margin: 0 0 .35rem;
+  font-weight: 800;
+}
+
+.feature-card.card.highlight p {
+  font-size: .9rem;          /* lighter body text */
+  line-height: 1.45;
+  margin: 0;
+  color: #444;
+}
+
+
+/* Shared button styles (copied from index page) */
+.btn {
+  appearance: none;
+  border: 0;
+  border-radius: 10px;
+  cursor: pointer;
+  font-weight: 800;
+  padding: .95rem 1.2rem;
+  font-size: 1rem;
+  letter-spacing: .02em;
+  display: inline-flex;
+  align-items: center;
+  gap: .45rem;
+  text-decoration: none;
+}
+
+.btn-primary {
+  background: linear-gradient(180deg, var(--copper), #fa7c16);
+  color: #220e05;
+  box-shadow: 0 6px 24px rgba(255,140,50,.35);
+}
+
+.btn-outline {
+  background: transparent;
+  border: 2px solid rgba(0,0,0,.7);
+  color: #000;
+}
+
+
+/* Equal height cards + ellipsis in Employees section */
+#employees .grid .card,
+#team .grid .card {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+
+#employees .grid .card .blurb,
+#team .grid .card .blurb {
+  flex-grow: 1;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  display: -webkit-box;
+  -webkit-line-clamp: 6;   /* tweak lines if needed */
+  -webkit-box-orient: vertical;
+}
+
+/* Ensure 2-column grids collapse properly on mobile */
+@media (max-width: 820px) {
+  .leadership-layout {
+    grid-template-columns: 1fr !important; /* stack */
+    gap: 2rem;
+  }
+
+  /* If you want the media/SVG to appear ABOVE the text on mobile */
+  .leadership-layout .media {
+    order: -1;
+  }
+
+  /* Safety: force full width */
+  .leadership-layout > * {
+    width: 100%;
+  }
+}
+
+/* Ensure SVG and feature boxes scale without causing overflow */
+.section svg {
+  max-width: 100%;
+  height: auto;
+  display: block;
+}
+.feature-card.card.highlight {
+  padding: 1rem;
+}
+
+.ecosystem-horizontal { display:block; }
+.ecosystem-vertical { display:none; }
+
+@media (max-width:820px) {
+  .ecosystem-horizontal { display:none; }
+  .ecosystem-vertical { display:block; }
+}
+
+/* Ecosystem toggles */
+.ecosystem-horizontal { display:block; }
+.ecosystem-vertical   { display:none; }
+
+@media (max-width:820px){
+  .ecosystem-horizontal { display:none; }
+  .ecosystem-vertical   { display:block; }
+}
+
+/* Safe scaling */
+.ecosystem svg { width:100%; height:auto; display:block; }
+
+/* Optional: dark panel like desktop */
+.ecosystem.panel {
+  background:#150e09;
+  border-radius:12px;
+  overflow:hidden;
+}
+
+.closing-cta {
+  position: relative;
+  background: #150e09;
+  color: #fff;
+  text-align: center;
+  padding: 4rem 1rem;
+  border-top: 2px solid rgba(255,140,50,0.4);
+  overflow: hidden;
+}
+
+.closing-cta::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background:
+    linear-gradient(180deg, rgba(21,14,9,.55) 0%, rgba(21,14,9,.75) 100%),
+    url('copper-glow.jpg') center/cover no-repeat;
+  opacity: 0.7;   /* was 0.5 */
+  z-index: 0;
+}
+
+
+.closing-cta-inner {
+  position: relative;
+  z-index: 1;
+}
+
+.closing-cta h2 {
+  font-size: clamp(1.8rem, 3vw, 2.4rem);
+  font-weight: 900;
+  margin-bottom: 1rem;
+  color: var(--copper-light);
+}
+
+.closing-cta p {
+  font-size: 1.1rem;
+  margin-bottom: 2rem;
+  color: #f3f3f3;
+}
+
   </style>
 </head>
 <body>
@@ -152,7 +330,7 @@
   <div class="nav-overlay" id="overlayNav" aria-hidden="true">
     <button class="nav-close" aria-label="Close menu" onclick="toggleMenu(false)">×</button>
 <div class="nav-panel">
-  <a href="index.html#embedding" onclick="toggleMenu(false)">Human+AI</a>
+  <a href="index.html" onclick="toggleMenu(false)">Human+AI</a>
   <a href="ai-employees-engines.html" onclick="toggleMenu(false)">AI Employees & Engines</a>
   <a href="Impact Mission.html" onclick="toggleMenu(false)">Impact Mission</a>
   <a href="contacts.html" onclick="toggleMenu(false)">Contact</a>
@@ -171,7 +349,7 @@
   FUSED ID
 </a>
 <nav class="primary" aria-label="Primary">
-  <a href="index.html#embedding">Human+AI</a>
+  <a href="index.html">Human+AI</a>
   <a href="ai-employees-engines.html">AI Employees & Engines</a>
   <a href="Impact Mission.html">Impact Mission</a>
   <a href="contacts.html">Contact</a>
@@ -183,106 +361,449 @@
   </header>
 
   <!-- ===== Hero ===== -->
-  <section class="hero">
-    <div class="container hero-inner">
-      <div class="kicker">Human-Led • AI-Enhanced</div>
-      <h1 class="title">AI Employees & AI Engines</h1>
-      <p class="sub">Two ways to add outcome-first capacity — embedded AI colleagues or plug-in Engines, both managed with human oversight.</p>
+<section class="hero">
+  <div class="container hero-inner">
+    <div class="kicker">Human-Led • AI-Enhanced</div>
+    <h1 class="title">AI Employees & AI Engines</h1>
+    <p class="sub">
+      Two ways to add outcome-first capacity — embedded AI colleagues or plug-in Engines,
+      both managed with human oversight.
+    </p>
+  </div>
+</section>
+
+<main class="container">
+
+
+
+<section class="section" id="employees">
+
+  <h2>FUSED AI EMPLOYEES — Real People Behind Every AI Employee</h2>
+
+<div class="grid">
+  <div class="card reveal">
+    <div class="card-icon" style="background-image:url('ethan.jpg');"></div>
+    <h3>Ethan — Sales Professional</h3>
+    <p class="blurb">
+      Ethan builds pipeline without the hard sell. He networks on LinkedIn, 
+      researches targets, runs cold email and social outreach, explains products 
+      and services, answers questions, and prepares quotations to progress 
+      qualified opportunities.
+    </p>
+    <a class="btn btn-primary" href="CV/ethan.html" target="_blank" rel="noopener">Download CV →</a>
+  </div>
+
+  <div class="card reveal">
+    <div class="card-icon" style="background-image:url('kaia.jpg');"></div>
+    <h3>Kaia — QMS Management</h3>
+    <p class="blurb">
+      Kaia embeds ISO 9001 in everyday work. She maps processes, analyses data, 
+      tracks KPIs, conducts process audits, documents and investigates NCRs with 
+      root cause analysis, and drives continuous improvement through a practical, 
+      hands-on approach.
+    </p>
+    <a class="btn btn-primary" href="CV/kaia.html" target="_blank" rel="noopener">Download CV →</a>
+  </div>
+
+  <div class="card reveal">
+    <div class="card-icon" style="background-image:url('lara.jpg');"></div>
+    <h3>Lara — People & Culture</h3>
+    <p class="blurb">
+      Lara keeps people and culture running smoothly. She coordinates hiring and 
+      onboarding, manages reviews and engagement rhythms, resolves issues early, 
+      and keeps communication clear so teams remain compliant, supported, and 
+      productive.
+    </p>
+    <a class="btn btn-primary" href="CV/Lara.html" target="_blank" rel="noopener">Download CV →</a>
+  </div>
+
+  <div class="card reveal">
+    <div class="card-icon" style="background-image:url('nova.jpg');"></div>
+    <h3>Nova — Customise Your Next Hire</h3>
+    <p class="blurb">
+      Nova adapts to your role and tools. They learn workflows fast, manage tasks, 
+      schedules and communications, prepare drafts and updates, and keep priorities 
+      moving — flexible capacity that plugs into your team without extra headcount.
+    </p>
+    <a class="btn btn-primary" href="CV/nova.html" target="_blank" rel="noopener">Download CV →</a>
+  </div>
+</div>
+</section>
+
+
+<!-- ===== Reliability & Consistency ===== -->
+<section class="section" id="reliability">
+  <div class="leadership-layout" style="align-items:center;">
+    <div class="media cover">
+      <img src="executive-ops.jpg"
+           alt="Reliable AI operations with consistent performance" />
     </div>
-  </section>
 
-  <main class="container">
-    <!-- ===== TEAM — AI EMPLOYEES ===== -->
-    <section class="section" id="team">
-      <h2>FUSED AI EMPLOYEES — Real People Behind Every AI Employee</h2>
-      <p>AI employees aren’t software. They’re team members. They join ready to deliver up to 50 hours a week, never call in sick, and integrate into your operations without the friction of recruitment or onboarding delays.</p>
-      <p>Every AI Employee in our network is built for performance — task-driven, context-aware, and tuned to work seamlessly alongside your human team. Unlike off-the-shelf tools, our Employees are actively managed and refined by experienced humans, ensuring consistency, accountability, and measurable results.</p>
-
-      <ul>
-        <li>🧭 <strong>Strategy & Review:</strong> Regular performance reviews and improvement planning</li>
-        <li>🛠️ <strong>Ongoing Training:</strong> Continuous bot training, retraining and fine-tuning included</li>
-        <li>📣 <strong>Always Connected:</strong> Your team can give feedback 24/7</li>
-        <li>👀 <strong>Conflict Managed:</strong> Disputes and escalations handled by our team</li>
-        <li>🧠 <strong>Human-Led:</strong> All AI employees are overseen and managed by real people</li>
+    <div>
+      <h2>Reliable. Consistent. Always On.</h2>
+      <ul class="checklist">
+        <li>Never takes a day off — always available when you need them</li>
+        <li>Delivers steady, high-quality work without interruptions</li>
+        <li>Overseen by experienced managers to ensure consistency and accountability</li>
       </ul>
+      <a class="btn btn-primary" href="contacts.html" style="margin-top:1rem;">Schedule a Consultation →</a>
+    </div>
+  </div>
+</section>
 
-      <p>Think of it as hiring top-tier talent without the HR admin, payroll headaches, or downtime. View their CVs below to see exactly how they work and where they could fit in your business.</p>
 
-      <div class="grid">
-        <div class="card reveal">
-          <div class="card-icon" style="background-image:url('ethan.jpg');"></div>
-          <h3>Ethan — Sales Professional</h3>
-          <p class="blurb">Ethan builds pipeline without the hard sell. He networks on LinkedIn, researches targets, runs cold email and social outreach, explains products and services, answers questions, and prepares quotations to progress qualified opportunities.</p>
-          <a class="download" href="CV/ethan.html" target="_blank" rel="noopener">Download CV</a>
-        </div>
+<section class="section" id="employees">
 
-        <div class="card reveal">
-          <div class="card-icon" style="background-image:url('kaia.jpg');"></div>
-          <h3>Kaia — QMS Management</h3>
-          <p>Kaia embeds ISO 9001 in everyday work. She maps processes, analyses data, tracks KPIs, conducts process audits, documents and investigates NCRs with root cause analysis, and drives continuous improvement through a practical, hands-on approach.</p>
-          <a class="download" href="CV/kaia.html" target="_blank" rel="noopener">Download CV</a>
-        </div>
 
-        <div class="card reveal">
-          <div class="card-icon" style="background-image:url('lara.jpg');"></div>
-          <h3>Lara — People & Culture</h3>
-          <p class="blurb">Lara keeps people and culture running smoothly. She coordinates hiring and onboarding, manages reviews and engagement rhythms, resolves issues early, and keeps communication clear so teams remain compliant, supported, and productive.</p>
-          <a class="download" href="CV/Lara.html" target="_blank" rel="noopener">Download CV</a>
-        </div>
 
-        <div class="card reveal">
-          <div class="card-icon" style="background-image:url('nova.jpg');"></div>
-          <h3>Nova — Customise Your Next Hire</h3>
-          <p class="blurb">Nova adapts to your role and tools. They learn workflows fast, manage tasks, schedules and communications, prepare drafts and updates, and keep priorities moving — flexible capacity that plugs into your team without extra headcount.</p>
-          <a class="download" href="CV/nova.html" target="_blank" rel="noopener">Download CV</a>
-        </div>
+  <div class="leadership-layout" style="display:grid; grid-template-columns: 1fr 2fr; gap:2rem; align-items:start;">
+    <!-- Left column: text -->
+    <div>
+      <p>
+        AI Employees aren’t software — they’re digital colleagues. They deliver consistent
+        capacity, integrate seamlessly with your operations, and are managed for measurable
+        performance without the friction of recruitment or onboarding delays.
+      </p>
+      <p>
+        Every AI Employee is role-trained, context-aware, and refined by experienced operators —
+        ensuring accountability, brand alignment, and results you can trust.
+      </p>
+      <p>
+        Think of it as hiring top-tier talent without the HR admin, payroll overheads,
+        or downtime. Explore their CVs below to see how they work and where they can fit
+        in your business.
+      </p>
+    </div>
+
+    <!-- Right column: feature highlight boxes in 2-column grid -->
+    <div class="grid" style="grid-template-columns:repeat(2,1fr); gap:1.25rem;">
+      <div class="feature-card card highlight">
+        <h3>Strategy & Review</h3>
+        <p>Regular performance reviews and improvement planning built into delivery.</p>
       </div>
+      <div class="feature-card card highlight">
+        <h3>Ongoing Training</h3>
+        <p>Continuous optimisation, fine-tuning, and retraining included.</p>
+      </div>
+      <div class="feature-card card highlight">
+        <h3>Always Connected</h3>
+        <p>24/7 feedback channels keep Employees aligned to your team’s needs.</p>
+      </div>
+      <div class="feature-card card highlight">
+        <h3>Conflict Managed</h3>
+        <p>Escalations and disputes are handled by our executive operators.</p>
+      </div>
+      <div class="feature-card card highlight" style="grid-column: span 2;">
+        <h3>Human-Led</h3>
+        <p>Every Employee is overseen by people, ensuring governance and reliability.</p>
+      </div>
+    </div>
+  </div>
+
+
     </section>
+
+
+
+
+
+
+<section class="section" style="padding:0; margin:4rem 0;">
+  <div style="background:#150e09;border-radius:12px;overflow:hidden;">
+<div class="ecosystem ecosystem-horizontal">
+    <svg viewBox="0 0 1200 500" role="img" aria-label="FusedID ecosystem: Engines infuse skills into AI Employees under oversight" style="width:100%;height:auto;display:block">
+      <defs>
+        <!-- Copper gradients -->
+        <linearGradient id="copperGrad" x1="0" x2="0" y1="0" y2="1">
+          <stop offset="0%" stop-color="#ff8c32"/>
+          <stop offset="100%" stop-color="#fa7c16"/>
+        </linearGradient>
+        <radialGradient id="copperGlow" cx="50%" cy="50%" r="50%">
+          <stop offset="0%" stop-color="rgba(255,140,50,.55)"/>
+          <stop offset="100%" stop-color="rgba(255,140,50,0)"/>
+        </radialGradient>
+        <filter id="softGlow" x="-50%" y="-50%" width="200%" height="200%">
+          <feGaussianBlur stdDeviation="6" result="blur" />
+          <feMerge>
+            <feMergeNode in="blur"/>
+            <feMergeNode in="SourceGraphic"/>
+          </feMerge>
+        </filter>
+      </defs>
+
+      <!-- Headline -->
+      <g transform="translate(600,56)" text-anchor="middle" font-family="system-ui,Segoe UI,Roboto,Helvetica,Arial">
+        <text y="0" fill="#ffb169" font-size="26" font-weight="900">Engines form the skills. Employees bring them to life.</text>
+        <text y="32" fill="#f3f3f3" font-size="16">
+          Modular Engines infuse capabilities; human oversight integrates them into accountable AI Employees.
+        </text>
+      </g>
+
+      <!-- Oversight ring around central employee -->
+      <g transform="translate(600,300)">
+        <!-- glow -->
+        <circle r="126" fill="url(#copperGlow)"></circle>
+        <!-- ring -->
+        <circle r="120" fill="none" stroke="url(#copperGrad)" stroke-width="2" opacity=".9"></circle>
+
+        <!-- Central employee node (just circle now) -->
+        <g filter="url(#softGlow)">
+          <circle r="70" fill="#1c120c" stroke="url(#copperGrad)" stroke-width="2"/>
+        </g>
+      </g>
+
+      <!-- Labels ABOVE and OUTSIDE the ring -->
+      <text x="600" y="140" fill="#ffffff" font-size="20" font-weight="900" text-anchor="middle" font-family="system-ui,Segoe UI,Roboto,Helvetica,Arial">
+        AI Employee
+      </text>
+      <text x="600" y="164" fill="#ffb169" font-size="13" text-anchor="middle" font-family="system-ui,Segoe UI,Roboto,Helvetica,Arial">
+        Oversight • Context • Accountability
+      </text>
+
+      <!-- Engine nodes (2x left, 2x right) -->
+      <!-- Left column -->
+      <g transform="translate(250,190)" font-family="system-ui,Segoe UI,Roboto,Helvetica,Arial">
+        <g filter="url(#softGlow)">
+          <rect x="-120" y="-50" rx="12" ry="12" width="240" height="100"
+                fill="#1c120c" stroke="url(#copperGrad)" stroke-width="1.5"/>
+          <text x="0" y="-10" fill="#ffb169" font-size="14" font-weight="900" text-anchor="middle">FusedProspecting</text>
+          <text x="0" y="14" fill="#e9e9e9" font-size="12" text-anchor="middle">Lead research • Enrichment • Outreach</text>
+        </g>
+      </g>
+
+      <g transform="translate(250,340)" font-family="system-ui,Segoe UI,Roboto,Helvetica,Arial">
+        <g filter="url(#softGlow)">
+          <rect x="-120" y="-50" rx="12" ry="12" width="240" height="100"
+                fill="#1c120c" stroke="url(#copperGrad)" stroke-width="1.5"/>
+          <text x="0" y="-10" fill="#ffb169" font-size="14" font-weight="900" text-anchor="middle">FusedKnowledge</text>
+          <text x="0" y="14" fill="#e9e9e9" font-size="12" text-anchor="middle">Answers from playbooks • Q&A • Recall</text>
+        </g>
+      </g>
+
+      <!-- Right column -->
+      <g transform="translate(950,190)" font-family="system-ui,Segoe UI,Roboto,Helvetica,Arial">
+        <g filter="url(#softGlow)">
+          <rect x="-120" y="-50" rx="12" ry="12" width="240" height="100"
+                fill="#1c120c" stroke="url(#copperGrad)" stroke-width="1.5"/>
+          <text x="0" y="-10" fill="#ffb169" font-size="14" font-weight="900" text-anchor="middle">FusedTalent</text>
+          <text x="0" y="14" fill="#e9e9e9" font-size="12" text-anchor="middle">Role intake • Screening • Shortlists</text>
+        </g>
+      </g>
+
+      <g transform="translate(950,340)" font-family="system-ui,Segoe UI,Roboto,Helvetica,Arial">
+        <g filter="url(#softGlow)">
+          <rect x="-120" y="-50" rx="12" ry="12" width="240" height="100"
+                fill="#1c120c" stroke="url(#copperGrad)" stroke-width="1.5"/>
+          <text x="0" y="-10" fill="#ffb169" font-size="14" font-weight="900" text-anchor="middle">FusedKaizen</text>
+          <text x="0" y="14" fill="#e9e9e9" font-size="12" text-anchor="middle">CAPA • Audits • Continuous improvement</text>
+        </g>
+      </g>
+
+      <!-- Connectors to central node -->
+      <g stroke="url(#copperGrad)" stroke-width="2" opacity=".9">
+        <!-- From left engines to ring -->
+        <path d="M 370 190 C 460 210, 520 230, 600 300" fill="none"/>
+        <path d="M 370 340 C 460 320, 520 310, 600 300" fill="none"/>
+        <!-- From right engines to ring -->
+        <path d="M 830 190 C 740 210, 680 230, 600 300" fill="none"/>
+        <path d="M 830 340 C 740 320, 680 310, 600 300" fill="none"/>
+      </g>
+
+      <!-- Caption -->
+      <g transform="translate(600,480)" text-anchor="middle" font-family="system-ui,Segoe UI,Roboto,Helvetica,Arial">
+        <text fill="#e8e0d8" font-size="13">
+          Engines = modular skills. Oversight integrates skills into an accountable AI Employee.
+        </text>
+      </g>
+    </svg>
+  </div>
+</section>
+
+
+
+
+
+
+<div class="ecosystem ecosystem-vertical panel">
+  <svg viewBox="0 0 390 780" role="img" aria-label="Mobile ecosystem: Engines infuse skills into an AI Employee under oversight" style="width:100%;height:auto;display:block">
+    <defs>
+      <!-- Unique IDs to avoid collisions with desktop SVG -->
+      <linearGradient id="copperGradM" x1="0" x2="0" y1="0" y2="1">
+        <stop offset="0%"  stop-color="#ff8c32" />
+        <stop offset="100%" stop-color="#fa7c16" />
+      </linearGradient>
+      <radialGradient id="copperGlowM" cx="50%" cy="50%" r="50%">
+        <stop offset="0%"   stop-color="#ff8c32" stop-opacity="0.45"/>
+        <stop offset="100%" stop-color="#ff8c32" stop-opacity="0"/>
+      </radialGradient>
+      <filter id="softGlowM" x="-50%" y="-50%" width="200%" height="200%">
+        <feGaussianBlur stdDeviation="5" result="b"/>
+        <feMerge><feMergeNode in="b"/><feMergeNode in="SourceGraphic"/></feMerge>
+      </filter>
+    </defs>
+
+    <!-- Compact headline -->
+    <g transform="translate(195,28)" text-anchor="middle" font-family="system-ui,Segoe UI,Roboto,Helvetica,Arial">
+      <text y="0" fill="#ffb169" font-size="16" font-weight="900">Engines → skills • Employees → outcomes</text>
+    </g>
+
+    <!-- Top engines -->
+    <g transform="translate(195,110)" text-anchor="middle" font-family="system-ui,Segoe UI,Roboto,Helvetica,Arial" filter="url(#softGlowM)">
+      <rect x="-115" y="-32" rx="12" ry="12" width="230" height="64" fill="#1c120c" stroke="url(#copperGradM)" stroke-width="1.6"/>
+      <text y="-6" fill="#ffb169" font-size="14" font-weight="900">FusedProspecting</text>
+      <text y="14" fill="#e9e9e9" font-size="12">Leads • Outreach</text>
+    </g>
+
+    <g transform="translate(195,190)" text-anchor="middle" font-family="system-ui,Segoe UI,Roboto,Helvetica,Arial" filter="url(#softGlowM)">
+      <rect x="-115" y="-32" rx="12" ry="12" width="230" height="64" fill="#1c120c" stroke="url(#copperGradM)" stroke-width="1.6"/>
+      <text y="-6" fill="#ffb169" font-size="14" font-weight="900">FusedTalent</text>
+      <text y="14" fill="#e9e9e9" font-size="12">Recruitment</text>
+    </g>
+
+    <!-- Label well above the ring -->
+    <g transform="translate(195,270)" text-anchor="middle" font-family="system-ui,Segoe UI,Roboto,Helvetica,Arial">
+      <text y="0"  fill="#ffffff" font-size="18" font-weight="900">AI Employee</text>
+      <text y="22" fill="#ffb169" font-size="12">Oversight • Context • Accountability</text>
+    </g>
+
+    <!-- Oversight ring + node (high-contrast, visible on mobile) -->
+    <g transform="translate(195,430)">
+      <!-- soft glow field -->
+      <circle r="118" fill="url(#copperGlowM)"></circle>
+      <!-- outer copper ring -->
+      <circle r="104" fill="none" stroke="#ff8c32" stroke-width="3" opacity=".95"></circle>
+      <!-- inner highlight ring for definition -->
+      <circle r="76"  fill="none" stroke="#ffb169" stroke-width="1.5" opacity=".9"></circle>
+      <!-- central node -->
+      <g filter="url(#softGlowM)">
+        <circle r="62" fill="#1c120c" stroke="#ff8c32" stroke-width="2"/>
+      </g>
+    </g>
+
+    <!-- Bottom engines -->
+    <g transform="translate(195,600)" text-anchor="middle" font-family="system-ui,Segoe UI,Roboto,Helvetica,Arial" filter="url(#softGlowM)">
+      <rect x="-115" y="-32" rx="12" ry="12" width="230" height="64" fill="#1c120c" stroke="url(#copperGradM)" stroke-width="1.6"/>
+      <text y="-6" fill="#ffb169" font-size="14" font-weight="900">FusedKnowledge</text>
+      <text y="14" fill="#e9e9e9" font-size="12">Q&amp;A • Recall</text>
+    </g>
+
+    <g transform="translate(195,680)" text-anchor="middle" font-family="system-ui,Segoe UI,Roboto,Helvetica,Arial" filter="url(#softGlowM)">
+      <rect x="-115" y="-32" rx="12" ry="12" width="230" height="64" fill="#1c120c" stroke="url(#copperGradM)" stroke-width="1.6"/>
+      <text y="-6" fill="#ffb169" font-size="14" font-weight="900">FusedKaizen</text>
+      <text y="14" fill="#e9e9e9" font-size="12">Improvement</text>
+    </g>
+
+
+
+    <!-- Caption -->
+    <g transform="translate(195,758)" text-anchor="middle" font-family="system-ui,Segoe UI,Roboto,Helvetica,Arial">
+      <text fill="#e8e0d8" font-size="12">Engines = modular skills. Oversight integrates them into an AI Employee.</text>
+    </g>
+  </svg>
+</div>
+
+
+
+
+
+
+
+
 
     <!-- ===== ENGINES — MODULAR AI ===== -->
     <section class="section" id="engines">
       <h2>FUSED ENGINES — Modular AI That Runs Your Business</h2>
       <p>Each FUSED Engine is a self-contained business system powered by AI employees and real human oversight. Plug them in and let them run — no extra tools, no new headcount, no management overhead.</p>
 
-      <div class="agencies-grid">
-        <div class="card agency-card reveal">
-          <div class="card-icon" style="background-image:url('kaizen.jpg');">
-            <img src="kaizen.jpg" alt="Continuous improvement engine for ISO standards and business process optimisation" style="display:none;" />
-          </div>
-          <h3>FusedKaizen — Continuous Improvement Engine</h3>
-          <p>The FusedKaizen Engine drives organisation-wide improvements through AI-powered workflows. From ISO standards compliance to operational efficiency and team engagement, it provides a structured system for continuous business growth.</p>
-          <a class="download" href="KaizenFusedID/kaizen.html">Learn More About The ISO9001 Improvement Engine →</a>
-        </div>
 
-        <div class="card agency-card reveal">
-          <div class="card-icon" style="background-image:url('prospecting.jpg');">
-            <img src="prospecting.jpg" alt="AI engine that hunts, organises, and flags sales opportunities" style="display:none;" />
-          </div>
-          <h3>FusedProspecting — Lead Intelligence Engine</h3>
-          <p>FusedProspecting hunts for leads, enriches records, and <em>sorts, categorises, and organises</em> them into clean segments. It scores intent, deduplicates, and flags high-value opportunities straight to your sales team — keeping your CRM tidy and your pipeline prioritised without extra headcount.</p>
-          <a class="download" href="ProspectFusedID/prospecting.html">Learn More About the Prospecting Engine →</a>
-        </div>
 
-        <div class="card agency-card reveal">
-          <div class="card-icon" style="background-image:url('talent.jpg');">
-            <img src="talent.jpg" alt="AI recruitment engine for talent acquisition, screening, and hiring automation" style="display:none;" />
-          </div>
-          <h3>FusedTalent — Recruitment Engine</h3>
-          <p>The FusedTalent Engine streamlines recruitment with AI-powered role profiling, automated candidate screening, and shortlist generation. Accelerate hiring while ensuring the right fit for every role.</p>
-          <a class="download" href="TalentFusedID/talent.html">Learn More About The Recruitment Engine →</a>
-        </div>
+<div class="grid">
+  <div class="card reveal">
+    <div class="card-icon" style="background-image:url('kaizen.jpg');"></div>
+    <h3>FusedKaizen — Continuous Improvement</h3>
+    <p class="blurb">
+      Drive ISO-aligned improvements: CAPA, audits, KPI tracking, and steady operational gains.
+    </p>
+    <a class="btn btn-primary" href="KaizenFusedID/kaizen.html">Learn More →</a>
+  </div>
 
-        <div class="card agency-card reveal">
-          <div class="card-icon" style="background-image:url('knowledge.jpg');">
-            <img src="knowledge.jpg" alt="AI knowledge engine for business insights, Q&A, and knowledge management" style="display:none;" />
-          </div>
-          <h3>FusedKnowledge — Knowledge Engine</h3>
-          <p>The FusedKnowledge Engine delivers on-demand answers from your knowledge base — fast, accurate, and constantly learning. Transform static documentation into a dynamic AI-powered knowledge system.</p>
-          <a class="download" href="KnowledgeFusedID/knowledge.html">Learn More About The Knowledge Engine →</a>
-        </div>
-      </div>
+  <div class="card reveal">
+    <div class="card-icon" style="background-image:url('prospecting.jpg');"></div>
+    <h3>FusedProspecting — Lead Intelligence</h3>
+    <p class="blurb">
+      Find, enrich, dedupe, and segment prospects; surface high-intent opportunities to sales.
+    </p>
+    <a class="btn btn-primary" href="ProspectFusedID/prospecting.html">Learn More →</a>
+  </div>
+
+  <div class="card reveal">
+    <div class="card-icon" style="background-image:url('talent.jpg');"></div>
+    <h3>FusedTalent — Recruitment</h3>
+    <p class="blurb">
+      Role intake, screening, and shortlists delivered fast — consistent pipelines without headcount.
+    </p>
+    <a class="btn btn-primary" href="TalentFusedID/talent.html">Learn More →</a>
+  </div>
+
+  <div class="card reveal">
+    <div class="card-icon" style="background-image:url('knowledge.jpg');"></div>
+    <h3>FusedKnowledge — Knowledge</h3>
+    <p class="blurb">
+      On-demand answers from your playbooks and files — fast, accurate, continuously improving.
+    </p>
+    <a class="btn btn-primary" href="KnowledgeFusedID/knowledge.html">Learn More →</a>
+  </div>
+</div>
+
+
+
+
     </section>
+
+
+
+<!-- ===== Easy ===== -->
+<section class="section" id="easy">
+  <div class="leadership-layout" style="align-items:center;">
+    <div class="media cover">
+      <img src="easy-implementation.jpg"
+           alt="AI workflow setup example"
+           style="border-radius:12px;" />
+    </div>
+
+    <div>
+      <h2>AI Doesn’t Have to Be Hard to Implement</h2>
+      <p>
+        With FUSED ID, there’s no tech setup, no dashboards to learn, and no guesswork.
+        Every AI Employee and Engine is <strong>configured and operated by seasoned managers</strong>
+        who know what it takes to run real teams.
+      </p>
+      <ul class="checklist">
+        <li>Deploy in days — we handle the heavy lifting</li>
+        <li>Continuously improved and tuned by experts</li>
+        <li>Secure, compliant, and aligned to your business goals</li>
+      </ul>
+      <a class="btn btn-primary" href="contacts.html" style="margin-top:1rem;">Talk to an Operator →</a>
+    </div>
+  </div>
+</section>
+
+
   </main>
+
+
+
+<!-- ===== Closing CTA Band ===== -->
+<section class="closing-cta">
+  <div class="container closing-cta-inner">
+    <h2>You Lead. The Engines Run.</h2>
+    <p>Ready to embed AI Employees or power up an Engine? Let’s get started.</p>
+    <a href="contacts.html" class="btn btn-primary">Talk to an Operator →</a>
+  </div>
+</section>
+
+
+
 
   <!-- ===== Footer (simple, consistent) ===== -->
   <footer>

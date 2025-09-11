@@ -127,6 +127,18 @@
 .faq details[open] summary{color:#7a4a2e}
 .faq p{margin:.45rem 0 0; color:#333}
 
+
+
+.reveal { opacity:0; transform:translateY(28px); transition:opacity .5s, transform .6s cubic-bezier(.22,.61,.36,1); }
+.reveal.visible { opacity:1; transform:none; }
+
+/* Stagger helpers */
+.stagger > *:nth-child(1) { transition-delay: .00s; }
+.stagger > *:nth-child(2) { transition-delay: .07s; }
+.stagger > *:nth-child(3) { transition-delay: .14s; }
+.stagger > *:nth-child(4) { transition-delay: .21s; }
+
+
   </style>
 
   <script>
@@ -148,6 +160,40 @@
     }
   </script>
 </head>
+
+
+<script>
+(function(){
+  const els = Array.from(document.querySelectorAll('.reveal'));
+  if (!els.length) return;
+
+  // Fallback: if IO not supported, just show everything
+  if (!('IntersectionObserver' in window)) {
+    els.forEach(el => el.classList.add('visible'));
+    return;
+  }
+
+  const io = new IntersectionObserver((entries)=>{
+    entries.forEach(e=>{
+      if (e.isIntersecting) {
+        e.target.classList.add('visible');
+        io.unobserve(e.target);
+      }
+    });
+  }, { threshold: 0.06, rootMargin: '0px 0px -5% 0px' });
+
+  els.forEach(el => io.observe(el));
+
+  // Safety: make above-the-fold items visible on load
+  window.addEventListener('load', () => {
+    els.forEach(el => {
+      const r = el.getBoundingClientRect();
+      if (r.top < innerHeight) el.classList.add('visible');
+    });
+  });
+})();
+</script>
+
 
 <body>
   <!-- ===== Overlay Mobile Menu ===== -->
@@ -184,113 +230,114 @@
     </div>
   </header>
 
-  <!-- Hero -->
-  <section class="hero">
-    <div class="container hero-inner">
-      <div class="kicker">Human-Led • AI-Powered</div>
-      <h1 class="title">Let’s get your first win on the board.</h1>
-      <p class="sub">Start with a small pilot or ask us anything about AI Employees and Engines. We’ll reply within one business day.</p>
-    </div>
-  </section>
+<!-- Hero -->
+<section class="hero">
+  <div class="container hero-inner reveal">
+    <div class="kicker">Human-Led • AI-Powered</div>
+    <h1 class="title">Let’s get your first win on the board.</h1>
+    <p class="sub">Start with a small pilot or ask us anything about AI Employees and Engines. We’ll reply within one business day.</p>
+  </div>
+</section>
 
-  <!-- Main -->
-  <main class="container">
-    <section class="section">
-      <div class="grid cols-2" style="align-items:start">
-        <!-- Left: quick options & details -->
-        <div class="grid" style="gap:1rem">
-          <div class="card">
-            <h2>Quick options</h2>
-            <ul class="tick">
-              <li><strong>Start a pilot</strong> — pick an Employee or Engine and we’ll scope a 2–4 week trial with clear KPIs.</li>
-              <li><strong>Discovery call</strong> — 20 minutes to map your use cases and stack, no hard sell.</li>
-              <li><strong>General question</strong> — pricing, security, fit — ask away.</li>
-            </ul>
+<!-- Main -->
+<main class="container">
+  <section class="section">
+    <div class="grid cols-2" style="align-items:start">
+      <!-- Left: quick options & details -->
+      <div class="grid stagger" style="gap:1rem">
+        <div class="card reveal">
+          <h2>Quick options</h2>
+          <ul class="tick">
+            <li><strong>Start a pilot</strong> — pick an Employee or Engine and we’ll scope a 2–4 week trial with clear KPIs.</li>
+            <li><strong>Discovery call</strong> — 20 minutes to map your use cases and stack, no hard sell.</li>
+            <li><strong>General question</strong> — pricing, security, fit — ask away.</li>
+          </ul>
+        </div>
+
+        <div class="card reveal">
+          <h2>Contact details</h2>
+          <p class="muted">Prefer email? Reach us directly.</p>
+          <p><strong>Email:</strong> <a href="mailto:sales@fusedid.com">sales@fusedid.com</a><br/>
+             <strong>Location:</strong> Melbourne, Australia (consulting only)</p>
+          <p class="hint">We operate globally; sessions run virtually unless otherwise arranged.</p>
+        </div>
+
+        <div class="card reveal" style="background:var(--tint)">
+          <h2>Security & privacy</h2>
+          <p class="muted">We can sign NDAs and limit data sharing during pilots. Your material stays yours.</p>
+        </div>
+      </div>
+
+      <!-- Right: form -->
+      <form id="contactForm" class="reveal" autocomplete="on" aria-label="Contact form">
+        <h2>Send us a message</h2>
+
+        <div class="row two">
+          <div>
+            <label for="name">Your name</label>
+            <input id="name" name="name" type="text" required placeholder="Jane Appleseed"/>
           </div>
-
-          <div class="card">
-            <h2>Contact details</h2>
-            <p class="muted">Prefer email? Reach us directly.</p>
-            <p><strong>Email:</strong> <a href="mailto:sales@fusedid.com">sales@fusedid.com</a><br/>
-               <strong>Location:</strong> Melbourne, Australia (consulting only)</p>
-            <p class="hint">We operate globally; sessions run virtually unless otherwise arranged.</p>
-          </div>
-
-          <div class="card" style="background:var(--tint)">
-            <h2>Security & privacy</h2>
-            <p class="muted">We can sign NDAs and limit data sharing during pilots. Your material stays yours.</p>
+          <div>
+            <label for="company">Company</label>
+            <input id="company" name="company" type="text" placeholder="Acme Pty Ltd"/>
           </div>
         </div>
 
-        <!-- Right: form -->
-        <form id="contactForm" autocomplete="on" aria-label="Contact form">
-          <h2>Send us a message</h2>
-
-          <div class="row two">
-            <div>
-              <label for="name">Your name</label>
-              <input id="name" name="name" type="text" required placeholder="Jane Appleseed"/>
-            </div>
-            <div>
-              <label for="company">Company</label>
-              <input id="company" name="company" type="text" placeholder="Acme Pty Ltd"/>
-            </div>
-          </div>
-
-          <div class="row two">
-            <div>
-              <label for="email">Work email</label>
-              <input id="email" name="email" type="email" required placeholder="name@company.com"/>
-            </div>
-            <div>
-              <label for="phone">Phone (optional)</label>
-              <input id="phone" name="phone" type="tel" placeholder="+61 …"/>
-            </div>
-          </div>
-
-          <div class="row two">
-            <div>
-              <label for="interest">I’m interested in</label>
-              <select id="interest" name="interest" required>
-                <option value="" disabled selected>Select one…</option>
-                <option>AI Employees (Ethan / Kaia / Lara / Nova)</option>
-                <option>Prospect Engine</option>
-                <option>Kaizen Engine</option>
-                <option>FusedKnowledge</option>
-                <option>Talent Engine</option>
-                <option>Not sure yet</option>
-              </select>
-            </div>
-            <div>
-              <label for="timeframe">Timeframe</label>
-              <select id="timeframe" name="timeframe">
-                <option>ASAP</option>
-                <option>0–4 weeks</option>
-                <option>1–3 months</option>
-                <option>3+ months / exploring</option>
-              </select>
-            </div>
-          </div>
-
+        <div class="row two">
           <div>
-            <label for="message">What would you like to achieve?</label>
-            <textarea id="message" name="message" required placeholder="A few lines on your goals, constraints, and systems…"></textarea>
+            <label for="email">Work email</label>
+            <input id="email" name="email" type="email" required placeholder="name@company.com"/>
           </div>
+          <div>
+            <label for="phone">Phone (optional)</label>
+            <input id="phone" name="phone" type="tel" placeholder="+61 …"/>
+          </div>
+        </div>
 
-          <!-- Honeypot -->
-          <div style="position:absolute;left:-5000px" aria-hidden="true">
-            <label for="website">Website</label>
-            <input id="website" name="website" type="text" tabindex="-1" autocomplete="off"/>
+        <div class="row two">
+          <div>
+            <label for="interest">I’m interested in</label>
+            <select id="interest" name="interest" required>
+              <option value="" disabled selected>Select one…</option>
+              <option>AI Employees (Ethan / Kaia / Lara / Nova)</option>
+              <option>Prospect Engine</option>
+              <option>Kaizen Engine</option>
+              <option>FusedKnowledge</option>
+              <option>Talent Engine</option>
+              <option>Not sure yet</option>
+            </select>
           </div>
+          <div>
+            <label for="timeframe">Timeframe</label>
+            <select id="timeframe" name="timeframe">
+              <option>ASAP</option>
+              <option>0–4 weeks</option>
+              <option>1–3 months</option>
+              <option>3+ months / exploring</option>
+            </select>
+          </div>
+        </div>
 
-          <div style="display:flex;gap:.6rem;align-items:center;margin-top:.6rem">
-            <button class="btn btn-primary" type="submit">Send message</button>
-            <button class="btn btn-ghost" type="reset">Clear</button>
-          </div>
-          <p id="formNote" class="hint" role="status" aria-live="polite" style="margin-top:.65rem"></p>
-        </form>
-      </div>
-    </section>
+        <div>
+          <label for="message">What would you like to achieve?</label>
+          <textarea id="message" name="message" required placeholder="A few lines on your goals, constraints, and systems…"></textarea>
+        </div>
+
+        <!-- Honeypot -->
+        <div style="position:absolute;left:-5000px" aria-hidden="true">
+          <label for="website">Website</label>
+          <input id="website" name="website" type="text" tabindex="-1" autocomplete="off"/>
+        </div>
+
+        <div style="display:flex;gap:.6rem;align-items:center;margin-top:.6rem">
+          <button class="btn btn-primary" type="submit">Send message</button>
+          <button class="btn btn-ghost" type="reset">Clear</button>
+        </div>
+        <p id="formNote" class="hint" role="status" aria-live="polite" style="margin-top:.65rem"></p>
+      </form>
+    </div>
+  </section>
+
 
 <!-- FAQ -->
 <section class="section faq" id="faq">
@@ -367,5 +414,42 @@
       form.reset();
     });
   </script>
+
+
+<script>
+(function(){
+  const els = Array.from(document.querySelectorAll('.reveal'));
+  if (!els.length) return;
+
+  const io = new IntersectionObserver((entries)=>{
+    entries.forEach(e=>{
+      if (e.isIntersecting) { e.target.classList.add('visible'); io.unobserve(e.target); }
+    });
+  }, { root: null, rootMargin: '0px 0px -10% 0px', threshold: 0.01 });
+
+  els.forEach(el => io.observe(el));
+
+  function revealNowIfInView(){
+    els.forEach(el=>{
+      const r = el.getBoundingClientRect();
+      if (r.top < innerHeight * 0.98 && r.bottom > 0) {
+        el.classList.add('visible'); io.unobserve(el);
+      }
+    });
+  }
+
+  function handleHashArrival(){
+    if (!location.hash) { revealNowIfInView(); return; }
+    const target = document.getElementById(location.hash.slice(1));
+    if (target) { target.scrollIntoView({ block:'start' }); requestAnimationFrame(revealNowIfInView); }
+    else { revealNowIfInView(); }
+  }
+
+  window.addEventListener('load', handleHashArrival);
+  window.addEventListener('hashchange', handleHashArrival);
+})();
+</script>
+
+
 </body>
 </html>

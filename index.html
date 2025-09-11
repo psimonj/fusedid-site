@@ -408,12 +408,10 @@ footer a { color:#fff; }
     radial-gradient(35% 25% at 80% 75%, rgba(255,177,105,.10), transparent 70%);
 }
 
-/* —— Checklist (copper ticks) —— */
-.checklist{margin:0;padding-left:0;list-style:none;line-height:1.8}
-.checklist li{position:relative;padding-left:1.45rem}
-.checklist li::before{
-  content:"✔";position:absolute;left:0;top:0;font-weight:800;color:var(--copper);
-}
+.checklist{list-style:none;margin:0;padding:0}
+.checklist li{padding-left:1.4rem;position:relative;margin:.45rem 0;line-height:1.7}
+.checklist li::before{content:"✓";position:absolute;left:.1rem;top:.05rem;color:var(--copper);font-weight:1000}
+
 
 /* —— KPI cards —— */
 .kpi{display:flex;flex-direction:column;gap:.25rem}
@@ -668,12 +666,14 @@ Fully managed AI employees and modular AI Engines you can plug into your busines
       <div class="card-icon" style="background-image:url('ai-employee.jpg');"></div>
       <h3>Hire an AI Employee</h3>
       <p>Hire a dedicated AI coworker, embedded directly into your business. Each Employee is trained for a clear role, tuned to your workflows, and continuously improved by FUSED ID. You direct their day-to-day — they show up, deliver, and grow with your team.</p>
-      <ul style="font-size:1rem;line-height:1.8;margin-left:1rem;">
-        <li>Specialist role, inside your team</li>
-        <li>Onboarded fast, optimised continuously</li>
-        <li>Human oversight, quality guaranteed</li>
-      </ul>
+<ul class="checklist" style="font-size:1rem;line-height:1.8;margin-left:1rem;">
+  <li>Specialist role, inside your team</li>
+  <li>Onboarded fast, optimised continuously</li>
+  <li>Human oversight, quality guaranteed</li>
+</ul>
     </div>
+<br/>
+
     <a class="btn btn-primary" href="ai-employees-engines.html">Meet the AI Employees →</a>
   </div>
 
@@ -683,12 +683,13 @@ Fully managed AI employees and modular AI Engines you can plug into your busines
       <div class="card-icon" style="background-image:url('ai-engine.jpg');"></div>
       <h3>Power up an AI Engine</h3>
       <p>Engines are precise machines. You feed them inputs, they pump out results. That’s it. Each Engine is built for a specific function — recruitment, knowledge, continuous improvement, prospecting — and it executes relentlessly, on demand. Use them when you want more work, less talk.</p>
-      <ul style="font-size:1rem;line-height:1.8;margin-left:1rem;">
+<ul class="checklist" style="font-size:1rem;line-height:1.8;margin-left:1rem;">
         <li>Outcome-first delivery</li>
         <li>No extra headcount or new tools</li>
         <li>Clear KPIs and reporting</li>
       </ul>
     </div>
+<br/>
     <a class="btn btn-primary" href="ai-employees-engines.html">Explore the Engines →</a>
   </div>
 </div>
@@ -747,13 +748,14 @@ Fully managed AI employees and modular AI Engines you can plug into your busines
 <!-- ===== Easy ===== -->
 <section class="section" id="easy">
   <div class="leadership-layout" style="align-items:center;">
-    <div class="media cover">
+    <div class="media cover reveal">
       <img src="easy-implementation.jpg"
            alt="AI workflow setup example"
-           style="border-radius:12px;" />
+           style="border-radius:12px;"
+           loading="lazy" decoding="async" />
     </div>
 
-    <div>
+    <div class="reveal">
       <h2>AI Doesn’t Have to Be Hard to Implement</h2>
       <p>
         With FUSED ID, there’s no tech setup, no dashboards to learn, and no guesswork.
@@ -773,7 +775,7 @@ Fully managed AI employees and modular AI Engines you can plug into your busines
 <!-- ===== Business Enhancement Tools ===== -->
 <section class="section" id="enhancement-tools">
   <div class="leadership-layout" style="align-items:center;">
-    <div>
+    <div class="reveal">
       <h2>Business Enhancement Tools</h2>
       <ul class="checklist">
         <li>Sales Prospecting — outbound AI Employees identify and engage new prospects with precision</li>
@@ -784,10 +786,11 @@ Fully managed AI employees and modular AI Engines you can plug into your busines
       <a class="btn btn-primary" href="ai-employees-engines.html" style="margin-top:1rem;">Learn More →</a>
     </div>
 
-    <div class="media cover">
+    <div class="media cover reveal">
       <img src="revenue-acceleration.jpg"
            alt="AI-powered tools for sales, hiring, and continuous improvement"
-           style="border-radius:12px;" />
+           style="border-radius:12px;"
+           loading="lazy" decoding="async" />
     </div>
   </div>
 </section>
@@ -795,12 +798,13 @@ Fully managed AI employees and modular AI Engines you can plug into your busines
 <!-- ===== Reliability & Consistency ===== -->
 <section class="section" id="reliability">
   <div class="leadership-layout" style="align-items:center;">
-    <div class="media cover">
+    <div class="media cover reveal">
       <img src="executive-ops.jpg"
-           alt="Reliable AI operations with consistent performance" />
+           alt="Reliable AI operations with consistent performance"
+           loading="lazy" decoding="async" />
     </div>
 
-    <div>
+    <div class="reveal">
       <h2>Reliable. Consistent. Always On.</h2>
       <ul class="checklist">
         <li>Never takes a day off — always available when you need them</li>
@@ -812,10 +816,9 @@ Fully managed AI employees and modular AI Engines you can plug into your busines
   </div>
 </section>
 
-
 <section class="section" id="trust">
   <div class="leadership-layout" style="align-items:center;">
-    <div>
+    <div class="reveal">
       <h2>Our Employees & Engines Work for Teams Like Yours</h2>
       <p>From owner-led businesses to multi-site organisations, FUSED ID powers growth without headcount
         or dashboards. Every deployment is overseen by seasoned executives — not junior IT staff —
@@ -828,8 +831,9 @@ Fully managed AI employees and modular AI Engines you can plug into your busines
       <a class="btn btn-primary" href="contacts.html" style="margin-top:1rem;">Schedule a Consultation →</a>
     </div>
 
-    <div class="media cover">
-      <img src="awards.png" alt="Industry badges and recognition" />
+    <div class="media cover reveal">
+      <img src="awards.png" alt="Industry badges and recognition"
+           loading="lazy" decoding="async" />
     </div>
   </div>
 </section>

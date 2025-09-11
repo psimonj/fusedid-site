@@ -138,10 +138,23 @@
   #team .grid .card.reveal { transition: none; }
 }
 
-#engines .agency-card.reveal:nth-child(1) { transition-delay: 0s; }
-#engines .agency-card.reveal:nth-child(2) { transition-delay: .09s; }
-#engines .agency-card.reveal:nth-child(3) { transition-delay: .18s; }
-#engines .agency-card.reveal:nth-child(4) { transition-delay: .27s; }
+#engines .card.reveal:nth-child(1) { transition-delay: 0s; }
+#engines .card.reveal:nth-child(2) { transition-delay: .09s; }
+#engines .card.reveal:nth-child(3) { transition-delay: .18s; }
+#engines .card.reveal:nth-child(4) { transition-delay: .27s; }
+
+
+/* Equal height for engine cards */
+#engines .card {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between; /* pushes button to bottom */
+}
+
+/* Let the description take flexible space */
+#engines .card .blurb {
+  flex-grow: 1;
+}
 
 
 .card.highlight {
@@ -322,6 +335,34 @@
   color: #f3f3f3;
 }
 
+.checklist{list-style:none;margin:0;padding:0}
+.checklist li{padding-left:1.4rem;position:relative;margin:.45rem 0;line-height:1.7}
+.checklist li::before{content:"✓";position:absolute;left:.1rem;top:.05rem;color:var(--copper);font-weight:1000}
+
+
+/* --- Interactions: posts --- */
+.post-card {
+  transition: transform .25s ease, box-shadow .25s ease, border-color .25s ease;
+}
+.post-card:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 10px 30px rgba(255,140,50,.20), 0 4px 18px rgba(0,0,0,.06);
+  border-color: rgba(255,140,50,.55);
+}
+.post-media img { transition: transform .35s ease; }
+.post-card:hover .post-media img { transform: scale(1.03); }
+
+
+/* Typing caret */
+.typing-caret {
+  border-right: 2px solid var(--copper);
+  animation: caretBlink 1s step-end infinite;
+}
+@keyframes caretBlink { 50% { border-color: transparent; } }
+
+/* Optional: keep the final paragraph emphatic if you remove <strong> */
+#our-mission p.accent { font-weight: 800; color: var(--copper); }
+
   </style>
 </head>
 <body>
@@ -434,12 +475,13 @@
 <!-- ===== Reliability & Consistency ===== -->
 <section class="section" id="reliability">
   <div class="leadership-layout" style="align-items:center;">
-    <div class="media cover">
+    <div class="media cover reveal">
       <img src="executive-ops.jpg"
-           alt="Reliable AI operations with consistent performance" />
+           alt="Reliable AI operations with consistent performance"
+           loading="lazy" decoding="async" />
     </div>
 
-    <div>
+    <div class="reveal">
       <h2>Reliable. Consistent. Always On.</h2>
       <ul class="checklist">
         <li>Never takes a day off — always available when you need them</li>
@@ -449,8 +491,6 @@
       <a class="btn btn-primary" href="contacts.html" style="margin-top:1rem;">Schedule a Consultation →</a>
     </div>
   </div>
-</section>
-
 
 <section class="section" id="employees">
 
@@ -765,13 +805,14 @@
 <!-- ===== Easy ===== -->
 <section class="section" id="easy">
   <div class="leadership-layout" style="align-items:center;">
-    <div class="media cover">
+    <div class="media cover reveal">
       <img src="easy-implementation.jpg"
            alt="AI workflow setup example"
-           style="border-radius:12px;" />
+           style="border-radius:12px;"
+           loading="lazy" decoding="async" />
     </div>
 
-    <div>
+    <div class="reveal">
       <h2>AI Doesn’t Have to Be Hard to Implement</h2>
       <p>
         With FUSED ID, there’s no tech setup, no dashboards to learn, and no guesswork.

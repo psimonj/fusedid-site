@@ -272,6 +272,18 @@
   color: #f3f3f3;
 }
 
+
+/* Typing caret */
+.typing-caret {
+  border-right: 2px solid var(--copper);
+  animation: caretBlink 1s step-end infinite;
+}
+@keyframes caretBlink { 50% { border-color: transparent; } }
+
+/* Optional: keep the final paragraph emphatic if you remove <strong> */
+#our-mission p.accent { font-weight: 800; color: var(--copper); }
+
+
   </style>
 </head>
 
@@ -292,6 +304,87 @@
     }
   }
 </script>
+
+
+<script>
+document.addEventListener('DOMContentLoaded', function () {
+  (function () {
+    const root = document.getElementById('our-mission');
+    if (!root) return;
+
+    const prefersReduce = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+    const paras = Array.from(root.querySelectorAll('p')).filter(p => (p.textContent || '').trim().length);
+
+    // Style: fade + caret
+    const style = document.createElement('style');
+    style.textContent = `
+      #our-mission p { opacity:0; }
+      #our-mission p.revealed { opacity:1; transition:opacity .28s ease; }
+      .typing-caret { border-right:2px solid var(--copper,#ff8c32); animation:blink .9s step-end infinite; }
+      @keyframes blink { 50% { border-color:transparent; } }
+    `;
+    document.head.appendChild(style);
+
+    function typeInto(el, cps = 40) {
+      return new Promise(resolve => {
+        const full = el.textContent;
+        el.dataset.full = full;
+        el.textContent = '';
+        el.classList.add('revealed');
+
+        let segs;
+        try {
+          const seg = new Intl.Segmenter('en', { granularity: 'grapheme' });
+          segs = Array.from(seg.segment(full), s => s.segment);
+        } catch {
+          segs = Array.from(full);
+        }
+
+        const span = document.createElement('span');
+        span.className = 'typing-caret';
+        el.appendChild(span);
+
+        const easeInOut = t => (t < .5 ? 4*t*t*t : 1 - Math.pow(-2*t+2,3)/2);
+        const totalMs = (segs.length / cps) * 1000;
+        let lastIdx = -1, start;
+
+        function frame(t) {
+          if (!start) start = t;
+          const p = Math.min(1, (t - start) / totalMs);
+          const eased = easeInOut(p);
+          const i = Math.floor(eased * segs.length);
+
+          if (i !== lastIdx) {
+            span.textContent = segs.slice(0, i).join('');
+            lastIdx = i;
+          }
+          if (p < 1) requestAnimationFrame(frame);
+          else { span.classList.remove('typing-caret'); resolve(); }
+        }
+        requestAnimationFrame(frame);
+      });
+    }
+
+    async function start() {
+      if (prefersReduce) return;
+      for (const p of paras) {
+        await typeInto(p, 48); // faster (~48 cps)
+        await new Promise(r => setTimeout(r, 80)); // shorter pause between paras
+      }
+    }
+
+    const io = new IntersectionObserver((entries) => {
+      if (entries.some(e => e.isIntersecting)) { io.disconnect(); start(); }
+    }, { threshold: 0.25, rootMargin: '0px 0px -10% 0px' });
+
+    io.observe(root);
+  })();
+});
+</script>
+
+
+
+
 
 <body>
 
@@ -344,15 +437,13 @@
 
 
 
-<section class="mission-pill-block">
+<section id="our-mission" class="mission-pill-block">
   <h2>Our Mission</h2>
   <p>Every business is born from creativity — the spark that drives new ventures, fuels growth, and sustains even the largest enterprises.</p>
   <p>But too often, that creativity is shackled. Leaders spend their energy maintaining the engine instead of steering the vision.</p>
   <p>At FusedID, our mission is to change that. To unshackle businesses from the weight of manual effort. To give new ventures the lift to launch, and established companies the capacity to accelerate. To free leaders everywhere to think bigger, bolder, faster.</p>
-  <p><strong>Because when creativity leads and the engines run, business moves at the speed of imagination.</strong></p>
+  <p class="accent">Because when creativity leads and the engines run, business moves at the speed of imagination.</p>
 </section>
-
-
 
 <main class="container" id="Impact Mission">
 
@@ -374,7 +465,10 @@
           <time datetime="2025-07-09">Jul 9, 2025</time>
         </div>
         <h3 class="post-title"><a href="blog/customer-engagement.html">Leveraging AI Employees for Customer Engagement</a></h3>
-        <p class="post-excerpt">AI Employees can personalise outreach and service without extra headcount. From campaign tuning to real-time responses, here’s how leading teams scale engagement.</p>
+<p class="post-excerpt">
+Embedding AI Employees transforms customer engagement — faster responses, consistent tone, and citation-backed answers, all with human oversight.
+</p>
+
         <a class="btn btn-primary" href="blog/customer-engagement.html">Read more →</a>
       </div>
     </article>
@@ -390,7 +484,10 @@
           <time datetime="2025-07-08">Jul 8, 2025</time>
         </div>
         <h3 class="post-title"><a href="blog/ai-prospecting-mistakes.html">Common Mistakes to Avoid in AI-Powered Prospecting</a></h3>
-        <p class="post-excerpt">From list bloat to generic outreach, engines go off the rails if left unchecked. Keep quality high and replies coming with a few simple guardrails.</p>
+<p class="post-excerpt">
+Seven pitfalls that stall AI prospecting — list quality, message–market fit, deliverability, consent, CRM hygiene, and learning rhythm — and how executive-run guardrails fix them.
+</p>
+
         <a class="btn btn-primary" href="blog/ai-prospecting-mistakes.html">Read more →</a>
       </div>
     </article>
@@ -402,11 +499,14 @@
       </a>
       <div class="post-body">
         <div class="post-meta">
-          <span class="pill">Franchise Ops</span>
+          <span class="pill">Inbound vs Outbound</span>
           <time datetime="2025-07-07">Jul 7, 2025</time>
         </div>
         <h3 class="post-title"><a href="blog/inbound-vs-outbound.html">Inbound vs Outbound: Which AI Approach Wins?</a></h3>
-        <p class="post-excerpt">Deploy inbound Employees that qualify and delight, or outbound Engines that spark conversations? We compare models so you can place the best bet for ROI.</p>
+<p class="post-excerpt">
+Inbound wins speed-to-lead; outbound builds pipeline. Use AI Employees & Engines together under human governance to create sustainable momentum.
+</p>
+
         <a class="btn btn-primary" href="blog/inbound-vs-outbound.html">Read more →</a>
       </div>
     </article>
@@ -505,9 +605,7 @@
 
   </div>
 
-  <div class="blog-more">
-    <a class="btn btn-outline" href="blog/index.html">View all articles</a>
-  </div>
+
 </section>
 
 

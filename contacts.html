@@ -100,10 +100,30 @@
     .row{display:grid;grid-template-columns:1fr;gap:.8rem}
     @media(min-width:760px){.row.two{grid-template-columns:1fr 1fr}}
 
-    /* Buttons */
-    .btn{appearance:none;border:0;border-radius:10px;cursor:pointer;font-weight:900;padding:1rem 1.2rem;font-size:1rem;display:inline-flex;align-items:center;gap:.45rem}
-    .btn-primary{background:linear-gradient(180deg,var(--copper),#fa7c16);color:#220e05;box-shadow:0 6px 24px rgba(255,140,50,.35)}
-    .btn-ghost{background:transparent;border:2px solid #000;color:#000}
+.btn {
+  appearance: none;
+  border: 0;
+  border-radius: 10px;
+  cursor: pointer;
+  font-weight: 800;               /* match index */
+  padding: .95rem 1.2rem;         /* match index */
+  font-size: 1rem;                /* match index */
+  letter-spacing: .02em;          /* match index */
+  display: inline-flex;
+  align-items: center;
+  gap: .45rem;
+}
+.btn-outline {
+  background: transparent;
+  border: 2px solid #000;
+  color: #000;
+}
+.btn-primary {
+  background: linear-gradient(180deg, var(--copper), #fa7c16);
+  color: #220e05;
+  box-shadow: 0 6px 24px rgba(255, 140, 50, .35);  /* match index */
+}
+
 
     /* CTA band & footer */
     .cta-band{background:var(--tint);border-top:1px solid #eadfd7;border-bottom:1px solid #eadfd7}
@@ -129,15 +149,29 @@
 
 
 
-.reveal { opacity:0; transform:translateY(28px); transition:opacity .5s, transform .6s cubic-bezier(.22,.61,.36,1); }
-.reveal.visible { opacity:1; transform:none; }
+.reveal {
+  opacity: 0;
+  transform: translateY(32px);
+  transition: all .6s ease;
+}
+.reveal.visible {
+  opacity: 1;
+  transform: translateY(0);
+}
 
-/* Stagger helpers */
-.stagger > *:nth-child(1) { transition-delay: .00s; }
-.stagger > *:nth-child(2) { transition-delay: .07s; }
-.stagger > *:nth-child(3) { transition-delay: .14s; }
-.stagger > *:nth-child(4) { transition-delay: .21s; }
+.stagger > *:nth-child(1) { transition-delay: 0s; }
+.stagger > *:nth-child(2) { transition-delay: .15s; }
+.stagger > *:nth-child(3) { transition-delay: .3s; }
+.stagger > *:nth-child(4) { transition-delay: .45s; }
 
+
+
+/* Slim variant for header CTA */
+.btn-slim {
+  padding: .55rem 1rem;   /* less vertical padding */
+  font-size: .95rem;      /* slightly smaller text */
+  border-radius: 8px;     /* tighter corners to match slimmer look */
+}
 
   </style>
 
@@ -222,7 +256,7 @@
   <a href="index.html">Human+AI</a>
   <a href="ai-employees-engines.html">AI Employees & Engines</a>
   <a href="Impact Mission.html">Impact Mission</a>
-  <a href="contacts.html">Contact</a>
+  <a href="contacts.html" class="btn btn-primary btn-slim" style="margin-left:1rem;">Schedule A Demo</a>
 </nav>
       <button class="hamburger" aria-label="Open menu" aria-controls="overlayNav" aria-expanded="false" onclick="toggleMenu(true)">
         <span></span>
@@ -418,37 +452,22 @@
 
 <script>
 (function(){
-  const els = Array.from(document.querySelectorAll('.reveal'));
+  const els = [...document.querySelectorAll('.reveal')];
   if (!els.length) return;
 
   const io = new IntersectionObserver((entries)=>{
     entries.forEach(e=>{
-      if (e.isIntersecting) { e.target.classList.add('visible'); io.unobserve(e.target); }
-    });
-  }, { root: null, rootMargin: '0px 0px -10% 0px', threshold: 0.01 });
-
-  els.forEach(el => io.observe(el));
-
-  function revealNowIfInView(){
-    els.forEach(el=>{
-      const r = el.getBoundingClientRect();
-      if (r.top < innerHeight * 0.98 && r.bottom > 0) {
-        el.classList.add('visible'); io.unobserve(el);
+      if (e.isIntersecting) {
+        e.target.classList.add('visible');
+        io.unobserve(e.target);
       }
     });
-  }
+  }, { threshold: 0.12 });
 
-  function handleHashArrival(){
-    if (!location.hash) { revealNowIfInView(); return; }
-    const target = document.getElementById(location.hash.slice(1));
-    if (target) { target.scrollIntoView({ block:'start' }); requestAnimationFrame(revealNowIfInView); }
-    else { revealNowIfInView(); }
-  }
-
-  window.addEventListener('load', handleHashArrival);
-  window.addEventListener('hashchange', handleHashArrival);
+  els.forEach(el => io.observe(el));
 })();
 </script>
+
 
 
 </body>

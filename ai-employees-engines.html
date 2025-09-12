@@ -363,6 +363,14 @@
 /* Optional: keep the final paragraph emphatic if you remove <strong> */
 #our-mission p.accent { font-weight: 800; color: var(--copper); }
 
+
+/* Slim variant for header CTA */
+.btn-slim {
+  padding: .55rem 1rem;   /* less vertical padding */
+  font-size: .95rem;      /* slightly smaller text */
+  border-radius: 8px;     /* tighter corners to match slimmer look */
+}
+
   </style>
 </head>
 <body>
@@ -393,7 +401,7 @@
   <a href="index.html">Human+AI</a>
   <a href="ai-employees-engines.html">AI Employees & Engines</a>
   <a href="Impact Mission.html">Impact Mission</a>
-  <a href="contacts.html">Contact</a>
+  <a href="contacts.html" class="btn btn-primary btn-slim" style="margin-left:1rem;">Schedule A Demo</a>
 </nav>
       <button class="hamburger" aria-label="Open menu" aria-controls="overlayNav" aria-expanded="false" onclick="toggleMenu(true)">
         <span></span>

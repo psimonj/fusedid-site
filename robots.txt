@@ -1,3 +1,19 @@
+# Allow all crawlers to index the production site
 User-agent: *
+Allow: /assets/
+Allow: /static/
+Allow: /images/
 Disallow:
+
+# (Optional) Be explicit about JS/CSS if you use CDNs or edge rules
+Allow: /*.js$
+Allow: /*.css$
+
+# (Optional) block staging/preview if they exist
+User-agent: *
+Disallow: /preview/
+Disallow: /staging/
+Disallow: /sandbox/
+
+# Sitemap(s)
 Sitemap: https://www.fusedid.com/sitemap.xml

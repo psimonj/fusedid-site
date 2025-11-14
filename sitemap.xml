@@ -4,51 +4,59 @@
   <!-- ===== Core pages ===== -->
   <url>
     <loc>https://www.fusedid.com/</loc>
-    <lastmod>2025-09-12</lastmod>
+    <lastmod>2025-11-14</lastmod>
     <priority>1.0</priority>
     <changefreq>weekly</changefreq>
   </url>
+
   <url>
     <loc>https://www.fusedid.com/ai-employees-engines.html</loc>
-    <lastmod>2025-09-12</lastmod>
+    <lastmod>2025-11-14</lastmod>
     <priority>0.9</priority>
     <changefreq>weekly</changefreq>
   </url>
+
   <url>
-    <loc>https://www.fusedid.com/Impact%20Mission.html</loc>
-    <lastmod>2025-09-12</lastmod>
+    <loc>https://www.fusedid.com/FusedLiving.html</loc>
+    <lastmod>2025-11-14</lastmod>
     <priority>0.9</priority>
     <changefreq>weekly</changefreq>
   </url>
+
   <url>
     <loc>https://www.fusedid.com/contacts.html</loc>
-    <lastmod>2025-09-12</lastmod>
+    <lastmod>2025-11-14</lastmod>
     <priority>0.8</priority>
     <changefreq>monthly</changefreq>
   </url>
 
-  <!-- ===== Engines (from AI Employees & Engines) ===== -->
-  <url><loc>https://www.fusedid.com/KaizenFusedID/kaizen.html</loc></url>
-  <url><loc>https://www.fusedid.com/ProspectFusedID/prospecting.html</loc></url>
-  <url><loc>https://www.fusedid.com/TalentFusedID/talent.html</loc></url>
-  <url><loc>https://www.fusedid.com/KnowledgeFusedID/knowledge.html</loc></url>
+  <!-- ===== Engines (standalone pages) ===== -->
+  <url>
+    <loc>https://www.fusedid.com/kaizen.html</loc>
+    <lastmod>2025-11-14</lastmod>
+    <priority>0.7</priority>
+    <changefreq>monthly</changefreq>
+  </url>
 
-  <!-- ===== AI Employees — CVs ===== -->
-  <url><loc>https://www.fusedid.com/CV/ethan.html</loc></url>
-  <url><loc>https://www.fusedid.com/CV/kaia.html</loc></url>
-  <url><loc>https://www.fusedid.com/CV/Lara.html</loc></url>
-  <url><loc>https://www.fusedid.com/CV/nova.html</loc></url>
+  <url>
+    <loc>https://www.fusedid.com/prospecting.html</loc>
+    <lastmod>2025-11-14</lastmod>
+    <priority>0.7</priority>
+    <changefreq>monthly</changefreq>
+  </url>
 
-  <!-- ===== Blog (from Impact Mission) ===== -->
-  <url><loc>https://www.fusedid.com/blog/customer-engagement.html</loc></url>
-  <url><loc>https://www.fusedid.com/blog/ai-prospecting-mistakes.html</loc></url>
-  <url><loc>https://www.fusedid.com/blog/inbound-vs-outbound.html</loc></url>
+  <url>
+    <loc>https://www.fusedid.com/talent.html</loc>
+    <lastmod>2025-11-14</lastmod>
+    <priority>0.7</priority>
+    <changefreq>monthly</changefreq>
+  </url>
 
-  <!-- ===== Case studies (from Impact Mission) ===== -->
-  <url><loc>https://www.fusedid.com/cases/ethan-prospect.html</loc></url>
-  <url><loc>https://www.fusedid.com/cases/kaia-kaizen.html</loc></url>
-  <url><loc>https://www.fusedid.com/cases/lara-talent.html</loc></url>
-  <url><loc>https://www.fusedid.com/cases/knowledge-engine.html</loc></url>
-  <url><loc>https://www.fusedid.com/cases/nova-ops.html</loc></url>
+  <url>
+    <loc>https://www.fusedid.com/knowledge.html</loc>
+    <lastmod>2025-11-14</lastmod>
+    <priority>0.7</priority>
+    <changefreq>monthly</changefreq>
+  </url>
 
 </urlset>

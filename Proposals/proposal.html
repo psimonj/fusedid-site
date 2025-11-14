@@ -1,0 +1,616 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>FUSED ID — Proposal for [[Client]]</title>
+
+  <!-- Reveal.js core (CDN) -->
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/reveal.js@5/dist/reveal.css">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/reveal.js@5/dist/theme/black.css" id="theme">
+
+<style>
+  /* ====== FusedID Presentation Styles (Reveal.js safe) ======
+     - <section> stays a direct child of .slides (no extra wrappers)
+     - Reveal.init({ width:1600, height:900 }) → classic 16:9
+     - Tweak colours via CSS variables
+  ============================================================ */
+
+  :root{
+    --espresso:#150e09;
+    --copper:#ff8c32;
+    --copper-light:#ffb169;
+    --cream:#f9f9f9;
+    --ink:#111111;
+    --paper:#ffffff;
+  }
+
+  /* Base */
+  html, body { height: 100%; margin: 0; }
+  body { -webkit-font-smoothing: antialiased; -moz-osx-font-smoothing: grayscale; }
+
+  /* Reveal defaults tuned to brand */
+  .reveal{ font-family: system-ui, -apple-system, Segoe UI, Roboto, Helvetica, Arial; }
+  .reveal a{ color: var(--copper-light); text-decoration: none; }
+  .reveal a:hover{ text-decoration: underline; }
+  .reveal .progress span{ background: var(--copper); }
+
+  /* Headings & rhythm */
+  .reveal h1, .reveal h2, .reveal h3{ font-weight: 900; letter-spacing: .01em; }
+  .h1{ font-size: 2.2rem; font-weight: 1000; letter-spacing: .01em; margin: 0 0 .3rem }
+  .h2{ font-size: 1.6rem; font-weight: 900;  margin: 0 0 .6rem }
+  .lede{ font-size: 1.05rem; line-height: 1.7; opacity: .95 }
+  .accent{ color: var(--copper); }
+  .tagline{ color: var(--copper-light); text-transform: uppercase; letter-spacing: .14em; font-weight: 1000; font-size: .82rem; }
+
+  /* Slide backgrounds (apply on <section>) */
+  section.dark  { background: var(--espresso); color: #fff; }
+  section.light { background: var(--cream);    color: var(--ink); }
+
+  /* Interior layout helper */
+  section .slide-inner{
+    display: grid;
+    grid-template-rows: auto 1fr;
+    gap: 1rem;
+    padding: 2.2rem 2.4rem;
+    height: 100%;
+    box-sizing: border-box;
+  }
+
+  /* Grids */
+  .cols-2{ display: grid; grid-template-columns: 1fr 1fr; gap: 1.2rem }
+  .cols-3{ display: grid; grid-template-columns: repeat(3, 1fr); gap: 1.2rem }
+
+  /* KPI band & chips */
+  .kpi-band{ display: grid; grid-template-columns: repeat(4, 1fr); gap: .8rem }
+  .kpi{ border: 1px solid #eadfd7; border-radius: 12px; padding: 1rem; background: var(--paper); color: var(--ink); }
+  .kpi strong{ font-size: 1.8rem; display: block; color: var(--copper) }
+  .pill{ display: inline-block; border: 1.5px solid var(--copper); border-radius: 12px; padding: .35rem .6rem; font-weight: 800; }
+
+  /* Lists & tables */
+  ul.compact{ margin: .25rem 0; padding-left: 1.15rem; line-height: 1.6 }
+  .table{ width: 100%; border-collapse: collapse; font-size: 1rem; background: var(--paper); }
+  .table th, .table td{ border-bottom: 1px solid #eadfd7; padding: .6rem .4rem; text-align: left }
+  .note{ font-size: .92rem; opacity: .85 }
+
+  /* Media helper */
+  .media.stretch{ width: 100%; height: 100%; object-fit: cover; border-radius: 12px }
+
+  /* Cover */
+  .cover-head{ display: flex; align-items: center; gap: .6rem }
+  .brandmark{ height: 28px; width: auto; vertical-align: middle }
+
+  /* Safe areas (mobile fullscreen) */
+  .safe-pad{
+    padding-top: calc(2.2rem + env(safe-area-inset-top));
+    padding-right: calc(2.4rem + env(safe-area-inset-right));
+    padding-bottom: calc(2.2rem + env(safe-area-inset-bottom));
+    padding-left: calc(2.4rem + env(safe-area-inset-left));
+  }
+
+  /* Responsive stacking (Reveal handles overall scaling) */
+  @media (max-width: 980px){
+    .cols-2{ grid-template-columns: 1fr; }
+    .cols-3{ grid-template-columns: 1fr; }
+    .kpi-band{ grid-template-columns: repeat(2, 1fr); }
+  }
+  @media (max-width: 560px){
+    .kpi-band{ grid-template-columns: 1fr; }
+  }
+
+  /* —— Keep slides one-size; scroll inside when content overflows —— */
+  .reveal .slides section{
+    height: 100% !important;
+    padding: 0 !important; /* prevent theme padding creep */
+  }
+  section .slide-inner{
+    min-height: 100%;
+    overflow: hidden;
+  }
+  section .slide-inner > .scroll,
+  section .slide-inner .cols-2,
+  section .slide-inner .cols-3{
+    min-height: 0;
+    overflow: auto; /* scroll instead of stretching the canvas */
+  }
+  .reveal section img,
+  .reveal section video,
+  .reveal section table{
+    max-width: 100%;
+    max-height: 100%;
+  }
+
+  /* —— Navigation arrows in brand copper —— */
+  .reveal .controls .navigate-left,
+  .reveal .controls .navigate-left.enabled { border-right-color: var(--copper) !important; }
+  .reveal .controls .navigate-right,
+  .reveal .controls .navigate-right.enabled { border-left-color: var(--copper) !important; }
+  .reveal .controls .navigate-up,
+  .reveal .controls .navigate-up.enabled { border-bottom-color: var(--copper) !important; }
+  .reveal .controls .navigate-down,
+  .reveal .controls .navigate-down.enabled { border-top-color: var(--copper) !important; }
+
+
+/* ==== Fix: brand the navigation arrows (Reveal 4/5 compatible) ==== */
+.reveal .controls,
+.reveal .controls button {
+  color: var(--copper) !important;                 /* sets currentColor */
+}
+
+/* Force SVGs to use brand colour */
+.reveal .controls svg,
+.reveal .controls svg * {
+  fill: var(--copper) !important;
+  stroke: var(--copper) !important;
+}
+
+/* Dim when disabled (keeps brand tone) */
+.reveal .controls button[disabled],
+.reveal .controls button[disabled] svg,
+.reveal .controls button[disabled] svg * {
+  color: rgba(255,140,50,.35) !important;
+  fill: rgba(255,140,50,.35) !important;
+  stroke: rgba(255,140,50,.35) !important;
+}
+
+/* (Optional) bigger hit-area without moving them */
+.reveal .controls button { width: 44px; height: 44px; }
+
+/* ==== Ensure Export button text is black no matter what ==== */
+.export-btn {
+  color: #000 !important;
+  text-shadow: none !important;
+}
+.export-btn:hover { color: #000 !important; }
+
+
+  /* —— Export-to-PDF button (top-right, black text) —— */
+  .export-btn{
+    position: fixed;
+    top: 14px;
+    right: 18px;
+    z-index: 1100;
+    padding: 0.45rem 0.9rem;
+    border-radius: 8px;
+    background: var(--copper);
+    color: #000;             /* force black text */
+    font-size: 0.9rem;
+    font-weight: 700;
+    border: none;
+    cursor: pointer;
+    box-shadow: 0 3px 12px rgba(0,0,0,.2);
+    transition: background .25s ease;
+  }
+  .export-btn:hover{
+    background: var(--copper-light);
+    color: #000;             /* keep black on hover */
+  }
+
+  /* —— Print / PDF export (16:9) —— */
+  @page{ size: 10in 5.625in; margin: 0; } /* 16:9 sheet */
+  @media print{
+    html, body { height: auto; overflow: visible; }
+    .reveal .slides section { page-break-after: always !important; }
+    .reveal .controls, .reveal .progress, .reveal .slide-number,
+    .export-btn, .utilbar { display: none !important; }
+    .reveal .slides{ zoom: .95; } /* small margin for printers */
+  }
+
+
+
+
+</style>
+
+
+
+
+
+
+
+
+</head>
+
+<button id="export-pdf" class="export-btn" type="button" title="Export to PDF">Export PDF</button>
+
+
+
+
+<script>
+  (function(){
+    const btn = document.getElementById('export-pdf');
+    if(!btn) return;
+
+    function triggerPdf(){
+      const url = new URL(window.location.href);
+      if (!url.searchParams.has('print-pdf')) {
+        url.searchParams.set('print-pdf', 'true');
+        sessionStorage.setItem('fused_print_pending', '1');
+        window.location.href = url.toString();
+        return;
+      }
+      setTimeout(()=>window.print(), 300);
+    }
+
+    btn.addEventListener('click', triggerPdf);
+
+    window.addEventListener('load', () => {
+      const pending = sessionStorage.getItem('fused_print_pending');
+      const inPrintMode = new URL(window.location.href).searchParams.has('print-pdf');
+      if (pending && inPrintMode) {
+        sessionStorage.removeItem('fused_print_pending');
+        setTimeout(()=>window.print(), 400);
+      }
+    });
+  })();
+</script>
+
+
+
+<body>
+  <div class="reveal">
+    <div class="slides" id="deck">
+
+<!-- 1) COVER -->
+<section class="dark">
+  <div class="slide-inner cover">
+    <div class="tagline">Human-Led • AI-Enhanced</div>
+    <div class="cover-head">
+      <img class="brandmark" src="../fusedid logo -white bg.png" alt="FUSED ID" />
+      <h1>You Lead. <span class="accent">The Engines Run.</span></h1>
+    </div>
+    <div class="cover-meta">
+      <p class="lede">AI Employees & Engines proposal for <strong>[[Client_Name]]</strong></p>
+      <p class="note">[[Date]] • Version [[v]] • FUSED ID</p>
+    </div>
+  </div>
+</section>
+
+<!-- 2) EXECUTIVE SUMMARY (why this, why now) -->
+<section class="light">
+  <div class="slide-inner">
+    <header>
+      <div class="h1 accent">Executive Summary</div>
+      <p class="lede">
+        [[Client challenge in one sharp line]]. We’ll deploy [[AI Employee(s) and/or Engine(s)]] to deliver
+        [[primary outcomes]] under ISO-style governance — measured, auditable, and improved weekly.
+      </p>
+    </header>
+
+    <div class="cols-2">
+      <div>
+        <div class="h2 accent">Objectives</div>
+        <ul class="compact">
+          <li>Achieve <strong>[[KPI_1 target]]</strong> by [[date/quarter]].</li>
+          <li>Reduce <strong>[[bottleneck or cost]]</strong> by <strong>[[%]]</strong>.</li>
+          <li>Free <strong>[[X]] hours/week</strong> for [[role/team]].</li>
+        </ul>
+      </div>
+      <div>
+        <div class="h2 accent">Approach</div>
+        <ul class="compact">
+          <li><strong>Embed</strong> role-based AI Employee(s) for ongoing capacity.</li>
+          <li><strong>Run</strong> outcome-driven Engines for repeatable outputs.</li>
+          <li><strong>Govern</strong> with KPIs, SLOs, SOPs, and operator oversight.</li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="kpi-band" style="margin-top:.6rem">
+      <div class="kpi"><strong>+42</strong>warm replies / 14 days</div>
+      <div class="kpi"><strong>-35%</strong> CAPA cycle time</div>
+      <div class="kpi"><strong>14</strong> day shortlist</div>
+      <div class="kpi"><strong>8h</strong> saved per exec / week</div>
+    </div>
+  </div>
+</section>
+
+<!-- 3) CONTEXT → OPPORTUNITY (problem framing) -->
+<section class="dark">
+  <div class="slide-inner">
+    <div class="h1">Context → Opportunity</div>
+    <div class="cols-2">
+      <div>
+        <div class="h2 accent">Current State</div>
+        <ul class="compact">
+          <li>[[Pain 1]] (impact: [[time/cost/risk]]).</li>
+          <li>[[Pain 2]] (impact: [[time/cost/risk]]).</li>
+          <li>Constraints: [[budget/time/compliance/tools]].</li>
+        </ul>
+      </div>
+      <div>
+        <div class="h2 accent">Opportunity</div>
+        <ul class="compact">
+          <li>Automate [[process]] without headcount.</li>
+          <li>Lift consistency & auditability with SOPs.</li>
+          <li>Convert [[activity]] into measurable outcomes.</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- 4) WHAT YOU GET (Employees vs Engines) -->
+<section class="light">
+  <div class="slide-inner">
+    <div class="h1 accent">What You Get</div>
+    <div class="cols-2">
+      <div>
+        <div class="h2 accent">AI Employees</div>
+        <ul class="compact">
+          <li>Role-based, embedded capacity (up to 50 hrs/week).</li>
+          <li>Adaptive to tools, brand, and workflows.</li>
+          <li>Weekly ops reviews; continuous improvement.</li>
+        </ul>
+
+        <div class="h2 accent" style="margin-top:.8rem">AI Engines</div>
+        <ul class="compact">
+          <li>Task-complete systems: inputs → outputs.</li>
+          <li>No dashboards required; outcome contracts.</li>
+          <li>Clear KPIs, SLOs, and reporting.</li>
+        </ul>
+      </div>
+
+      <div>
+        <table class="table">
+          <thead><tr><th></th><th>Employees</th><th>Engines</th></tr></thead>
+          <tbody>
+            <tr><td>Primary use</td><td>Ongoing capacity</td><td>Repeatable outcomes</td></tr>
+            <tr><td>Integration</td><td>Inside your team</td><td>API / forms / files</td></tr>
+            <tr><td>Governance</td><td>Ops reviews & SOPs</td><td>KPIs & SLOs</td></tr>
+            <tr><td>Time-to-value</td><td>Days</td><td>Days</td></tr>
+          </tbody>
+        </table>
+        <p class="note"><span class="pill">Executive Operating Layer</span> — configured, monitored, improved.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- 5) PROPOSED SOLUTION (workstreams + image) -->
+<section class="dark">
+  <div class="slide-inner">
+    <div class="h1">Proposed Solution</div>
+    <div class="cols-2">
+      <div>
+        <div class="h2 accent">Scope & Workstreams</div>
+        <ul class="compact">
+          <li>[[Workstream A]] — [[output / success metric]].</li>
+          <li>[[Workstream B]] — [[output / success metric]].</li>
+          <li>[[Workstream C]] — [[output / success metric]].</li>
+        </ul>
+        <div class="h2 accent" style="margin-top:.8rem">Cadence</div>
+        <ul class="compact">
+          <li>Daily runs with quality gates.</li>
+          <li>Weekly ops review; monthly strategy reset.</li>
+          <li>Quarterly performance re-baseline.</li>
+        </ul>
+      </div>
+      <div class="card media">
+        <img class="media stretch" src="../fk-process.jpg" alt="FusedKnowledge / workflow process preview">
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- 6) IMPLEMENTATION PLAN (0–90 days) -->
+<section class="light">
+  <div class="slide-inner">
+    <div class="h1 accent">Implementation Plan</div>
+    <div class="cols-2">
+      <div>
+        <div class="h2 accent">Days 0–10 (Onboard & Calibrate)</div>
+        <ul class="compact">
+          <li>Access & tooling, brand calibration, KPI baselines.</li>
+          <li>SOP alignment; security & permissions confirmed.</li>
+        </ul>
+        <div class="h2 accent" style="margin-top:.6rem">Days 11–30 (Run & Prove)</div>
+        <ul class="compact">
+          <li>Daily operations; first measurable wins.</li>
+          <li>Weekly ops review; risks logged & controlled.</li>
+        </ul>
+      </div>
+      <div>
+        <div class="h2 accent">Days 31–90 (Scale & Optimise)</div>
+        <ul class="compact">
+          <li>Expand scope; tighten SLOs; A/B improvements.</li>
+          <li>Quarterly reset: raise targets or add engines.</li>
+        </ul>
+        <div class="kpi" style="margin-top:.8rem">
+          <strong>Time-to-Value: Days</strong>
+          <div class="note">Immediate productivity; compounding improvements within months.</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- 7) GOVERNANCE, SECURITY & COMPLIANCE -->
+<section class="dark">
+  <div class="slide-inner">
+    <div class="h1">Governance, Security & Compliance</div>
+    <div class="cols-2">
+      <div>
+        <ul class="compact">
+          <li>Outcome contracts, KPIs, SOPs, audit trails.</li>
+          <li>Operator oversight; escalation paths; change control.</li>
+          <li>Brand & compliance checks; role-based access.</li>
+        </ul>
+      </div>
+      <div>
+        <ul class="compact">
+          <li>Data minimisation; least-privilege permissions.</li>
+          <li>Environment-aligned security & logging.</li>
+          <li>Review cadence: weekly ops, monthly strategy.</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- 8) ENGINES PORTFOLIO (visual tiles) -->
+<section class="light">
+  <div class="slide-inner">
+    <div class="h1 accent">Engines Portfolio</div>
+    <div class="cols-2">
+      <div class="kpi">
+        <strong>Prospect Engine</strong>
+        <div class="note">Lead gen & sequencing with deliverability guardrails.</div>
+        <img src="../prospect-process.jpg" alt="Prospect Engine process" style="margin-top:.6rem;border-radius:10px">
+      </div>
+      <div class="kpi">
+        <strong>Talent Engine</strong>
+        <div class="note">Self-serve hiring; AI interview; ranked shortlists.</div>
+        <img src="../talent-process.jpg" alt="Talent Engine process" style="margin-top:.6rem;border-radius:10px">
+      </div>
+      <div class="kpi">
+        <strong>Kaizen Engine</strong>
+        <div class="note">Continuous improvement; tickets, ROI, root-cause.</div>
+        <img src="../kaizen-story.jpg" alt="Kaizen Engine story" style="margin-top:.6rem;border-radius:10px">
+      </div>
+      <div class="kpi">
+        <strong>FusedKnowledge</strong>
+        <div class="note">Instant answers from policies & playbooks, with citations.</div>
+        <img src="../fk-uploads.jpg" alt="FusedKnowledge uploads" style="margin-top:.6rem;border-radius:10px">
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- 9) PROOF OF VALUE (KPIs) -->
+<section class="dark">
+  <div class="slide-inner">
+    <div class="h1">Proof of Value</div>
+    <div class="kpi-band">
+      <div class="kpi"><strong>+42</strong>warm replies in 14 days</div>
+      <div class="kpi"><strong>-35%</strong> CAPA cycle time</div>
+      <div class="kpi"><strong>14</strong> day shortlist</div>
+      <div class="kpi"><strong>8h</strong> saved per exec / week</div>
+    </div>
+    <p class="note" style="margin-top:.6rem">Representative results; we’ll set client-specific KPIs and targets at kickoff.</p>
+  </div>
+</section>
+
+<!-- 10) CASE SNAPSHOTS (visual + bullets) -->
+<section class="light">
+  <div class="slide-inner">
+    <div class="h1 accent">Case Snapshots</div>
+    <div class="cols-2">
+      <div>
+        <div class="h2 accent">Prospect Engine</div>
+        <ul class="compact">
+          <li>ICP-aligned lists & sequences.</li>
+          <li>Deliverability safeguards; reply detection.</li>
+          <li>Outcome: <strong>[[e.g., +42 warm replies in 14 days]]</strong>.</li>
+        </ul>
+      </div>
+      <div class="card media"><img src="../prospect-hero.jpg" alt="Prospect Engine hero"></div>
+    </div>
+
+    <div class="cols-2" style="margin-top:1rem">
+      <div class="card media"><img src="../talent-hero.jpg" alt="Talent Engine hero"></div>
+      <div>
+        <div class="h2 accent">Talent Engine</div>
+        <ul class="compact">
+          <li>20-minute adaptive interview; sentiment & gap analysis.</li>
+          <li>AI-ranked shortlists with transcripts.</li>
+          <li>Outcome: <strong>[[e.g., 14-day shortlist]]</strong>.</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- 11) ROI & INVESTMENT -->
+<section class="dark">
+  <div class="slide-inner">
+    <div class="h1">ROI & Investment</div>
+    <table class="table">
+      <thead><tr><th>Option</th><th>Includes</th><th>Price (ex GST)</th></tr></thead>
+      <tbody>
+        <tr>
+          <td>AI Employee</td>
+          <td>Embedded capacity, weekly ops, SOPs, continuous improvement</td>
+          <td>[[Employee_Price]] / month</td>
+        </tr>
+        <tr>
+          <td>AI Engine</td>
+          <td>Task-complete outputs, KPIs/SLOs, reporting</td>
+          <td>[[Engine_Price]] / month</td>
+        </tr>
+      </tbody>
+    </table>
+    <p class="note"><em>ROI model:</em> time saved × frequency × people + avoided cost + revenue lift. We’ll finalise with your numbers at kickoff.</p>
+  </div>
+</section>
+
+<!-- 12) RISKS & CONTROLS -->
+<section class="light">
+  <div class="slide-inner">
+    <div class="h1 accent">Risks & Controls</div>
+    <div class="cols-2">
+      <div>
+        <div class="h2 accent">Top Risks</div>
+        <ul class="compact">
+          <li>[[Risk 1 — e.g., data access boundaries]].</li>
+          <li>[[Risk 2 — e.g., change fatigue / adoption]].</li>
+          <li>[[Risk 3 — e.g., KPI misalignment]].</li>
+        </ul>
+      </div>
+      <div>
+        <div class="h2 accent">Controls</div>
+        <ul class="compact">
+          <li>Least-privilege, sandbox runs, audit logs.</li>
+          <li>Weekly ops review; change control & comms plan.</li>
+          <li>KPIs agreed upfront; monthly strategy resets.</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- 13) ROADMAP OPTIONS (scale) -->
+<section class="dark">
+  <div class="slide-inner">
+    <div class="h1">Scale Options</div>
+    <ul class="compact">
+      <li><strong>Phase 2:</strong> Add [[Engine/Employee]] for [[team/process]] once baseline KPIs are stable.</li>
+      <li><strong>Phase 3:</strong> Cross-department rollout; shared SOPs; centralised reporting.</li>
+      <li><strong>Phase 4:</strong> Executive Operating Layer across [[functions]] with quarterly compounding targets.</li>
+    </ul>
+  </div>
+</section>
+
+<!-- 14) NEXT STEPS -->
+<section class="light">
+  <div class="slide-inner">
+    <div class="h1 accent">Next Steps</div>
+    <ol class="compact">
+      <li>Confirm scope, KPIs, stakeholders.</li>
+      <li>Kickoff & onboarding (≤ 10 days).</li>
+      <li>First results review (2–4 weeks).</li>
+    </ol>
+    <p class="note" style="margin-top:.6rem">Contact: <strong>[[Contact_Name]]</strong> — <a href="mailto:[[contact_email]]">[[contact_email]]</a></p>
+  </div>
+</section>
+
+
+
+    </div> <!-- /slides -->
+  </div> <!-- /reveal -->
+
+
+<!-- Reveal initialisation (fill screen; top-aligned; tight margins) -->
+<script src="https://cdn.jsdelivr.net/npm/reveal.js@5/dist/reveal.js"></script>
+<script>
+  Reveal.initialize({
+    hash:true,
+    slideNumber:true,
+    width:1600, height:900,       // 16:9
+    margin:0.02,                  // tighter than default
+    center:false,                 // top-align for full-page density
+    transition:'fade',
+    progress:true
+  });
+</script>
+</body>
+</html>

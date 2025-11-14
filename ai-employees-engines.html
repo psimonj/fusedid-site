@@ -17,6 +17,9 @@
   <title>AI Employees & AI Engines • FUSED ID</title>
   <meta name="description" content="Explore FUSED ID AI Employees and modular AI Engines — outcome-first capacity with human oversight." />
 
+
+
+
   <style>
     /* ===== Brand tokens ===== */
     :root{
@@ -36,32 +39,118 @@
     /* ===== Base ===== */
     *{box-sizing:border-box}
     html,body{margin:0;padding:0}
-    body{font-family:system-ui,-apple-system,Segoe UI,Roboto,Helvetica,Arial;color:var(--ink);background:var(--bg)}
+    body{
+      font-family:system-ui,-apple-system,Segoe UI,Roboto,Helvetica,Arial;
+      color:var(--ink);
+      background:var(--bg)
+    }
     a{color:inherit;text-decoration:none}
     img{max-width:100%;height:auto;display:block}
     .container{max-width:1200px;margin:0 auto;padding:0 1rem}
 
-    /* ===== Header + overlay menu (match Contacts) ===== */
-    header{position:relative;z-index:5;background:#fff;border-bottom:1px solid #eee}
-    .header-inner{display:flex;align-items:center;justify-content:space-between;padding:1rem 0}
-    .brand{display:flex;align-items:center;font-weight:800;letter-spacing:.06em;color:#000;font-size:1.1rem;white-space:nowrap}
+    /* ===== Header + overlay menu (aligned with Contacts/Fused Living) ===== */
+    header{
+      position:relative;
+      z-index:5;
+      background:#fff;
+      border-bottom:1px solid #eee
+    }
+    .header-inner{
+      display:flex;
+      align-items:center;
+      justify-content:space-between;
+      padding:1rem 0
+    }
+    .brand{
+      display:flex;
+      align-items:center;
+      font-weight:800;
+      letter-spacing:.06em;
+      color:#000;
+      font-size:1.1rem;
+      white-space:nowrap
+    }
     .brand img{height:28px;margin-right:8px}
-    nav.primary{display:flex;gap:2.5rem;align-items:center}
-    nav.primary a{color:#000;font-weight:600;transition:color .25s ease}
+    nav.primary{
+      display:flex;
+      gap:2.5rem;
+      align-items:center
+    }
+    nav.primary a{
+      color:#000;
+      font-weight:600;
+      transition:color .25s ease
+    }
     nav.primary a:hover{color:var(--copper)}
 
-    .hamburger{display:none;width:40px;height:40px;border:1px solid #ddd;border-radius:8px;background:#fff;align-items:center;justify-content:center;cursor:pointer}
-    .hamburger span{display:block;width:18px;height:2px;background:#000;position:relative}
-    .hamburger span:before,.hamburger span:after{content:"";position:absolute;left:0;width:18px;height:2px;background:#000}
-    .hamburger span:before{top:-6px}.hamburger span:after{top:6px}
+    .hamburger{
+      display:none;
+      width:40px;height:40px;
+      border:1px solid #ddd;
+      border-radius:8px;
+      background:#fff;
+      align-items:center;
+      justify-content:center;
+      cursor:pointer
+    }
+    .hamburger span{
+      display:block;
+      width:18px;height:2px;
+      background:#000;
+      position:relative
+    }
+    .hamburger span:before,
+    .hamburger span:after{
+      content:"";
+      position:absolute;
+      left:0;
+      width:18px;height:2px;
+      background:#000
+    }
+    .hamburger span:before{top:-6px}
+    .hamburger span:after{top:6px}
 
-    .nav-overlay{position:fixed;inset:0;background:radial-gradient(60% 60% at 20% 10%, rgba(255,140,50,.18), transparent 60%),var(--espresso);display:none;z-index:1000;color:#fff}
+    .nav-overlay{
+      position:fixed;inset:0;
+      background:radial-gradient(60% 60% at 20% 10%, rgba(255,140,50,.18), transparent 60%),var(--espresso);
+      display:none;
+      z-index:1000;
+      color:#fff
+    }
     .nav-overlay.open{display:block;animation:fadeIn .25s ease}
     @keyframes fadeIn{from{opacity:0}to{opacity:1}}
-    .nav-panel{height:100%;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:1.2rem;text-align:center;padding:2rem}
-    .nav-overlay a{font-size:1.6rem;font-weight:700;letter-spacing:.02em;color:#fff;transition:color .2s ease, text-shadow .2s ease}
-    .nav-overlay a:hover{color:var(--copper-light);text-shadow:0 0 16px var(--glow)}
-    .nav-close{position:absolute;top:16px;right:16px;width:44px;height:44px;border:1px solid rgba(255,255,255,.25);border-radius:10px;background:transparent;color:#fff;font-size:22px;line-height:1}
+    .nav-panel{
+      height:100%;
+      display:flex;
+      flex-direction:column;
+      align-items:center;
+      justify-content:center;
+      gap:1.2rem;
+      text-align:center;
+      padding:2rem
+    }
+    .nav-overlay a{
+      font-size:1.6rem;
+      font-weight:700;
+      letter-spacing:.02em;
+      color:#fff;
+      transition:color .2s ease, text-shadow .2s ease
+    }
+    .nav-overlay a:hover{
+      color:var(--copper-light);
+      text-shadow:0 0 16px var(--glow)
+    }
+    .nav-close{
+      position:absolute;
+      top:16px;right:16px;
+      width:44px;height:44px;
+      border:1px solid rgba(255,255,255,.25);
+      border-radius:10px;
+      background:transparent;
+      color:#fff;
+      font-size:22px;
+      line-height:1
+    }
 
     @media (max-width:960px){
       nav.primary{display:none}
@@ -70,36 +159,108 @@
       .header-inner{padding-left:1.25rem;padding-right:1.25rem}
     }
 
-    /* Hero (consistent with site) */
-    .hero{position:relative;isolation:isolate;min-height:46vh;display:grid;place-items:center;overflow:hidden;background:#0f0a07}
-    .hero::before{content:"";position:absolute;inset:0;z-index:-2;background:
-      linear-gradient(180deg, rgba(21,14,9,.65) 0%, rgba(21,14,9,.85) 55%, rgba(21,14,9,.95) 100%),
-      url('leadership-governance.jpg') center/cover no-repeat}
-    .hero::after{content:"";position:absolute;inset:0;z-index:-1;background:
-      radial-gradient(40% 25% at 20% 20%, rgba(255,140,50,.25), transparent 60%),
-      radial-gradient(30% 20% at 80% 75%, rgba(255,177,105,.15), transparent 70%)}
-    .hero-inner{color:#fff;max-width:1060px;margin:0 auto;padding:4.5rem clamp(16px,4vw,28px) 3rem}
-    .kicker{color:var(--copper-light);text-transform:uppercase;letter-spacing:.14em;font-weight:1000;font-size:.82rem;margin-bottom:.8rem}
-    .title{font-size:clamp(2rem,4vw+1rem,3.2rem);line-height:1.08;margin:0 0 .5rem;font-weight:1000}
-    .sub{max-width:760px;line-height:1.6;color:#f3f3f3;margin:0}
+    /* ===== Hero ===== */
+    .hero{
+      position:relative;
+      isolation:isolate;
+      min-height:46vh;
+      display:grid;
+      place-items:center;
+      overflow:hidden;
+      background:#0f0a07
+    }
+    .hero::before{
+      content:"";
+      position:absolute;inset:0;z-index:-2;
+      background:
+        linear-gradient(180deg, rgba(21,14,9,.65) 0%, rgba(21,14,9,.85) 55%, rgba(21,14,9,.95) 100%),
+        url('leadership-governance.jpg') center/cover no-repeat
+    }
+    .hero::after{
+      content:"";
+      position:absolute;inset:0;z-index:-1;
+      background:
+        radial-gradient(40% 25% at 20% 20%, rgba(255,140,50,.25), transparent 60%),
+        radial-gradient(30% 20% at 80% 75%, rgba(255,177,105,.15), transparent 70%)
+    }
+    .hero-inner{
+      color:#fff;
+      max-width:1060px;
+      margin:0 auto;
+      padding:4.5rem clamp(16px,4vw,28px) 3rem
+    }
+    .kicker{
+      color:var(--copper-light);
+      text-transform:uppercase;
+      letter-spacing:.14em;
+      font-weight:1000;
+      font-size:.82rem;
+      margin-bottom:.8rem
+    }
+    .title{
+      font-size:clamp(2rem,4vw+1rem,3.2rem);
+      line-height:1.08;
+      margin:0 0 .5rem;
+      font-weight:1000
+    }
+    .sub{
+      max-width:760px;
+      line-height:1.6;
+      color:#f3f3f3;
+      margin:0
+    }
 
-    /* Sections */
+    /* ===== Sections & layout ===== */
     .section{padding:4rem 1rem}
-    .section h2{font-size:1.9rem;font-weight:900;margin:.2rem 0 1rem}
+    .section h2{
+      font-size:1.9rem;
+      font-weight:900;
+      margin:.2rem 0 1rem
+    }
     .section p{font-size:1rem;margin:0 0 1.25rem}
 
-    /* Layouts reused from index */
-    .leadership-layout{display:flex;flex-wrap:wrap;gap:2rem;align-items:flex-start}
+    .leadership-layout{
+      display:flex;
+      flex-wrap:wrap;
+      gap:2rem;
+      align-items:flex-start
+    }
     .leadership-layout>div{flex:1;min-width:280px}
+
     .grid{display:grid;gap:2rem}
     @media (min-width:1025px){.grid{grid-template-columns:repeat(4,1fr)}}
     @media (min-width:600px) and (max-width:1024px){.grid{grid-template-columns:repeat(2,1fr)}}
     @media (max-width:599px){.grid{grid-template-columns:1fr}}
 
-    .card{border:1px solid #eee;border-radius:12px;padding:2rem;background:#fff}
-    .card-icon{width:100%;aspect-ratio:10/8;background:#f5f5f5;border-radius:8px;margin-bottom:1rem;background-size:cover;background-position:50% 5%}
-    .download{display:inline-block;margin-top:1rem;padding:.6rem 1rem;border:1px solid #000;color:#000;font-weight:800;border-radius:8px}
+    .card{
+      border:1px solid #eee;
+      border-radius:12px;
+      padding:2rem;
+      background:#fff
+    }
 
+    /* Employee portraits / icons */
+    .card-icon{
+      width:100%;
+      aspect-ratio:10/8;
+      background:#f5f5f5;
+      border-radius:8px;
+      margin-bottom:1rem;
+      background-size:cover;
+      background-position:50% 5%
+    }
+
+    .download{
+      display:inline-block;
+      margin-top:1rem;
+      padding:.6rem 1rem;
+      border:1px solid #000;
+      color:#000;
+      font-weight:800;
+      border-radius:8px
+    }
+
+    /* Agencies grid (Engines links) */
     .agencies-grid{display:grid;gap:2rem}
     @media (min-width:768px){.agencies-grid{grid-template-columns:repeat(2,1fr)}}
     .agency-card{display:flex;flex-direction:column;height:100%}
@@ -109,268 +270,353 @@
     .agency-card .spacer{flex:1}
 
     /* CTA band & footer */
-    .cta-band{background:var(--tint);border-top:1px solid #eadfd7;border-bottom:1px solid #eadfd7}
-    .cta-inner{display:flex;flex-wrap:wrap;align-items:center;justify-content:space-between;gap:1rem;padding:1.4rem 0}
-    footer{background:#0f0a07;color:#ddd}
-    .foot{display:flex;justify-content:space-between;align-items:center;gap:1rem;padding:1rem 0}
+    .cta-band{
+      background:var(--tint);
+      border-top:1px solid #eadfd7;
+      border-bottom:1px solid #eadfd7
+    }
+    .cta-inner{
+      display:flex;
+      flex-wrap:wrap;
+      align-items:center;
+      justify-content:space-between;
+      gap:1rem;
+      padding:1.4rem 0
+    }
+    footer{
+      background:#0f0a07;
+      color:#ddd
+    }
+    .foot{
+      display:flex;
+      justify-content:space-between;
+      align-items:center;
+      gap:1rem;
+      padding:1rem 0
+    }
 
-    /* Reveal */
-    .reveal{opacity:0;transform:translateY(40px);transition:all .4s ease}
-    .reveal.visible{opacity:1;transform:none}
+    /* ===== Buttons ===== */
+    .btn{
+      appearance:none;
+      border:0;
+      border-radius:10px;
+      cursor:pointer;
+      font-weight:800;
+      padding:.95rem 1.2rem;
+      font-size:1rem;
+      letter-spacing:.02em;
+      display:inline-flex;
+      align-items:center;
+      gap:.45rem;
+      text-decoration:none
+    }
+    .btn-primary{
+      background:linear-gradient(180deg,var(--copper),#fa7c16);
+      color:#220e05;
+      box-shadow:0 6px 24px rgba(255,140,50,.35)
+    }
+    .btn-outline{
+      background:transparent;
+      border:2px solid rgba(0,0,0,.7);
+      color:#000
+    }
+    .btn-slim{
+      padding:.55rem 1rem;
+      font-size:.95rem;
+      border-radius:8px
+    }
+
+    /* Header CTA hover */
+    nav.primary a:hover{
+      color:var(--copper)
+    }
+    nav.primary .btn-primary:hover{
+      color:#fff;
+      background:linear-gradient(180deg,#ff9c4a,#f97a10)
+    }
+
+    /* ===== Checklists ===== */
+    .checklist{list-style:none;margin:0;padding:0}
+    .checklist li{
+      padding-left:1.4rem;
+      position:relative;
+      margin:.45rem 0;
+      line-height:1.7
+    }
+    .checklist li::before{
+      content:"✓";
+      position:absolute;
+      left:.1rem;top:.05rem;
+      color:var(--copper);
+      font-weight:1000
+    }
+
+    /* ===== Highlighted cards (shared) ===== */
+    .card.highlight{
+      border:1px solid rgba(255,140,50,0.8);
+      box-shadow:0 0 20px rgba(255,140,50,0.45),
+                 0 0 40px rgba(255,140,50,0.25);
+      border-radius:14px;
+      transition:box-shadow .3s ease, transform .2s ease
+    }
+    .card.highlight:hover{
+      box-shadow:0 0 25px rgba(255,140,50,0.6),
+                 0 0 50px rgba(255,140,50,0.35);
+      transform:translateY(-3px)
+    }
+
+    .feature-card.card{
+      padding:1.25rem 1.5rem
+    }
+    .feature-card.card.highlight{
+      padding:1rem 1.25rem;
+      border-radius:10px;
+      box-shadow:0 0 12px rgba(255,140,50,0.25),
+                 0 0 20px rgba(255,140,50,0.15)
+    }
+    .feature-card.card.highlight h3{
+      font-size:1rem;
+      margin:0 0 .35rem;
+      font-weight:800
+    }
+    .feature-card.card.highlight p{
+      font-size:.9rem;
+      line-height:1.45;
+      margin:0;
+      color:#444
+    }
+
+    /* ===== Employees / Team cards — equal height & blurb clamp ===== */
+    #employees .grid .card,
+    #team .grid .card{
+      display:flex;
+      flex-direction:column;
+      justify-content:space-between
+    }
+    #employees .grid .card .blurb,
+    #team .grid .card .blurb{
+      flex-grow:1;
+      overflow:hidden;
+      text-overflow:ellipsis;
+      display:-webkit-box;
+      -webkit-line-clamp:6;
+      -webkit-box-orient:vertical
+    }
+
+    /* Staggered reveal timing for Employees */
+    #employees .grid .card.reveal:nth-child(1){transition-delay:0s}
+    #employees .grid .card.reveal:nth-child(2){transition-delay:.09s}
+    #employees .grid .card.reveal:nth-child(3){transition-delay:.18s}
+    #employees .grid .card.reveal:nth-child(4){transition-delay:.27s}
+
+    /* Stagger for Engines */
+    #engines .card.reveal:nth-child(1){transition-delay:0s}
+    #engines .card.reveal:nth-child(2){transition-delay:.09s}
+    #engines .card.reveal:nth-child(3){transition-delay:.18s}
+    #engines .card.reveal:nth-child(4){transition-delay:.27s}
+
+    /* ===== Ecosystem SVG panel ===== */
+    .ecosystem-horizontal{display:block}
+    .ecosystem-vertical{display:none}
+    @media (max-width:820px){
+      .ecosystem-horizontal{display:none}
+      .ecosystem-vertical{display:block}
+    }
+    .ecosystem svg{
+      width:100%;
+      height:auto;
+      display:block
+    }
+    .ecosystem.panel{
+      background:#150e09;
+      border-radius:12px;
+      overflow:hidden
+    }
+
+    /* ===== Closing CTA (bottom of page) ===== */
+    .closing-cta{
+      position:relative;
+      background:#150e09;
+      color:#fff;
+      text-align:center;
+      padding:4rem 1rem;
+      border-top:2px solid rgba(255,140,50,0.4);
+      overflow:hidden
+    }
+    .closing-cta::before{
+      content:"";
+      position:absolute;
+      inset:0;
+      background:
+        linear-gradient(180deg, rgba(21,14,9,.55) 0%, rgba(21,14,9,.75) 100%),
+        url('copper-glow.jpg') center/cover no-repeat;
+      opacity:.7;
+      z-index:0
+    }
+    .closing-cta-inner{
+      position:relative;
+      z-index:1
+    }
+    .closing-cta h2{
+      font-size:clamp(1.8rem,3vw,2.4rem);
+      font-weight:900;
+      margin-bottom:1rem;
+      color:var(--copper-light)
+    }
+    .closing-cta p{
+      font-size:1.1rem;
+      margin-bottom:2rem;
+      color:#f3f3f3
+    }
+
+    /* ===== Mission / Case-study content (for when you pull Impact content in) ===== */
+
+    /* Mission pill block */
+.mission-pill-block{
+  background:var(--espresso);
+  color:#fff;
+  border-radius:40px;
+  padding:3rem 2rem;
+  max-width:1200px;
+  margin:0 auto;
+  text-align:center;
+  box-shadow:0 6px 24px rgba(0,0,0,.25)
+}
+
+    .mission-pill-block h2{
+      color:var(--copper-light);
+      text-transform:uppercase;
+      letter-spacing:.14em;
+      font-weight:900;
+      margin-bottom:1.5rem
+    }
+    .mission-pill-block p{
+      font-size:1.15rem;
+      line-height:1.7;
+      margin:0 auto 1.2rem;
+      max-width:800px
+    }
+    .mission-pill-block p strong{color:var(--copper-light)}
+
+    /* Blog / case study masonry grid */
+    .blog-grid{
+      column-count:3;
+      column-gap:1.5rem
+    }
+    @media (max-width:1024px){.blog-grid{column-count:2}}
+    @media (max-width:640px){.blog-grid{column-count:1}}
+
+    .post-card{
+      display:inline-block;
+      width:100%;
+      margin:0 0 1.5rem;
+      break-inside:avoid;
+      border:1px solid #eadfd7;
+      border-radius:16px;
+      background:#fff;
+      overflow:hidden;
+      display:flex;
+      flex-direction:column;
+      box-shadow:0 6px 20px rgba(0,0,0,.04);
+      transition:transform .25s ease, box-shadow .25s ease, border-color .25s ease
+    }
+    .post-card:hover{
+      transform:translateY(-4px);
+      box-shadow:0 10px 30px rgba(255,140,50,.2),
+                 0 4px 18px rgba(0,0,0,.06);
+      border-color:rgba(255,140,50,.55)
+    }
+    .post-media{
+      display:block;
+      aspect-ratio:16/9;
+      background:#fbf9f7
+    }
+    .post-media img{
+      width:100%;
+      height:100%;
+      object-fit:cover;
+      display:block;
+      transition:transform .35s ease
+    }
+    .post-card:hover .post-media img{transform:scale(1.03)}
+
+    .post-body{
+      padding:1rem 1rem 1.2rem;
+      display:flex;
+      flex-direction:column;
+      gap:.6rem
+    }
+    .post-meta{
+      display:flex;
+      align-items:center;
+      gap:.6rem;
+      font-size:.9rem;
+      color:#666
+    }
+    .post-title{
+      margin:.1rem 0 .1rem;
+      font-size:1.15rem;
+      line-height:1.3
+    }
+    .post-title a{text-decoration:none}
+    .post-excerpt{
+      color:#444;
+      margin:0 0 .2rem;
+      display:-webkit-box;
+      -webkit-line-clamp:var(--lines,4);
+      -webkit-box-orient:vertical;
+      overflow:hidden
+    }
+    .post-card:nth-child(3n) .post-excerpt{--lines:6}
+    .post-card:nth-child(4n) .post-excerpt{--lines:3}
+
+    .post-meta .pill{
+      display:inline-block;
+      padding:.2rem .55rem;
+      border-radius:999px;
+      border:1px solid #eadfd7;
+      background:#fbf9f7;
+      color:#7a4a2e;
+      font-weight:800;
+      font-size:.78rem
+    }
+
+    .blog-more{margin-top:2rem;text-align:center}
+
+    /* Typing caret (optional, if you keep mission typing effect) */
+    .typing-caret{
+      border-right:2px solid var(--copper);
+      animation:caretBlink 1s step-end infinite
+    }
+    @keyframes caretBlink{50%{border-color:transparent}}
+
+    /* ===== Reveal animation ===== */
+    .reveal{
+      opacity:0;
+      transform:translateY(40px);
+      transition:all .4s ease
+    }
+    .reveal.visible{
+      opacity:1;
+      transform:none
+    }
 
     /* Safe-area spacing parity */
-    .container, .header-inner { padding-inline: max(env(safe-area-inset-left), clamp(16px, 5vw, 32px)); }
+    .container,
+    .header-inner{
+      padding-inline:max(env(safe-area-inset-left), clamp(16px, 5vw, 32px))
+    }
 
-#team .grid .card.reveal {
-  /* slightly quicker + snappier ease than the default `.reveal` */
-  transition: transform .7s cubic-bezier(.22, .61, .36, 1), 
-              opacity   .7s cubic-bezier(.22, .61, .36, 1);
-}
-
-/* Stagger the four employee cards */
-#employees .grid .card.reveal:nth-child(1) { transition-delay: 0s;    }
-#employees .grid .card.reveal:nth-child(2) { transition-delay: .09s;  }
-#employees .grid .card.reveal:nth-child(3) { transition-delay: .18s;  }
-#employees .grid .card.reveal:nth-child(4) { transition-delay: .27s;  }
-
-/* Respect reduced motion */
-@media (prefers-reduced-motion: reduce) {
-  #team .grid .card.reveal { transition: none; }
-}
-
-#engines .card.reveal:nth-child(1) { transition-delay: 0s; }
-#engines .card.reveal:nth-child(2) { transition-delay: .09s; }
-#engines .card.reveal:nth-child(3) { transition-delay: .18s; }
-#engines .card.reveal:nth-child(4) { transition-delay: .27s; }
-
-
-/* Equal height for engine cards */
-#engines .card {
-  display: flex;
-  flex-direction: column;
-  justify-content: space-between; /* pushes button to bottom */
-}
-
-/* Let the description take flexible space */
-#engines .card .blurb {
-  flex-grow: 1;
-}
-
-
-.card.highlight {
-  border: 1px solid rgba(255,140,50,0.8); /* thicker, brighter border */
-  box-shadow: 0 0 20px rgba(255,140,50,0.45),
-              0 0 40px rgba(255,140,50,0.25); /* stronger glowing effect */
-  border-radius: 14px;
-  transition: box-shadow 0.3s ease, transform 0.2s ease;
-}
-
-.card.highlight:hover {
-  box-shadow: 0 0 25px rgba(255,140,50,0.6),
-              0 0 50px rgba(255,140,50,0.35);
-  transform: translateY(-3px);
-}
-
-/* Compact highlight cards for feature grid */
-.feature-card.card.highlight {
-  padding: 1rem 1.25rem;     /* reduce padding */
-  border-radius: 10px;       /* slightly smaller corners */
-  box-shadow: 0 0 12px rgba(255,140,50,0.25),
-              0 0 20px rgba(255,140,50,0.15); /* softer glow */
-}
-
-.feature-card.card.highlight h3 {
-  font-size: 1rem;           /* smaller heading */
-  margin: 0 0 .35rem;
-  font-weight: 800;
-}
-
-.feature-card.card.highlight p {
-  font-size: .9rem;          /* lighter body text */
-  line-height: 1.45;
-  margin: 0;
-  color: #444;
-}
-
-
-/* Shared button styles (copied from index page) */
-.btn {
-  appearance: none;
-  border: 0;
-  border-radius: 10px;
-  cursor: pointer;
-  font-weight: 800;
-  padding: .95rem 1.2rem;
-  font-size: 1rem;
-  letter-spacing: .02em;
-  display: inline-flex;
-  align-items: center;
-  gap: .45rem;
-  text-decoration: none;
-}
-
-.btn-primary {
-  background: linear-gradient(180deg, var(--copper), #fa7c16);
-  color: #220e05;
-  box-shadow: 0 6px 24px rgba(255,140,50,.35);
-}
-
-.btn-outline {
-  background: transparent;
-  border: 2px solid rgba(0,0,0,.7);
-  color: #000;
-}
-
-
-/* Equal height cards + ellipsis in Employees section */
-#employees .grid .card,
-#team .grid .card {
-  display: flex;
-  flex-direction: column;
-  justify-content: space-between;
-}
-
-#employees .grid .card .blurb,
-#team .grid .card .blurb {
-  flex-grow: 1;
-  overflow: hidden;
-  text-overflow: ellipsis;
-  display: -webkit-box;
-  -webkit-line-clamp: 6;   /* tweak lines if needed */
-  -webkit-box-orient: vertical;
-}
-
-/* Ensure 2-column grids collapse properly on mobile */
-@media (max-width: 820px) {
-  .leadership-layout {
-    grid-template-columns: 1fr !important; /* stack */
-    gap: 2rem;
-  }
-
-  /* If you want the media/SVG to appear ABOVE the text on mobile */
-  .leadership-layout .media {
-    order: -1;
-  }
-
-  /* Safety: force full width */
-  .leadership-layout > * {
-    width: 100%;
-  }
-}
-
-/* Ensure SVG and feature boxes scale without causing overflow */
-.section svg {
-  max-width: 100%;
-  height: auto;
-  display: block;
-}
-.feature-card.card.highlight {
-  padding: 1rem;
-}
-
-.ecosystem-horizontal { display:block; }
-.ecosystem-vertical { display:none; }
-
-@media (max-width:820px) {
-  .ecosystem-horizontal { display:none; }
-  .ecosystem-vertical { display:block; }
-}
-
-/* Ecosystem toggles */
-.ecosystem-horizontal { display:block; }
-.ecosystem-vertical   { display:none; }
-
-@media (max-width:820px){
-  .ecosystem-horizontal { display:none; }
-  .ecosystem-vertical   { display:block; }
-}
-
-/* Safe scaling */
-.ecosystem svg { width:100%; height:auto; display:block; }
-
-/* Optional: dark panel like desktop */
-.ecosystem.panel {
-  background:#150e09;
-  border-radius:12px;
-  overflow:hidden;
-}
-
-.closing-cta {
-  position: relative;
-  background: #150e09;
-  color: #fff;
-  text-align: center;
-  padding: 4rem 1rem;
-  border-top: 2px solid rgba(255,140,50,0.4);
-  overflow: hidden;
-}
-
-.closing-cta::before {
-  content: "";
-  position: absolute;
-  inset: 0;
-  background:
-    linear-gradient(180deg, rgba(21,14,9,.55) 0%, rgba(21,14,9,.75) 100%),
-    url('copper-glow.jpg') center/cover no-repeat;
-  opacity: 0.7;   /* was 0.5 */
-  z-index: 0;
-}
-
-
-.closing-cta-inner {
-  position: relative;
-  z-index: 1;
-}
-
-.closing-cta h2 {
-  font-size: clamp(1.8rem, 3vw, 2.4rem);
-  font-weight: 900;
-  margin-bottom: 1rem;
-  color: var(--copper-light);
-}
-
-.closing-cta p {
-  font-size: 1.1rem;
-  margin-bottom: 2rem;
-  color: #f3f3f3;
-}
-
-.checklist{list-style:none;margin:0;padding:0}
-.checklist li{padding-left:1.4rem;position:relative;margin:.45rem 0;line-height:1.7}
-.checklist li::before{content:"✓";position:absolute;left:.1rem;top:.05rem;color:var(--copper);font-weight:1000}
-
-
-/* --- Interactions: posts --- */
-.post-card {
-  transition: transform .25s ease, box-shadow .25s ease, border-color .25s ease;
-}
-.post-card:hover {
-  transform: translateY(-4px);
-  box-shadow: 0 10px 30px rgba(255,140,50,.20), 0 4px 18px rgba(0,0,0,.06);
-  border-color: rgba(255,140,50,.55);
-}
-.post-media img { transition: transform .35s ease; }
-.post-card:hover .post-media img { transform: scale(1.03); }
-
-
-/* Typing caret */
-.typing-caret {
-  border-right: 2px solid var(--copper);
-  animation: caretBlink 1s step-end infinite;
-}
-@keyframes caretBlink { 50% { border-color: transparent; } }
-
-/* Optional: keep the final paragraph emphatic if you remove <strong> */
-#our-mission p.accent { font-weight: 800; color: var(--copper); }
-
-
-/* Slim variant for header CTA */
-.btn-slim {
-  padding: .55rem 1rem;   /* less vertical padding */
-  font-size: .95rem;      /* slightly smaller text */
-  border-radius: 8px;     /* tighter corners to match slimmer look */
-}
-
+    /* Mobile fixes for two-col panels */
+    @media (max-width:820px){
+      .leadership-layout{
+        display:grid;
+        grid-template-columns:1fr!important;
+        gap:2rem
+      }
+      .leadership-layout .media{order:-1}
+      .leadership-layout>*{width:100%}
+    }
   </style>
 </head>
 <body>
@@ -380,8 +626,8 @@
     <button class="nav-close" aria-label="Close menu" onclick="toggleMenu(false)">×</button>
 <div class="nav-panel">
   <a href="index.html" onclick="toggleMenu(false)">Human+AI</a>
-  <a href="ai-employees-engines.html" onclick="toggleMenu(false)">AI Employees & Engines</a>
-  <a href="Impact Mission.html" onclick="toggleMenu(false)">Impact Mission</a>
+  <a href="ai-employees-engines.html" onclick="toggleMenu(false)">Fused Business</a>
+  <a href="FusedLiving.html" onclick="toggleMenu(false)">Fused Living</a>
   <a href="contacts.html" onclick="toggleMenu(false)">Contact</a>
   <a href="mailto:sales@fusedid.com" onclick="toggleMenu(false)" style="margin-top:.6rem;color:var(--copper-light)">sales@fusedid.com</a>
 </div>
@@ -399,9 +645,9 @@
 </a>
 <nav class="primary" aria-label="Primary">
   <a href="index.html">Human+AI</a>
-  <a href="ai-employees-engines.html">AI Employees & Engines</a>
-  <a href="Impact Mission.html">Impact Mission</a>
-  <a href="contacts.html" class="btn btn-primary btn-slim" style="margin-left:1rem;">Schedule A Demo</a>
+  <a href="ai-employees-engines.html">Fused Business</a>
+  <a href="FusedLiving.html">Fused Living</a>
+  <a href="contacts.html" class="btn btn-primary btn-slim" style="margin-left:1rem;">Schedule A Consult</a>
 </nav>
       <button class="hamburger" aria-label="Open menu" aria-controls="overlayNav" aria-expanded="false" onclick="toggleMenu(true)">
         <span></span>
@@ -553,11 +799,40 @@
 
 
 
+<!-- ===== Our Mission ===== -->
+<section class="section" id="our-mission">
+  <div class="mission-pill-block reveal">
+    <h2>Our Mission</h2>
+
+    <p>
+      Every business is born from creativity — a founder’s instinct, a spark of innovation,
+      a way of doing things that cuts through the noise. But somewhere along the way,
+      operations begin to swell. The work multiplies. Admin grows teeth.
+    </p>
+
+    <p>
+      Too many leaders end up maintaining the engine instead of steering the vision.
+      Creativity becomes squeezed between meetings, reporting, and inbox firefighting.
+    </p>
+
+    <p>
+      At FUSED ID, our mission is simple:
+      <strong>return time, momentum and focus to the people who build things.</strong>
+      We deliver AI Employees and Engines that don’t distract your team — they expand it.
+      Reliable, specialised, and overseen by humans who make sure performance improves
+      month after month.
+    </p>
+
+    <p class="accent">
+      Because when creativity leads and the engines run, business moves at the speed of imagination.
+    </p>
+  </div>
+</section>
 
 
 
 <section class="section" style="padding:0; margin:4rem 0;">
-  <div style="background:#150e09;border-radius:12px;overflow:hidden;">
+  <div style="background:#150e09;border-radius:40px;overflow:hidden;">
 <div class="ecosystem ecosystem-horizontal">
     <svg viewBox="0 0 1200 500" role="img" aria-label="FusedID ecosystem: Engines infuse skills into AI Employees under oversight" style="width:100%;height:auto;display:block">
       <defs>
@@ -666,6 +941,7 @@
     </svg>
   </div>
 </section>
+
 
 
 
@@ -836,6 +1112,189 @@
     </div>
   </div>
 </section>
+
+
+
+  <!-- ===== Insights & Case Studies ===== -->
+  <section class="section" id="insights">
+    <h2 class="reveal">Insights & Case Studies</h2>
+    <p class="reveal">
+      Stories, strategies and practical lessons from AI Employees & Engines in action.
+    </p>
+
+    <div class="blog-grid">
+
+      <!-- Blog 1 -->
+      <article class="post-card reveal">
+        <a class="post-media" href="blog/customer-engagement.html">
+          <img src="blog-seo.jpg" alt="Magnifying glass on analytics diagrams">
+        </a>
+        <div class="post-body">
+          <div class="post-meta">
+            <span class="pill">AI Marketing</span>
+            <time datetime="2025-07-09">Jul 9, 2025</time>
+          </div>
+          <h3 class="post-title">
+            <a href="blog/customer-engagement.html">Leveraging AI Employees for Customer Engagement</a>
+          </h3>
+          <p class="post-excerpt">
+            Embedding AI Employees transforms customer engagement — faster responses, consistent tone,
+            and citation-backed answers, all with human oversight.
+          </p>
+          <a class="btn btn-primary" href="blog/customer-engagement.html">Read more →</a>
+        </div>
+      </article>
+
+      <!-- Blog 2 -->
+      <article class="post-card reveal">
+        <a class="post-media" href="blog/ai-prospecting-mistakes.html">
+          <img src="blog-linkedin.jpg" alt="Smartphone showing a network of connections">
+        </a>
+        <div class="post-body">
+          <div class="post-meta">
+            <span class="pill">Sales Ops</span>
+            <time datetime="2025-07-08">Jul 8, 2025</time>
+          </div>
+          <h3 class="post-title">
+            <a href="blog/ai-prospecting-mistakes.html">Common Mistakes to Avoid in AI-Powered Prospecting</a>
+          </h3>
+          <p class="post-excerpt">
+            Seven pitfalls that stall AI prospecting — list quality, message–market fit, deliverability,
+            consent, CRM hygiene, and learning rhythm — and how executive-run guardrails fix them.
+          </p>
+          <a class="btn btn-primary" href="blog/ai-prospecting-mistakes.html">Read more →</a>
+        </div>
+      </article>
+
+      <!-- Blog 3 -->
+      <article class="post-card reveal">
+        <a class="post-media" href="blog/inbound-vs-outbound.html">
+          <img src="blog-inbound-vs-outbound.jpg" alt="Megaphone versus speech bubble">
+        </a>
+        <div class="post-body">
+          <div class="post-meta">
+            <span class="pill">Inbound vs Outbound</span>
+            <time datetime="2025-07-07">Jul 7, 2025</time>
+          </div>
+          <h3 class="post-title">
+            <a href="blog/inbound-vs-outbound.html">Inbound vs Outbound: Which AI Approach Wins?</a>
+          </h3>
+          <p class="post-excerpt">
+            Inbound wins speed-to-lead; outbound builds pipeline. Use AI Employees & Engines together
+            under human governance to create sustainable momentum.
+          </p>
+          <a class="btn btn-primary" href="blog/inbound-vs-outbound.html">Read more →</a>
+        </div>
+      </article>
+
+      <!-- Case Study 1 -->
+      <article class="post-card reveal">
+        <a class="post-media" href="cases/ethan-prospect.html">
+          <img src="revenue-acceleration.jpg" alt="Prospecting engine growth visual">
+        </a>
+        <div class="post-body">
+          <div class="post-meta">
+            <span class="pill">Case Study</span>
+            <time datetime="2025-03-21">3 weeks</time>
+          </div>
+          <h3 class="post-title">
+            <a href="cases/ethan-prospect.html">Ethan: Turning Quiet Weeks into Booked Meetings</a>
+          </h3>
+          <p class="post-excerpt">
+            From ICP definition to multi-channel outreach, Ethan generated 42 warm replies and
+            11 meetings in three weeks.
+          </p>
+          <a class="btn btn-primary" href="cases/ethan-prospect.html">Read case study →</a>
+        </div>
+      </article>
+
+      <!-- Case Study 2 -->
+      <article class="post-card reveal">
+        <a class="post-media" href="cases/kaia-kaizen.html">
+          <img src="executive-ops.jpg" alt="Continuous improvement operations">
+        </a>
+        <div class="post-body">
+          <div class="post-meta">
+            <span class="pill">Case Study</span>
+            <time datetime="2025-02-10">60 days</time>
+          </div>
+          <h3 class="post-title">
+            <a href="cases/kaia-kaizen.html">Kaia: Compressing CAPA Time with Kaizen</a>
+          </h3>
+          <p class="post-excerpt">
+            ISO-aligned Kaizen initiatives lifted audit readiness to 98% and cut CAPA cycle time
+            from 28 to 12 days.
+          </p>
+          <a class="btn btn-primary" href="cases/kaia-kaizen.html">Read case study →</a>
+        </div>
+      </article>
+
+      <!-- Case Study 3: Talent Engine -->
+      <article class="post-card reveal">
+        <a class="post-media" href="cases/lara-talent.html">
+          <img src="talent-engine.jpg" alt="AI-powered hiring and candidate evaluation">
+        </a>
+        <div class="post-body">
+          <div class="post-meta">
+            <span class="pill">Case Study</span>
+            <time datetime="2025-06-15">14 days</time>
+          </div>
+          <h3 class="post-title">
+            <a href="cases/lara-talent.html">Lara: From 40 Applicants to a 3-Candidate Shortlist</a>
+          </h3>
+          <p class="post-excerpt">
+            The Talent Engine turned a vague job brief into a precise role profile, screened 40 applicants,
+            and delivered a ranked shortlist of three strong candidates in 14 days.
+          </p>
+          <a class="btn btn-primary" href="cases/lara-talent.html">Read case study →</a>
+        </div>
+      </article>
+
+      <!-- Case Study 4: Knowledge Engine -->
+      <article class="post-card reveal">
+        <a class="post-media" href="cases/knowledge-engine.html">
+          <img src="knowledge-engine.jpg" alt="AI Knowledge Engine illustration">
+        </a>
+        <div class="post-body">
+          <div class="post-meta">
+            <span class="pill">Case Study</span>
+            <time datetime="2025-05-20">2 weeks</time>
+          </div>
+          <h3 class="post-title">
+            <a href="cases/knowledge-engine.html">Knowledge Engine: Making 200 Pages of Policy Searchable</a>
+          </h3>
+          <p class="post-excerpt">
+            The Knowledge Engine ingested a dense library of HR and compliance policies. Within two weeks,
+            staff could ask natural questions and get instant, citation-backed answers.
+          </p>
+          <a class="btn btn-primary" href="cases/knowledge-engine.html">Read case study →</a>
+        </div>
+      </article>
+
+      <!-- Case Study 5: Nova -->
+      <article class="post-card reveal">
+        <a class="post-media" href="cases/nova-ops.html">
+          <img src="nova-ops.jpg" alt="AI Employee handling operational support tasks">
+        </a>
+        <div class="post-body">
+          <div class="post-meta">
+            <span class="pill">Case Study</span>
+            <time datetime="2025-04-30">30 days</time>
+          </div>
+          <h3 class="post-title">
+            <a href="cases/nova-ops.html">Nova: Cutting Admin Workload by 8 Hours a Week</a>
+          </h3>
+          <p class="post-excerpt">
+            Nova, a custom AI Ops Employee, took over reporting, meeting notes and template prep.
+            Within 30 days, executives gained back an average of 8 hours a week with fewer errors
+            and less rework.
+          </p>
+          <a class="btn btn-primary" href="cases/nova-ops.html">Read case study →</a>
+        </div>
+      </article>
+
+    </div>
+  </section>
 
 
   </main>

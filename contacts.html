@@ -173,6 +173,17 @@
   border-radius: 8px;     /* tighter corners to match slimmer look */
 }
 
+/* Keep normal nav links copper on hover */
+nav.primary a:hover {
+  color: var(--copper);
+}
+
+/* Override for primary buttons in nav */
+nav.primary .btn-primary:hover {
+  color: #fff; /* keeps text white */
+  background: linear-gradient(180deg, #ff9c4a, #f97a10); /* optional: slight hover shift */
+}
+
   </style>
 
   <script>
@@ -235,8 +246,8 @@
     <button class="nav-close" aria-label="Close menu" onclick="toggleMenu(false)">×</button>
 <div class="nav-panel">
   <a href="index.html" onclick="toggleMenu(false)">Human+AI</a>
-  <a href="ai-employees-engines.html" onclick="toggleMenu(false)">AI Employees & Engines</a>
-  <a href="Impact Mission.html" onclick="toggleMenu(false)">Impact Mission</a>
+  <a href="ai-employees-engines.html" onclick="toggleMenu(false)">Fused Business</a>
+  <a href="FusedLiving.html" onclick="toggleMenu(false)">Fused Living</a>
   <a href="contacts.html" onclick="toggleMenu(false)">Contact</a>
   <a href="mailto:sales@fusedid.com" onclick="toggleMenu(false)" style="margin-top:.6rem;color:var(--copper-light)">sales@fusedid.com</a>
 </div>
@@ -254,9 +265,9 @@
 </a>
 <nav class="primary" aria-label="Primary">
   <a href="index.html">Human+AI</a>
-  <a href="ai-employees-engines.html">AI Employees & Engines</a>
-  <a href="Impact Mission.html">Impact Mission</a>
-  <a href="contacts.html" class="btn btn-primary btn-slim" style="margin-left:1rem;">Schedule A Demo</a>
+  <a href="ai-employees-engines.html">Fused Business</a>
+  <a href="FusedLiving.html">Fused Living</a>
+  <a href="contacts.html" class="btn btn-primary btn-slim" style="margin-left:1rem;">Schedule A Consult</a>
 </nav>
       <button class="hamburger" aria-label="Open menu" aria-controls="overlayNav" aria-expanded="false" onclick="toggleMenu(true)">
         <span></span>

@@ -1,0 +1,1129 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+
+<!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-REPRFPPLDB"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'G-REPRFPPLDB');
+</script>
+
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>FUSED LIVING • FUSED ID — Intelligent Automation for Homes & Holiday Rentals</title>
+  <meta name="description" content="FUSED LIVING by FUSED ID designs, installs, and manages intelligent automation for homes and holiday rentals — lighting, access, Wi-Fi and sound working quietly in the background." />
+
+  <style>
+    /* ===== Brand tokens ===== */
+    :root{
+      --espresso:#150e09;
+      --copper:#ff8c32;
+      --copper-light:#ffb169;
+      --glow:rgba(255,140,50,.6);
+      --ink:#111;
+      --muted:#555;
+      --card:#fff;
+      --line:#eadfd7;
+      --tint:#fbf9f7;
+      --bg:#fff;
+      --text:#000;
+    }
+
+    /* ===== Base ===== */
+    *{box-sizing:border-box}
+    html,body{margin:0;padding:0}
+    body{
+      font-family:system-ui,-apple-system,Segoe UI,Roboto,Helvetica,Arial;
+      color:var(--ink);
+      background:var(--bg)
+    }
+    a{color:inherit;text-decoration:none}
+    img{max-width:100%;height:auto;display:block}
+    .container{max-width:1200px;margin:0 auto;padding:0 1rem}
+
+    /* ===== Header + overlay menu ===== */
+    header{
+      position:relative;
+      z-index:5;
+      background:#fff;
+      border-bottom:1px solid #eee
+    }
+    .header-inner{
+      display:flex;
+      align-items:center;
+      justify-content:space-between;
+      padding:1rem 0
+    }
+    .brand{
+      display:flex;
+      align-items:center;
+      font-weight:800;
+      letter-spacing:.06em;
+      color:#000;
+      font-size:1.1rem;
+      white-space:nowrap
+    }
+    .brand img{height:28px;margin-right:8px}
+    nav.primary{
+      display:flex;
+      gap:2.5rem;
+      align-items:center
+    }
+    nav.primary a{
+      color:#000;
+      font-weight:600;
+      transition:color .25s ease
+    }
+    nav.primary a:hover{color:var(--copper)}
+
+    .hamburger{
+      display:none;
+      width:40px;height:40px;
+      border:1px solid #ddd;
+      border-radius:8px;
+      background:#fff;
+      align-items:center;
+      justify-content:center;
+      cursor:pointer
+    }
+    .hamburger span{
+      display:block;
+      width:18px;height:2px;
+      background:#000;
+      position:relative
+    }
+    .hamburger span:before,
+    .hamburger span:after{
+      content:"";
+      position:absolute;
+      left:0;
+      width:18px;height:2px;
+      background:#000
+    }
+    .hamburger span:before{top:-6px}
+    .hamburger span:after{top:6px}
+
+    .nav-overlay{
+      position:fixed;inset:0;
+      background:radial-gradient(60% 60% at 20% 10%, rgba(255,140,50,.18), transparent 60%),var(--espresso);
+      display:none;
+      z-index:1000;
+      color:#fff
+    }
+    .nav-overlay.open{display:block;animation:fadeIn .25s ease}
+    @keyframes fadeIn{from{opacity:0}to{opacity:1}}
+    .nav-panel{
+      height:100%;
+      display:flex;
+      flex-direction:column;
+      align-items:center;
+      justify-content:center;
+      gap:1.2rem;
+      text-align:center;
+      padding:2rem
+    }
+    .nav-overlay a{
+      font-size:1.6rem;
+      font-weight:700;
+      letter-spacing:.02em;
+      color:#fff;
+      transition:color .2s ease, text-shadow .2s ease
+    }
+    .nav-overlay a:hover{
+      color:var(--copper-light);
+      text-shadow:0 0 16px var(--glow)
+    }
+    .nav-close{
+      position:absolute;
+      top:16px;right:16px;
+      width:44px;height:44px;
+      border:1px solid rgba(255,255,255,.25);
+      border-radius:10px;
+      background:transparent;
+      color:#fff;
+      font-size:22px;
+      line-height:1
+    }
+
+    @media (max-width:960px){
+      nav.primary{display:none}
+      .hamburger{display:flex}
+      .brand{font-size:1rem}
+      .header-inner{padding-left:1.25rem;padding-right:1.25rem}
+    }
+
+    /* ===== Hero ===== */
+    .hero{
+      position:relative;
+      isolation:isolate;
+      min-height:46vh;
+      display:grid;
+      place-items:center;
+      overflow:hidden;
+      background:#0f0a07
+    }
+    .hero::before{
+      content:"";
+      position:absolute;inset:0;z-index:-2;
+      background:
+        linear-gradient(180deg, rgba(21,14,9,.65) 0%, rgba(21,14,9,.85) 55%, rgba(21,14,9,.95) 100%),
+        url('leadership-governance.jpg') center/cover no-repeat
+    }
+    .hero::after{
+      content:"";
+      position:absolute;inset:0;z-index:-1;
+      background:
+        radial-gradient(40% 25% at 20% 20%, rgba(255,140,50,.25), transparent 60%),
+        radial-gradient(30% 20% at 80% 75%, rgba(255,177,105,.15), transparent 70%)
+    }
+    .hero-inner{
+      color:#fff;
+      max-width:1060px;
+      margin:0 auto;
+      padding:4.5rem clamp(16px,4vw,28px) 3rem
+    }
+    .kicker{
+      color:var(--copper-light);
+      text-transform:uppercase;
+      letter-spacing:.14em;
+      font-weight:1000;
+      font-size:.82rem;
+      margin-bottom:.8rem
+    }
+    .title{
+      font-size:clamp(2rem,4vw+1rem,3.2rem);
+      line-height:1.08;
+      margin:0 0 .5rem;
+      font-weight:1000
+    }
+    .sub{
+      max-width:760px;
+      line-height:1.6;
+      color:#f3f3f3;
+      margin:0
+    }
+
+    /* ===== Sections & layout ===== */
+    .section{padding:4rem 1rem}
+    .section h2{
+      font-size:1.9rem;
+      font-weight:900;
+      margin:.2rem 0 1rem
+    }
+    .section p{font-size:1rem;margin:0 0 1.25rem}
+
+    .leadership-layout{
+      display:flex;
+      flex-wrap:wrap;
+      gap:2rem;
+      align-items:flex-start
+    }
+    .leadership-layout>div{flex:1;min-width:280px}
+
+    .grid{display:grid;gap:2rem}
+    @media (min-width:1025px){.grid{grid-template-columns:repeat(4,1fr)}}
+    @media (min-width:600px) and (max-width:1024px){.grid{grid-template-columns:repeat(2,1fr)}}
+    @media (max-width:599px){.grid{grid-template-columns:1fr}}
+
+    .card{
+      border:1px solid #eee;
+      border-radius:12px;
+      padding:2rem;
+      background:#fff
+    }
+
+    .feature-card.card{
+      padding:1.25rem 1.5rem
+    }
+
+    .card-icon{
+      width:100%;
+      aspect-ratio:10/8;
+      background:#f5f5f5;
+      border-radius:8px;
+      margin-bottom:1rem;
+      background-size:cover;
+      background-position:center
+    }
+
+    /* CTA band & footer */
+    .cta-band{
+      background:var(--tint);
+      border-top:1px solid #eadfd7;
+      border-bottom:1px solid #eadfd7
+    }
+    .cta-inner{
+      display:flex;
+      flex-wrap:wrap;
+      align-items:center;
+      justify-content:space-between;
+      gap:1rem;
+      padding:1.4rem 0
+    }
+    footer{
+      background:#0f0a07;
+      color:#ddd
+    }
+    .foot{
+      display:flex;
+      justify-content:space-between;
+      align-items:center;
+      gap:1rem;
+      padding:1rem 0
+    }
+
+    /* Reveal */
+    .reveal{
+      opacity:0;
+      transform:translateY(40px);
+      transition:all .4s ease
+    }
+    .reveal.visible{
+      opacity:1;
+      transform:none
+    }
+
+    /* Safe-area spacing parity */
+    .container,
+    .header-inner{padding-inline:max(env(safe-area-inset-left), clamp(16px, 5vw, 32px));}
+
+    /* Buttons */
+    .btn{
+      appearance:none;
+      border:0;
+      border-radius:10px;
+      cursor:pointer;
+      font-weight:800;
+      padding:.95rem 1.2rem;
+      font-size:1rem;
+      letter-spacing:.02em;
+      display:inline-flex;
+      align-items:center;
+      gap:.45rem;
+      text-decoration:none
+    }
+    .btn-primary{
+      background:linear-gradient(180deg,var(--copper),#fa7c16);
+      color:#220e05;
+      box-shadow:0 6px 24px rgba(255,140,50,.35)
+    }
+    .btn-outline{
+      background:transparent;
+      border:2px solid rgba(0,0,0,.7);
+      color:#000
+    }
+
+    .btn-slim{
+      padding:.55rem 1rem;
+      font-size:.95rem;
+      border-radius:8px
+    }
+
+    /* Checklists */
+    .checklist{list-style:none;margin:0;padding:0}
+    .checklist li{
+      padding-left:1.4rem;
+      position:relative;
+      margin:.45rem 0;
+      line-height:1.7
+    }
+    .checklist li::before{
+      content:"✓";
+      position:absolute;
+      left:.1rem;top:.05rem;
+      color:var(--copper);
+      font-weight:1000
+    }
+
+    /* Highlighted cards */
+    .card.highlight{
+      border:1px solid rgba(255,140,50,0.8);
+      box-shadow:0 0 20px rgba(255,140,50,0.45),
+                 0 0 40px rgba(255,140,50,0.25);
+      border-radius:14px;
+      transition:box-shadow .3s ease, transform .2s ease
+    }
+    .card.highlight:hover{
+      box-shadow:0 0 25px rgba(255,140,50,0.6),
+                 0 0 50px rgba(255,140,50,0.35);
+      transform:translateY(-3px)
+    }
+
+    .feature-card.card.highlight{
+      padding:1rem 1.25rem;
+      border-radius:10px;
+      box-shadow:0 0 12px rgba(255,140,50,0.25),
+                 0 0 20px rgba(255,140,50,0.15)
+    }
+    .feature-card.card.highlight h3{
+      font-size:1rem;
+      margin:0 0 .35rem;
+      font-weight:800
+    }
+    .feature-card.card.highlight p{
+      font-size:.9rem;
+      line-height:1.45;
+      margin:0;
+      color:#444
+    }
+
+    /* Closing CTA */
+    .closing-cta{
+      position:relative;
+      background:#150e09;
+      color:#fff;
+      text-align:center;
+      padding:4rem 1rem;
+      border-top:2px solid rgba(255,140,50,0.4);
+      overflow:hidden
+    }
+    .closing-cta::before{
+      content:"";
+      position:absolute;
+      inset:0;
+      background:
+        linear-gradient(180deg, rgba(21,14,9,.55) 0%, rgba(21,14,9,.75) 100%),
+        url('copper-glow.jpg') center/cover no-repeat;
+      opacity:.7;
+      z-index:0
+    }
+    .closing-cta-inner{
+      position:relative;
+      z-index:1
+    }
+    .closing-cta h2{
+      font-size:clamp(1.8rem,3vw,2.4rem);
+      font-weight:900;
+      margin-bottom:1rem;
+      color:var(--copper-light)
+    }
+    .closing-cta p{
+      font-size:1.1rem;
+      margin-bottom:2rem;
+      color:#f3f3f3
+    }
+
+    /* Responsive tweaks */
+    @media (max-width:820px){
+      .leadership-layout{
+        display:grid;
+        grid-template-columns:1fr!important;
+        gap:2rem
+      }
+      .leadership-layout .media{order:-1}
+      .leadership-layout>*{width:100%}
+    }
+
+    nav.primary a:hover{color:var(--copper)}
+    nav.primary .btn-primary:hover{
+      color:#fff;
+      background:linear-gradient(180deg,#ff9c4a,#f97a10)
+    }
+
+
+/* Shared grid behaviour: 1 column → 3 columns on large screens */
+.grid-3-lg{
+  grid-template-columns:1fr;
+}
+
+@media (min-width:1000px){
+  .grid-3-lg{
+    grid-template-columns:repeat(3,minmax(0,1fr));
+  }
+}
+  </style>
+</head>
+<body>
+
+  <!-- ===== Overlay Mobile Menu ===== -->
+  <div class="nav-overlay" id="overlayNav" aria-hidden="true">
+    <button class="nav-close" aria-label="Close menu" onclick="toggleMenu(false)">×</button>
+    <div class="nav-panel">
+      <a href="index.html" onclick="toggleMenu(false)">Human+AI</a>
+      <a href="ai-employees-engines.html" onclick="toggleMenu(false)">Fused Business</a>
+      <a href="FusedLiving.html" onclick="toggleMenu(false)">Fused Living</a>
+      <a href="contacts.html" onclick="toggleMenu(false)">Contact</a>
+      <a href="mailto:sales@fusedid.com" onclick="toggleMenu(false)" style="margin-top:.6rem;color:var(--copper-light)">sales@fusedid.com</a>
+    </div>
+  </div>
+
+  <!-- ===== Header ===== -->
+  <header class="shadow-sm">
+    <div class="container header-inner">
+      <a href="https://www.fusedid.com" class="brand">
+        <img src="fusedid logo -white bg.png" alt="Fused ID Logo" style="height:28px;vertical-align:middle;margin-right:8px;">
+        FUSED ID
+      </a>
+      <nav class="primary" aria-label="Primary">
+        <a href="index.html">Human+AI</a>
+        <a href="ai-employees-engines.html">Fused Business</a>
+        <a href="FusedLiving.html">Fused Living</a>
+        <a href="contacts.html" class="btn btn-primary btn-slim" style="margin-left:1rem;">Schedule A Consult</a>
+      </nav>
+      <button class="hamburger" aria-label="Open menu" aria-controls="overlayNav" aria-expanded="false" onclick="toggleMenu(true)">
+        <span></span>
+      </button>
+    </div>
+  </header>
+
+  <!-- ===== Hero ===== -->
+  <section class="hero">
+    <div class="container hero-inner">
+      <div class="kicker">Human-Led • AI-Enhanced</div>
+      <h1 class="title">Intelligent automation for homes and rentals.</h1>
+      <p class="sub">
+        We design, install, and manage connected systems for the spaces you care about most —
+        from your family home to your holiday stays. Lighting, access, Wi-Fi and sound working
+        quietly in the background, so you don’t have to.
+      </p>
+    </div>
+  </section>
+
+  <main class="container">
+
+    <!-- ===== Overview: Two paths ===== -->
+    <section class="section" id="overview">
+      <h2>Live smarter — at home and away.</h2>
+      <p>
+        FUSED LIVING covers both everyday homes and short-stay properties. Same philosophy:
+        you live your life, we run the systems — with trusted hardware, human oversight,
+        and just enough intelligence to keep everything flowing.
+      </p>
+
+      <div class="grid" style="grid-template-columns:repeat(2,minmax(0,1fr));gap:1.5rem;">
+        <a href="#home" class="card highlight reveal" style="text-decoration:none;">
+          <h3>For Your Home</h3>
+          <p>
+            Calm, connected living. Lighting that moves with your day, blinds that follow the sun,
+            reliable Wi-Fi in every room, and secure access for family and guests — without juggling
+            a dozen apps.
+          </p>
+          <ul class="checklist">
+            <li>Lighting & blinds that match your routine</li>
+            <li>Mesh Wi-Fi designed around your actual layout</li>
+            <li>Smart locks and scenes that “just work”</li>
+          </ul>
+        </a>
+
+        <a href="#holiday-rentals" class="card highlight reveal" style="text-decoration:none;">
+          <h3>For Holiday Rentals</h3>
+          <p>
+            Remote-ready automation for modern stays. Digital access, cameras, Wi-Fi and
+            turnover scenes so guests, cleaners, and managers all stay in sync — without
+            late-night emergencies.
+          </p>
+          <ul class="checklist">
+            <li>Guest & cleaner codes with clear expiry</li>
+            <li>Guest-friendly Wi-Fi and network design</li>
+            <li>Arrival / departure automations for each stay</li>
+          </ul>
+        </a>
+      </div>
+    </section>
+
+    <!-- ===== Why FUSED LIVING ===== -->
+    <section class="section" id="why">
+      <div class="leadership-layout" style="align-items:center;">
+        <div class="media cover reveal">
+          <img src="living-system.jpg"
+               alt="Copper-lit AI cube symbolising intelligent systems"
+               style="border-radius:12px;"
+               loading="lazy" decoding="async" />
+        </div>
+
+        <div class="reveal">
+          <h2>A system for how you live.</h2>
+          <p>
+            Most “smart homes” end up as a drawer full of remotes and half-working apps.
+            FUSED LIVING treats your home — or holiday rental — as a single system:
+            designed once, documented enough to maintain, and managed over time.
+          </p>
+          <ul class="checklist">
+            <li>We design the stack: lighting, access, Wi-Fi, sound, climate scenes.</li>
+            <li>We work with proven, off-the-shelf hardware — no strange lock-ins.</li>
+            <li>We stay on as your operator: updates, tweaks, and remote support.</li>
+          </ul>
+          <p>
+            You get a calm environment where the tech disappears — and the experience stays.
+          </p>
+          <a href="contacts.html" class="btn btn-primary" style="margin-top:1rem;">Talk about your space →</a>
+        </div>
+      </div>
+    </section>
+
+
+<!-- ===== For Your Home ===== -->
+<section class="section" id="home">
+  <h2>For Your Home — Calm, connected, quietly intelligent.</h2>
+  <p>
+    We start with how you live: mornings, evenings, weekends, guests, kids, pets.
+    Then we design automations around those rhythms — from lighting and blinds to
+    climate, sound, and access.
+  </p>
+
+  <div class="grid" style="grid-template-columns:repeat(2,minmax(0,1fr));gap:1.5rem;margin-top:1.5rem;">
+
+    <div class="feature-card card highlight">
+      <h3>Intelligent Lighting</h3>
+      <p>
+        Adaptive scenes that shift with your day — wake-up, work, evenings and 
+        “all off”, all without micromanaging switches.
+      </p>
+    </div>
+
+    <div class="feature-card card highlight">
+      <h3>Curtains & Blinds</h3>
+      <p>
+        Scheduled or sensor-based movement that protects interiors, manages heat,
+        and adjusts your home’s ambience automatically.
+      </p>
+    </div>
+
+    <div class="feature-card card highlight">
+      <h3>Climate Touchpoints</h3>
+      <p>
+        Simple control of key AC or heating zones, tied to scenes. Comfort without
+        juggling remotes or hidden menus.
+      </p>
+    </div>
+
+    <div class="feature-card card highlight">
+      <h3>Multi-room Sound</h3>
+      <p>
+        Audio that follows the way you live — playlists, podcasts, ambience — all
+        controlled from one app or your voice.
+      </p>
+    </div>
+
+    <div class="feature-card card highlight">
+      <h3>Wi-Fi & Networking</h3>
+      <p>
+        Mesh design and guest networks that behave — stable streaming, reliable calls,
+        and no mid-movie dropouts.
+      </p>
+    </div>
+
+    <div class="feature-card card highlight">
+      <h3>Entry & Access</h3>
+      <p>
+        Smart locks, door sensors and clear family access flows. No more wondering 
+        who has keys or whether a door was left unlocked.
+      </p>
+    </div>
+
+    <div class="feature-card card highlight">
+      <h3>Scenes, Not Micromanagement</h3>
+      <p>
+        “Good Morning”, “Away”, “Movie Night” — one tap or phrase adjusts multiple 
+        devices at once. Calm control, not tech tinkering.
+      </p>
+    </div>
+
+ 
+    <div class="feature-card card highlight">
+      <h3>Easy Control, Anywhere</h3>
+      <p>
+        Use your voice or a single app to adjust lights, blinds, climate and more — 
+        whether you’re home or away.
+      </p>
+    </div>
+
+  </div>
+
+  <p style="margin-top:1.75rem;">
+    The outcome: a home that quietly adjusts itself instead of asking you to manage it.
+  </p>
+</section>
+
+
+    <!-- ===== Home Detail Panels ===== -->
+    <section class="section" id="home-details">
+      <!-- Voice & App Control -->
+      <div class="leadership-layout" style="align-items:center;margin-bottom:2.5rem;">
+        <div class="reveal">
+          <h2>Total control at your command.</h2>
+          <p>
+            Smart living starts with something simple — your voice, or a single tap.
+            FUSED LIVING puts every key system in reach wherever you are. Unlock the
+            front door, adjust the lights, tweak the climate or close the blinds from
+            your phone or with a short voice command.
+          </p>
+          <p>
+            We connect the pieces so control feels natural, not technical. Whether you’re
+            at home on the sofa or away for the weekend, your home responds like it knows
+            what you’re asking for.
+          </p>
+        </div>
+        <div class="media cover reveal">
+          <img src="voice-control.jpg"
+               alt="Person using voice control on a smartphone"
+               style="border-radius:12px;"
+               loading="lazy" decoding="async" />
+        </div>
+      </div>
+
+      <!-- One App, Every Room -->
+      <div class="leadership-layout" style="align-items:center;margin-bottom:2.5rem;">
+        <div class="media cover reveal">
+          <img src="lighting-control.jpg"
+               alt="Tablet showing home control app on a coffee table"
+               style="border-radius:12px;"
+               loading="lazy" decoding="async" />
+        </div>
+        <div class="reveal">
+          <h2>One app. Every room.</h2>
+          <p>
+            No more juggling remotes and half-used apps. We bring your core systems —
+            doors, lighting, blinds, climate and access — into one simple interface.
+          </p>
+          <p>
+            Set whole-home scenes like <em>Good Morning</em>, <em>Work Mode</em> or
+            <em>Goodnight</em> with a single tap. Check status, tweak settings, and
+            schedule routines from anywhere in the world. One place, one language,
+            your whole home.
+          </p>
+        </div>
+      </div>
+
+      <!-- Sound -->
+      <div class="leadership-layout" style="align-items:center;margin-bottom:2.5rem;">
+        <div class="reveal">
+          <h2>Sound that moves with you.</h2>
+          <p>
+            From wake-up playlists to quiet evening ambience, audio should follow your day,
+            not fight it. FUSED LIVING ties your speakers into the same automation layer as
+            the rest of your home.
+          </p>
+          <p>
+            Play music in one room or the whole house, link sound to scenes, and create
+            quiet zones where you need focus. All controlled from your phone or voice,
+            without a mess of inputs and remotes.
+          </p>
+        </div>
+        <div class="media cover reveal">
+          <img src="sound-control.jpg"
+               alt="Smartphone controlling music and ambient lighting"
+               style="border-radius:12px;"
+               loading="lazy" decoding="async" />
+        </div>
+      </div>
+
+      <!-- Lighting -->
+      <div class="leadership-layout" style="align-items:center;margin-bottom:2.5rem;">
+        <div class="media cover reveal">
+          <img src="lighting-control.jpg"
+               alt="Living room with warm automated lighting in the evening"
+               style="border-radius:12px;"
+               loading="lazy" decoding="async" />
+        </div>
+        <div class="reveal">
+          <h2>Light that thinks ahead.</h2>
+          <p>
+            Lighting is more than on or off. We design scenes that shift with time of day,
+            activity and mood — bright for focus, warm for evenings, soft for late-night
+            check-ins.
+          </p>
+          <p>
+            Lights can follow sunrise and sunset, react to occupancy, or respond to a single
+            phrase. No more walking the house turning switches off; one command can settle
+            everything for the night.
+          </p>
+        </div>
+      </div>
+
+      <!-- Curtains & Blinds -->
+      <div class="leadership-layout" style="align-items:center;margin-bottom:2.5rem;">
+        <div class="reveal">
+          <h2>Light, privacy & comfort — on rails.</h2>
+          <p>
+            Curtains and blinds should move with the sun, your schedule and your need for
+            privacy. FUSED LIVING automates window coverings so they quietly look after
+            light, heat and glare for you.
+          </p>
+          <p>
+            Wake up naturally as blinds glide open, protect interiors from harsh daylight,
+            or close everything with a single <em>Goodnight</em> scene. Control individual
+            rooms, whole façades or the entire house from your phone or your voice.
+          </p>
+        </div>
+        <div class="media cover reveal">
+          <img src="curtains-control.jpg"
+               alt="Person adjusting automated curtains in a modern apartment"
+               style="border-radius:12px;"
+               loading="lazy" decoding="async" />
+        </div>
+      </div>
+
+      <!-- Garage & Access -->
+      <div class="leadership-layout" style="align-items:center;">
+        <div class="media cover reveal">
+          <img src="garage-access.jpg"
+               alt="Smartphone controlling an automated garage door in a modern home"
+               style="border-radius:12px;margin-bottom:1.75rem;"
+               loading="lazy" decoding="async" />
+
+
+        </div>
+
+        <div class="reveal">
+          <h2>Access that always works.</h2>
+          <p>
+            Entry should be simple. We bring your garage doors, gates, and entry points into one clean control layer.
+            Open or check your garage from your phone, set rules for arrivals and departures, and stop wondering
+            who has access — or whether something was left unlocked.
+          </p>
+          <p>
+            Internal access is just as straightforward. Smart locks, door sensors, and guest or family codes give you
+            total clarity over who enters, when, and how. No keys to track, no late-night lockouts, no guesswork —
+            just a home that responds reliably every time.
+          </p>
+        </div>
+      </div>
+
+
+<!-- ===== For Holiday Rentals ===== -->
+<section class="section" id="holiday-rentals">
+  <h2>For Holiday Rentals — Remote-ready, guest-friendly automation.</h2>
+  <p>
+    Owners and managers need one thing: confidence. That guests can get in, Wi-Fi works,
+    cleaners have access, and the property resets correctly after every stay.
+  </p>
+
+  <div class="grid" style="grid-template-columns:repeat(2,minmax(0,1fr));gap:1.5rem;margin-top:1.5rem;">
+
+    <div class="feature-card card highlight">
+      <h3>Digital access flows</h3>
+      <p>
+        Separate codes for guests, cleaners and trades with clear start and end times.
+        No key handovers, no lockboxes, no late-night dramas.
+      </p>
+    </div>
+
+    <div class="feature-card card highlight">
+      <h3>Guest Wi-Fi that behaves</h3>
+      <p>
+        A simple guest network kept separate from your own devices, planned for
+        streaming, calls and real-world usage — not lab conditions.
+      </p>
+    </div>
+
+    <div class="feature-card card highlight">
+      <h3>Arrival & departure scenes</h3>
+      <p>
+        Lights, climate and locks set correctly every time. Welcoming on arrival,
+        reset and secure on departure so the place is ready for the next stay.
+      </p>
+    </div>
+
+    <div class="feature-card card highlight">
+      <h3>External cameras, placed right</h3>
+      <p>
+        Coverage focused on entrances and perimeters — privacy-first and practical,
+        with alerts tuned for signal, not noise.
+      </p>
+    </div>
+
+    <div class="feature-card card highlight">
+      <h3>Cleaners & trades, always in</h3>
+      <p>
+        Ongoing codes for regular cleaners and one-off windows for trades, so
+        changeovers run smoothly without you playing gatekeeper.
+      </p>
+    </div>
+
+    <div class="feature-card card highlight">
+      <h3>Remote support when it matters</h3>
+      <p>
+        Help when something goes wrong mid-stay — guidance, resets and remote
+        actions without needing to be on site.
+      </p>
+    </div>
+
+  </div>
+
+  <p style="margin-top:1.75rem;">
+    The goal is fewer late-night calls, fewer key dramas, and properties that feel
+    thoughtfully run from the guest’s first step in to their last lock of the door.
+  </p>
+</section>
+
+
+    <!-- ===== Holiday Rental Detail Panels ===== -->
+    <section class="section" id="holiday-details">
+
+      <!-- Guest Access -->
+      <div class="leadership-layout" style="align-items:center;margin-bottom:2.5rem;">
+        <div class="reveal">
+          <h2>Guest access, handled.</h2>
+          <p>
+            Every stay starts at the front door. FUSED LIVING sets up smart locks and keypads
+            so guests can arrive any time within their booking window — no key handovers, no
+            lockboxes to jam, no late-night “we’re locked out” calls.
+          </p>
+          <p>
+            Codes are unique per booking, can be time-bound, and can be revoked instantly if
+            plans change. You see who should have access, and when, without needing to be on site.
+          </p>
+        </div>
+        <div class="media cover reveal">
+          <img src="rental-access.jpg"
+               alt="Guest using a keypad to access a holiday rental"
+               style="border-radius:12px;"
+               loading="lazy" decoding="async" />
+        </div>
+      </div>
+
+      <!-- Cleaners & Trades -->
+      <div class="leadership-layout" style="align-items:center;margin-bottom:2.5rem;">
+        <div class="media cover reveal">
+          <img src="rental-cleaner-access.jpg"
+               alt="Cleaner entering a property with secure digital access"
+               style="border-radius:12px;"
+               loading="lazy" decoding="async" />
+        </div>
+        <div class="reveal">
+          <h2>Cleaners and trades, always in.</h2>
+          <p>
+            Cleaners and maintenance crews need dependable access that doesn’t clash with guest
+            stays. We create separate codes and schedules for non-guest access so everyone can
+            do their job without you playing phone tag.
+          </p>
+          <p>
+            Regular cleaners can have ongoing weekday codes; ad-hoc trades can have one-off
+            windows. You stay in control of who can enter, and when.
+          </p>
+        </div>
+      </div>
+
+      <!-- Arrival & Departure Scenes -->
+      <div class="leadership-layout" style="align-items:center;margin-bottom:2.5rem;">
+        <div class="reveal">
+          <h2>Arrivals that feel welcoming. Departures that reset everything.</h2>
+          <p>
+            We build simple scenes for each changeover. On arrival: pathway lights, key interior
+            lights and climate set to a comfortable baseline. On departure: lights off, certain
+            devices powered down, locks secured.
+          </p>
+          <p>
+            You decide the rules; we wire the systems behind them. Guests feel looked after,
+            and properties return to a known state ready for the next booking.
+          </p>
+        </div>
+        <div class="media cover reveal">
+          <img src="rental-scenes.jpg"
+               alt="Holiday rental living room lit for guest arrival"
+               style="border-radius:12px;"
+               loading="lazy" decoding="async" />
+        </div>
+      </div>
+
+      <!-- Guest Wi-Fi -->
+      <div class="leadership-layout" style="align-items:center;margin-bottom:2.5rem;">
+        <div class="media cover reveal">
+          <img src="rental-wifi.jpg"
+               alt="Tablet showing guest Wi-Fi details in a rental property"
+               style="border-radius:12px;"
+               loading="lazy" decoding="async" />
+        </div>
+        <div class="reveal">
+          <h2>Guest Wi-Fi that behaves.</h2>
+          <p>
+            Wi-Fi is the lifeblood of a good review. We design networks with a clear guest
+            Wi-Fi, separated from your owner network, and sized for how the property is
+            actually used.
+          </p>
+          <p>
+            Guests get simple, printed details; you keep your own devices isolated. Need to
+            restart or check things remotely? We’ll set up sensible tools so you’re not
+            guessing in the dark.
+          </p>
+        </div>
+      </div>
+
+      <!-- External Cameras & Perimeter -->
+      <div class="leadership-layout" style="align-items:center;">
+        <div class="reveal">
+          <h2>Eyes on the outside, not on your guests.</h2>
+          <p>
+            External cameras and doorbells can provide valuable context after incidents,
+            without turning the property into a surveillance experience. We focus on entrances,
+            driveways and shared approaches — areas where security matters most.
+          </p>
+          <p>
+            Alerts are tuned for signal, not noise, and recordings support you when there’s a
+            dispute or damage claim. Guests get clear guidance on what’s monitored; you get
+            a calmer, better-protected property.
+          </p>
+        </div>
+        <div class="media cover reveal">
+          <img src="external-camera.jpg"
+               alt="External camera monitoring the entrance of a holiday home"
+               style="border-radius:12px;"
+               loading="lazy" decoding="async" />
+        </div>
+      </div>
+
+    </section>
+
+
+    <!-- ===== Packages ===== -->
+    <section class="section" id="packages">
+      <h2>Packages — Installed once, managed over time.</h2>
+      <p>
+        Every property is different, but most owners fit one of these patterns. We’ll start from a package
+        and fine-tune it to your home or portfolio.
+      </p>
+
+<div class="grid grid-3-lg" style="gap:1.5rem;margin-top:1.5rem;">
+        <div class="card reveal">
+          <h3>Essentials</h3>
+          <p>For apartments and single homes needing a clean, reliable foundation.</p>
+          <ul class="checklist">
+            <li>Consultation and design session</li>
+            <li>System blueprint and hardware recommendations</li>
+            <li>Initial setup of core scenes and access</li>
+            <li>Post-install check-in and simple guide</li>
+          </ul>
+          <p><strong>Best for:</strong> first smart home or single holiday property.</p>
+        </div>
+
+        <div class="card highlight reveal">
+          <h3>Managed</h3>
+          <p>For busy owners who want ongoing support, not another job.</p>
+          <ul class="checklist">
+            <li>Everything in Essentials</li>
+            <li>Remote monitoring and basic support</li>
+            <li>Quarterly tune-ups and automation reviews</li>
+            <li>Change requests handled by FUSED ID operators</li>
+          </ul>
+          <p><strong>Best for:</strong> main homes, high-use rentals, or owners who travel often.</p>
+        </div>
+
+        <div class="card reveal">
+          <h3>Portfolio</h3>
+          <p>For multi-property owners and managers needing consistent standards.</p>
+          <ul class="checklist">
+            <li>Everything in Managed, across multiple properties</li>
+            <li>Shared playbooks and standardised setups</li>
+            <li>Monthly summary of issues and improvements</li>
+            <li>Custom SLAs and priority response options</li>
+          </ul>
+          <p><strong>Best for:</strong> holiday-rental portfolios and property groups.</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- ===== How it works ===== -->
+    <section class="section" id="how">
+      <h2>How FUSED LIVING works</h2>
+      <p>
+        No tinkering. No guessing. A clear process from first walkthrough to a home — or rental —
+        that quietly runs itself.
+      </p>
+
+      <div class="leadership-layout" style="align-items:flex-start;margin-top:1.5rem;">
+        <div class="reveal">
+          <ol class="checklist" style="list-style:decimal;padding-left:1.5rem;">
+            <li><strong>Walkthrough & intent.</strong> We map how you live or operate the property: routines, guests, pain points.</li>
+            <li><strong>System blueprint.</strong> We design lighting, access, Wi-Fi, sound and key climate touchpoints as one integrated system.</li>
+            <li><strong>Install & configure.</strong> We coordinate trades, configure devices, and build out scenes and automations.</li>
+            <li><strong>Stabilise & handover.</strong> We test real-world scenarios, then give you a simple one-page guide.</li>
+            <li><strong>Manage & improve.</strong> With Managed and Portfolio, we stay on to support, adjust, and improve over time.</li>
+          </ol>
+        </div>
+
+        <div class="media cover reveal">
+          <img src="easy-implementation.jpg"
+               alt="Copper-lit desk showing simple implementation of automation systems"
+               style="border-radius:12px;"
+               loading="lazy" decoding="async" />
+        </div>
+      </div>
+    </section>
+
+    <!-- ===== Tech & Integrations ===== -->
+    <section class="section" id="tech">
+      <h2>Built on trusted platforms. Orchestrated by FUSED ID.</h2>
+      <p>
+        FUSED LIVING uses proven hardware and mainstream platforms — from mesh routers and
+        smart locks to displays and speakers. Our value is in how we design, connect, and
+        maintain them as a single, stable system.
+      </p>
+
+<div class="grid grid-3-lg" style="gap:1.25rem;margin-top:1.5rem;">
+        <div class="feature-card card reveal">
+          <h3>Networking & Wi-Fi</h3>
+          <p>Mesh and wired networks sized to the property, with clear guest and owner zones.</p>
+        </div>
+        <div class="feature-card card reveal">
+          <h3>Access & Security</h3>
+          <p>Smart locks, keypads, and external cameras configured around privacy and safety.</p>
+        </div>
+        <div class="feature-card card reveal">
+          <h3>Voice & Control</h3>
+          <p>Voice assistants and a simple app experience so control feels natural, not technical.</p>
+        </div>
+      </div>
+    </section>
+
+  </main>
+
+  <!-- ===== Closing CTA Band ===== -->
+  <section class="closing-cta">
+    <div class="container closing-cta-inner">
+      <h2>You live. The systems run.</h2>
+      <p>
+        Ready to bring FUSED LIVING into your home or holiday rentals?
+        Let’s map the space and design a system that quietly takes care of the rest.
+      </p>
+      <a href="contacts.html" class="btn btn-primary">Book a Fused Living consult →</a>
+    </div>
+  </section>
+
+  <!-- ===== Footer ===== -->
+  <footer>
+    <div class="container foot">
+      <span>© FUSED ID</span>
+      <a href="/index.html" style="color:#fff">← Back to FUSED ID</a>
+    </div>
+  </footer>
+
+  <script>
+    // Mobile menu toggle
+    function toggleMenu(open){
+      const o = document.getElementById('overlayNav');
+      if(!o) return;
+      o.classList.toggle('open', !!open);
+      document.body.style.overflow = open ? 'hidden' : '';
+      const btn = document.querySelector('.hamburger');
+      if(btn) btn.setAttribute('aria-expanded', open ? 'true' : 'false');
+    }
+
+    // Simple reveal effect
+    (function(){
+      const els = Array.from(document.querySelectorAll('.reveal'));
+      if (!els.length) return;
+
+      if (!('IntersectionObserver' in window)) {
+        els.forEach(el => el.classList.add('visible'));
+        return;
+      }
+
+      const io = new IntersectionObserver((entries)=>{
+        entries.forEach(e=>{
+          if(e.isIntersecting){
+            e.target.classList.add('visible');
+            io.unobserve(e.target);
+          }
+        });
+      },{threshold:.12});
+
+      els.forEach(el=>io.observe(el));
+    })();
+  </script>
+</body>
+</html>

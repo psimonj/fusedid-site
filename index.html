@@ -516,6 +516,17 @@ html, body { overflow-x: hidden; }
   border-radius: 8px;     /* tighter corners to match slimmer look */
 }
 
+
+/* Keep normal nav links copper on hover */
+nav.primary a:hover {
+  color: var(--copper);
+}
+
+/* Override for primary buttons in nav */
+nav.primary .btn-primary:hover {
+  color: #fff; /* keeps text white */
+  background: linear-gradient(180deg, #ff9c4a, #f97a10); /* optional: slight hover shift */
+}
   </style>
 </head>
 
@@ -527,8 +538,8 @@ html, body { overflow-x: hidden; }
     <button class="nav-close" aria-label="Close menu" onclick="toggleMenu(false)">×</button>
 <div class="nav-panel">
   <a href="index.html" onclick="toggleMenu(false)">Human+AI</a>
-  <a href="ai-employees-engines.html" onclick="toggleMenu(false)">AI Employees & Engines</a>
-  <a href="Impact Mission.html" onclick="toggleMenu(false)">Impact Mission</a>
+  <a href="ai-employees-engines.html" onclick="toggleMenu(false)">Fused Business</a>
+  <a href="FusedLiving.html" onclick="toggleMenu(false)">Fused Living</a>
   <a href="contacts.html" onclick="toggleMenu(false)">Contact</a>
   <a href="mailto:sales@fusedid.com" onclick="toggleMenu(false)" style="margin-top:.6rem;color:var(--copper-light)">sales@fusedid.com</a>
 
@@ -546,9 +557,9 @@ html, body { overflow-x: hidden; }
 </a>
 <nav class="primary" aria-label="Primary">
   <a href="index.html">Human+AI</a>
-  <a href="ai-employees-engines.html">AI Employees & Engines</a>
-  <a href="Impact Mission.html">Impact Mission</a>
-  <a href="contacts.html" class="btn btn-primary btn-slim" style="margin-left:1rem;">Schedule A Demo</a>
+  <a href="ai-employees-engines.html">Fused Business</a>
+  <a href="FusedLiving.html">Fused Living</a>
+  <a href="contacts.html" class="btn btn-primary btn-slim" style="margin-left:1rem;">Schedule A Consult</a>
 </nav>
 
 
@@ -583,85 +594,68 @@ Fully managed AI employees and modular AI Engines you can plug into your busines
 
 
 
+
+
+
   <main class="container">
 
-    <!-- ===== Services Intro ===== -->
-  <section class="section" id="services">
-    <div class="leadership-layout">
+
+  <!-- ===== Fused Paths: Business & Living ===== -->
+  <section class="section" id="fused-paths" style="padding-top:3rem;padding-bottom:2rem;">
+    <div class="leadership-layout" style="align-items:stretch;gap:2.5rem;">
+
+      <!-- Copper boxes -->
       <div>
-        <h2>Human-Led. AI-Driven.</h2>
-        <p>
-          The market is flooded with AI tools. Tools that promise more productivity, more leverage, more output. And for the most part, they deliver.
-        </p>
-        <p>
-          But here’s the problem: AI makes you <em>think faster, write better, brainstorm endlessly</em>… yet the real work still lands back on your desk.FUSED ID was built to take that step further. Not another platform to learn. Not another dashboard to click through.
-        </p>
-        <p>
-          <strong>AI Employees</strong> – dedicated coworkers you embed into your team. They learn your workflows, deliver consistently, and grow with your business.
-        </p>
-        <p>
-          <strong>AI Engines</strong> – precise machines you command directly. Feed them inputs, they pump out results. Outcome-first, no small talk.
-        </p>
-        <p>
-          This isn’t about replacing people. It’s about extending your team with intelligent, tireless capacity that doesn’t sleep, doesn’t churn, and doesn’t slow down.
-        </p>
-        <p>
-          <strong>Hire an AI Employee. Or run an AI Engine. Either way — the work gets done. And it doesn’t come back to you.</strong>
-        </p>
+        <div class="card highlight" style="margin-bottom:1.5rem;">
+          <h3 style="margin-top:0;">Fused Business</h3>
+          <p style="margin-bottom:0.75rem;">
+            AI Employees and Engines for sales, operations, talent and knowledge —
+            fully managed, outcome-first, and overseen by executive operators.
+          </p>
+          <ul class="checklist">
+            <li>Role-based AI Employees embedded in your team</li>
+            <li>Modular Engines for prospecting, kaizen, talent &amp; knowledge</li>
+            <li>Contracts, KPIs and governance — not DIY prompts</li>
+          </ul>
+          <a href="ai-employees-engines.html" class="btn btn-primary btn-slim" style="margin-top:.5rem;">
+            Explore Fused Business →
+          </a>
+        </div>
+
+        <div class="card highlight">
+          <h3 style="margin-top:0;">Fused Living</h3>
+          <p style="margin-bottom:0.75rem;">
+            Intelligent automation for homes and holiday rentals — lighting, access,
+            Wi-Fi and sound working quietly in the background while you live, or host.
+          </p>
+          <ul class="checklist">
+            <li>Calm, connected living for families</li>
+            <li>Remote-ready setups for holiday rentals</li>
+            <li>Installed once, then managed and improved over time</li>
+          </ul>
+          <a href="fused-living.html" class="btn btn-primary btn-slim" style="margin-top:.5rem;">
+            Explore Fused Living →
+          </a>
+        </div>
       </div>
 
-      <div>
-        <img src="AI_first_management.jpg" alt="Leadership and AI Governance" style="border-radius: 8px;" />
-      </div>
-    </div>
-  </section>
+<!-- Shared image -->
+<div class="media"
+     style="min-width:260px;height:700px;border-radius:16px;overflow:hidden;display:flex;">
+  <img
+    src="fused-living-business.jpg"
+    alt="Warm, modern workspace representing AI systems running quietly in the background"
+    style="width:100%;height:auto;object-fit:cover;display:block;"
+    loading="lazy"
+    decoding="async"
+  />
+</div>
 
-
-<!-- === Employees vs Engines vs “Agents” === -->
-<section class="section" id="compare">
-  <div class="grid">
-    <div class="card reveal compare">
-      <h3>AI Employees</h3>
-      <p>Role-based, embedded, adaptive. Managed like real team members.</p>
-    </div>
-    <div class="card reveal compare">
-      <h3>AI Engines</h3>
-      <p>Task-complete systems with clear inputs → outputs. Scales instantly.</p>
-    </div>
-    <div class="card reveal compare muted">
-      <h3>“Agents”</h3>
-      <p>Generic term. Often DIY, unclear ownership, and variable outcomes.</p>
-    </div>
-    <div class="card reveal highlight">
-      <h3>Why FUSED ID</h3>
-      <p>Executive-run delivery. Governance. KPIs. No setup. Results you can measure.</p>
-    </div>
-  </div>
 </section>
 
 
-<section class="section" id="operating-model">
-  <div class="leadership-layout">
-    <div class="reveal">
-      <h2>The Executive Operating Layer</h2>
-      <p><strong>Configured. Monitored. Improved.</strong> Seasoned operators run your AI workforce — calibrating prompts, data, and workflows; reviewing outputs; and driving continuous improvement.</p>
-      <ul class="checklist">
-        <li>Outcome contracts and KPIs (no dashboards to learn)</li>
-        <li>ISO-style SOPs and audit trails on request</li>
-        <li>Weekly ops reviews; monthly strategy resets</li>
-      </ul>
-</br>
-      <a class="btn btn-primary" href="contacts.html">Talk to an Operator →</a>
-    </div>
-    <div class="reveal">
-      <img src="executive-operating-layer.jpg" 
-           alt="Executive operating layer metaphor with copper chess pieces" 
-           style="max-width:100%;border-radius:12px;box-shadow:0 6px 20px rgba(0,0,0,.25);" />
-    </div>
-  </div>
-</section>
 
-      <!-- Two Ways -->
+   <!-- Two Ways -->
 <section class="section two-paths reveal" id="embedding" style="margin-top:2rem;">
   <h2>EMBEDDING FUSED ID: AI Employees & Engines for Business</h2>
 
@@ -701,6 +695,61 @@ Fully managed AI employees and modular AI Engines you can plug into your busines
     <a class="btn btn-primary" href="ai-employees-engines.html">Explore the Engines →</a>
   </div>
 </div>
+
+
+
+<!-- === Employees vs Engines vs “Agents” === -->
+<section class="section" id="compare">
+  <div class="grid">
+    <div class="card reveal compare">
+      <h3>AI Employees</h3>
+      <p>Role-based, embedded, adaptive. Managed like real team members.</p>
+    </div>
+    <div class="card reveal compare">
+      <h3>AI Engines</h3>
+      <p>Task-complete systems with clear inputs → outputs. Scales instantly.</p>
+    </div>
+    <div class="card reveal compare muted">
+      <h3>“Agents”</h3>
+      <p>Generic term. Often DIY, unclear ownership, and variable outcomes.</p>
+    </div>
+    <div class="card reveal highlight">
+      <h3>Why FUSED ID</h3>
+      <p>Executive-run delivery. Governance. KPIs. No setup. Results you can measure.</p>
+    </div>
+  </div>
+</section>
+
+
+<section class="section" id="operating-model">
+  <div class="leadership-layout">
+    <div class="reveal">
+      <h2>The Executive Operating Layer</h2>
+      <p><strong>Configured. Monitored. Improved.</strong> Seasoned operators run your AI workforce — calibrating prompts, data, and workflows; reviewing outputs; and driving continuous improvement.</p>
+<p>
+Most AI tools make you think faster — not work less. They produce drafts, ideas and noise,
+but the real work still falls back on your desk. The Executive Operating Layer exists to
+take that burden off you entirely: no new platforms to learn, no dashboards to babysit,
+no prompts to maintain. Just clear inputs in, accountable outputs back, and a human-led
+AI system that quietly runs the work you shouldn’t be doing.
+</p>
+      <ul class="checklist">
+        <li>Outcome contracts and KPIs (no dashboards to learn)</li>
+        <li>ISO-style SOPs and audit trails on request</li>
+        <li>Weekly ops reviews; monthly strategy resets</li>
+      </ul>
+</br>
+      <a class="btn btn-primary" href="contacts.html">Talk to an Operator →</a>
+    </div>
+    <div class="reveal">
+      <img src="AI_first_management.jpg" 
+           alt="Executive operating layer" 
+           style="max-width:100%;border-radius:12px;box-shadow:0 6px 20px rgba(0,0,0,.25);" />
+    </div>
+  </div>
+</section>
+
+   
 
 
 

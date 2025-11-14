@@ -1,19 +1,19 @@
-# Allow all crawlers to index the production site
+# Block crawlers from proposal decks
 User-agent: *
+Disallow: /Proposals/
+Disallow: /proposals/          # in case of lowercase URLs
+
+# Still allow static assets globally
 Allow: /assets/
 Allow: /static/
 Allow: /images/
-Disallow:
-
-# (Optional) Be explicit about JS/CSS if you use CDNs or edge rules
 Allow: /*.js$
 Allow: /*.css$
 
-# (Optional) block staging/preview if they exist
-User-agent: *
+# Keep blocking non-prod areas
 Disallow: /preview/
 Disallow: /staging/
 Disallow: /sandbox/
 
-# Sitemap(s)
+# Sitemap
 Sitemap: https://www.fusedid.com/sitemap.xml

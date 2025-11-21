@@ -435,6 +435,20 @@
     grid-template-columns:repeat(3,minmax(0,1fr));
   }
 }
+
+
+/* Two-column grid that collapses to one column on mobile */
+.grid-2 {
+  display:grid;
+  gap:1.5rem;              /* or 2rem if you prefer */
+  grid-template-columns:repeat(2,minmax(0,1fr));
+}
+
+@media (max-width:599px){
+  .grid-2 {
+    grid-template-columns:1fr;
+  }
+}
   </style>
 </head>
 <body>
@@ -494,7 +508,7 @@
         and just enough intelligence to keep everything flowing.
       </p>
 
-      <div class="grid" style="grid-template-columns:repeat(2,minmax(0,1fr));gap:1.5rem;">
+      <div class="grid-2">
         <a href="#home" class="card highlight reveal" style="text-decoration:none;">
           <h3>For Your Home</h3>
           <p>

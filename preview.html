@@ -4,9 +4,9 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
 
-  <title>FUSED ID | Custom AI Deployments for Growing Businesses</title>
-  <meta name="description" content="FUSED ID designs, deploys and manages custom AI systems for sales, hiring, operations and knowledge management. Human-led, outcome-focused AI deployments for growing businesses.">
-  <meta name="keywords" content="custom AI deployments, AI engineering, AI automation, AI sales systems, AI hiring systems, AI operations, AI employees, AI engines, FUSED ID">
+  <title>FUSED ID | Turn AI Access Into Reliable Business Execution</title>
+  <meta name="description" content="FUSED ID designs and manages AI deployments that turn scattered AI use into reliable business execution across sales, hiring, knowledge and operations. Human-led, outcome-focused AI for growing businesses.">
+  <meta name="keywords" content="AI deployments, managed AI systems, AI execution, AI automation, business AI, AI employees, AI engines, AI sales, AI hiring, AI operations, FUSED ID">
   <meta name="author" content="FUSED ID">
 
   <link rel="apple-touch-icon" href="/apple-touch-icon.png">
@@ -45,6 +45,7 @@
     }
     a{color:inherit;text-decoration:none}
     img{max-width:100%;height:auto;display:block}
+
     .container{
       max-width:1200px;
       margin:0 auto;
@@ -58,12 +59,14 @@
       border-bottom:1px solid #eee;
       box-shadow:0 4px 18px rgba(0,0,0,.04);
     }
+
     .header-inner{
       display:flex;
       align-items:center;
       justify-content:space-between;
       padding:1rem 0;
     }
+
     .brand{
       display:flex;
       align-items:center;
@@ -73,13 +76,21 @@
       font-size:1.1rem;
       white-space:nowrap;
     }
+
     .brand img{height:28px;margin-right:8px}
-    nav.primary{display:flex;gap:2rem;align-items:center}
+
+    nav.primary{
+      display:flex;
+      gap:2rem;
+      align-items:center;
+    }
+
     nav.primary a{
       color:#000;
       font-weight:600;
       transition:color .25s ease;
     }
+
     nav.primary a:hover{color:var(--copper)}
 
     .hamburger{
@@ -93,6 +104,7 @@
       justify-content:center;
       cursor:pointer;
     }
+
     .hamburger span{
       display:block;
       width:18px;
@@ -100,6 +112,7 @@
       background:#000;
       position:relative;
     }
+
     .hamburger span:before,
     .hamburger span:after{
       content:"";
@@ -109,6 +122,7 @@
       height:2px;
       background:#000;
     }
+
     .hamburger span:before{top:-6px}
     .hamburger span:after{top:6px}
 
@@ -120,8 +134,11 @@
       z-index:1000;
       color:#fff;
     }
+
     .nav-overlay.open{display:block;animation:fadeIn .25s ease}
+
     @keyframes fadeIn{from{opacity:0}to{opacity:1}}
+
     .nav-panel{
       height:100%;
       display:flex;
@@ -132,12 +149,15 @@
       text-align:center;
       padding:2rem;
     }
+
     .nav-overlay a{
       font-size:1.55rem;
       font-weight:700;
       color:#fff;
     }
+
     .nav-overlay a:hover{color:var(--copper-light)}
+
     .nav-close{
       position:absolute;
       top:16px;
@@ -149,6 +169,7 @@
       background:transparent;
       color:#fff;
       font-size:22px;
+      cursor:pointer;
     }
 
     .btn{
@@ -165,26 +186,31 @@
       gap:.45rem;
       text-decoration:none;
     }
+
     .btn-primary{
       background:linear-gradient(180deg,var(--copper),#fa7c16);
       color:#220e05;
       box-shadow:0 6px 24px rgba(255,140,50,.35);
     }
+
     .btn-outline{
       background:transparent;
       border:2px solid rgba(255,255,255,.75);
       color:#fff;
     }
+
     .btn-dark-outline{
       background:transparent;
       border:2px solid #150e09;
       color:#150e09;
     }
+
     .btn-slim{
       padding:.55rem 1rem;
       font-size:.95rem;
       border-radius:8px;
     }
+
     nav.primary .btn-primary:hover{
       color:#fff;
       background:linear-gradient(180deg,#ff9c4a,#f97a10);
@@ -193,31 +219,40 @@
     .hero{
       position:relative;
       isolation:isolate;
-      min-height:68vh;
+      min-height:70vh;
       display:grid;
       place-items:center;
       overflow:hidden;
     }
-.hero::before{
-  content:"";
-  position:absolute;
-  inset:0;
-  z-index:-2;
-  background:
-    linear-gradient(180deg, rgba(21,14,9,.42) 0%, rgba(21,14,9,.58) 58%, rgba(21,14,9,.78) 100%),
-    url('leadership-governance.jpg') center/cover no-repeat;
-  filter:saturate(1.18) contrast(1.05);
-  transform:scale(1.02);
-}
 
-.hero::after{
-  display:none;
-}
+    .hero::before{
+      content:"";
+      position:absolute;
+      inset:0;
+      z-index:-2;
+      background:
+        linear-gradient(180deg, rgba(21,14,9,.62) 0%, rgba(21,14,9,.86) 58%, rgba(21,14,9,.96) 100%),
+        url('leadership-governance.jpg') center/cover no-repeat;
+      filter:saturate(1.05) contrast(1.02);
+      transform:scale(1.02);
+    }
+
+    .hero::after{
+      content:"";
+      position:absolute;
+      inset:0;
+      z-index:-1;
+      background:
+        radial-gradient(40% 25% at 20% 20%, rgba(255,140,50,.25), transparent 60%),
+        radial-gradient(30% 20% at 80% 75%, rgba(255,177,105,.15), transparent 70%);
+    }
+
     .hero-content{
       color:#fff;
-      max-width:1020px;
+      max-width:1060px;
       padding:7rem 0 5rem;
     }
+
     .kicker{
       color:var(--copper-light);
       text-transform:uppercase;
@@ -226,36 +261,52 @@
       font-size:.82rem;
       margin-bottom:.8rem;
     }
+
     .hero h1{
-      font-size:clamp(2.25rem, 4vw + 1rem, 4.4rem);
-      line-height:1.06;
-      margin:0 0 .75rem;
+      font-size:clamp(2.35rem,4vw + 1rem,4.6rem);
+      line-height:1.05;
+      margin:0 0 .85rem;
       font-weight:1000;
       max-width:980px;
     }
+
     .hero p{
-      max-width:780px;
-      font-size:clamp(1rem, 1vw + .6rem, 1.25rem);
+      max-width:820px;
+      font-size:clamp(1rem,1vw + .6rem,1.25rem);
       line-height:1.6;
       color:#f3f3f3;
-      margin:0 0 1.35rem;
+      margin:0 0 1.2rem;
     }
-    .hero-ctas{display:flex;gap:.75rem;flex-wrap:wrap}
 
-    .section{padding:4rem 1rem}
+    .hero-ctas{
+      display:flex;
+      gap:.75rem;
+      flex-wrap:wrap;
+      margin-top:1.35rem;
+    }
+
+    .section{padding:4rem 0}
+
     .section h2{
       font-size:clamp(1.8rem,2.5vw,2.45rem);
       font-weight:1000;
       margin:.2rem 0 1rem;
       line-height:1.15;
     }
-    .section p{font-size:1rem;line-height:1.65;margin:0 0 1.2rem}
+
+    .section p{
+      font-size:1rem;
+      line-height:1.65;
+      margin:0 0 1.2rem;
+    }
+
     .muted{color:var(--muted)}
 
     .grid{display:grid;gap:1.5rem}
     .grid-2{grid-template-columns:repeat(2,minmax(0,1fr))}
     .grid-3{grid-template-columns:repeat(3,minmax(0,1fr))}
     .grid-4{grid-template-columns:repeat(4,minmax(0,1fr))}
+
     .card{
       border:1px solid #eee;
       border-radius:14px;
@@ -263,20 +314,32 @@
       background:#fff;
       box-shadow:0 6px 20px rgba(0,0,0,.035);
     }
-    .card h3{margin:.1rem 0 .65rem;font-size:1.18rem}
-    .card p{margin-bottom:.9rem}
-    .card.highlight{
-      border:1px solid rgba(255,140,50,.75);
-      box-shadow:0 0 20px rgba(255,140,50,.25), 0 6px 22px rgba(0,0,0,.045);
+
+    .card h3{
+      margin:.1rem 0 .65rem;
+      font-size:1.18rem;
     }
 
-    .checklist{list-style:none;margin:0;padding:0}
+    .card p{margin-bottom:.9rem}
+
+    .card.highlight{
+      border:1px solid rgba(255,140,50,.75);
+      box-shadow:0 0 20px rgba(255,140,50,.25),0 6px 22px rgba(0,0,0,.045);
+    }
+
+    .checklist{
+      list-style:none;
+      margin:0;
+      padding:0;
+    }
+
     .checklist li{
       padding-left:1.45rem;
       position:relative;
       margin:.55rem 0;
       line-height:1.6;
     }
+
     .checklist li::before{
       content:"✓";
       position:absolute;
@@ -292,6 +355,7 @@
       gap:4rem;
       align-items:center;
     }
+
     .media img{
       width:100%;
       border-radius:14px;
@@ -307,43 +371,34 @@
       border-top:1px solid #eee;
       border-bottom:1px solid #eee;
     }
-    .soft-band .container{padding-top:4rem;padding-bottom:4rem}
 
-    .pill-flow{
-      display:flex;
-      flex-wrap:wrap;
-      justify-content:center;
-      align-items:center;
-      gap:1.25rem;
-      margin-top:2rem;
+    .soft-band .container{
+      padding-top:4rem;
+      padding-bottom:4rem;
     }
-    .pill-step{
-      flex:1 1 220px;
-      max-width:260px;
-      background:var(--espresso);
-      color:#fff;
-      border-radius:32px;
-      padding:1.6rem 1.3rem;
-      text-align:center;
-    }
-    .pill-step h3{
-      color:var(--copper-light);
-      margin:.1rem 0 .5rem;
-      font-size:1.15rem;
-    }
-    .pill-step p{
-      color:#f1f1f1;
-      margin:0;
-      font-size:.95rem;
-    }
-    .arrow{font-size:1.8rem;color:var(--copper)}
 
-    .deployment-card{
+    .pain-card{
+      position:relative;
+      overflow:hidden;
+    }
+
+    .pain-card::before{
+      content:"";
+      position:absolute;
+      inset:0;
+      background:radial-gradient(45% 45% at 10% 0%, rgba(255,140,50,.08), transparent 60%);
+      pointer-events:none;
+    }
+
+    .pain-card > *{position:relative}
+
+    .outcome-card{
       display:flex;
       flex-direction:column;
       min-height:100%;
     }
-    .deployment-card .tag{
+
+    .tag{
       display:inline-flex;
       align-self:flex-start;
       padding:.25rem .55rem;
@@ -355,7 +410,103 @@
       font-size:.78rem;
       margin-bottom:.75rem;
     }
-    .deployment-card .btn{margin-top:auto;align-self:flex-start}
+
+    .pill-flow{
+      display:flex;
+      flex-wrap:wrap;
+      justify-content:center;
+      align-items:center;
+      gap:1.25rem;
+      margin-top:2rem;
+    }
+
+    .pill-step{
+      flex:1 1 220px;
+      max-width:260px;
+      background:var(--espresso);
+      color:#fff;
+      border-radius:32px;
+      padding:1.6rem 1.3rem;
+      text-align:center;
+    }
+
+    .pill-step h3{
+      color:var(--copper-light);
+      margin:.1rem 0 .5rem;
+      font-size:1.15rem;
+    }
+
+    .pill-step p{
+      color:#f1f1f1;
+      margin:0;
+      font-size:.95rem;
+    }
+
+    .arrow{
+      font-size:1.8rem;
+      color:var(--copper);
+    }
+
+    .model-panel{
+      background:#150e09;
+      color:#fff;
+      border-radius:28px;
+      padding:2rem;
+      position:relative;
+      overflow:hidden;
+    }
+
+    .model-panel::before{
+      content:"";
+      position:absolute;
+      inset:0;
+      background:
+        radial-gradient(45% 40% at 20% 20%, rgba(255,140,50,.16), transparent 60%),
+        radial-gradient(35% 35% at 80% 80%, rgba(255,177,105,.1), transparent 65%);
+      pointer-events:none;
+    }
+
+    .model-panel > *{position:relative}
+
+    .model-panel h2,
+    .model-panel h3{color:#fff}
+
+    .model-panel p{color:#f3f3f3}
+
+    .model-grid{
+      display:grid;
+      grid-template-columns:1fr auto 1fr;
+      gap:1.25rem;
+      align-items:stretch;
+      margin-top:1.5rem;
+    }
+
+    .model-box{
+      border:1px solid rgba(255,140,50,.55);
+      border-radius:18px;
+      padding:1.35rem;
+      background:rgba(255,255,255,.045);
+    }
+
+    .model-box h3{
+      margin:.1rem 0 .65rem;
+      color:var(--copper-light);
+    }
+
+    .model-arrow{
+      display:flex;
+      align-items:center;
+      justify-content:center;
+      font-size:2rem;
+      color:var(--copper-light);
+    }
+
+    .cta-row{
+      display:flex;
+      flex-wrap:wrap;
+      gap:.75rem;
+      margin-top:1.2rem;
+    }
 
     .closing-cta{
       position:relative;
@@ -365,6 +516,7 @@
       padding:4.5rem 1rem;
       overflow:hidden;
     }
+
     .closing-cta::before{
       content:"";
       position:absolute;
@@ -374,15 +526,30 @@
         radial-gradient(30% 40% at 80% 80%, rgba(255,177,105,.14), transparent 60%);
       z-index:0;
     }
-    .closing-cta .container{position:relative;z-index:1}
+
+    .closing-cta .container{
+      position:relative;
+      z-index:1;
+    }
+
     .closing-cta h2{
       color:var(--copper-light);
       font-size:clamp(1.9rem,3vw,2.7rem);
       margin:0 0 .75rem;
     }
-    .closing-cta p{color:#f3f3f3;max-width:720px;margin:0 auto 1.4rem;line-height:1.6}
 
-    footer{background:#0f0a07;color:#ddd}
+    .closing-cta p{
+      color:#f3f3f3;
+      max-width:760px;
+      margin:0 auto 1.4rem;
+      line-height:1.6;
+    }
+
+    footer{
+      background:#0f0a07;
+      color:#ddd;
+    }
+
     .foot{
       display:flex;
       justify-content:space-between;
@@ -390,6 +557,7 @@
       gap:1rem;
       padding:1rem 0;
     }
+
     footer a{color:#fff}
 
     .reveal{
@@ -397,6 +565,7 @@
       transform:translateY(32px);
       transition:all .55s ease;
     }
+
     .reveal.visible{
       opacity:1;
       transform:none;
@@ -409,17 +578,19 @@
       .grid-4,.grid-3{grid-template-columns:repeat(2,minmax(0,1fr))}
       .split{grid-template-columns:1fr;gap:2rem}
       .media{order:-1}
+      .model-grid{grid-template-columns:1fr}
+      .model-arrow{transform:rotate(90deg)}
     }
+
     @media(max-width:640px){
       .grid-4,.grid-3,.grid-2{grid-template-columns:1fr}
-      .hero{min-height:72vh}
+      .hero{min-height:74vh}
       .hero-content{padding:5rem 0 4rem}
       .pill-flow{flex-direction:column}
       .arrow{transform:rotate(90deg)}
       .foot{flex-direction:column;align-items:flex-start}
+      .model-panel{border-radius:22px;padding:1.35rem}
     }
-
-
   </style>
 </head>
 
@@ -428,8 +599,9 @@
     <button class="nav-close" aria-label="Close menu" onclick="toggleMenu(false)">×</button>
     <div class="nav-panel">
       <a href="index.html" onclick="toggleMenu(false)">Home</a>
-      <a href="#solutions" onclick="toggleMenu(false)">Solutions</a>
-      <a href="#deployments" onclick="toggleMenu(false)">Deployments</a>
+      <a href="#pain" onclick="toggleMenu(false)">Pain</a>
+      <a href="#outcomes" onclick="toggleMenu(false)">Outcomes</a>
+      <a href="#how" onclick="toggleMenu(false)">How It Works</a>
       <a href="ai-employees-engines.html" onclick="toggleMenu(false)">AI Employees & Engines</a>
       <a href="contacts.html" onclick="toggleMenu(false)">Contact</a>
       <a href="mailto:sales@fusedid.com" onclick="toggleMenu(false)" style="margin-top:.6rem;color:var(--copper-light)">sales@fusedid.com</a>
@@ -444,8 +616,10 @@
       </a>
 
       <nav class="primary" aria-label="Primary">
-        <a href="#solutions">Solutions</a>
-        <a href="#deployments">Deployments</a>
+        <a href="index.html">Home</a>
+        <a href="#pain">Pain</a>
+        <a href="#outcomes">Outcomes</a>
+        <a href="#how">How It Works</a>
         <a href="ai-employees-engines.html">AI Employees & Engines</a>
         <a href="contacts.html" class="btn btn-primary btn-slim">Schedule A Consult</a>
       </nav>
@@ -460,303 +634,271 @@
     <div class="container">
       <div class="hero-content">
         <div class="kicker">Human-Led • AI-Enhanced</div>
-        <h1>Bespoke AI Deployments</h1>
-<p>
-Most AI solutions are generic. Businesses are not. FUSED ID designs, manages and continuously improves bespoke AI systems tailored to how your organisation actually operates.
-</p>
+        <h1>AI Is Everywhere. Reliable Execution Isn’t.</h1>
+        <p>
+          Most businesses already have access to AI. The problem is that the work still
+          depends on people prompting, checking, copying, following up and managing the process.
+        </p>
+        <p>
+          FUSED ID turns scattered AI use into managed business execution across sales,
+          hiring, knowledge and operations.
+        </p>
 
         <div class="hero-ctas">
           <a class="btn btn-primary" href="contacts.html">Book a Strategy Call →</a>
-          <a class="btn btn-outline" href="#deployments">See Example Deployments</a>
+          <a class="btn btn-outline" href="#pain">See the Problem We Solve</a>
         </div>
       </div>
     </div>
   </section>
 
   <main>
-    <section class="section container" id="solutions">
+    <section class="section container" id="pain">
       <div class="reveal">
-        <h2>Practical AI Systems Built Around Real Business Functions</h2>
-        <p class="muted" style="max-width:780px">
-          Most businesses do not need more software. They need systems that consistently
-          deliver outcomes. FUSED ID deploys AI into the functions that consume time,
-          create friction, or limit growth.
+        <h2>AI tools are easy to access. Reliable business execution is not.</h2>
+        <p class="muted" style="max-width:820px">
+          ChatGPT, Copilot and built-in app AI are useful. But they do not automatically
+          run your business function. They still need structure, judgement, workflow design,
+          quality control and someone accountable for the result.
+        </p>
+      </div>
+
+      <div class="grid grid-3" style="margin-top:1.5rem">
+        <div class="card pain-card reveal">
+          <h3>ChatGPT still needs an operator</h3>
+          <p>
+            Someone has to prompt it, check the output, move the work forward and make
+            sure the result is actually used.
+          </p>
+        </div>
+
+        <div class="card pain-card reveal">
+          <h3>Built-in AI stays trapped inside apps</h3>
+          <p>
+            Your business process crosses inboxes, CRMs, documents, spreadsheets and
+            people. App-level AI usually solves only fragments.
+          </p>
+        </div>
+
+        <div class="card pain-card reveal">
+          <h3>Automation without ownership breaks down</h3>
+          <p>
+            When workflows change, data is messy, or judgement is required, someone still
+            needs to manage the system.
+          </p>
+        </div>
+      </div>
+    </section>
+
+    <section class="soft-band" id="solution">
+      <div class="container">
+        <div class="split">
+          <div class="reveal">
+            <h2>FUSED ID turns AI access into reliable business execution.</h2>
+            <p>
+              We do not just give your team another AI tool. We design the workflow,
+              configure the AI, connect the process, monitor the output and keep improving
+              the system.
+            </p>
+            <p>
+              The result is a managed AI deployment that delivers work — not another
+              platform your team needs to operate.
+            </p>
+
+            <ul class="checklist">
+              <li>Clear business outcome</li>
+              <li>Defined workflow</li>
+              <li>Human oversight</li>
+              <li>Quality control</li>
+              <li>Continuous improvement</li>
+              <li>Accountability for delivery</li>
+            </ul>
+
+            <div class="cta-row">
+              <a class="btn btn-primary" href="contacts.html">Discuss a Deployment →</a>
+              <a class="btn btn-dark-outline" href="ai-employees-engines.html">See How Deployments Are Built</a>
+            </div>
+          </div>
+
+          <div class="media reveal">
+            <img src="AI_first_management.jpg" alt="AI deployment management and executive operating layer">
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="section container" id="outcomes">
+      <div class="reveal">
+        <h2>Where FUSED ID creates leverage</h2>
+        <p class="muted" style="max-width:820px">
+          We focus on functions where inconsistency, admin load and manual follow-through
+          slow the business down.
         </p>
       </div>
 
       <div class="grid grid-4" style="margin-top:1.5rem">
-        <div class="card reveal">
-          <h3>AI Sales Deployments</h3>
-          <p>Generate leads, qualify opportunities, automate outreach, and create a more consistent sales pipeline.</p>
-          <a class="btn btn-dark-outline btn-slim" href="ProspectFusedID/prospecting.html">View Prospecting →</a>
-        </div>
-
-        <div class="card reveal">
-          <h3>AI Hiring Deployments</h3>
-          <p>Screen candidates, coordinate interviews, evaluate applicants, and streamline recruitment workflows.</p>
-          <a class="btn btn-dark-outline btn-slim" href="TalentFusedID/talent.html">View Talent →</a>
-        </div>
-
-        <div class="card reveal">
-          <h3>AI Knowledge Deployments</h3>
-          <p>Turn documents, procedures, policies and company knowledge into searchable AI-powered systems.</p>
-          <a class="btn btn-dark-outline btn-slim" href="KnowledgeFusedID/knowledge.html">View Knowledge →</a>
-        </div>
-
-        <div class="card reveal">
-          <h3>AI Operations Deployments</h3>
-          <p>Improve quality, track KPIs, run root-cause analysis and automate operational workflows.</p>
-          <a class="btn btn-dark-outline btn-slim" href="KaizenFusedID/kaizen.html">View Kaizen →</a>
-        </div>
-      </div>
-    </section>
-
-<section class="soft-band" id="why-fused">
-  <div class="container">
-    <div class="split">
-      <div class="reveal">
-        <h2>AI Should Reduce Work — Not Add Another Thing to Manage</h2>
-        <p>
-          Most AI tools make you think faster, but they do not automatically make the work disappear.
-          They create drafts, ideas and outputs — but someone still has to prompt, check, copy,
-          follow up, decide and keep the process moving.
-        </p>
-        <p>
-          FUSED ID exists to close that gap. We turn AI into managed business systems that understand
-          how your organisation operates, adapt as your business changes, and deliver outcomes without
-          adding another platform for your team to manage.
-        </p>
-        <ul class="checklist">
-          <li>No dashboards to babysit</li>
-          <li>No internal AI expert required</li>
-          <li>No disconnected tools creating extra noise</li>
-          <li>Managed execution with human oversight</li>
-          <li>Continuous improvement as your business evolves</li>
-        </ul>
-      </div>
-
-      <div class="media reveal">
-        <img src="managed-ai-systems.jpg" alt="Managed AI systems with human oversight">
-      </div>
-    </div>
-  </div>
-</section>
-
-    <section class="soft-band" id="how">
-      <div class="container">
-        <div class="reveal">
-          <h2>From Manual Work to Managed AI Systems</h2>
-          <p class="muted" style="max-width:760px">
-            We do not just install tools. We map the work, engineer the system, deploy it
-            into your process, and keep improving it.
-          </p>
-        </div>
-
-        <div class="pill-flow">
-          <div class="pill-step reveal">
-            <h3>1. Discover</h3>
-            <p>We identify bottlenecks, repeatable work and valuable automation opportunities.</p>
-          </div>
-          <div class="arrow">➝</div>
-          <div class="pill-step reveal">
-            <h3>2. Design</h3>
-            <p>We engineer a deployment tailored to your workflows, tools and objectives.</p>
-          </div>
-          <div class="arrow">➝</div>
-          <div class="pill-step reveal">
-            <h3>3. Deploy</h3>
-            <p>We integrate the system into your existing business processes.</p>
-          </div>
-          <div class="arrow">➝</div>
-          <div class="pill-step reveal">
-            <h3>4. Improve</h3>
-            <p>We monitor outputs, refine performance and improve the system over time.</p>
-          </div>
-        </div>
-      </div>
-    </section>
-
-    <section class="section container" id="deployments">
-      <div class="reveal">
-        <h2>Example AI Deployments</h2>
-        <p class="muted" style="max-width:780px">
-          Every deployment is built from the same principle: clear inputs, reliable outputs,
-          human oversight, and measurable business impact.
-        </p>
-      </div>
-
-      <div class="grid grid-2" style="margin-top:1.5rem">
-        <div class="card deployment-card reveal">
+        <div class="card outcome-card reveal">
           <span class="tag">Sales</span>
-          <h3>Sales Acceleration Deployment</h3>
+          <h3>Pipeline Execution</h3>
           <p>
-            Combines prospect research, outreach automation, lead qualification,
-            CRM workflow and reporting.
+            Prospect research, lead enrichment, outreach workflows, qualification and
+            pipeline visibility.
           </p>
-          <ul class="checklist">
-            <li>ICP and market mapping</li>
-            <li>Lead enrichment and segmentation</li>
-            <li>LinkedIn and email outreach workflows</li>
-            <li>Pipeline visibility and test cycles</li>
-          </ul>
-          <p><strong>Outcome:</strong> More qualified conversations and a more predictable pipeline.</p>
-          <a class="btn btn-primary" href="ProspectFusedID/prospecting.html">Explore Prospecting Engine →</a>
+          <p><strong>Outcome:</strong> more consistent sales activity and better qualified conversations.</p>
         </div>
 
-        <div class="card deployment-card reveal">
+        <div class="card outcome-card reveal">
           <span class="tag">Hiring</span>
-          <h3>Talent Acquisition Deployment</h3>
+          <h3>Talent Acquisition</h3>
           <p>
-            Combines role intake, candidate screening, interview support, ranking
-            and onboarding workflows.
+            Role intake, candidate screening, interview support, ranking and onboarding
+            workflows.
           </p>
-          <ul class="checklist">
-            <li>Role criteria and advert creation</li>
-            <li>Candidate intake and document analysis</li>
-            <li>AI-assisted interviews and shortlists</li>
-            <li>Structured recruitment reporting</li>
-          </ul>
-          <p><strong>Outcome:</strong> Faster hiring with less management overhead.</p>
-          <a class="btn btn-primary" href="TalentFusedID/talent.html">Explore Talent Engine →</a>
+          <p><strong>Outcome:</strong> faster hiring with less administrative load.</p>
         </div>
 
-        <div class="card deployment-card reveal">
+        <div class="card outcome-card reveal">
           <span class="tag">Knowledge</span>
-          <h3>Knowledge Management Deployment</h3>
+          <h3>Knowledge Access</h3>
           <p>
-            Combines document intelligence, internal search, AI assistants,
-            source citations and governance controls.
+            Policies, procedures, documents and playbooks turned into searchable,
+            governed AI knowledge systems.
           </p>
-          <ul class="checklist">
-            <li>Policies, SOPs and playbook ingestion</li>
-            <li>Natural-language staff Q&A</li>
-            <li>Permission-controlled knowledge access</li>
-            <li>Conflict detection and content updates</li>
-          </ul>
-          <p><strong>Outcome:</strong> Instant access to company knowledge and less dependence on key individuals.</p>
-          <a class="btn btn-primary" href="KnowledgeFusedID/knowledge.html">Explore Knowledge Engine →</a>
+          <p><strong>Outcome:</strong> faster answers and less dependence on key people.</p>
         </div>
 
-        <div class="card deployment-card reveal">
+        <div class="card outcome-card reveal">
           <span class="tag">Operations</span>
-          <h3>Continuous Improvement Deployment</h3>
+          <h3>Continuous Improvement</h3>
           <p>
-            Combines KPI tracking, root-cause analysis, process reviews,
-            quality systems and improvement workflows.
+            KPI tracking, improvement workflows, root-cause analysis and ISO-style
+            governance.
           </p>
-          <ul class="checklist">
-            <li>Kaizen ticketing and approval workflows</li>
-            <li>ROI and impact tracking</li>
-            <li>AI-guided root-cause analysis</li>
-            <li>ISO-style governance and reporting</li>
-          </ul>
-          <p><strong>Outcome:</strong> Better operational performance and measurable improvement over time.</p>
-          <a class="btn btn-primary" href="KaizenFusedID/kaizen.html">Explore Kaizen Engine →</a>
+          <p><strong>Outcome:</strong> better control, fewer recurring problems and measurable improvement.</p>
         </div>
+      </div>
+
+      <div class="cta-row reveal">
+        <a class="btn btn-primary" href="contacts.html">Find Your Best Deployment →</a>
       </div>
     </section>
 
     <section class="soft-band" id="why">
       <div class="container">
-        <div class="split">
-          <div class="reveal">
-            <h2>Most AI Projects Fail Because Nobody Owns Them</h2>
+        <div class="reveal">
+          <h2>Most AI projects fail because nobody owns the outcome.</h2>
+          <p class="muted" style="max-width:820px">
+            Many businesses already have AI tools. What they lack is a managed operating
+            layer that turns those tools into reliable work.
+          </p>
+        </div>
+
+        <div class="grid grid-3" style="margin-top:1.5rem">
+          <div class="card reveal">
+            <h3>Tools create outputs</h3>
             <p>
-              Many AI projects become abandoned software. Many consultants build solutions
-              and leave. Many businesses buy tools without changing how work actually gets done.
+              AI can produce text, summaries, lists and drafts — but output is not the
+              same as execution.
             </p>
-            <p>
-              FUSED ID takes ownership of the deployment. We design it, deploy it,
-              monitor it, improve it and remain accountable for outcomes.
-            </p>
-            <ul class="checklist">
-              <li>Human oversight</li>
-              <li>Continuous optimisation</li>
-              <li>Business-first implementation</li>
-              <li>Executive-level accountability</li>
-              <li>No technical team required</li>
-              <li>No platform complexity</li>
-            </ul>
           </div>
 
-          <div class="media reveal">
-            <img src="ai-governance-review.jpg" alt="AI deployment management and executive operating layer">
+          <div class="card reveal">
+            <h3>Processes need ownership</h3>
+            <p>
+              Real business work crosses people, platforms, exceptions and decisions.
+              Someone must own the function.
+            </p>
+          </div>
+
+          <div class="card highlight reveal">
+            <h3>FUSED ID owns the deployment</h3>
+            <p>
+              We structure, operate and improve the system so the business gets outcomes,
+              not just AI activity.
+            </p>
           </div>
         </div>
       </div>
     </section>
 
-    <section class="section container" id="models">
+    <section class="section container" id="how">
       <div class="reveal">
-        <h2>Choose the Right Deployment Model</h2>
-        <p class="muted" style="max-width:780px">
-          AI Employees and AI Engines still matter. They are the delivery architecture
-          underneath FUSED ID’s custom AI deployments.
+        <h2>How a managed AI deployment works</h2>
+        <p class="muted" style="max-width:760px">
+          We start with the business function, not the technology. The goal is to make
+          the work more consistent, visible and scalable.
         </p>
       </div>
 
-      <div class="grid grid-3" style="margin-top:1.5rem">
-        <div class="card highlight reveal">
-          <h3>Managed AI Deployment</h3>
-          <p>
-            A complete AI solution designed, deployed, monitored and continuously improved by FUSED ID.
-          </p>
-          <p><strong>Best for:</strong> Businesses seeking outcomes without building internal AI capability.</p>
-          <a class="btn btn-primary btn-slim" href="contacts.html">Start a Deployment →</a>
+      <div class="pill-flow">
+        <div class="pill-step reveal">
+          <h3>1. Map the Work</h3>
+          <p>We identify the workflow, bottlenecks, decision points and measurable outcomes.</p>
         </div>
 
-        <div class="card reveal">
-          <h3>AI Employee</h3>
-          <p>
-            An AI-enhanced operator embedded into a defined role or business function.
-          </p>
-          <p><strong>Best for:</strong> Ongoing operational execution where accountability matters.</p>
-          <a class="btn btn-dark-outline btn-slim" href="ai-employees-engines.html#employees">Meet AI Employees →</a>
+        <div class="arrow">➝</div>
+
+        <div class="pill-step reveal">
+          <h3>2. Design the System</h3>
+          <p>We structure the AI deployment around your process, tools and team context.</p>
         </div>
 
-        <div class="card reveal">
-          <h3>AI Engine</h3>
-          <p>
-            A specialised AI system focused on a specific business outcome.
-          </p>
-          <p><strong>Best for:</strong> Targeted automation, repeatable work and scalable delivery.</p>
-          <a class="btn btn-dark-outline btn-slim" href="ai-employees-engines.html#engines">Explore AI Engines →</a>
-        </div>
-      </div>
-    </section>
+        <div class="arrow">➝</div>
 
-    <section class="section container" id="employees-preview">
-      <div class="split">
-        <div class="media reveal">
-          <img src="executive-ops.jpg" alt="Reliable AI operations with human oversight">
+        <div class="pill-step reveal">
+          <h3>3. Run the Deployment</h3>
+          <p>We operate, monitor and refine the system with human oversight.</p>
         </div>
 
-        <div class="reveal">
-          <h2>Powered by AI Employees & Engines</h2>
-          <p>
-            Behind every deployment is FUSED ID’s operating model: AI Engines provide
-            specialist capabilities, while AI Employees package those capabilities into
-            accountable roles and functions.
-          </p>
-          <p>
-            This means clients do not need to manage prompts, dashboards or disconnected
-            tools. They receive a managed system designed to deliver work.
-          </p>
-          <ul class="checklist">
-            <li>AI Employees for role-based execution</li>
-            <li>AI Engines for repeatable business capabilities</li>
-            <li>Human-led monitoring and improvement</li>
-            <li>Built for sales, hiring, knowledge and operations</li>
-          </ul>
-          <a class="btn btn-primary" href="ai-employees-engines.html">Explore AI Employees & Engines →</a>
+        <div class="arrow">➝</div>
+
+        <div class="pill-step reveal">
+          <h3>4. Improve Over Time</h3>
+          <p>We review outputs, tune workflows and keep improving performance.</p>
         </div>
       </div>
     </section>
 
-    <section class="soft-band" id="trust">
+    <section class="section container" id="architecture">
+      <div class="model-panel reveal">
+        <div class="kicker">Deployment architecture</div>
+        <h2>Built from AI Engines and AI Employees.</h2>
+        <p style="max-width:860px">
+          AI Engines provide specialist capabilities. AI Employees combine those
+          capabilities into accountable business functions. This architecture sits behind
+          FUSED ID deployments — the client sees outcomes, not disconnected tools.
+        </p>
+
+        <div class="model-grid">
+          <div class="model-box">
+            <h3>AI Engines</h3>
+            <p>
+              Specialist systems for repeatable capabilities across sales, hiring,
+              knowledge and operations.
+            </p>
+          </div>
+
+          <div class="model-arrow">➝</div>
+
+          <div class="model-box">
+            <h3>AI Employees</h3>
+            <p>
+              Role-based operators that package those capabilities into managed execution
+              with oversight and accountability.
+            </p>
+          </div>
+        </div>
+
+        <div class="cta-row">
+          <a class="btn btn-primary" href="ai-employees-engines.html">See How It Works →</a>
+        </div>
+      </div>
+    </section>
+
+    <section class="soft-band" id="fit">
       <div class="container">
         <div class="reveal">
-          <h2>Built for Businesses That Need Outcomes, Not Experiments</h2>
+          <h2>Built for businesses that need outcomes, not experiments.</h2>
         </div>
 
         <div class="grid grid-4" style="margin-top:1.5rem">
@@ -786,10 +928,10 @@ Most AI solutions are generic. Businesses are not. FUSED ID designs, manages and
 
   <section class="closing-cta">
     <div class="container">
-      <h2>Turn Repetitive Work Into Reliable Systems</h2>
+      <h2>Stop collecting AI tools. Start getting work done.</h2>
       <p>
-        Stop adding complexity. Deploy AI where it creates measurable business value.
-        Book a strategy session and identify where AI can have the greatest impact inside your business.
+        FUSED ID turns scattered AI access into managed business execution. Book a strategy
+        session and identify where AI can create the greatest impact inside your business.
       </p>
       <a href="contacts.html" class="btn btn-primary">Schedule a Consultation →</a>
     </div>

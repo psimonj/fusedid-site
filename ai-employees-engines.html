@@ -1,27 +1,29 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-
-<!-- Google tag (gtag.js) -->
-<script async src="https://www.googletagmanager.com/gtag/js?id=G-REPRFPPLDB"></script>
-<script>
-  window.dataLayer = window.dataLayer || [];
-  function gtag(){dataLayer.push(arguments);}
-  gtag('js', new Date());
-
-  gtag('config', 'G-REPRFPPLDB');
-</script>
-
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
+
   <title>AI Employees & AI Engines • FUSED ID</title>
-  <meta name="description" content="Explore FUSED ID AI Employees and modular AI Engines — outcome-first capacity with human oversight." />
+  <meta name="description" content="AI Employees and AI Engines are the delivery model behind FUSED ID custom AI deployments. Engines provide specialist capabilities; Employees turn them into accountable business functions." />
+  <meta name="keywords" content="AI Employees, AI Engines, custom AI deployments, AI operators, AI business systems, FUSED ID, AI sales, AI hiring, AI knowledge, AI kaizen" />
+  <meta name="author" content="FUSED ID" />
 
+  <link rel="apple-touch-icon" href="/apple-touch-icon.png">
+  <link rel="icon" type="image/x-icon" href="/favicon.ico">
+  <link rel="icon" type="image/png" sizes="32x32" href="/favicon.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
 
-
+  <!-- Google tag -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-REPRFPPLDB"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+    gtag('config', 'G-REPRFPPLDB');
+  </script>
 
   <style>
-    /* ===== Brand tokens ===== */
     :root{
       --espresso:#150e09;
       --copper:#ff8c32;
@@ -33,33 +35,36 @@
       --line:#eadfd7;
       --tint:#fbf9f7;
       --bg:#fff;
-      --text:#000;
+      --soft:#f9f9f9;
     }
 
-    /* ===== Base ===== */
     *{box-sizing:border-box}
-    html,body{margin:0;padding:0}
+    html,body{margin:0;padding:0;overflow-x:hidden}
     body{
       font-family:system-ui,-apple-system,Segoe UI,Roboto,Helvetica,Arial;
       color:var(--ink);
-      background:var(--bg)
+      background:var(--bg);
     }
     a{color:inherit;text-decoration:none}
     img{max-width:100%;height:auto;display:block}
-    .container{max-width:1200px;margin:0 auto;padding:0 1rem}
+    .container{
+      max-width:1200px;
+      margin:0 auto;
+      padding-inline:max(env(safe-area-inset-left), clamp(16px,5vw,32px));
+    }
 
-    /* ===== Header + overlay menu (aligned with Contacts) ===== */
     header{
       position:relative;
       z-index:5;
       background:#fff;
-      border-bottom:1px solid #eee
+      border-bottom:1px solid #eee;
+      box-shadow:0 4px 18px rgba(0,0,0,.04);
     }
     .header-inner{
       display:flex;
       align-items:center;
       justify-content:space-between;
-      padding:1rem 0
+      padding:1rem 0;
     }
     .brand{
       display:flex;
@@ -68,54 +73,58 @@
       letter-spacing:.06em;
       color:#000;
       font-size:1.1rem;
-      white-space:nowrap
+      white-space:nowrap;
     }
     .brand img{height:28px;margin-right:8px}
     nav.primary{
       display:flex;
-      gap:2.5rem;
-      align-items:center
+      gap:2rem;
+      align-items:center;
     }
     nav.primary a{
       color:#000;
       font-weight:600;
-      transition:color .25s ease
+      transition:color .25s ease;
     }
     nav.primary a:hover{color:var(--copper)}
 
     .hamburger{
       display:none;
-      width:40px;height:40px;
+      width:40px;
+      height:40px;
       border:1px solid #ddd;
       border-radius:8px;
       background:#fff;
       align-items:center;
       justify-content:center;
-      cursor:pointer
+      cursor:pointer;
     }
     .hamburger span{
       display:block;
-      width:18px;height:2px;
+      width:18px;
+      height:2px;
       background:#000;
-      position:relative
+      position:relative;
     }
     .hamburger span:before,
     .hamburger span:after{
       content:"";
       position:absolute;
       left:0;
-      width:18px;height:2px;
-      background:#000
+      width:18px;
+      height:2px;
+      background:#000;
     }
     .hamburger span:before{top:-6px}
     .hamburger span:after{top:6px}
 
     .nav-overlay{
-      position:fixed;inset:0;
-      background:radial-gradient(60% 60% at 20% 10%, rgba(255,140,50,.18), transparent 60%),var(--espresso);
+      position:fixed;
+      inset:0;
+      background:radial-gradient(60% 60% at 20% 10%, rgba(255,140,50,.18), transparent 60%), var(--espresso);
       display:none;
       z-index:1000;
-      color:#fff
+      color:#fff;
     }
     .nav-overlay.open{display:block;animation:fadeIn .25s ease}
     @keyframes fadeIn{from{opacity:0}to{opacity:1}}
@@ -127,175 +136,28 @@
       justify-content:center;
       gap:1.2rem;
       text-align:center;
-      padding:2rem
+      padding:2rem;
     }
     .nav-overlay a{
-      font-size:1.6rem;
+      font-size:1.55rem;
       font-weight:700;
-      letter-spacing:.02em;
       color:#fff;
-      transition:color .2s ease, text-shadow .2s ease
     }
-    .nav-overlay a:hover{
-      color:var(--copper-light);
-      text-shadow:0 0 16px var(--glow)
-    }
+    .nav-overlay a:hover{color:var(--copper-light)}
     .nav-close{
       position:absolute;
-      top:16px;right:16px;
-      width:44px;height:44px;
+      top:16px;
+      right:16px;
+      width:44px;
+      height:44px;
       border:1px solid rgba(255,255,255,.25);
       border-radius:10px;
       background:transparent;
       color:#fff;
       font-size:22px;
-      line-height:1
+      cursor:pointer;
     }
 
-    @media (max-width:960px){
-      nav.primary{display:none}
-      .hamburger{display:flex}
-      .brand{font-size:1rem}
-      .header-inner{padding-left:1.25rem;padding-right:1.25rem}
-    }
-
-    /* ===== Hero ===== */
-    .hero{
-      position:relative;
-      isolation:isolate;
-      min-height:46vh;
-      display:grid;
-      place-items:center;
-      overflow:hidden;
-      background:#0f0a07
-    }
-    .hero::before{
-      content:"";
-      position:absolute;inset:0;z-index:-2;
-      background:
-        linear-gradient(180deg, rgba(21,14,9,.65) 0%, rgba(21,14,9,.85) 55%, rgba(21,14,9,.95) 100%),
-        url('leadership-governance.jpg') center/cover no-repeat
-    }
-    .hero::after{
-      content:"";
-      position:absolute;inset:0;z-index:-1;
-      background:
-        radial-gradient(40% 25% at 20% 20%, rgba(255,140,50,.25), transparent 60%),
-        radial-gradient(30% 20% at 80% 75%, rgba(255,177,105,.15), transparent 70%)
-    }
-    .hero-inner{
-      color:#fff;
-      max-width:1060px;
-      margin:0 auto;
-      padding:4.5rem clamp(16px,4vw,28px) 3rem
-    }
-    .kicker{
-      color:var(--copper-light);
-      text-transform:uppercase;
-      letter-spacing:.14em;
-      font-weight:1000;
-      font-size:.82rem;
-      margin-bottom:.8rem
-    }
-    .title{
-      font-size:clamp(2rem,4vw+1rem,3.2rem);
-      line-height:1.08;
-      margin:0 0 .5rem;
-      font-weight:1000
-    }
-    .sub{
-      max-width:760px;
-      line-height:1.6;
-      color:#f3f3f3;
-      margin:0
-    }
-
-    /* ===== Sections & layout ===== */
-    .section{padding:4rem 1rem}
-    .section h2{
-      font-size:1.9rem;
-      font-weight:900;
-      margin:.2rem 0 1rem
-    }
-    .section p{font-size:1rem;margin:0 0 1.25rem}
-
-    .leadership-layout{
-      display:flex;
-      flex-wrap:wrap;
-      gap:2rem;
-      align-items:flex-start
-    }
-    .leadership-layout>div{flex:1;min-width:280px}
-
-    .grid{display:grid;gap:2rem}
-    @media (min-width:1025px){.grid{grid-template-columns:repeat(4,1fr)}}
-    @media (min-width:600px) and (max-width:1024px){.grid{grid-template-columns:repeat(2,1fr)}}
-    @media (max-width:599px){.grid{grid-template-columns:1fr}}
-
-    .card{
-      border:1px solid #eee;
-      border-radius:12px;
-      padding:2rem;
-      background:#fff
-    }
-
-    /* Employee portraits / icons */
-    .card-icon{
-      width:100%;
-      aspect-ratio:10/8;
-      background:#f5f5f5;
-      border-radius:8px;
-      margin-bottom:1rem;
-      background-size:cover;
-      background-position:50% 5%
-    }
-
-    .download{
-      display:inline-block;
-      margin-top:1rem;
-      padding:.6rem 1rem;
-      border:1px solid #000;
-      color:#000;
-      font-weight:800;
-      border-radius:8px
-    }
-
-    /* Agencies grid (Engines links) */
-    .agencies-grid{display:grid;gap:2rem}
-    @media (min-width:768px){.agencies-grid{grid-template-columns:repeat(2,1fr)}}
-    .agency-card{display:flex;flex-direction:column;height:100%}
-    .agency-card .card-icon{aspect-ratio:16/9;background-position:center}
-    .agency-card h3{margin-top:.25rem}
-    .agency-card ul{margin-left:1rem;line-height:1.8}
-    .agency-card .spacer{flex:1}
-
-    /* CTA band & footer */
-    .cta-band{
-      background:var(--tint);
-      border-top:1px solid #eadfd7;
-      border-bottom:1px solid #eadfd7
-    }
-    .cta-inner{
-      display:flex;
-      flex-wrap:wrap;
-      align-items:center;
-      justify-content:space-between;
-      gap:1rem;
-      padding:1.4rem 0
-    }
-    footer{
-      background:#0f0a07;
-      color:#ddd
-    }
-    .foot{
-      display:flex;
-      justify-content:space-between;
-      align-items:center;
-      gap:1rem;
-      padding:1rem 0
-    }
-
-    /* ===== Buttons ===== */
     .btn{
       appearance:none;
       border:0;
@@ -308,1028 +170,799 @@
       display:inline-flex;
       align-items:center;
       gap:.45rem;
-      text-decoration:none
+      text-decoration:none;
     }
     .btn-primary{
       background:linear-gradient(180deg,var(--copper),#fa7c16);
       color:#220e05;
-      box-shadow:0 6px 24px rgba(255,140,50,.35)
+      box-shadow:0 6px 24px rgba(255,140,50,.35);
     }
-    .btn-outline{
+    .btn-outline-light{
       background:transparent;
-      border:2px solid rgba(0,0,0,.7);
-      color:#000
+      border:2px solid rgba(255,255,255,.75);
+      color:#fff;
+    }
+    .btn-outline-dark{
+      background:transparent;
+      border:2px solid #150e09;
+      color:#150e09;
     }
     .btn-slim{
       padding:.55rem 1rem;
       font-size:.95rem;
-      border-radius:8px
-    }
-
-    /* Header CTA hover */
-    nav.primary a:hover{
-      color:var(--copper)
+      border-radius:8px;
     }
     nav.primary .btn-primary:hover{
       color:#fff;
-      background:linear-gradient(180deg,#ff9c4a,#f97a10)
+      background:linear-gradient(180deg,#ff9c4a,#f97a10);
     }
 
-    /* ===== Checklists ===== */
+    .hero{
+      position:relative;
+      isolation:isolate;
+      min-height:62vh;
+      display:grid;
+      place-items:center;
+      overflow:hidden;
+      background:#0f0a07;
+    }
+    .hero::before{
+      content:"";
+      position:absolute;
+      inset:0;
+      z-index:-2;
+      background:
+        linear-gradient(180deg, rgba(21,14,9,.62) 0%, rgba(21,14,9,.86) 58%, rgba(21,14,9,.96) 100%),
+        url('leadership-governance.jpg') center/cover no-repeat;
+      transform:scale(1.02);
+      filter:saturate(1.05) contrast(1.02);
+    }
+    .hero::after{
+      content:"";
+      position:absolute;
+      inset:0;
+      z-index:-1;
+      background:
+        radial-gradient(40% 25% at 20% 20%, rgba(255,140,50,.25), transparent 60%),
+        radial-gradient(30% 20% at 80% 75%, rgba(255,177,105,.15), transparent 70%);
+    }
+    .hero-content{
+      color:#fff;
+      max-width:1020px;
+      padding:6rem 0 4.5rem;
+    }
+    .kicker{
+      color:var(--copper-light);
+      text-transform:uppercase;
+      letter-spacing:.14em;
+      font-weight:900;
+      font-size:.82rem;
+      margin-bottom:.8rem;
+    }
+    .hero h1{
+      font-size:clamp(2.2rem, 4vw + 1rem, 4.1rem);
+      line-height:1.06;
+      margin:0 0 .75rem;
+      font-weight:1000;
+      max-width:980px;
+    }
+    .hero p{
+      max-width:790px;
+      font-size:clamp(1rem,1vw + .6rem,1.25rem);
+      line-height:1.6;
+      color:#f3f3f3;
+      margin:0 0 1.35rem;
+    }
+    .hero-ctas{display:flex;gap:.75rem;flex-wrap:wrap}
+
+    .section{padding:4rem 1rem}
+    .section h2{
+      font-size:clamp(1.8rem,2.5vw,2.45rem);
+      font-weight:1000;
+      margin:.2rem 0 1rem;
+      line-height:1.15;
+    }
+    .section p{
+      font-size:1rem;
+      line-height:1.65;
+      margin:0 0 1.2rem;
+    }
+    .muted{color:var(--muted)}
+
+    .grid{display:grid;gap:1.5rem}
+    .grid-2{grid-template-columns:repeat(2,minmax(0,1fr))}
+    .grid-3{grid-template-columns:repeat(3,minmax(0,1fr))}
+    .grid-4{grid-template-columns:repeat(4,minmax(0,1fr))}
+
+    .card{
+      border:1px solid #eee;
+      border-radius:14px;
+      padding:1.55rem;
+      background:#fff;
+      box-shadow:0 6px 20px rgba(0,0,0,.035);
+    }
+    .card h3{
+      margin:.1rem 0 .65rem;
+      font-size:1.18rem;
+    }
+    .card p{margin-bottom:.9rem}
+    .card.highlight{
+      border:1px solid rgba(255,140,50,.75);
+      box-shadow:0 0 20px rgba(255,140,50,.25),0 6px 22px rgba(0,0,0,.045);
+    }
+
     .checklist{list-style:none;margin:0;padding:0}
     .checklist li{
-      padding-left:1.4rem;
+      padding-left:1.45rem;
       position:relative;
-      margin:.45rem 0;
-      line-height:1.7
+      margin:.55rem 0;
+      line-height:1.6;
     }
     .checklist li::before{
       content:"✓";
       position:absolute;
-      left:.1rem;top:.05rem;
+      left:.1rem;
+      top:.02rem;
       color:var(--copper);
-      font-weight:1000
+      font-weight:1000;
     }
 
-    /* ===== Highlighted cards (shared) ===== */
-    .card.highlight{
-      border:1px solid rgba(255,140,50,0.8);
-      box-shadow:0 0 20px rgba(255,140,50,0.45),
-                 0 0 40px rgba(255,140,50,0.25);
+    .split{
+      display:grid;
+      grid-template-columns:1fr 1fr;
+      gap:4rem;
+      align-items:center;
+    }
+    .media img{
+      width:100%;
       border-radius:14px;
-      transition:box-shadow .3s ease, transform .2s ease
-    }
-    .card.highlight:hover{
-      box-shadow:0 0 25px rgba(255,140,50,0.6),
-                 0 0 50px rgba(255,140,50,0.35);
-      transform:translateY(-3px)
+      box-shadow:0 8px 26px rgba(0,0,0,.14);
+      object-fit:cover;
     }
 
-    .feature-card.card{
-      padding:1.25rem 1.5rem
+    .soft-band{
+      width:100vw;
+      margin-left:calc(50% - 50vw);
+      margin-right:calc(50% - 50vw);
+      background:var(--soft);
+      border-top:1px solid #eee;
+      border-bottom:1px solid #eee;
     }
-    .feature-card.card.highlight{
-      padding:1rem 1.25rem;
+    .soft-band .container{
+      padding-top:4rem;
+      padding-bottom:4rem;
+    }
+
+    .card-icon{
+      width:100%;
+      aspect-ratio:10/8;
+      background:#f5f5f5;
       border-radius:10px;
-      box-shadow:0 0 12px rgba(255,140,50,0.25),
-                 0 0 20px rgba(255,140,50,0.15)
-    }
-    .feature-card.card.highlight h3{
-      font-size:1rem;
-      margin:0 0 .35rem;
-      font-weight:800
-    }
-    .feature-card.card.highlight p{
-      font-size:.9rem;
-      line-height:1.45;
-      margin:0;
-      color:#444
+      margin-bottom:1rem;
+      background-size:cover;
+      background-position:50% 5%;
     }
 
-    /* ===== Employees / Team cards — equal height & blurb clamp ===== */
-    #employees .grid .card,
-    #team .grid .card{
+    .employee-card,
+    .engine-card{
       display:flex;
       flex-direction:column;
-      justify-content:space-between
+      height:100%;
     }
-    #employees .grid .card .blurb,
-    #team .grid .card .blurb{
-      flex-grow:1;
-      overflow:hidden;
-      text-overflow:ellipsis;
-      display:-webkit-box;
-      -webkit-line-clamp:6;
-      -webkit-box-orient:vertical
+    .employee-card .btn,
+    .engine-card .btn{
+      margin-top:auto;
+      align-self:flex-start;
     }
 
-    /* Staggered reveal timing for Employees */
-    #employees .grid .card.reveal:nth-child(1){transition-delay:0s}
-    #employees .grid .card.reveal:nth-child(2){transition-delay:.09s}
-    #employees .grid .card.reveal:nth-child(3){transition-delay:.18s}
-    #employees .grid .card.reveal:nth-child(4){transition-delay:.27s}
-
-    /* Stagger for Engines */
-    #engines .card.reveal:nth-child(1){transition-delay:0s}
-    #engines .card.reveal:nth-child(2){transition-delay:.09s}
-    #engines .card.reveal:nth-child(3){transition-delay:.18s}
-    #engines .card.reveal:nth-child(4){transition-delay:.27s}
-
-    /* ===== Ecosystem SVG panel ===== */
-    .ecosystem-horizontal{display:block}
-    .ecosystem-vertical{display:none}
-    @media (max-width:820px){
-      .ecosystem-horizontal{display:none}
-      .ecosystem-vertical{display:block}
+    .tag{
+      display:inline-flex;
+      align-self:flex-start;
+      padding:.25rem .55rem;
+      border-radius:999px;
+      background:#fbf3ed;
+      border:1px solid #eadfd7;
+      color:#7a4a2e;
+      font-weight:800;
+      font-size:.78rem;
+      margin-bottom:.75rem;
     }
-    .ecosystem svg{
-      width:100%;
-      height:auto;
-      display:block
-    }
-    .ecosystem.panel{
+
+    .model-panel{
       background:#150e09;
-      border-radius:12px;
-      overflow:hidden
+      color:#fff;
+      border-radius:28px;
+      padding:2rem;
+      position:relative;
+      overflow:hidden;
+    }
+    .model-panel::before{
+      content:"";
+      position:absolute;
+      inset:0;
+      background:
+        radial-gradient(45% 40% at 20% 20%, rgba(255,140,50,.16), transparent 60%),
+        radial-gradient(35% 35% at 80% 80%, rgba(255,177,105,.1), transparent 65%);
+      pointer-events:none;
+    }
+    .model-panel > *{position:relative}
+    .model-panel h2,
+    .model-panel h3{color:#fff}
+    .model-panel p{color:#f3f3f3}
+    .model-grid{
+      display:grid;
+      grid-template-columns:1fr auto 1fr;
+      gap:1.25rem;
+      align-items:stretch;
+      margin-top:1.5rem;
+    }
+    .model-box{
+      border:1px solid rgba(255,140,50,.55);
+      border-radius:18px;
+      padding:1.35rem;
+      background:rgba(255,255,255,.045);
+    }
+    .model-box h3{
+      margin:.1rem 0 .65rem;
+      color:var(--copper-light);
+    }
+    .model-arrow{
+      display:flex;
+      align-items:center;
+      justify-content:center;
+      font-size:2rem;
+      color:var(--copper-light);
     }
 
-    /* ===== Closing CTA (bottom of page) ===== */
+    .deployment-example{
+      display:flex;
+      flex-direction:column;
+      min-height:100%;
+    }
+    .deployment-example .btn{
+      margin-top:auto;
+      align-self:flex-start;
+    }
+
     .closing-cta{
       position:relative;
       background:#150e09;
       color:#fff;
       text-align:center;
-      padding:4rem 1rem;
-      border-top:2px solid rgba(255,140,50,0.4);
-      overflow:hidden
+      padding:4.5rem 1rem;
+      overflow:hidden;
     }
     .closing-cta::before{
       content:"";
       position:absolute;
       inset:0;
       background:
-        linear-gradient(180deg, rgba(21,14,9,.55) 0%, rgba(21,14,9,.75) 100%),
-        url('copper-glow.jpg') center/cover no-repeat;
-      opacity:.7;
-      z-index:0
+        radial-gradient(40% 50% at 20% 20%, rgba(255,140,50,.2), transparent 60%),
+        radial-gradient(30% 40% at 80% 80%, rgba(255,177,105,.14), transparent 60%);
+      z-index:0;
     }
-    .closing-cta-inner{
-      position:relative;
-      z-index:1
-    }
+    .closing-cta .container{position:relative;z-index:1}
     .closing-cta h2{
-      font-size:clamp(1.8rem,3vw,2.4rem);
-      font-weight:900;
-      margin-bottom:1rem;
-      color:var(--copper-light)
+      color:var(--copper-light);
+      font-size:clamp(1.9rem,3vw,2.7rem);
+      margin:0 0 .75rem;
     }
     .closing-cta p{
-      font-size:1.1rem;
-      margin-bottom:2rem;
-      color:#f3f3f3
+      color:#f3f3f3;
+      max-width:760px;
+      margin:0 auto 1.4rem;
+      line-height:1.6;
     }
 
-    /* ===== Mission / Case-study content (for when you pull Impact content in) ===== */
-
-    /* Mission pill block */
-.mission-pill-block{
-  background:var(--espresso);
-  color:#fff;
-  border-radius:40px;
-  padding:3rem 2rem;
-  max-width:1200px;
-  margin:0 auto;
-  text-align:center;
-  box-shadow:0 6px 24px rgba(0,0,0,.25)
-}
-
-    .mission-pill-block h2{
-      color:var(--copper-light);
-      text-transform:uppercase;
-      letter-spacing:.14em;
-      font-weight:900;
-      margin-bottom:1.5rem
-    }
-    .mission-pill-block p{
-      font-size:1.15rem;
-      line-height:1.7;
-      margin:0 auto 1.2rem;
-      max-width:800px
-    }
-    .mission-pill-block p strong{color:var(--copper-light)}
-
-    /* Blog / case study masonry grid */
-    .blog-grid{
-      column-count:3;
-      column-gap:1.5rem
-    }
-    @media (max-width:1024px){.blog-grid{column-count:2}}
-    @media (max-width:640px){.blog-grid{column-count:1}}
-
-    .post-card{
-      display:inline-block;
-      width:100%;
-      margin:0 0 1.5rem;
-      break-inside:avoid;
-      border:1px solid #eadfd7;
-      border-radius:16px;
-      background:#fff;
-      overflow:hidden;
+    footer{background:#0f0a07;color:#ddd}
+    .foot{
       display:flex;
-      flex-direction:column;
-      box-shadow:0 6px 20px rgba(0,0,0,.04);
-      transition:transform .25s ease, box-shadow .25s ease, border-color .25s ease
-    }
-    .post-card:hover{
-      transform:translateY(-4px);
-      box-shadow:0 10px 30px rgba(255,140,50,.2),
-                 0 4px 18px rgba(0,0,0,.06);
-      border-color:rgba(255,140,50,.55)
-    }
-    .post-media{
-      display:block;
-      aspect-ratio:16/9;
-      background:#fbf9f7
-    }
-    .post-media img{
-      width:100%;
-      height:100%;
-      object-fit:cover;
-      display:block;
-      transition:transform .35s ease
-    }
-    .post-card:hover .post-media img{transform:scale(1.03)}
-
-    .post-body{
-      padding:1rem 1rem 1.2rem;
-      display:flex;
-      flex-direction:column;
-      gap:.6rem
-    }
-    .post-meta{
-      display:flex;
+      justify-content:space-between;
       align-items:center;
-      gap:.6rem;
-      font-size:.9rem;
-      color:#666
+      gap:1rem;
+      padding:1rem 0;
     }
-    .post-title{
-      margin:.1rem 0 .1rem;
-      font-size:1.15rem;
-      line-height:1.3
-    }
-    .post-title a{text-decoration:none}
-    .post-excerpt{
-      color:#444;
-      margin:0 0 .2rem;
-      display:-webkit-box;
-      -webkit-line-clamp:var(--lines,4);
-      -webkit-box-orient:vertical;
-      overflow:hidden
-    }
-    .post-card:nth-child(3n) .post-excerpt{--lines:6}
-    .post-card:nth-child(4n) .post-excerpt{--lines:3}
+    footer a{color:#fff}
 
-    .post-meta .pill{
-      display:inline-block;
-      padding:.2rem .55rem;
-      border-radius:999px;
-      border:1px solid #eadfd7;
-      background:#fbf9f7;
-      color:#7a4a2e;
-      font-weight:800;
-      font-size:.78rem
-    }
-
-    .blog-more{margin-top:2rem;text-align:center}
-
-    /* Typing caret (optional, if you keep mission typing effect) */
-    .typing-caret{
-      border-right:2px solid var(--copper);
-      animation:caretBlink 1s step-end infinite
-    }
-    @keyframes caretBlink{50%{border-color:transparent}}
-
-    /* ===== Reveal animation ===== */
     .reveal{
       opacity:0;
-      transform:translateY(40px);
-      transition:all .4s ease
+      transform:translateY(32px);
+      transition:all .55s ease;
     }
     .reveal.visible{
       opacity:1;
-      transform:none
+      transform:none;
     }
 
-    /* Safe-area spacing parity */
-    .container,
-    .header-inner{
-      padding-inline:max(env(safe-area-inset-left), clamp(16px, 5vw, 32px))
+    @media(max-width:960px){
+      nav.primary{display:none}
+      .hamburger{display:flex}
+      .brand{font-size:1rem}
+      .grid-4,.grid-3{grid-template-columns:repeat(2,minmax(0,1fr))}
+      .split{grid-template-columns:1fr;gap:2rem}
+      .media{order:-1}
+      .model-grid{grid-template-columns:1fr}
+      .model-arrow{transform:rotate(90deg)}
     }
 
-    /* Mobile fixes for two-col panels */
-    @media (max-width:820px){
-      .leadership-layout{
-        display:grid;
-        grid-template-columns:1fr!important;
-        gap:2rem
-      }
-      .leadership-layout .media{order:-1}
-      .leadership-layout>*{width:100%}
+    @media(max-width:640px){
+      .hero{min-height:70vh}
+      .hero-content{padding:5rem 0 4rem}
+      .grid-4,.grid-3,.grid-2{grid-template-columns:1fr}
+      .foot{flex-direction:column;align-items:flex-start}
+      .model-panel{border-radius:22px;padding:1.35rem}
     }
   </style>
 </head>
-<body>
 
-  <!-- ===== Overlay Mobile Menu ===== -->
+<body>
   <div class="nav-overlay" id="overlayNav" aria-hidden="true">
     <button class="nav-close" aria-label="Close menu" onclick="toggleMenu(false)">×</button>
 <div class="nav-panel">
-  <a href="index.html" onclick="toggleMenu(false)">Human+AI</a>
-  <a href="ai-employees-engines.html" onclick="toggleMenu(false)">Fused Business</a>
+  <a href="index.html#solutions" onclick="toggleMenu(false)">Solutions</a>
+  <a href="index.html#deployments" onclick="toggleMenu(false)">Deployments</a>
+  <a href="ai-employees-engines.html" onclick="toggleMenu(false)">AI Employees & Engines</a>
   <a href="contacts.html" onclick="toggleMenu(false)">Contact</a>
   <a href="mailto:sales@fusedid.com" onclick="toggleMenu(false)" style="margin-top:.6rem;color:var(--copper-light)">sales@fusedid.com</a>
 </div>
-
-
-
   </div>
 
-  <!-- Header -->
-  <header class="shadow-sm">
+  <header>
     <div class="container header-inner">
-<a href="https://www.fusedid.com" class="brand">
-  <img src="fusedid logo -white bg.png" alt="Fused ID Logo" style="height:28px;vertical-align:middle;margin-right:8px;">
-  FUSED ID
-</a>
+      <a href="https://www.fusedid.com" class="brand">
+        <img src="fusedid logo -white bg.png" alt="FUSED ID Logo">
+        FUSED ID
+      </a>
+
 <nav class="primary" aria-label="Primary">
-  <a href="index.html">Human+AI</a>
-  <a href="ai-employees-engines.html">Fused Business</a>
-  <a href="contacts.html" class="btn btn-primary btn-slim" style="margin-left:1rem;">Schedule A Consult</a>
+  <a href="index.html#solutions">Solutions</a>
+  <a href="index.html#deployments">Deployments</a>
+  <a href="ai-employees-engines.html">AI Employees & Engines</a>
+  <a href="contacts.html" class="btn btn-primary btn-slim">Schedule A Consult</a>
 </nav>
+
       <button class="hamburger" aria-label="Open menu" aria-controls="overlayNav" aria-expanded="false" onclick="toggleMenu(true)">
         <span></span>
       </button>
     </div>
   </header>
 
-  <!-- ===== Hero ===== -->
-<section class="hero">
-  <div class="container hero-inner">
-    <div class="kicker">Human-Led • AI-Enhanced</div>
-    <h1 class="title">AI-Enhanced Systems That Run Sales, Hiring & Operations</h1>
-    <p class="sub">
-      Delivered through AI Employees with defined roles, behaviours, and personalities—so they integrate naturally into your team.
-    </p>
-  </div>
-</section>
-
-<main class="container">
-
-
-
-<section class="section" id="employees">
-
-  <h2>AI Employees That Run Real Business Functions</h2>
-
-<div class="grid">
-  <div class="card reveal">
-    <div class="card-icon" style="background-image:url('ethan.jpg');"></div>
-    <h3>Ethan — Sales Professional</h3>
-    <p class="blurb">
-      Ethan builds pipeline without the hard sell. He networks on LinkedIn, 
-      researches targets, runs cold email and social outreach, explains products 
-      and services, answers questions, and prepares quotations to progress 
-      qualified opportunities.
-    </p>
-    <a class="btn btn-primary" href="CV/ethan.html" target="_blank" rel="noopener">Download CV →</a>
-  </div>
-
-  <div class="card reveal">
-    <div class="card-icon" style="background-image:url('kaia.jpg');"></div>
-    <h3>Kaia — QMS Management</h3>
-    <p class="blurb">
-      Kaia embeds ISO 9001 in everyday work. She maps processes, analyses data, 
-      tracks KPIs, conducts process audits, documents and investigates NCRs with 
-      root cause analysis, and drives continuous improvement through a practical, 
-      hands-on approach.
-    </p>
-    <a class="btn btn-primary" href="CV/kaia.html" target="_blank" rel="noopener">Download CV →</a>
-  </div>
-
-  <div class="card reveal">
-    <div class="card-icon" style="background-image:url('lara.jpg');"></div>
-    <h3>Lara — People & Culture</h3>
-    <p class="blurb">
-      Lara keeps people and culture running smoothly. She coordinates hiring and 
-      onboarding, manages reviews and engagement rhythms, resolves issues early, 
-      and keeps communication clear so teams remain compliant, supported, and 
-      productive.
-    </p>
-    <a class="btn btn-primary" href="CV/Lara.html" target="_blank" rel="noopener">Download CV →</a>
-  </div>
-
-  <div class="card reveal">
-    <div class="card-icon" style="background-image:url('nova.jpg');"></div>
-    <h3>Nova — Customise Your Next Hire</h3>
-    <p class="blurb">
-      Nova adapts to your role and tools. They learn workflows fast, manage tasks, 
-      schedules and communications, prepare drafts and updates, and keep priorities 
-      moving — flexible capacity that plugs into your team without extra headcount.
-    </p>
-    <a class="btn btn-primary" href="CV/nova.html" target="_blank" rel="noopener">Download CV →</a>
-  </div>
-</div>
-</section>
-
-
-<!-- ===== Reliability & Consistency ===== -->
-<section class="section" id="reliability">
-  <div class="leadership-layout" style="align-items:center;">
-    <div class="media cover reveal">
-      <img src="executive-ops.jpg"
-           alt="Reliable AI operations with consistent performance"
-           loading="lazy" decoding="async" />
-    </div>
-
-    <div class="reveal">
-      <h2>Reliable. Consistent. Always On.</h2>
-      <ul class="checklist">
-        <li>Never takes a day off — always available when you need them</li>
-        <li>Delivers steady, high-quality work without interruptions</li>
-        <li>Overseen by experienced managers to ensure consistency and accountability</li>
-      </ul>
-      <a class="btn btn-primary" href="contacts.html" style="margin-top:1rem;">Schedule a Consultation →</a>
-    </div>
-  </div>
-
-<section class="section" id="employees">
-
-
-
-  <div class="leadership-layout" style="display:grid; grid-template-columns: 1fr 2fr; gap:2rem; align-items:start;">
-    <!-- Left column: text -->
-    <div>
-      <p>
-AI Employees aren’t software—they’re digital colleagues that take ownership of defined business functions.
-They deliver consistent execution, integrate seamlessly into your operations, and are managed for measurable performance without the friction of recruitment or onboarding delays.
-      </p>
-      <p>
-Every AI Employee is role-trained, context-aware, and refined by experienced operators—ensuring accountability, brand alignment, and results you can trust. They operate using FUSED Engines, combining modular capabilities into a single, accountable function.
-      </p>
-      <p>
-Think of it as hiring top-tier talent without the HR admin, payroll overheads, or downtime. Explore their CVs below to see how they work and where they fit within your business.
-      </p>
-    </div>
-
-    <!-- Right column: feature highlight boxes in 2-column grid -->
-    <div class="grid" style="grid-template-columns:repeat(2,1fr); gap:1.25rem;">
-      <div class="feature-card card highlight">
-        <h3>Strategy & Review</h3>
-        <p>Regular performance reviews and improvement planning built into delivery.</p>
+  <section class="hero">
+    <div class="container">
+      <div class="hero-content">
+        <div class="kicker">Delivery Architecture • Human-Led • AI-Enhanced</div>
+        <h1>AI Employees & AI Engines</h1>
+        <p>
+          The delivery model behind FUSED ID’s custom AI deployments. AI Engines provide
+          specialist capabilities. AI Employees turn those capabilities into accountable
+          business functions, managed by human operators.
+        </p>
+        <div class="hero-ctas">
+          <a class="btn btn-primary" href="#employees">Explore AI Employees →</a>
+          <a class="btn btn-outline-light" href="#engines">Explore AI Engines</a>
+          <a class="btn btn-outline-light" href="contacts.html">Book a Deployment Call</a>
+        </div>
       </div>
-      <div class="feature-card card highlight">
-        <h3>Ongoing Training</h3>
-        <p>Continuous optimisation, fine-tuning, and retraining included.</p>
-      </div>
-      <div class="feature-card card highlight">
-        <h3>Always Connected</h3>
-        <p>24/7 feedback channels keep Employees aligned to your team’s needs.</p>
-      </div>
-      <div class="feature-card card highlight">
-        <h3>Conflict Managed</h3>
-        <p>Escalations and disputes are handled by our executive operators.</p>
-      </div>
-      <div class="feature-card card highlight" style="grid-column: span 2;">
-        <h3>Human-Led</h3>
-        <p>Every Employee is overseen by people, ensuring governance and reliability.</p>
-      </div>
-    </div>
-  </div>
-
-
-    </section>
-
-
-
-<!-- ===== Our Mission ===== -->
-<section class="section" id="our-mission">
-  <div class="mission-pill-block reveal">
-    <h2>Our Mission</h2>
-
-    <p>
-      Every business is born from creativity — a founder’s instinct, a spark of innovation,
-      a way of doing things that cuts through the noise. But somewhere along the way,
-      operations begin to swell. The work multiplies. Admin grows teeth.
-    </p>
-
-    <p>
-      Too many leaders end up maintaining the engine instead of steering the vision.
-      Creativity becomes squeezed between meetings, reporting, and inbox firefighting.
-    </p>
-
-    <p>
-      At FUSED ID, our mission is simple:
-      <strong>return time, momentum and focus to the people who build things.</strong>
-      We deliver AI Employees and Engines that don’t distract your team — they expand it.
-      Reliable, specialised, and overseen by humans who make sure performance improves
-      month after month.
-    </p>
-
-    <p class="accent">
-      Because when creativity leads and the engines run, business moves at the speed of imagination.
-    </p>
-  </div>
-</section>
-
-
-
-<section class="section" style="padding:0; margin:4rem 0;">
-  <div style="background:#150e09;border-radius:40px;overflow:hidden;">
-<div class="ecosystem ecosystem-horizontal">
-    <svg viewBox="0 0 1200 500" role="img" aria-label="FusedID ecosystem: Engines infuse skills into AI Employees under oversight" style="width:100%;height:auto;display:block">
-      <defs>
-        <!-- Copper gradients -->
-        <linearGradient id="copperGrad" x1="0" x2="0" y1="0" y2="1">
-          <stop offset="0%" stop-color="#ff8c32"/>
-          <stop offset="100%" stop-color="#fa7c16"/>
-        </linearGradient>
-        <radialGradient id="copperGlow" cx="50%" cy="50%" r="50%">
-          <stop offset="0%" stop-color="rgba(255,140,50,.55)"/>
-          <stop offset="100%" stop-color="rgba(255,140,50,0)"/>
-        </radialGradient>
-        <filter id="softGlow" x="-50%" y="-50%" width="200%" height="200%">
-          <feGaussianBlur stdDeviation="6" result="blur" />
-          <feMerge>
-            <feMergeNode in="blur"/>
-            <feMergeNode in="SourceGraphic"/>
-          </feMerge>
-        </filter>
-      </defs>
-
-      <!-- Headline -->
-      <g transform="translate(600,56)" text-anchor="middle" font-family="system-ui,Segoe UI,Roboto,Helvetica,Arial">
-        <text y="0" fill="#ffb169" font-size="26" font-weight="900">Engines form the skills. Employees bring them to life.</text>
-        <text y="32" fill="#f3f3f3" font-size="16">
-          Modular Engines infuse capabilities; human oversight integrates them into accountable AI Employees.
-        </text>
-      </g>
-
-      <!-- Oversight ring around central employee -->
-      <g transform="translate(600,300)">
-        <!-- glow -->
-        <circle r="126" fill="url(#copperGlow)"></circle>
-        <!-- ring -->
-        <circle r="120" fill="none" stroke="url(#copperGrad)" stroke-width="2" opacity=".9"></circle>
-
-        <!-- Central employee node (just circle now) -->
-        <g filter="url(#softGlow)">
-          <circle r="70" fill="#1c120c" stroke="url(#copperGrad)" stroke-width="2"/>
-        </g>
-      </g>
-
-      <!-- Labels ABOVE and OUTSIDE the ring -->
-      <text x="600" y="140" fill="#ffffff" font-size="20" font-weight="900" text-anchor="middle" font-family="system-ui,Segoe UI,Roboto,Helvetica,Arial">
-        AI Employee
-      </text>
-      <text x="600" y="164" fill="#ffb169" font-size="13" text-anchor="middle" font-family="system-ui,Segoe UI,Roboto,Helvetica,Arial">
-        Oversight • Context • Accountability
-      </text>
-
-      <!-- Engine nodes (2x left, 2x right) -->
-      <!-- Left column -->
-      <g transform="translate(250,190)" font-family="system-ui,Segoe UI,Roboto,Helvetica,Arial">
-        <g filter="url(#softGlow)">
-          <rect x="-120" y="-50" rx="12" ry="12" width="240" height="100"
-                fill="#1c120c" stroke="url(#copperGrad)" stroke-width="1.5"/>
-          <text x="0" y="-10" fill="#ffb169" font-size="14" font-weight="900" text-anchor="middle">FusedProspecting</text>
-          <text x="0" y="14" fill="#e9e9e9" font-size="12" text-anchor="middle">Lead research • Enrichment • Outreach</text>
-        </g>
-      </g>
-
-      <g transform="translate(250,340)" font-family="system-ui,Segoe UI,Roboto,Helvetica,Arial">
-        <g filter="url(#softGlow)">
-          <rect x="-120" y="-50" rx="12" ry="12" width="240" height="100"
-                fill="#1c120c" stroke="url(#copperGrad)" stroke-width="1.5"/>
-          <text x="0" y="-10" fill="#ffb169" font-size="14" font-weight="900" text-anchor="middle">FusedKnowledge</text>
-          <text x="0" y="14" fill="#e9e9e9" font-size="12" text-anchor="middle">Answers from playbooks • Q&A • Recall</text>
-        </g>
-      </g>
-
-      <!-- Right column -->
-      <g transform="translate(950,190)" font-family="system-ui,Segoe UI,Roboto,Helvetica,Arial">
-        <g filter="url(#softGlow)">
-          <rect x="-120" y="-50" rx="12" ry="12" width="240" height="100"
-                fill="#1c120c" stroke="url(#copperGrad)" stroke-width="1.5"/>
-          <text x="0" y="-10" fill="#ffb169" font-size="14" font-weight="900" text-anchor="middle">FusedTalent</text>
-          <text x="0" y="14" fill="#e9e9e9" font-size="12" text-anchor="middle">Role intake • Screening • Shortlists</text>
-        </g>
-      </g>
-
-      <g transform="translate(950,340)" font-family="system-ui,Segoe UI,Roboto,Helvetica,Arial">
-        <g filter="url(#softGlow)">
-          <rect x="-120" y="-50" rx="12" ry="12" width="240" height="100"
-                fill="#1c120c" stroke="url(#copperGrad)" stroke-width="1.5"/>
-          <text x="0" y="-10" fill="#ffb169" font-size="14" font-weight="900" text-anchor="middle">FusedKaizen</text>
-          <text x="0" y="14" fill="#e9e9e9" font-size="12" text-anchor="middle">CAPA • Audits • Continuous improvement</text>
-        </g>
-      </g>
-
-      <!-- Connectors to central node -->
-      <g stroke="url(#copperGrad)" stroke-width="2" opacity=".9">
-        <!-- From left engines to ring -->
-        <path d="M 370 190 C 460 210, 520 230, 600 300" fill="none"/>
-        <path d="M 370 340 C 460 320, 520 310, 600 300" fill="none"/>
-        <!-- From right engines to ring -->
-        <path d="M 830 190 C 740 210, 680 230, 600 300" fill="none"/>
-        <path d="M 830 340 C 740 320, 680 310, 600 300" fill="none"/>
-      </g>
-
-      <!-- Caption -->
-      <g transform="translate(600,480)" text-anchor="middle" font-family="system-ui,Segoe UI,Roboto,Helvetica,Arial">
-        <text fill="#e8e0d8" font-size="13">
-          Engines = modular skills. Oversight integrates skills into an accountable AI Employee.
-        </text>
-      </g>
-    </svg>
-  </div>
-</section>
-
-
-
-
-
-
-
-<div class="ecosystem ecosystem-vertical panel">
-  <svg viewBox="0 0 390 780" role="img" aria-label="Mobile ecosystem: Engines infuse skills into an AI Employee under oversight" style="width:100%;height:auto;display:block">
-    <defs>
-      <!-- Unique IDs to avoid collisions with desktop SVG -->
-      <linearGradient id="copperGradM" x1="0" x2="0" y1="0" y2="1">
-        <stop offset="0%"  stop-color="#ff8c32" />
-        <stop offset="100%" stop-color="#fa7c16" />
-      </linearGradient>
-      <radialGradient id="copperGlowM" cx="50%" cy="50%" r="50%">
-        <stop offset="0%"   stop-color="#ff8c32" stop-opacity="0.45"/>
-        <stop offset="100%" stop-color="#ff8c32" stop-opacity="0"/>
-      </radialGradient>
-      <filter id="softGlowM" x="-50%" y="-50%" width="200%" height="200%">
-        <feGaussianBlur stdDeviation="5" result="b"/>
-        <feMerge><feMergeNode in="b"/><feMergeNode in="SourceGraphic"/></feMerge>
-      </filter>
-    </defs>
-
-    <!-- Compact headline -->
-    <g transform="translate(195,28)" text-anchor="middle" font-family="system-ui,Segoe UI,Roboto,Helvetica,Arial">
-      <text y="0" fill="#ffb169" font-size="16" font-weight="900">Engines → skills • Employees → outcomes</text>
-    </g>
-
-    <!-- Top engines -->
-    <g transform="translate(195,110)" text-anchor="middle" font-family="system-ui,Segoe UI,Roboto,Helvetica,Arial" filter="url(#softGlowM)">
-      <rect x="-115" y="-32" rx="12" ry="12" width="230" height="64" fill="#1c120c" stroke="url(#copperGradM)" stroke-width="1.6"/>
-      <text y="-6" fill="#ffb169" font-size="14" font-weight="900">FusedProspecting</text>
-      <text y="14" fill="#e9e9e9" font-size="12">Leads • Outreach</text>
-    </g>
-
-    <g transform="translate(195,190)" text-anchor="middle" font-family="system-ui,Segoe UI,Roboto,Helvetica,Arial" filter="url(#softGlowM)">
-      <rect x="-115" y="-32" rx="12" ry="12" width="230" height="64" fill="#1c120c" stroke="url(#copperGradM)" stroke-width="1.6"/>
-      <text y="-6" fill="#ffb169" font-size="14" font-weight="900">FusedTalent</text>
-      <text y="14" fill="#e9e9e9" font-size="12">Recruitment</text>
-    </g>
-
-    <!-- Label well above the ring -->
-    <g transform="translate(195,270)" text-anchor="middle" font-family="system-ui,Segoe UI,Roboto,Helvetica,Arial">
-      <text y="0"  fill="#ffffff" font-size="18" font-weight="900">AI Employee</text>
-      <text y="22" fill="#ffb169" font-size="12">Oversight • Context • Accountability</text>
-    </g>
-
-    <!-- Oversight ring + node (high-contrast, visible on mobile) -->
-    <g transform="translate(195,430)">
-      <!-- soft glow field -->
-      <circle r="118" fill="url(#copperGlowM)"></circle>
-      <!-- outer copper ring -->
-      <circle r="104" fill="none" stroke="#ff8c32" stroke-width="3" opacity=".95"></circle>
-      <!-- inner highlight ring for definition -->
-      <circle r="76"  fill="none" stroke="#ffb169" stroke-width="1.5" opacity=".9"></circle>
-      <!-- central node -->
-      <g filter="url(#softGlowM)">
-        <circle r="62" fill="#1c120c" stroke="#ff8c32" stroke-width="2"/>
-      </g>
-    </g>
-
-    <!-- Bottom engines -->
-    <g transform="translate(195,600)" text-anchor="middle" font-family="system-ui,Segoe UI,Roboto,Helvetica,Arial" filter="url(#softGlowM)">
-      <rect x="-115" y="-32" rx="12" ry="12" width="230" height="64" fill="#1c120c" stroke="url(#copperGradM)" stroke-width="1.6"/>
-      <text y="-6" fill="#ffb169" font-size="14" font-weight="900">FusedKnowledge</text>
-      <text y="14" fill="#e9e9e9" font-size="12">Q&amp;A • Recall</text>
-    </g>
-
-    <g transform="translate(195,680)" text-anchor="middle" font-family="system-ui,Segoe UI,Roboto,Helvetica,Arial" filter="url(#softGlowM)">
-      <rect x="-115" y="-32" rx="12" ry="12" width="230" height="64" fill="#1c120c" stroke="url(#copperGradM)" stroke-width="1.6"/>
-      <text y="-6" fill="#ffb169" font-size="14" font-weight="900">FusedKaizen</text>
-      <text y="14" fill="#e9e9e9" font-size="12">Improvement</text>
-    </g>
-
-
-
-    <!-- Caption -->
-    <g transform="translate(195,758)" text-anchor="middle" font-family="system-ui,Segoe UI,Roboto,Helvetica,Arial">
-      <text fill="#e8e0d8" font-size="12">Engines = modular skills. Oversight integrates them into an AI Employee.</text>
-    </g>
-  </svg>
-</div>
-
-
-
-
-
-
-
-
-
-    <!-- ===== ENGINES — MODULAR AI ===== -->
-    <section class="section" id="engines">
-      <h2>FUSED ENGINES — Modular AI That Runs Your Business</h2>
-      <p>Each FUSED Engine is a self-contained business system powered by AI employees and real human oversight. Plug them in and let them run — no extra tools, no new headcount, no management overhead.</p>
-
-
-
-<div class="grid">
-  <div class="card reveal">
-    <div class="card-icon" style="background-image:url('kaizen.jpg');"></div>
-    <h3>FusedKaizen — Continuous Improvement</h3>
-    <p class="blurb">
-      Drive ISO-aligned improvements: CAPA, audits, KPI tracking, and steady operational gains.
-    </p>
-    <a class="btn btn-primary" href="KaizenFusedID/kaizen.html">Learn More →</a>
-  </div>
-
-  <div class="card reveal">
-    <div class="card-icon" style="background-image:url('prospecting.jpg');"></div>
-    <h3>FusedProspecting — Lead Intelligence</h3>
-    <p class="blurb">
-      Find, enrich, dedupe, and segment prospects; surface high-intent opportunities to sales.
-    </p>
-    <a class="btn btn-primary" href="ProspectFusedID/prospecting.html">Learn More →</a>
-  </div>
-
-  <div class="card reveal">
-    <div class="card-icon" style="background-image:url('talent.jpg');"></div>
-    <h3>FusedTalent — Recruitment</h3>
-    <p class="blurb">
-      Role intake, screening, and shortlists delivered fast — consistent pipelines without headcount.
-    </p>
-    <a class="btn btn-primary" href="TalentFusedID/talent.html">Learn More →</a>
-  </div>
-
-  <div class="card reveal">
-    <div class="card-icon" style="background-image:url('knowledge.jpg');"></div>
-    <h3>FusedKnowledge — Knowledge</h3>
-    <p class="blurb">
-      On-demand answers from your playbooks and files — fast, accurate, continuously improving.
-    </p>
-    <a class="btn btn-primary" href="KnowledgeFusedID/knowledge.html">Learn More →</a>
-  </div>
-</div>
-
-
-
-
-    </section>
-
-
-
-<!-- ===== Easy ===== -->
-<section class="section" id="easy">
-  <div class="leadership-layout" style="align-items:center;">
-    <div class="media cover reveal">
-      <img src="easy-implementation.jpg"
-           alt="AI workflow setup example"
-           style="border-radius:12px;"
-           loading="lazy" decoding="async" />
-    </div>
-
-    <div class="reveal">
-      <h2>AI Doesn’t Have to Be Hard to Implement</h2>
-      <p>
-        With FUSED ID, there’s no tech setup, no dashboards to learn, and no guesswork.
-        Every AI Employee and Engine is <strong>configured and operated by seasoned managers</strong>
-        who know what it takes to run real teams.
-      </p>
-      <ul class="checklist">
-        <li>Deploy in days — we handle the heavy lifting</li>
-        <li>Continuously improved and tuned by experts</li>
-        <li>Secure, compliant, and aligned to your business goals</li>
-      </ul>
-      <a class="btn btn-primary" href="contacts.html" style="margin-top:1rem;">Talk to an Operator →</a>
-    </div>
-  </div>
-</section>
-
-
-
-  <!-- ===== Insights & Case Studies ===== -->
-  <section class="section" id="insights">
-    <h2 class="reveal">Insights & Case Studies</h2>
-    <p class="reveal">
-      Stories, strategies and practical lessons from AI Employees & Engines in action.
-    </p>
-
-    <div class="blog-grid">
-
-      <!-- Blog 1 -->
-      <article class="post-card reveal">
-        <a class="post-media" href="blog/customer-engagement.html">
-          <img src="blog-seo.jpg" alt="Magnifying glass on analytics diagrams">
-        </a>
-        <div class="post-body">
-          <div class="post-meta">
-            <span class="pill">AI Marketing</span>
-            <time datetime="2025-07-09">Jul 9, 2025</time>
-          </div>
-          <h3 class="post-title">
-            <a href="blog/customer-engagement.html">Leveraging AI Employees for Customer Engagement</a>
-          </h3>
-          <p class="post-excerpt">
-            Embedding AI Employees transforms customer engagement — faster responses, consistent tone,
-            and citation-backed answers, all with human oversight.
-          </p>
-          <a class="btn btn-primary" href="blog/customer-engagement.html">Read more →</a>
-        </div>
-      </article>
-
-      <!-- Blog 2 -->
-      <article class="post-card reveal">
-        <a class="post-media" href="blog/ai-prospecting-mistakes.html">
-          <img src="blog-linkedin.jpg" alt="Smartphone showing a network of connections">
-        </a>
-        <div class="post-body">
-          <div class="post-meta">
-            <span class="pill">Sales Ops</span>
-            <time datetime="2025-07-08">Jul 8, 2025</time>
-          </div>
-          <h3 class="post-title">
-            <a href="blog/ai-prospecting-mistakes.html">Common Mistakes to Avoid in AI-Powered Prospecting</a>
-          </h3>
-          <p class="post-excerpt">
-            Seven pitfalls that stall AI prospecting — list quality, message–market fit, deliverability,
-            consent, CRM hygiene, and learning rhythm — and how executive-run guardrails fix them.
-          </p>
-          <a class="btn btn-primary" href="blog/ai-prospecting-mistakes.html">Read more →</a>
-        </div>
-      </article>
-
-      <!-- Blog 3 -->
-      <article class="post-card reveal">
-        <a class="post-media" href="blog/inbound-vs-outbound.html">
-          <img src="blog-inbound-vs-outbound.jpg" alt="Megaphone versus speech bubble">
-        </a>
-        <div class="post-body">
-          <div class="post-meta">
-            <span class="pill">Inbound vs Outbound</span>
-            <time datetime="2025-07-07">Jul 7, 2025</time>
-          </div>
-          <h3 class="post-title">
-            <a href="blog/inbound-vs-outbound.html">Inbound vs Outbound: Which AI Approach Wins?</a>
-          </h3>
-          <p class="post-excerpt">
-            Inbound wins speed-to-lead; outbound builds pipeline. Use AI Employees & Engines together
-            under human governance to create sustainable momentum.
-          </p>
-          <a class="btn btn-primary" href="blog/inbound-vs-outbound.html">Read more →</a>
-        </div>
-      </article>
-
-      <!-- Case Study 1 -->
-      <article class="post-card reveal">
-        <a class="post-media" href="cases/ethan-prospect.html">
-          <img src="revenue-acceleration.jpg" alt="Prospecting engine growth visual">
-        </a>
-        <div class="post-body">
-          <div class="post-meta">
-            <span class="pill">Case Study</span>
-            <time datetime="2025-03-21">3 weeks</time>
-          </div>
-          <h3 class="post-title">
-            <a href="cases/ethan-prospect.html">Ethan: Turning Quiet Weeks into Booked Meetings</a>
-          </h3>
-          <p class="post-excerpt">
-            From ICP definition to multi-channel outreach, Ethan generated 42 warm replies and
-            11 meetings in three weeks.
-          </p>
-          <a class="btn btn-primary" href="cases/ethan-prospect.html">Read case study →</a>
-        </div>
-      </article>
-
-      <!-- Case Study 2 -->
-      <article class="post-card reveal">
-        <a class="post-media" href="cases/kaia-kaizen.html">
-          <img src="executive-ops.jpg" alt="Continuous improvement operations">
-        </a>
-        <div class="post-body">
-          <div class="post-meta">
-            <span class="pill">Case Study</span>
-            <time datetime="2025-02-10">60 days</time>
-          </div>
-          <h3 class="post-title">
-            <a href="cases/kaia-kaizen.html">Kaia: Compressing CAPA Time with Kaizen</a>
-          </h3>
-          <p class="post-excerpt">
-            ISO-aligned Kaizen initiatives lifted audit readiness to 98% and cut CAPA cycle time
-            from 28 to 12 days.
-          </p>
-          <a class="btn btn-primary" href="cases/kaia-kaizen.html">Read case study →</a>
-        </div>
-      </article>
-
-      <!-- Case Study 3: Talent Engine -->
-      <article class="post-card reveal">
-        <a class="post-media" href="cases/lara-talent.html">
-          <img src="talent-engine.jpg" alt="AI-powered hiring and candidate evaluation">
-        </a>
-        <div class="post-body">
-          <div class="post-meta">
-            <span class="pill">Case Study</span>
-            <time datetime="2025-06-15">14 days</time>
-          </div>
-          <h3 class="post-title">
-            <a href="cases/lara-talent.html">Lara: From 40 Applicants to a 3-Candidate Shortlist</a>
-          </h3>
-          <p class="post-excerpt">
-            The Talent Engine turned a vague job brief into a precise role profile, screened 40 applicants,
-            and delivered a ranked shortlist of three strong candidates in 14 days.
-          </p>
-          <a class="btn btn-primary" href="cases/lara-talent.html">Read case study →</a>
-        </div>
-      </article>
-
-      <!-- Case Study 4: Knowledge Engine -->
-      <article class="post-card reveal">
-        <a class="post-media" href="cases/knowledge-engine.html">
-          <img src="knowledge-engine.jpg" alt="AI Knowledge Engine illustration">
-        </a>
-        <div class="post-body">
-          <div class="post-meta">
-            <span class="pill">Case Study</span>
-            <time datetime="2025-05-20">2 weeks</time>
-          </div>
-          <h3 class="post-title">
-            <a href="cases/knowledge-engine.html">Knowledge Engine: Making 200 Pages of Policy Searchable</a>
-          </h3>
-          <p class="post-excerpt">
-            The Knowledge Engine ingested a dense library of HR and compliance policies. Within two weeks,
-            staff could ask natural questions and get instant, citation-backed answers.
-          </p>
-          <a class="btn btn-primary" href="cases/knowledge-engine.html">Read case study →</a>
-        </div>
-      </article>
-
-      <!-- Case Study 5: Nova -->
-      <article class="post-card reveal">
-        <a class="post-media" href="cases/nova-ops.html">
-          <img src="nova-ops.jpg" alt="AI Employee handling operational support tasks">
-        </a>
-        <div class="post-body">
-          <div class="post-meta">
-            <span class="pill">Case Study</span>
-            <time datetime="2025-04-30">30 days</time>
-          </div>
-          <h3 class="post-title">
-            <a href="cases/nova-ops.html">Nova: Cutting Admin Workload by 8 Hours a Week</a>
-          </h3>
-          <p class="post-excerpt">
-            Nova, a custom AI Ops Employee, took over reporting, meeting notes and template prep.
-            Within 30 days, executives gained back an average of 8 hours a week with fewer errors
-            and less rework.
-          </p>
-          <a class="btn btn-primary" href="cases/nova-ops.html">Read case study →</a>
-        </div>
-      </article>
-
     </div>
   </section>
 
+  <main>
+    <section class="section container" id="model">
+      <div class="model-panel reveal">
+        <div class="kicker">How the model works</div>
+        <h2>Engines provide the skills. Employees deliver the function.</h2>
+        <p style="max-width:860px">
+          FUSED ID deployments are built from two layers. Engines perform specialist
+          capabilities like prospecting, hiring, knowledge retrieval or continuous
+          improvement. AI Employees combine those capabilities into practical, accountable
+          roles that run inside your business.
+        </p>
 
+        <div class="model-grid">
+          <div class="model-box">
+            <h3>AI Engines</h3>
+            <p>
+              Modular business systems that perform defined capabilities with repeatable
+              inputs, outputs and reporting.
+            </p>
+            <ul class="checklist">
+              <li>Prospecting</li>
+              <li>Talent screening</li>
+              <li>Knowledge retrieval</li>
+              <li>Kaizen and quality workflows</li>
+            </ul>
+          </div>
+
+          <div class="model-arrow">➝</div>
+
+          <div class="model-box">
+            <h3>AI Employees</h3>
+            <p>
+              Role-based AI operators that combine Engines into a business function
+              with oversight, context and accountability.
+            </p>
+            <ul class="checklist">
+              <li>Defined role ownership</li>
+              <li>Business context and tone</li>
+              <li>Managed execution</li>
+              <li>Continuous improvement</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="soft-band">
+      <div class="container">
+        <div class="split">
+          <div class="reveal">
+            <h2>Why this matters</h2>
+            <p>
+              Most AI tools create more things for leaders to manage: prompts, dashboards,
+              automations, settings, exceptions and quality checks. FUSED ID structures AI
+              differently.
+            </p>
+            <p>
+              We turn AI capability into managed business execution. The client does not
+              need to operate the stack. They get a deployment that performs a defined
+              function and improves over time.
+            </p>
+            <ul class="checklist">
+              <li>No DIY prompt management</li>
+              <li>No disconnected tools to babysit</li>
+              <li>No unclear ownership</li>
+              <li>Human-led governance and improvement</li>
+            </ul>
+          </div>
+
+          <div class="media reveal">
+            <img src="AI_first_management.jpg" alt="AI deployment management and executive operating layer">
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="section container" id="employees">
+      <div class="reveal">
+        <div class="kicker">AI Employees</div>
+        <h2>Role-Based AI Operators for Ongoing Execution</h2>
+        <p class="muted" style="max-width:820px">
+          AI Employees are not generic bots. They are structured, role-based operators
+          designed to take ownership of a defined function inside your business.
+        </p>
+      </div>
+
+      <div class="grid grid-4" style="margin-top:1.5rem">
+        <div class="card employee-card reveal">
+          <div class="card-icon" style="background-image:url('ethan.jpg');"></div>
+          <span class="tag">Sales</span>
+          <h3>Ethan — Sales Operator</h3>
+          <p>
+            Pipeline generation, LinkedIn outreach, prospect research, email sequences,
+            product explanation and quotation support.
+          </p>
+          <ul class="checklist">
+            <li>Builds targeted prospect lists</li>
+            <li>Runs outreach workflows</li>
+            <li>Supports pipeline consistency</li>
+          </ul>
+          <a class="btn btn-primary" href="CV/ethan.html" target="_blank" rel="noopener">View CV →</a>
+        </div>
+
+        <div class="card employee-card reveal">
+          <div class="card-icon" style="background-image:url('kaia.jpg');"></div>
+          <span class="tag">Quality</span>
+          <h3>Kaia — Quality & Improvement Operator</h3>
+          <p>
+            ISO 9001, process mapping, KPI tracking, audits, NCRs, root-cause analysis
+            and continuous improvement.
+          </p>
+          <ul class="checklist">
+            <li>Tracks quality actions</li>
+            <li>Supports audit readiness</li>
+            <li>Drives structured improvement</li>
+          </ul>
+          <a class="btn btn-primary" href="CV/kaia.html" target="_blank" rel="noopener">View CV →</a>
+        </div>
+
+        <div class="card employee-card reveal">
+          <div class="card-icon" style="background-image:url('lara.jpg');"></div>
+          <span class="tag">People</span>
+          <h3>Lara — People & Culture Operator</h3>
+          <p>
+            Hiring coordination, onboarding, reviews, engagement rhythms, internal
+            communication and compliance support.
+          </p>
+          <ul class="checklist">
+            <li>Coordinates hiring workflows</li>
+            <li>Supports onboarding</li>
+            <li>Keeps people processes moving</li>
+          </ul>
+          <a class="btn btn-primary" href="CV/Lara.html" target="_blank" rel="noopener">View CV →</a>
+        </div>
+
+        <div class="card employee-card reveal">
+          <div class="card-icon" style="background-image:url('nova.jpg');"></div>
+          <span class="tag">Custom</span>
+          <h3>Nova — Custom AI Operator</h3>
+          <p>
+            A flexible operator configured around your workflows, communication style,
+            business tools and operational priorities.
+          </p>
+          <ul class="checklist">
+            <li>Adapts to defined workflows</li>
+            <li>Supports admin and operations</li>
+            <li>Built around your next function</li>
+          </ul>
+          <a class="btn btn-primary" href="CV/nova.html" target="_blank" rel="noopener">View CV →</a>
+        </div>
+      </div>
+    </section>
+
+    <section class="section container" id="engine-visual">
+      <div class="model-panel reveal">
+        <h2>Engines form the skills. Employees bring them to life.</h2>
+        <p style="max-width:860px">
+          Engines are modular capabilities. Human oversight integrates those capabilities
+          into an accountable AI Employee that can deliver a complete business function.
+        </p>
+
+        <div class="grid grid-4" style="margin-top:1.5rem">
+          <div class="model-box">
+            <h3>FusedProspecting</h3>
+            <p>Lead research, enrichment, segmentation and outreach.</p>
+          </div>
+          <div class="model-box">
+            <h3>FusedTalent</h3>
+            <p>Role intake, candidate screening, interviews and shortlists.</p>
+          </div>
+          <div class="model-box">
+            <h3>FusedKnowledge</h3>
+            <p>Answers from documents, policies, playbooks and internal knowledge.</p>
+          </div>
+          <div class="model-box">
+            <h3>FusedKaizen</h3>
+            <p>CAPA, audits, KPI tracking and continuous improvement.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="soft-band" id="engines">
+      <div class="container">
+        <div class="reveal">
+          <div class="kicker">AI Engines</div>
+          <h2>Specialist AI Engines That Power Each Deployment</h2>
+          <p class="muted" style="max-width:820px">
+            Engines are modular business systems. They can run independently or combine
+            inside an AI Employee to deliver a broader function.
+          </p>
+        </div>
+
+        <div class="grid grid-4" style="margin-top:1.5rem">
+          <div class="card engine-card reveal">
+            <div class="card-icon" style="background-image:url('prospecting.jpg');"></div>
+            <span class="tag">Sales</span>
+            <h3>FusedProspecting</h3>
+            <p>
+              Find, enrich, sort and engage prospects with structured outreach and
+              pipeline visibility.
+            </p>
+            <ul class="checklist">
+              <li>Domain and LinkedIn hunting</li>
+              <li>Prospect enrichment</li>
+              <li>Smart segmentation</li>
+            </ul>
+            <a class="btn btn-primary" href="ProspectFusedID/prospecting.html">Learn More →</a>
+          </div>
+
+          <div class="card engine-card reveal">
+            <div class="card-icon" style="background-image:url('talent.jpg');"></div>
+            <span class="tag">Hiring</span>
+            <h3>FusedTalent</h3>
+            <p>
+              Define roles, process applicants, conduct structured AI interviews and
+              generate ranked shortlists.
+            </p>
+            <ul class="checklist">
+              <li>Role and advert creation</li>
+              <li>Candidate screening</li>
+              <li>Shortlist generation</li>
+            </ul>
+            <a class="btn btn-primary" href="TalentFusedID/talent.html">Learn More →</a>
+          </div>
+
+          <div class="card engine-card reveal">
+            <div class="card-icon" style="background-image:url('knowledge.jpg');"></div>
+            <span class="tag">Knowledge</span>
+            <h3>FusedKnowledge</h3>
+            <p>
+              Turn policies, documents and tribal knowledge into a managed AI knowledge
+              base with cited answers.
+            </p>
+            <ul class="checklist">
+              <li>Document ingestion</li>
+              <li>Staff Q&A</li>
+              <li>Conflict detection</li>
+            </ul>
+            <a class="btn btn-primary" href="KnowledgeFusedID/knowledge.html">Learn More →</a>
+          </div>
+
+          <div class="card engine-card reveal">
+            <div class="card-icon" style="background-image:url('kaizen.jpg');"></div>
+            <span class="tag">Operations</span>
+            <h3>FusedKaizen</h3>
+            <p>
+              Capture improvements, calculate impact, run root-cause analysis and
+              support ISO-style continuous improvement.
+            </p>
+            <ul class="checklist">
+              <li>Kaizen tickets</li>
+              <li>ROI tracking</li>
+              <li>Root-cause workflows</li>
+            </ul>
+            <a class="btn btn-primary" href="KaizenFusedID/kaizen.html">Learn More →</a>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="section container" id="deployment-examples">
+      <div class="reveal">
+        <div class="kicker">Deployment examples</div>
+        <h2>How Employees and Engines combine in practice</h2>
+        <p class="muted" style="max-width:820px">
+          The client buys a deployment. Underneath, FUSED ID assembles the right mix
+          of Employees, Engines, workflows and human oversight.
+        </p>
+      </div>
+
+      <div class="grid grid-4" style="margin-top:1.5rem">
+        <div class="card deployment-example reveal">
+          <span class="tag">Sales Deployment</span>
+          <h3>Ethan + FusedProspecting</h3>
+          <p>
+            Sales operator supported by lead intelligence, enrichment, outreach
+            workflows and reporting.
+          </p>
+          <p><strong>Outcome:</strong> Qualified pipeline and more consistent outreach.</p>
+          <a class="btn btn-outline-dark btn-slim" href="ProspectFusedID/prospecting.html">View Engine →</a>
+        </div>
+
+        <div class="card deployment-example reveal">
+          <span class="tag">Hiring Deployment</span>
+          <h3>Lara + FusedTalent</h3>
+          <p>
+            People operator supported by role intake, candidate screening, interview
+            analysis and shortlist workflows.
+          </p>
+          <p><strong>Outcome:</strong> Faster hiring with less admin and clearer decisions.</p>
+          <a class="btn btn-outline-dark btn-slim" href="TalentFusedID/talent.html">View Engine →</a>
+        </div>
+
+        <div class="card deployment-example reveal">
+          <span class="tag">Quality Deployment</span>
+          <h3>Kaia + FusedKaizen</h3>
+          <p>
+            Quality operator supported by improvement tickets, CAPA workflows,
+            root-cause analysis and KPI tracking.
+          </p>
+          <p><strong>Outcome:</strong> Stronger process control and measurable improvement.</p>
+          <a class="btn btn-outline-dark btn-slim" href="KaizenFusedID/kaizen.html">View Engine →</a>
+        </div>
+
+        <div class="card deployment-example reveal">
+          <span class="tag">Knowledge Deployment</span>
+          <h3>Nova + FusedKnowledge</h3>
+          <p>
+            Custom operator supported by internal documents, Q&A, source citations
+            and managed knowledge workflows.
+          </p>
+          <p><strong>Outcome:</strong> Less dependency on key people and faster answers.</p>
+          <a class="btn btn-outline-dark btn-slim" href="KnowledgeFusedID/knowledge.html">View Engine →</a>
+        </div>
+      </div>
+    </section>
+
+    <section class="soft-band" id="governance">
+      <div class="container">
+        <div class="split">
+          <div class="media reveal">
+            <img src="executive-ops.jpg" alt="Reliable AI operations with human oversight">
+          </div>
+
+          <div class="reveal">
+            <div class="kicker">Human-led delivery</div>
+            <h2>Configured. Monitored. Improved.</h2>
+            <p>
+              FUSED ID is not positioned as a DIY agent platform. Every deployment is
+              structured, reviewed and improved by experienced operators.
+            </p>
+            <p>
+              That gives clients the benefit of AI capacity without pushing the management
+              burden back onto their team.
+            </p>
+            <ul class="checklist">
+              <li>Role and function definition</li>
+              <li>Workflow and prompt calibration</li>
+              <li>Output review and quality control</li>
+              <li>Continuous improvement rhythm</li>
+              <li>Clear escalation and accountability</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </section>
   </main>
 
+  <section class="closing-cta">
+    <div class="container">
+      <h2>Build the right AI deployment for your business.</h2>
+      <p>
+        Start with the business function. FUSED ID will design the right combination
+        of AI Employees, Engines, workflows and human oversight to deliver it.
+      </p>
+      <a href="contacts.html" class="btn btn-primary">Talk to an Operator →</a>
+    </div>
+  </section>
 
-
-<!-- ===== Closing CTA Band ===== -->
-<section class="closing-cta">
-  <div class="container closing-cta-inner">
-    <h2>You Lead. The Engines Run.</h2>
-    <p>Ready to embed AI Employees or power up an Engine? Let’s get started.</p>
-    <a href="contacts.html" class="btn btn-primary">Talk to an Operator →</a>
-  </div>
-</section>
-
-
-
-
-  <!-- ===== Footer (simple, consistent) ===== -->
   <footer>
     <div class="container foot">
       <span>© FUSED ID</span>
-      <a href="/index.html" style="color:#fff">← Back to FUSED ID</a>
+      <div style="display:flex;gap:1rem;flex-wrap:wrap">
+        <a href="index.html">Home</a>
+        <a href="contacts.html">Contact</a>
+      </div>
     </div>
   </footer>
 
   <script>
-    // Mobile menu toggle
     function toggleMenu(open){
-      const o = document.getElementById('overlayNav');
-      if(!o) return;
-      o.classList.toggle('open', !!open);
-      document.body.style.overflow = open ? 'hidden' : '';
+      const overlay = document.getElementById('overlayNav');
+      const btn = document.querySelector('.hamburger');
+      if(!overlay) return;
+
+      if(open){
+        overlay.classList.add('open');
+        overlay.setAttribute('aria-hidden','false');
+        if(btn) btn.setAttribute('aria-expanded','true');
+        document.body.style.overflow='hidden';
+      }else{
+        overlay.classList.remove('open');
+        overlay.setAttribute('aria-hidden','true');
+        if(btn) btn.setAttribute('aria-expanded','false');
+        document.body.style.overflow='';
+      }
     }
 
-    // Simple reveal effect
     (function(){
-      const els=[...document.querySelectorAll('.reveal')];
-      const io=new IntersectionObserver((entries)=>{
-        entries.forEach(e=>{if(e.isIntersecting){e.target.classList.add('visible');io.unobserve(e.target)}})
-      },{threshold:.12});
-      els.forEach(el=>io.observe(el));
+      const els = Array.from(document.querySelectorAll('.reveal'));
+
+      if(!('IntersectionObserver' in window)){
+        els.forEach(el => el.classList.add('visible'));
+        return;
+      }
+
+      const io = new IntersectionObserver((entries)=>{
+        entries.forEach(entry=>{
+          if(entry.isIntersecting){
+            entry.target.classList.add('visible');
+            io.unobserve(entry.target);
+          }
+        });
+      }, { threshold:.08, rootMargin:'0px 0px -5% 0px' });
+
+      els.forEach(el => io.observe(el));
+
+      window.addEventListener('load', () => {
+        els.forEach(el => {
+          const r = el.getBoundingClientRect();
+          if(r.top < window.innerHeight && r.bottom > 0){
+            el.classList.add('visible');
+            io.unobserve(el);
+          }
+        });
+      });
     })();
   </script>
 </body>

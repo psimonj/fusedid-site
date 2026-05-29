@@ -1,483 +1,721 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-
-<!-- Google tag (gtag.js) -->
-<script async src="https://www.googletagmanager.com/gtag/js?id=G-REPRFPPLDB"></script>
-<script>
-  window.dataLayer = window.dataLayer || [];
-  function gtag(){dataLayer.push(arguments);}
-  gtag('js', new Date());
-
-  gtag('config', 'G-REPRFPPLDB');
-</script>
-
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>Contact • FUSED ID — Start a Pilot or Say Hello</title>
-  <meta name="description" content="Talk to FUSED ID about AI Employees and Engines. Start a pilot, ask a question, or book a short discovery call."/>
-  <link rel="icon" href="/favicon.ico"/>
+
+  <title>Contact • FUSED ID — Bespoke AI Deployments</title>
+  <meta name="description" content="Talk to FUSED ID about bespoke AI deployments, managed AI systems, AI Employees and AI Engines for sales, hiring, knowledge management and operations.">
+  <meta name="author" content="FUSED ID">
+
+  <link rel="apple-touch-icon" href="/apple-touch-icon.png">
+  <link rel="icon" type="image/x-icon" href="/favicon.ico">
+  <link rel="icon" type="image/png" sizes="32x32" href="/favicon.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
+
+  <!-- Google tag -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-REPRFPPLDB"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+    gtag('config', 'G-REPRFPPLDB');
+  </script>
 
   <style>
-    /* ===== Brand tokens ===== */
-    :root{ --espresso:#150e09; --copper:#ff8c32; --copper-light:#ffb169; --glow:rgba(255,140,50,.6); --ink:#111; --muted:#555; --card:#fff; --line:#eadfd7; --tint:#fbf9f7 }
+    :root{
+      --espresso:#150e09;
+      --copper:#ff8c32;
+      --copper-light:#ffb169;
+      --glow:rgba(255,140,50,.6);
+      --ink:#111;
+      --muted:#555;
+      --card:#fff;
+      --line:#eadfd7;
+      --tint:#fbf9f7;
+      --bg:#fff;
+    }
+
     *{box-sizing:border-box}
-    html,body{margin:0;padding:0}
-    body{font-family:system-ui,-apple-system,Segoe UI,Roboto,Helvetica,Arial;color:var(--ink);background:#fff}
+    html,body{margin:0;padding:0;overflow-x:hidden}
+    body{
+      font-family:system-ui,-apple-system,Segoe UI,Roboto,Helvetica,Arial;
+      color:var(--ink);
+      background:var(--bg);
+    }
     a{color:inherit;text-decoration:none}
-
-    /* Base container (match index/Impact Mission) */
-    .container{max-width:1200px;margin:0 auto;padding:0 1rem}
     img{max-width:100%;height:auto;display:block}
+    .container{
+      max-width:1200px;
+      margin:0 auto;
+      padding-inline:max(env(safe-area-inset-left), clamp(16px,5vw,32px));
+    }
 
-    /* ===== Header (IDENTICAL to index/Impact Mission) ===== */
-    header{position:relative;z-index:5;background:#fff;border-bottom:1px solid #eee}
-    .header-inner{display:flex;align-items:center;justify-content:space-between;padding:1rem 0}
-    .brand{display:flex;align-items:center;font-weight:800;letter-spacing:.06em;color:#000;font-size:1.1rem;white-space:nowrap}
+    header{
+      position:relative;
+      z-index:5;
+      background:#fff;
+      border-bottom:1px solid #eee;
+      box-shadow:0 4px 18px rgba(0,0,0,.04);
+    }
+    .header-inner{
+      display:flex;
+      align-items:center;
+      justify-content:space-between;
+      padding:1rem 0;
+    }
+    .brand{
+      display:flex;
+      align-items:center;
+      font-weight:800;
+      letter-spacing:.06em;
+      color:#000;
+      font-size:1.1rem;
+      white-space:nowrap;
+    }
     .brand img{height:28px;margin-right:8px}
-    nav.primary{display:flex;gap:2.5rem;align-items:center}
-    nav.primary a{color:#000;font-weight:600;transition:color .25s ease}
+
+    nav.primary{
+      display:flex;
+      gap:2rem;
+      align-items:center;
+    }
+    nav.primary a{
+      color:#000;
+      font-weight:600;
+      transition:color .25s ease;
+    }
     nav.primary a:hover{color:var(--copper)}
 
-    /* Mobile hamburger */
-    .hamburger{display:none;width:40px;height:40px;border:1px solid #ddd;border-radius:8px;background:#fff;align-items:center;justify-content:center}
-    .hamburger span{display:block;width:18px;height:2px;background:#000;position:relative}
-    .hamburger span:before,.hamburger span:after{content:"";position:absolute;left:0;width:18px;height:2px;background:#000}
-    .hamburger span:before{top:-6px}.hamburger span:after{top:6px}
+    .hamburger{
+      display:none;
+      width:40px;
+      height:40px;
+      border:1px solid #ddd;
+      border-radius:8px;
+      background:#fff;
+      align-items:center;
+      justify-content:center;
+      cursor:pointer;
+    }
+    .hamburger span{
+      display:block;
+      width:18px;
+      height:2px;
+      background:#000;
+      position:relative;
+    }
+    .hamburger span:before,
+    .hamburger span:after{
+      content:"";
+      position:absolute;
+      left:0;
+      width:18px;
+      height:2px;
+      background:#000;
+    }
+    .hamburger span:before{top:-6px}
+    .hamburger span:after{top:6px}
 
-.hamburger {
-  cursor: pointer;  /* show hand icon on hover */
-}
-
-    /* Overlay nav */
-    .nav-overlay{position:fixed;inset:0;background:radial-gradient(60% 60% at 20% 10%, rgba(255,140,50,.18), transparent 60%),var(--espresso);display:none;z-index:1000;color:#fff}
+    .nav-overlay{
+      position:fixed;
+      inset:0;
+      background:radial-gradient(60% 60% at 20% 10%, rgba(255,140,50,.18), transparent 60%), var(--espresso);
+      display:none;
+      z-index:1000;
+      color:#fff;
+    }
     .nav-overlay.open{display:block;animation:fadeIn .25s ease}
     @keyframes fadeIn{from{opacity:0}to{opacity:1}}
-    .nav-panel{height:100%;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:1.2rem;text-align:center;padding:2rem}
-    .nav-overlay a{font-size:1.6rem;font-weight:700;letter-spacing:.02em;color:#fff;transition:color .2s ease, text-shadow .2s ease}
-    .nav-overlay a:hover{color:var(--copper-light);text-shadow:0 0 16px var(--glow)}
-    .nav-close{position:absolute;top:16px;right:16px;width:44px;height:44px;border:1px solid rgba(255,255,255,.25);border-radius:10px;background:transparent;color:#fff;font-size:22px;line-height:1}
+    .nav-panel{
+      height:100%;
+      display:flex;
+      flex-direction:column;
+      align-items:center;
+      justify-content:center;
+      gap:1.2rem;
+      text-align:center;
+      padding:2rem;
+    }
+    .nav-overlay a{
+      font-size:1.55rem;
+      font-weight:700;
+      color:#fff;
+    }
+    .nav-overlay a:hover{color:var(--copper-light)}
+    .nav-close{
+      position:absolute;
+      top:16px;
+      right:16px;
+      width:44px;
+      height:44px;
+      border:1px solid rgba(255,255,255,.25);
+      border-radius:10px;
+      background:transparent;
+      color:#fff;
+      font-size:22px;
+      cursor:pointer;
+    }
 
-    /* Responsive */
-    @media (max-width:960px){
+    .btn{
+      appearance:none;
+      border:0;
+      border-radius:10px;
+      cursor:pointer;
+      font-weight:800;
+      padding:.95rem 1.2rem;
+      font-size:1rem;
+      letter-spacing:.02em;
+      display:inline-flex;
+      align-items:center;
+      gap:.45rem;
+      text-decoration:none;
+    }
+    .btn-primary{
+      background:linear-gradient(180deg,var(--copper),#fa7c16);
+      color:#220e05;
+      box-shadow:0 6px 24px rgba(255,140,50,.35);
+    }
+    .btn-outline{
+      background:transparent;
+      border:2px solid #150e09;
+      color:#150e09;
+    }
+    .btn-slim{
+      padding:.55rem 1rem;
+      font-size:.95rem;
+      border-radius:8px;
+    }
+    nav.primary .btn-primary:hover{
+      color:#fff;
+      background:linear-gradient(180deg,#ff9c4a,#f97a10);
+    }
+
+    .hero{
+      position:relative;
+      isolation:isolate;
+      min-height:48vh;
+      display:grid;
+      place-items:center;
+      overflow:hidden;
+      background:#0f0a07;
+    }
+    .hero::before{
+      content:"";
+      position:absolute;
+      inset:0;
+      z-index:-2;
+      background:
+        linear-gradient(180deg, rgba(21,14,9,.42) 0%, rgba(21,14,9,.58) 58%, rgba(21,14,9,.78) 100%),
+        url('leadership-governance.jpg') center/cover no-repeat;
+      filter:saturate(1.18) contrast(1.05);
+      transform:scale(1.02);
+    }
+    .hero::after{display:none}
+
+    .hero-inner{
+      color:#fff;
+      max-width:1060px;
+      padding:5rem 0 4rem;
+    }
+    .kicker{
+      color:var(--copper-light);
+      text-transform:uppercase;
+      letter-spacing:.14em;
+      font-weight:1000;
+      font-size:.82rem;
+      margin-bottom:.8rem;
+    }
+    .title{
+      font-size:clamp(2.2rem,4vw + 1rem,3.8rem);
+      line-height:1.08;
+      margin:0 0 .75rem;
+      font-weight:1000;
+      max-width:920px;
+    }
+    .sub{
+      max-width:820px;
+      font-size:clamp(1rem,1vw + .55rem,1.22rem);
+      line-height:1.6;
+      color:#f3f3f3;
+      margin:0;
+    }
+
+    .section{
+      padding:4rem max(env(safe-area-inset-left), clamp(16px, 5vw, 32px));
+    }
+    h2{
+      font-size:clamp(1.65rem,2.2vw,2.2rem);
+      margin:.2rem 0 1rem;
+      font-weight:1000;
+      line-height:1.15;
+    }
+    h3{margin:.1rem 0 .65rem}
+    p{line-height:1.65;margin:.4rem 0 1rem}
+    .muted{color:var(--muted)}
+
+    .grid{display:grid;gap:1.5rem}
+    .grid-2{grid-template-columns:repeat(2,minmax(0,1fr))}
+    .grid-3{grid-template-columns:repeat(3,minmax(0,1fr))}
+
+    .card{
+      background:#fff;
+      border:1px solid #eee;
+      border-radius:14px;
+      padding:1.55rem;
+      box-shadow:0 6px 20px rgba(0,0,0,.035);
+    }
+    .card.highlight{
+      border:1px solid rgba(255,140,50,.65);
+      box-shadow:0 0 20px rgba(255,140,50,.18),0 6px 22px rgba(0,0,0,.04);
+    }
+
+    .checklist,
+    .tick{
+      list-style:none;
+      margin:0;
+      padding:0;
+    }
+    .checklist li,
+    .tick li{
+      padding-left:1.45rem;
+      position:relative;
+      margin:.55rem 0;
+      line-height:1.6;
+    }
+    .checklist li::before,
+    .tick li::before{
+      content:"✓";
+      position:absolute;
+      left:.1rem;
+      top:.02rem;
+      color:var(--copper);
+      font-weight:1000;
+    }
+
+    form{
+      background:#fff;
+      border:1px solid var(--line);
+      border-radius:14px;
+      padding:1.55rem;
+      box-shadow:0 6px 20px rgba(0,0,0,.035);
+    }
+    label{
+      display:block;
+      font-weight:800;
+      margin:.45rem 0 .35rem;
+    }
+    input,select,textarea{
+      width:100%;
+      padding:.9rem;
+      border:1px solid #e7dbd2;
+      border-radius:10px;
+      font-size:1rem;
+      font-family:inherit;
+      background:#fff;
+    }
+    textarea{
+      min-height:150px;
+      resize:vertical;
+    }
+    .row{
+      display:grid;
+      grid-template-columns:1fr;
+      gap:.8rem;
+    }
+    @media(min-width:760px){
+      .row.two{grid-template-columns:1fr 1fr}
+    }
+
+    .soft-band{
+      background:var(--tint);
+      border-top:1px solid #eadfd7;
+      border-bottom:1px solid #eadfd7;
+    }
+
+    .faq details{
+      border-top:1px dashed #eadfd7;
+      padding:.95rem 0;
+    }
+    .faq details:first-of-type{border-top:0;padding-top:0}
+    .faq summary{
+      cursor:pointer;
+      font-weight:900;
+    }
+    .faq details[open] summary{color:#7a4a2e}
+    .faq p{margin:.55rem 0 0;color:#333}
+
+    .cta-band{
+      background:var(--tint);
+      border-top:1px solid #eadfd7;
+      border-bottom:1px solid #eadfd7;
+    }
+    .cta-inner{
+      display:flex;
+      flex-wrap:wrap;
+      align-items:center;
+      justify-content:space-between;
+      gap:1rem;
+      padding:1.5rem 0;
+    }
+
+    footer{
+      background:#0f0a07;
+      color:#ddd;
+    }
+    footer a{color:#fff}
+    .foot{
+      display:flex;
+      justify-content:space-between;
+      align-items:center;
+      gap:1rem;
+      padding:1rem 0;
+    }
+
+    .hint{font-size:.9rem;color:#666}
+    .reveal{
+      opacity:0;
+      transform:translateY(32px);
+      transition:all .6s ease;
+    }
+    .reveal.visible{
+      opacity:1;
+      transform:none;
+    }
+
+    @media(max-width:960px){
       nav.primary{display:none}
       .hamburger{display:flex}
       .brand{font-size:1rem}
+      .grid-3{grid-template-columns:1fr}
+      .grid-2{grid-template-columns:1fr}
+      .header-inner{padding-left:1.25rem;padding-right:1.25rem}
     }
 
-    /* ===== Hero ===== */
-    .hero{position:relative;isolation:isolate;min-height:46vh;display:grid;place-items:center;overflow:hidden;background:#0f0a07}
-    .hero::before{content:"";position:absolute;inset:0;z-index:-2;background:
-      linear-gradient(180deg, rgba(21,14,9,.65) 0%, rgba(21,14,9,.85) 55%, rgba(21,14,9,.95) 100%),
-      url('leadership-governance.jpg') center/cover no-repeat}
-    .hero::after{content:"";position:absolute;inset:0;z-index:-1;background:
-      radial-gradient(40% 25% at 20% 20%, rgba(255,140,50,.25), transparent 60%),
-      radial-gradient(30% 20% at 80% 75%, rgba(255,177,105,.15), transparent 70%)}
-    .hero-inner{color:#fff;max-width:1060px;margin:0 auto;padding:4.5rem clamp(16px,4vw,28px) 3rem}
-    .kicker{color:var(--copper-light);text-transform:uppercase;letter-spacing:.14em;font-weight:1000;font-size:.82rem;margin-bottom:.8rem}
-    .title{font-size:clamp(2rem,4vw+1rem,3.2rem);line-height:1.08;margin:0 0 .5rem;font-weight:1000}
-    .sub{max-width:760px;line-height:1.6;color:#f3f3f3;margin:0}
-
-    /* Content */
-    .section{padding:3rem 0}
-    h2{font-size:1.85rem;margin:.2rem 0 1rem;font-weight:1000}
-    p{margin:.4rem 0 1rem}
-    .grid{display:grid;gap:1.25rem}
-    @media(min-width:900px){.cols-2{grid-template-columns:1fr 1fr}}
-
-    /* Cards & lists */
-    .card{background:#fff;border:1px solid var(--line);border-radius:14px;padding:1.25rem}
-    .muted{color:#666}
-    .tick{list-style:none;margin:0;padding:0}
-    .tick li{padding-left:1.4rem;position:relative;margin:.45rem 0;line-height:1.7}
-    .tick li::before{content:"✓";position:absolute;left:.1rem;top:.05rem;color:var(--copper);font-weight:1000}
-
-    /* Form */
-    form{background:#fff;border:1px solid var(--line);border-radius:14px;padding:1.25rem}
-    label{display:block;font-weight:700;margin:.4rem 0 .35rem}
-    input, select, textarea{width:100%;padding:.85rem;border:1px solid #e7dbd2;border-radius:10px;font-size:1rem}
-    textarea{min-height:140px;resize:vertical}
-    .row{display:grid;grid-template-columns:1fr;gap:.8rem}
-    @media(min-width:760px){.row.two{grid-template-columns:1fr 1fr}}
-
-.btn {
-  appearance: none;
-  border: 0;
-  border-radius: 10px;
-  cursor: pointer;
-  font-weight: 800;               /* match index */
-  padding: .95rem 1.2rem;         /* match index */
-  font-size: 1rem;                /* match index */
-  letter-spacing: .02em;          /* match index */
-  display: inline-flex;
-  align-items: center;
-  gap: .45rem;
-}
-.btn-outline {
-  background: transparent;
-  border: 2px solid #000;
-  color: #000;
-}
-.btn-primary {
-  background: linear-gradient(180deg, var(--copper), #fa7c16);
-  color: #220e05;
-  box-shadow: 0 6px 24px rgba(255, 140, 50, .35);  /* match index */
-}
-
-
-    /* CTA band & footer */
-    .cta-band{background:var(--tint);border-top:1px solid #eadfd7;border-bottom:1px solid #eadfd7}
-    .cta-inner{display:flex;flex-wrap:wrap;align-items:center;justify-content:space-between;gap:1rem;padding:1.4rem 0}
-    footer{background:#0f0a07;color:#ddd}
-    .foot{display:flex;justify-content:space-between;align-items:center;gap:1rem;padding:1rem 0}
-
-    /* Match index/Impact Mission extra spacing behaviour */
-    .container, .header-inner { padding-inline: max(env(safe-area-inset-left), clamp(16px, 5vw, 32px)); }
-    @media (max-width:960px){ .header-inner { padding-left:1.25rem; padding-right:1.25rem; } }
-
-    /* Helpers */
-    .hint{font-size:.9rem;color:#666}
-    .badge{display:inline-flex;align-items:center;gap:.4rem;padding:.35rem .6rem;border:1px solid #eadfd7;border-radius:10px;background:#fff;font-weight:900}
-
-/* Contact-page FAQ */
-.faq .card{padding:1rem 1.25rem}
-.faq details{border-top:1px dashed #eadfd7;padding:.85rem 0}
-.faq details:first-of-type{border-top:0;padding-top:0}
-.faq summary{cursor:pointer;font-weight:900}
-.faq details[open] summary{color:#7a4a2e}
-.faq p{margin:.45rem 0 0; color:#333}
-
-
-
-.reveal {
-  opacity: 0;
-  transform: translateY(32px);
-  transition: all .6s ease;
-}
-.reveal.visible {
-  opacity: 1;
-  transform: translateY(0);
-}
-
-.stagger > *:nth-child(1) { transition-delay: 0s; }
-.stagger > *:nth-child(2) { transition-delay: .15s; }
-.stagger > *:nth-child(3) { transition-delay: .3s; }
-.stagger > *:nth-child(4) { transition-delay: .45s; }
-
-
-
-/* Slim variant for header CTA */
-.btn-slim {
-  padding: .55rem 1rem;   /* less vertical padding */
-  font-size: .95rem;      /* slightly smaller text */
-  border-radius: 8px;     /* tighter corners to match slimmer look */
-}
-
-/* Keep normal nav links copper on hover */
-nav.primary a:hover {
-  color: var(--copper);
-}
-
-/* Override for primary buttons in nav */
-nav.primary .btn-primary:hover {
-  color: #fff; /* keeps text white */
-  background: linear-gradient(180deg, #ff9c4a, #f97a10); /* optional: slight hover shift */
-}
-
+    @media(max-width:640px){
+      .hero{min-height:52vh}
+      .hero-inner{padding:4rem 0 3.2rem}
+      .foot{flex-direction:column;align-items:flex-start}
+    }
   </style>
-
-  <script>
-    // Overlay toggle (same as index/Impact Mission)
-    function toggleMenu(open){
-      const overlay = document.getElementById('overlayNav');
-      const btn = document.querySelector('.hamburger');
-      if(open){
-        overlay.classList.add('open');
-        overlay.setAttribute('aria-hidden','false');
-        if(btn) btn.setAttribute('aria-expanded','true');
-        document.body.style.overflow='hidden';
-      } else {
-        overlay.classList.remove('open');
-        overlay.setAttribute('aria-hidden','true');
-        if(btn) btn.setAttribute('aria-expanded','false');
-        document.body.style.overflow='';
-      }
-    }
-  </script>
 </head>
 
-
-<script>
-(function(){
-  const els = Array.from(document.querySelectorAll('.reveal'));
-  if (!els.length) return;
-
-  // Fallback: if IO not supported, just show everything
-  if (!('IntersectionObserver' in window)) {
-    els.forEach(el => el.classList.add('visible'));
-    return;
-  }
-
-  const io = new IntersectionObserver((entries)=>{
-    entries.forEach(e=>{
-      if (e.isIntersecting) {
-        e.target.classList.add('visible');
-        io.unobserve(e.target);
-      }
-    });
-  }, { threshold: 0.06, rootMargin: '0px 0px -5% 0px' });
-
-  els.forEach(el => io.observe(el));
-
-  // Safety: make above-the-fold items visible on load
-  window.addEventListener('load', () => {
-    els.forEach(el => {
-      const r = el.getBoundingClientRect();
-      if (r.top < innerHeight) el.classList.add('visible');
-    });
-  });
-})();
-</script>
-
-
 <body>
-  <!-- ===== Overlay Mobile Menu ===== -->
   <div class="nav-overlay" id="overlayNav" aria-hidden="true">
     <button class="nav-close" aria-label="Close menu" onclick="toggleMenu(false)">×</button>
-<div class="nav-panel">
-  <a href="index.html" onclick="toggleMenu(false)">Human+AI</a>
-  <a href="ai-employees-engines.html" onclick="toggleMenu(false)">Fused Business</a>
-  <a href="contacts.html" onclick="toggleMenu(false)">Contact</a>
-  <a href="mailto:sales@fusedid.com" onclick="toggleMenu(false)" style="margin-top:.6rem;color:var(--copper-light)">sales@fusedid.com</a>
-</div>
+    <div class="nav-panel">
 
-
-
+      <a href="index.html#solutions" onclick="toggleMenu(false)">Solutions</a>
+      <a href="index.html#deployments" onclick="toggleMenu(false)">Deployments</a>
+      <a href="ai-employees-engines.html" onclick="toggleMenu(false)">AI Employees & Engines</a>
+      <a href="contacts.html" onclick="toggleMenu(false)">Contact</a>
+      <a href="mailto:sales@fusedid.com" onclick="toggleMenu(false)" style="margin-top:.6rem;color:var(--copper-light)">sales@fusedid.com</a>
+    </div>
   </div>
 
-  <!-- Header -->
-  <header class="shadow-sm">
+  <header>
     <div class="container header-inner">
-<a href="https://www.fusedid.com" class="brand">
-  <img src="fusedid logo -white bg.png" alt="Fused ID Logo" style="height:28px;vertical-align:middle;margin-right:8px;">
-  FUSED ID
-</a>
-<nav class="primary" aria-label="Primary">
-  <a href="index.html">Human+AI</a>
-  <a href="ai-employees-engines.html">Fused Business</a>
-  <a href="contacts.html" class="btn btn-primary btn-slim" style="margin-left:1rem;">Schedule A Consult</a>
-</nav>
+      <a href="https://www.fusedid.com" class="brand">
+        <img src="fusedid logo -white bg.png" alt="FUSED ID Logo">
+        FUSED ID
+      </a>
+
+      <nav class="primary" aria-label="Primary">
+
+        <a href="index.html#solutions">Solutions</a>
+        <a href="index.html#deployments">Deployments</a>
+        <a href="ai-employees-engines.html">AI Employees & Engines</a>
+        <a href="contacts.html" class="btn btn-primary btn-slim">Schedule A Consult</a>
+      </nav>
+
       <button class="hamburger" aria-label="Open menu" aria-controls="overlayNav" aria-expanded="false" onclick="toggleMenu(true)">
         <span></span>
       </button>
     </div>
   </header>
 
-<!-- Hero -->
-<section class="hero">
-  <div class="container hero-inner reveal">
-    <div class="kicker">Human-Led • AI-Powered</div>
-    <h1 class="title">Let’s get a function running — properly.</h1>
-    <p class="sub">Start with a small pilot or ask us anything about AI Employees and Engines. We’ll reply within one business day.</p>
-  </div>
-</section>
-
-<!-- Main -->
-<main class="container">
-  <section class="section">
-    <div class="grid cols-2" style="align-items:start">
-      <!-- Left: quick options & details -->
-      <div class="grid stagger" style="gap:1rem">
-        <div class="card reveal">
-          <h2>Quick options</h2>
-          <ul class="tick">
-            <li><strong>Start a pilot</strong> — identify a function to run and we’ll scope a 2–4 week trial with clear KPIs.</li>
-            <li><strong>Discovery call</strong> — 20 minutes to map your use cases and stack, no hard sell.</li>
-            <li><strong>General question</strong> — pricing, security, fit — ask away.</li>
-          </ul>
-        </div>
-
-        <div class="card reveal">
-          <h2>Contact details</h2>
-          <p class="muted">Prefer email? Reach us directly.</p>
-          <p><strong>Email:</strong> <a href="mailto:sales@fusedid.com">sales@fusedid.com</a><br/>
-             <strong>Location:</strong> Melbourne, Australia (consulting only)</p>
-          <p class="hint">We operate globally; sessions run virtually unless otherwise arranged.</p>
-        </div>
-
-        <div class="card reveal" style="background:var(--tint)">
-          <h2>Security & privacy</h2>
-          <p class="muted">We can sign NDAs and limit data sharing during pilots. Your material stays yours.</p>
-        </div>
-      </div>
-
-      <!-- Right: form -->
-      <form id="contactForm" class="reveal" autocomplete="on" aria-label="Contact form">
-        <h2>Send us a message</h2>
-
-        <div class="row two">
-          <div>
-            <label for="name">Your name</label>
-            <input id="name" name="name" type="text" required placeholder="Jane Appleseed"/>
-          </div>
-          <div>
-            <label for="company">Company</label>
-            <input id="company" name="company" type="text" placeholder="Acme Pty Ltd"/>
-          </div>
-        </div>
-
-        <div class="row two">
-          <div>
-            <label for="email">Work email</label>
-            <input id="email" name="email" type="email" required placeholder="name@company.com"/>
-          </div>
-          <div>
-            <label for="phone">Phone (optional)</label>
-            <input id="phone" name="phone" type="tel" placeholder="+61 …"/>
-          </div>
-        </div>
-
-        <div class="row two">
-          <div>
-            <label for="interest">I’m interested in</label>
-            <select id="interest" name="interest" required>
-              <option value="" disabled selected>Select one…</option>
-              <option>AI Employees (Ethan / Kaia / Lara / Nova)</option>
-              <option>Prospect Engine</option>
-              <option>Kaizen Engine</option>
-              <option>FusedKnowledge</option>
-              <option>Talent Engine</option>
-              <option>Not sure yet</option>
-            </select>
-          </div>
-          <div>
-            <label for="timeframe">Timeframe</label>
-            <select id="timeframe" name="timeframe">
-              <option>ASAP</option>
-              <option>0–4 weeks</option>
-              <option>1–3 months</option>
-              <option>3+ months / exploring</option>
-            </select>
-          </div>
-        </div>
-
-        <div>
-          <label for="message">What would you like to achieve?</label>
-          <textarea id="message" name="message" required placeholder="A few lines on your goals, constraints, and systems…"></textarea>
-        </div>
-
-        <!-- Honeypot -->
-        <div style="position:absolute;left:-5000px" aria-hidden="true">
-          <label for="website">Website</label>
-          <input id="website" name="website" type="text" tabindex="-1" autocomplete="off"/>
-        </div>
-
-        <div style="display:flex;gap:.6rem;align-items:center;margin-top:.6rem">
-          <button class="btn btn-primary" type="submit">Send message</button>
-          <button class="btn btn-ghost" type="reset">Clear</button>
-        </div>
-        <p id="formNote" class="hint" role="status" aria-live="polite" style="margin-top:.65rem"></p>
-      </form>
+  <section class="hero">
+    <div class="container hero-inner reveal">
+      <div class="kicker">Human-Led • AI-Enhanced</div>
+      <h1 class="title">Let’s Build the Right AI Deployment</h1>
+      <p class="sub">
+        Tell us where AI should create leverage in your business — sales, hiring, knowledge,
+        operations or something more specific. We’ll help you identify the right starting point.
+      </p>
     </div>
   </section>
 
+  <main>
+    <section class="section container">
+      <div class="grid grid-2" style="align-items:start">
+        <div class="grid" style="gap:1rem">
+          <div class="card reveal">
+            <h2>Start with the function, not the tool.</h2>
+            <p class="muted">
+              Most AI projects struggle because they begin with software. FUSED ID starts
+              with the work: what needs to happen, who owns it, what output matters, and
+              how the system should improve over time.
+            </p>
+            <ul class="checklist">
+              <li>Map the business function</li>
+              <li>Identify where AI can create leverage</li>
+              <li>Define the workflow, outcome and KPIs</li>
+              <li>Design a managed AI deployment around your business</li>
+            </ul>
+          </div>
 
-<!-- FAQ -->
-<section class="section faq" id="faq">
-  <h2>FAQ — Common Questions</h2>
-  <div class="card">
-    <details>
-      <summary>Will AI Employees replace my team?</summary>
-      <p>No. They take ownership of defined functions — freeing your team to focus on leadership, decision-making, and growth.</p>
-    </details>
+          <div class="card highlight reveal">
+            <h2>Good starting points</h2>
+            <ul class="checklist">
+              <li><strong>Sales:</strong> prospecting, outreach, qualification and pipeline consistency</li>
+              <li><strong>Hiring:</strong> role intake, screening, interviews and shortlists</li>
+              <li><strong>Knowledge:</strong> policies, SOPs, playbooks and internal Q&A</li>
+              <li><strong>Operations:</strong> quality, Kaizen, KPIs and continuous improvement</li>
+            </ul>
+          </div>
 
-    <details>
-      <summary>How quickly can we get started?</summary>
-      <p>Most pilots show measurable results within 2–4 weeks. Setup is lightweight — no new tools or dashboards.</p>
-    </details>
+          <div class="card reveal">
+            <h2>Contact details</h2>
+            <p class="muted">Prefer email? Reach us directly.</p>
+            <p>
+              <strong>Email:</strong> <a href="mailto:sales@fusedid.com">sales@fusedid.com</a><br>
+              <strong>Location:</strong> Melbourne, Australia
+            </p>
+            <p class="hint">We work with Australian and international businesses. Most sessions run virtually.</p>
+          </div>
+        </div>
 
-    <details>
-      <summary>What about data security and compliance?</summary>
-      <p>We work to strict data-handling standards and can align to your controls (including ISO-style workflows). NDAs welcome.</p>
-    </details>
+        <form id="contactForm" class="reveal" autocomplete="on" aria-label="Contact form">
+          <h2>Send us a message</h2>
 
-    <details>
-      <summary>How do we know it’s working?</summary>
-      <p>Every Employee and Engine runs with clear KPIs, reporting, and human oversight — outcomes, not guesswork.</p>
-    </details>
-  </div>
-</section>
+          <div class="row two">
+            <div>
+              <label for="name">Your name</label>
+              <input id="name" name="name" type="text" required placeholder="Jane Appleseed">
+            </div>
+            <div>
+              <label for="company">Company</label>
+              <input id="company" name="company" type="text" placeholder="Acme Pty Ltd">
+            </div>
+          </div>
 
+          <div class="row two">
+            <div>
+              <label for="email">Work email</label>
+              <input id="email" name="email" type="email" required placeholder="name@company.com">
+            </div>
+            <div>
+              <label for="phone">Phone optional</label>
+              <input id="phone" name="phone" type="tel" placeholder="+61 …">
+            </div>
+          </div>
+
+          <div class="row two">
+            <div>
+              <label for="interest">I’m interested in</label>
+              <select id="interest" name="interest" required>
+                <option value="" disabled selected>Select one…</option>
+                <option>Bespoke AI Deployment</option>
+                <option>Sales / Prospecting Deployment</option>
+                <option>Hiring / Talent Deployment</option>
+                <option>Knowledge Management Deployment</option>
+                <option>Operations / Kaizen Deployment</option>
+                <option>AI Employees & Engines</option>
+                <option>Not sure yet</option>
+              </select>
+            </div>
+
+            <div>
+              <label for="timeframe">Timeframe</label>
+              <select id="timeframe" name="timeframe">
+                <option>ASAP</option>
+                <option>0–4 weeks</option>
+                <option>1–3 months</option>
+                <option>3+ months / exploring</option>
+              </select>
+            </div>
+          </div>
+
+          <div>
+            <label for="message">What would you like to improve?</label>
+            <textarea id="message" name="message" required placeholder="A few lines on the function, workflow, pain point or outcome you want to improve…"></textarea>
+          </div>
+
+          <div style="position:absolute;left:-5000px" aria-hidden="true">
+            <label for="website">Website</label>
+            <input id="website" name="website" type="text" tabindex="-1" autocomplete="off">
+          </div>
+
+          <div style="display:flex;gap:.6rem;align-items:center;margin-top:.8rem;flex-wrap:wrap">
+            <button class="btn btn-primary" type="submit">Send message</button>
+            <button class="btn btn-outline" type="reset">Clear</button>
+          </div>
+
+          <p id="formNote" class="hint" role="status" aria-live="polite" style="margin-top:.65rem"></p>
+        </form>
+      </div>
+    </section>
+
+    <section class="section soft-band">
+      <div class="container">
+        <div class="reveal">
+          <h2>What happens next</h2>
+        </div>
+
+        <div class="grid grid-3" style="margin-top:1.5rem">
+          <div class="card reveal">
+            <h3>1. We understand the function</h3>
+            <p>We look at your current workflow, tools, friction points and desired outcome.</p>
+          </div>
+
+          <div class="card reveal">
+            <h3>2. We identify the deployment</h3>
+            <p>We recommend the right AI system, Employee, Engine or managed workflow.</p>
+          </div>
+
+          <div class="card reveal">
+            <h3>3. We define the pilot</h3>
+            <p>We scope a focused starting point with clear ownership, outputs and success measures.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="section container faq" id="faq">
+      <h2>Common questions</h2>
+      <div class="card">
+        <details>
+          <summary>Do we need to know exactly what AI system we want?</summary>
+          <p>No. It is usually better to start with the business problem or function. We help translate that into the right AI deployment.</p>
+        </details>
+
+        <details>
+          <summary>Is this a one-off setup or an ongoing managed service?</summary>
+          <p>FUSED ID is built around managed deployment. We design, monitor and continuously improve the system as your business changes.</p>
+        </details>
+
+        <details>
+          <summary>Can you work with our existing tools?</summary>
+          <p>Usually, yes. We design around your existing workflows, people, data and operating environment before recommending new tools.</p>
+        </details>
+
+        <details>
+          <summary>How quickly can we start?</summary>
+          <p>Most first deployments can be scoped quickly once the function and outcome are clear. A focused pilot is usually the best starting point.</p>
+        </details>
+
+        <details>
+          <summary>What about confidentiality?</summary>
+          <p>We can sign NDAs and limit data sharing during early discussions. Your business information stays yours.</p>
+        </details>
+      </div>
+    </section>
   </main>
 
-  <!-- CTA band -->
   <section class="cta-band">
     <div class="container cta-inner">
       <div>
         <strong style="font-size:1.1rem">Prefer to skip the form?</strong>
-        <div class="muted">Email <a href="mailto:sales@fusedid.com">sales@fusedid.com</a> with your goal and timeframe.</div>
+        <div class="muted">Email <a href="mailto:sales@fusedid.com">sales@fusedid.com</a> with the function you want to improve.</div>
       </div>
-      <div>
-        <a class="btn btn-primary" href="mailto:sales@fusedid.com?subject=FUSED%20ID%20enquiry">Email us</a>
-      </div>
+      <a class="btn btn-primary" href="mailto:sales@fusedid.com?subject=FUSED%20ID%20AI%20deployment%20enquiry">Email us →</a>
     </div>
   </section>
 
   <footer>
     <div class="container foot">
       <span>© FUSED ID</span>
-      <a href="index.html" style="color:#fff">← Back to FUSED ID</a>
+      <div style="display:flex;gap:1rem;flex-wrap:wrap">
+        <a href="index.html">Home</a>
+        <a href="ai-employees-engines.html">AI Employees & Engines</a>
+      </div>
     </div>
   </footer>
 
   <script>
-    // Simple validation + mailto fallback
+    function toggleMenu(open){
+      const overlay = document.getElementById('overlayNav');
+      const btn = document.querySelector('.hamburger');
+      if(!overlay) return;
+
+      if(open){
+        overlay.classList.add('open');
+        overlay.setAttribute('aria-hidden','false');
+        if(btn) btn.setAttribute('aria-expanded','true');
+        document.body.style.overflow='hidden';
+      }else{
+        overlay.classList.remove('open');
+        overlay.setAttribute('aria-hidden','true');
+        if(btn) btn.setAttribute('aria-expanded','false');
+        document.body.style.overflow='';
+      }
+    }
+
     const form = document.getElementById('contactForm');
     const note = document.getElementById('formNote');
+
     form.addEventListener('submit', function(ev){
       ev.preventDefault();
-      const data = new FormData(form);
-      if (data.get('website')) { note.textContent = 'Thanks!'; return; } // honeypot
-      const name = (data.get('name')||'').trim();
-      const email = (data.get('email')||'').trim();
-      const company = (data.get('company')||'').trim();
-      const phone = (data.get('phone')||'').trim();
-      const interest = data.get('interest')||'Not specified';
-      const timeframe = data.get('timeframe')||'Not specified';
-      const message = (data.get('message')||'').trim();
 
-      if(!name || !email || !message){ note.textContent = 'Please complete name, email and your message.'; return; }
+      const data = new FormData(form);
+      if(data.get('website')){
+        note.textContent = 'Thanks.';
+        return;
+      }
+
+      const name = (data.get('name') || '').trim();
+      const email = (data.get('email') || '').trim();
+      const company = (data.get('company') || '').trim();
+      const phone = (data.get('phone') || '').trim();
+      const interest = data.get('interest') || 'Not specified';
+      const timeframe = data.get('timeframe') || 'Not specified';
+      const message = (data.get('message') || '').trim();
+
+      if(!name || !email || !message){
+        note.textContent = 'Please complete your name, email and message.';
+        return;
+      }
 
       const body = encodeURIComponent(
         `Name: ${name}\nCompany: ${company}\nEmail: ${email}\nPhone: ${phone}\nInterest: ${interest}\nTimeframe: ${timeframe}\n\nMessage:\n${message}`
       );
-      const mailto = `mailto:sales@fusedid.com?subject=${encodeURIComponent('FUSED ID enquiry — '+interest)}&body=${body}`;
+
+      const mailto = `mailto:sales@fusedid.com?subject=${encodeURIComponent('FUSED ID enquiry — ' + interest)}&body=${body}`;
       window.location.href = mailto;
+
       note.textContent = 'Opening your email client… If nothing happens, email sales@fusedid.com directly.';
       form.reset();
     });
-  </script>
 
+    (function(){
+      const els = Array.from(document.querySelectorAll('.reveal'));
 
-<script>
-(function(){
-  const els = [...document.querySelectorAll('.reveal')];
-  if (!els.length) return;
-
-  const io = new IntersectionObserver((entries)=>{
-    entries.forEach(e=>{
-      if (e.isIntersecting) {
-        e.target.classList.add('visible');
-        io.unobserve(e.target);
+      if(!('IntersectionObserver' in window)){
+        els.forEach(el => el.classList.add('visible'));
+        return;
       }
-    });
-  }, { threshold: 0.12 });
 
-  els.forEach(el => io.observe(el));
-})();
-</script>
+      const io = new IntersectionObserver((entries)=>{
+        entries.forEach(entry=>{
+          if(entry.isIntersecting){
+            entry.target.classList.add('visible');
+            io.unobserve(entry.target);
+          }
+        });
+      }, { threshold:.08, rootMargin:'0px 0px -5% 0px' });
 
+      els.forEach(el => io.observe(el));
 
-
+      window.addEventListener('load', () => {
+        els.forEach(el => {
+          const r = el.getBoundingClientRect();
+          if(r.top < window.innerHeight && r.bottom > 0){
+            el.classList.add('visible');
+            io.unobserve(el);
+          }
+        });
+      });
+    })();
+  </script>
 </body>
 </html>

@@ -4,9 +4,9 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
 
-  <title>AI Employees & AI Engines • FUSED ID</title>
-  <meta name="description" content="AI Employees and AI Engines are the delivery model behind FUSED ID custom AI deployments. Engines provide specialist capabilities; Employees turn them into accountable business functions." />
-  <meta name="keywords" content="AI Employees, AI Engines, custom AI deployments, AI operators, AI business systems, FUSED ID, AI sales, AI hiring, AI knowledge, AI kaizen" />
+  <title>AI Employees & Deployment Engines • FUSED ID</title>
+  <meta name="description" content="AI Employees and Deployment Engines are FUSED ID's model for turning AI capability into reliable business execution. Human-led, AI-enhanced deployments built around real workflows." />
+  <meta name="keywords" content="AI Employees, AI Engines, deployment engines, custom AI deployments, AI operators, AI business systems, FUSED ID, AI sales, AI hiring, AI knowledge, AI kaizen" />
   <meta name="author" content="FUSED ID" />
 
   <link rel="apple-touch-icon" href="/apple-touch-icon.png">
@@ -200,7 +200,7 @@
     .hero{
       position:relative;
       isolation:isolate;
-      min-height:62vh;
+      min-height:66vh;
       display:grid;
       place-items:center;
       overflow:hidden;
@@ -212,7 +212,7 @@
       inset:0;
       z-index:-2;
       background:
-        linear-gradient(180deg, rgba(21,14,9,.62) 0%, rgba(21,14,9,.86) 58%, rgba(21,14,9,.96) 100%),
+        linear-gradient(180deg, rgba(21,14,9,.60) 0%, rgba(21,14,9,.82) 58%, rgba(21,14,9,.96) 100%),
         url('leadership-governance.jpg') center/cover no-repeat;
       transform:scale(1.02);
       filter:saturate(1.05) contrast(1.02);
@@ -247,7 +247,7 @@
       max-width:980px;
     }
     .hero p{
-      max-width:790px;
+      max-width:820px;
       font-size:clamp(1rem,1vw + .6rem,1.25rem);
       line-height:1.6;
       color:#f3f3f3;
@@ -333,41 +333,6 @@
       padding-bottom:4rem;
     }
 
-    .card-icon{
-      width:100%;
-      aspect-ratio:10/8;
-      background:#f5f5f5;
-      border-radius:10px;
-      margin-bottom:1rem;
-      background-size:cover;
-      background-position:50% 5%;
-    }
-
-    .employee-card,
-    .engine-card{
-      display:flex;
-      flex-direction:column;
-      height:100%;
-    }
-    .employee-card .btn,
-    .engine-card .btn{
-      margin-top:auto;
-      align-self:flex-start;
-    }
-
-    .tag{
-      display:inline-flex;
-      align-self:flex-start;
-      padding:.25rem .55rem;
-      border-radius:999px;
-      background:#fbf3ed;
-      border:1px solid #eadfd7;
-      color:#7a4a2e;
-      font-weight:800;
-      font-size:.78rem;
-      margin-bottom:.75rem;
-    }
-
     .model-panel{
       background:#150e09;
       color:#fff;
@@ -389,37 +354,45 @@
     .model-panel h2,
     .model-panel h3{color:#fff}
     .model-panel p{color:#f3f3f3}
-    .model-grid{
-      display:grid;
-      grid-template-columns:1fr auto 1fr;
-      gap:1.25rem;
-      align-items:stretch;
-      margin-top:1.5rem;
-    }
+    .model-panel .card,
     .model-box{
       border:1px solid rgba(255,140,50,.55);
       border-radius:18px;
       padding:1.35rem;
       background:rgba(255,255,255,.045);
+      color:#fff;
     }
+    .model-panel .card h3,
     .model-box h3{
       margin:.1rem 0 .65rem;
       color:var(--copper-light);
     }
-    .model-arrow{
-      display:flex;
-      align-items:center;
-      justify-content:center;
-      font-size:2rem;
-      color:var(--copper-light);
+    .model-panel .card p,
+    .model-box p{color:#f3f3f3}
+
+    .tag{
+      display:inline-flex;
+      align-self:flex-start;
+      padding:.25rem .55rem;
+      border-radius:999px;
+      background:#fbf3ed;
+      border:1px solid #eadfd7;
+      color:#7a4a2e;
+      font-weight:800;
+      font-size:.78rem;
+      margin-bottom:.75rem;
     }
 
-    .deployment-example{
+    .capability-card,
+    .employee-card,
+    .outcome-card{
       display:flex;
       flex-direction:column;
       min-height:100%;
     }
-    .deployment-example .btn{
+    .capability-card .btn,
+    .employee-card .btn,
+    .outcome-card .btn{
       margin-top:auto;
       align-self:flex-start;
     }
@@ -481,8 +454,6 @@
       .grid-4,.grid-3{grid-template-columns:repeat(2,minmax(0,1fr))}
       .split{grid-template-columns:1fr;gap:2rem}
       .media{order:-1}
-      .model-grid{grid-template-columns:1fr}
-      .model-arrow{transform:rotate(90deg)}
     }
 
     @media(max-width:640px){
@@ -492,19 +463,29 @@
       .foot{flex-direction:column;align-items:flex-start}
       .model-panel{border-radius:22px;padding:1.35rem}
     }
+
+.card-icon{
+  width:100%;
+  aspect-ratio:10/8;
+  background:#f5f5f5;
+  border-radius:10px;
+  margin-bottom:1rem;
+  background-size:cover;
+  background-position:50% 5%;
+}
   </style>
 </head>
 
 <body>
   <div class="nav-overlay" id="overlayNav" aria-hidden="true">
     <button class="nav-close" aria-label="Close menu" onclick="toggleMenu(false)">×</button>
-<div class="nav-panel">
-  <a href="index.html#solutions" onclick="toggleMenu(false)">Solutions</a>
-  <a href="index.html#deployments" onclick="toggleMenu(false)">Deployments</a>
-  <a href="ai-employees-engines.html" onclick="toggleMenu(false)">AI Employees & Engines</a>
-  <a href="contacts.html" onclick="toggleMenu(false)">Contact</a>
-  <a href="mailto:sales@fusedid.com" onclick="toggleMenu(false)" style="margin-top:.6rem;color:var(--copper-light)">sales@fusedid.com</a>
-</div>
+    <div class="nav-panel">
+      <a href="why-fused.html" onclick="toggleMenu(false)">Why FUSED</a>
+      <a href="ai-employees-engines.html" onclick="toggleMenu(false)">AI Employees & Engines</a>
+      <a href="microsoft-ai-deployments.html" onclick="toggleMenu(false)">Microsoft Platforms</a>
+      <a href="contacts.html" onclick="toggleMenu(false)">Book a Teams Call</a>
+      <a href="mailto:sales@fusedid.com" onclick="toggleMenu(false)" style="margin-top:.6rem;color:var(--copper-light)">sales@fusedid.com</a>
+    </div>
   </div>
 
   <header>
@@ -514,12 +495,12 @@
         FUSED ID
       </a>
 
-<nav class="primary" aria-label="Primary">
-  <a href="index.html#solutions">Solutions</a>
-  <a href="index.html#deployments">Deployments</a>
-  <a href="ai-employees-engines.html">AI Employees & Engines</a>
-  <a href="contacts.html" class="btn btn-primary btn-slim">Schedule A Consult</a>
-</nav>
+      <nav class="primary" aria-label="Primary">
+        <a href="why-fused.html">Why FUSED</a>
+        <a href="ai-employees-engines.html">AI Employees & Engines</a>
+        <a href="microsoft-ai-deployments.html">Microsoft Platforms</a>
+        <a href="contacts.html" class="btn btn-primary btn-slim">Book a Teams Call</a>
+      </nav>
 
       <button class="hamburger" aria-label="Open menu" aria-controls="overlayNav" aria-expanded="false" onclick="toggleMenu(true)">
         <span></span>
@@ -530,64 +511,46 @@
   <section class="hero">
     <div class="container">
       <div class="hero-content">
-        <div class="kicker">Delivery Architecture • Human-Led • AI-Enhanced</div>
-        <h1>AI Employees & AI Engines</h1>
+        <div class="kicker">Managed Execution • Human-Led • AI-Enhanced</div>
+        <h1>AI Employees & Deployment Engines</h1>
         <p>
-          The delivery model behind FUSED ID’s custom AI deployments. AI Engines provide
-          specialist capabilities. AI Employees turn those capabilities into accountable
-          business functions, managed by human operators.
+          Practical AI systems built around real business functions. Some deployments take the form of AI Employees that support an ongoing role. Others use specialist Deployment Engines to automate a specific capability.
+        </p>
+        <p>
+          Most mature deployments combine both.
         </p>
         <div class="hero-ctas">
-          <a class="btn btn-primary" href="#employees">Explore AI Employees →</a>
-          <a class="btn btn-outline-light" href="#engines">Explore AI Engines</a>
-          <a class="btn btn-outline-light" href="contacts.html">Book a Deployment Call</a>
+          <a class="btn btn-primary" href="contacts.html">Book a Teams Call →</a>
+          <a class="btn btn-outline-light" href="why-fused.html">Why FUSED</a>
         </div>
       </div>
     </div>
   </section>
 
   <main>
-    <section class="section container" id="model">
-      <div class="model-panel reveal">
-        <div class="kicker">How the model works</div>
-        <h2>Engines provide the skills. Employees deliver the function.</h2>
-        <p style="max-width:860px">
-          FUSED ID deployments are built from two layers. Engines perform specialist
-          capabilities like prospecting, hiring, knowledge retrieval or continuous
-          improvement. AI Employees combine those capabilities into practical, accountable
-          roles that run inside your business.
+    <section class="section container">
+      <div class="reveal">
+        <h2>AI Should Reduce Management Load, Not Increase It</h2>
+        <p class="muted" style="max-width:850px">
+          Most AI tools create another thing for leaders to manage. FUSED ID takes a different approach:
+          we design AI-supported execution around your business function, your standards and your workflows.
         </p>
+      </div>
 
-        <div class="model-grid">
-          <div class="model-box">
-            <h3>AI Engines</h3>
-            <p>
-              Modular business systems that perform defined capabilities with repeatable
-              inputs, outputs and reporting.
-            </p>
-            <ul class="checklist">
-              <li>Prospecting</li>
-              <li>Talent screening</li>
-              <li>Knowledge retrieval</li>
-              <li>Kaizen and quality workflows</li>
-            </ul>
-          </div>
+      <div class="grid grid-3" style="margin-top:1.5rem">
+        <div class="card reveal">
+          <h3>You Stay In Control</h3>
+          <p>Your team sets the direction, standards, decisions, governance and escalation points.</p>
+        </div>
 
-          <div class="model-arrow">➝</div>
+        <div class="card highlight reveal">
+          <h3>AI Handles Repetition</h3>
+          <p>AI supports administration, research, knowledge retrieval, analysis, workflow execution and reporting.</p>
+        </div>
 
-          <div class="model-box">
-            <h3>AI Employees</h3>
-            <p>
-              Role-based AI operators that combine Engines into a business function
-              with oversight, context and accountability.
-            </p>
-            <ul class="checklist">
-              <li>Defined role ownership</li>
-              <li>Business context and tone</li>
-              <li>Managed execution</li>
-              <li>Continuous improvement</li>
-            </ul>
-          </div>
+        <div class="card reveal">
+          <h3>FUSED Provides Oversight</h3>
+          <p>We design, deploy, monitor and improve the system so it becomes useful business execution.</p>
         </div>
       </div>
     </section>
@@ -596,299 +559,285 @@
       <div class="container">
         <div class="split">
           <div class="reveal">
-            <h2>Why this matters</h2>
+            <h2>Two Ways Businesses Deploy AI</h2>
             <p>
-              Most AI tools create more things for leaders to manage: prompts, dashboards,
-              automations, settings, exceptions and quality checks. FUSED ID structures AI
-              differently.
+              Some businesses need an AI teammate that supports an ongoing function. Others need a targeted workflow engine that solves a specific problem.
             </p>
             <p>
-              We turn AI capability into managed business execution. The client does not
-              need to operate the stack. They get a deployment that performs a defined
-              function and improves over time.
+              FUSED ID designs the right model around the business outcome, not around a pre-packaged product.
             </p>
-            <ul class="checklist">
-              <li>No DIY prompt management</li>
-              <li>No disconnected tools to babysit</li>
-              <li>No unclear ownership</li>
-              <li>Human-led governance and improvement</li>
-            </ul>
           </div>
 
-          <div class="media reveal">
-            <img src="AI_first_management.jpg" alt="AI deployment management and executive operating layer">
+          <div class="model-panel reveal">
+            <div class="grid grid-2">
+              <div class="model-box">
+                <h3>AI Employees</h3>
+                <p>Role-based AI teammates that help run an ongoing business function.</p>
+                <ul class="checklist">
+                  <li>Sales support</li>
+                  <li>Hiring support</li>
+                  <li>Operations support</li>
+                  <li>Knowledge support</li>
+                  <li>Administration support</li>
+                </ul>
+              </div>
+
+              <div class="model-box">
+                <h3>Deployment Engines</h3>
+                <p>Specialist capability modules that automate or improve a defined workflow.</p>
+                <ul class="checklist">
+                  <li>Prospecting</li>
+                  <li>Talent screening</li>
+                  <li>Knowledge retrieval</li>
+                  <li>Continuous improvement</li>
+                  <li>Reporting and dashboards</li>
+                </ul>
+              </div>
+            </div>
           </div>
         </div>
       </div>
     </section>
 
-    <section class="section container" id="employees">
+    <section class="section container">
       <div class="reveal">
-        <div class="kicker">AI Employees</div>
-        <h2>Role-Based AI Operators for Ongoing Execution</h2>
-        <p class="muted" style="max-width:820px">
-          AI Employees are not generic bots. They are structured, role-based operators
-          designed to take ownership of a defined function inside your business.
+        <h2>Typical Business Outcomes</h2>
+        <p class="muted" style="max-width:850px">
+          The point is not to add AI for the sake of it. The point is to improve execution where work is repetitive, inconsistent, difficult to track or overly dependent on key individuals.
         </p>
       </div>
 
       <div class="grid grid-4" style="margin-top:1.5rem">
-        <div class="card employee-card reveal">
-          <div class="card-icon" style="background-image:url('ethan.jpg');"></div>
+        <div class="card outcome-card reveal">
           <span class="tag">Sales</span>
-          <h3>Ethan — Sales Operator</h3>
-          <p>
-            Pipeline generation, LinkedIn outreach, prospect research, email sequences,
-            product explanation and quotation support.
-          </p>
-          <ul class="checklist">
-            <li>Builds targeted prospect lists</li>
-            <li>Runs outreach workflows</li>
-            <li>Supports pipeline consistency</li>
-          </ul>
-          <a class="btn btn-primary" href="CV/ethan.html" target="_blank" rel="noopener">View CV →</a>
+          <h3>More Qualified Conversations</h3>
+          <p>Generate better prospect lists, improve follow-up consistency and give leaders clearer visibility over sales activity.</p>
         </div>
 
-        <div class="card employee-card reveal">
-          <div class="card-icon" style="background-image:url('kaia.jpg');"></div>
-          <span class="tag">Quality</span>
-          <h3>Kaia — Quality & Improvement Operator</h3>
-          <p>
-            ISO 9001, process mapping, KPI tracking, audits, NCRs, root-cause analysis
-            and continuous improvement.
-          </p>
-          <ul class="checklist">
-            <li>Tracks quality actions</li>
-            <li>Supports audit readiness</li>
-            <li>Drives structured improvement</li>
-          </ul>
-          <a class="btn btn-primary" href="CV/kaia.html" target="_blank" rel="noopener">View CV →</a>
+        <div class="card outcome-card reveal">
+          <span class="tag">Hiring</span>
+          <h3>Less Screening Effort</h3>
+          <p>Structure role intake, applicant review, interview support and shortlists so hiring becomes easier to manage.</p>
         </div>
 
-        <div class="card employee-card reveal">
-          <div class="card-icon" style="background-image:url('lara.jpg');"></div>
-          <span class="tag">People</span>
-          <h3>Lara — People & Culture Operator</h3>
-          <p>
-            Hiring coordination, onboarding, reviews, engagement rhythms, internal
-            communication and compliance support.
-          </p>
-          <ul class="checklist">
-            <li>Coordinates hiring workflows</li>
-            <li>Supports onboarding</li>
-            <li>Keeps people processes moving</li>
-          </ul>
-          <a class="btn btn-primary" href="CV/Lara.html" target="_blank" rel="noopener">View CV →</a>
+        <div class="card outcome-card reveal">
+          <span class="tag">Knowledge</span>
+          <h3>Faster Access to Answers</h3>
+          <p>Turn documents, policies, SOPs and internal know-how into searchable knowledge systems with better control.</p>
         </div>
 
-        <div class="card employee-card reveal">
-          <div class="card-icon" style="background-image:url('nova.jpg');"></div>
-          <span class="tag">Custom</span>
-          <h3>Nova — Custom AI Operator</h3>
-          <p>
-            A flexible operator configured around your workflows, communication style,
-            business tools and operational priorities.
-          </p>
-          <ul class="checklist">
-            <li>Adapts to defined workflows</li>
-            <li>Supports admin and operations</li>
-            <li>Built around your next function</li>
-          </ul>
-          <a class="btn btn-primary" href="CV/nova.html" target="_blank" rel="noopener">View CV →</a>
+        <div class="card outcome-card reveal">
+          <span class="tag">Operations</span>
+          <h3>Better Visibility and Follow-Through</h3>
+          <p>Track actions, measure improvement, support root-cause analysis and reduce the chance that work disappears.</p>
         </div>
       </div>
     </section>
 
-    <section class="section container" id="engine-visual">
-      <div class="model-panel reveal">
-        <h2>Engines form the skills. Employees bring them to life.</h2>
-        <p style="max-width:860px">
-          Engines are modular capabilities. Human oversight integrates those capabilities
-          into an accountable AI Employee that can deliver a complete business function.
+<section class="soft-band" id="employees">
+  <div class="container">
+    <div class="reveal">
+      <div class="kicker">AI Employees</div>
+      <h2>Role-Based AI Teammates for Ongoing Execution</h2>
+      <p class="muted" style="max-width:850px">
+        AI Employees are structured, role-based deployments aligned to a business function.
+        Each one is configured around your workflows, tools, standards and operating rhythm.
+      </p>
+    </div>
+
+    <div class="grid grid-4" style="margin-top:1.5rem">
+      <div class="card employee-card reveal">
+        <div class="card-icon" style="background-image:url('ethan.jpg');"></div>
+        <span class="tag">Sales</span>
+        <h3>Ethan — Sales Operator</h3>
+        <p>
+          Supports prospect research, outreach preparation, follow-up rhythms,
+          CRM updates and pipeline visibility.
         </p>
-
-        <div class="grid grid-4" style="margin-top:1.5rem">
-          <div class="model-box">
-            <h3>FusedProspecting</h3>
-            <p>Lead research, enrichment, segmentation and outreach.</p>
-          </div>
-          <div class="model-box">
-            <h3>FusedTalent</h3>
-            <p>Role intake, candidate screening, interviews and shortlists.</p>
-          </div>
-          <div class="model-box">
-            <h3>FusedKnowledge</h3>
-            <p>Answers from documents, policies, playbooks and internal knowledge.</p>
-          </div>
-          <div class="model-box">
-            <h3>FusedKaizen</h3>
-            <p>CAPA, audits, KPI tracking and continuous improvement.</p>
-          </div>
-        </div>
+        <ul class="checklist">
+          <li>Prospect research</li>
+          <li>Lead enrichment</li>
+          <li>Follow-up support</li>
+          <li>Sales reporting</li>
+        </ul>
+        <a class="btn btn-primary" href="CV/ethan.html" target="_blank" rel="noopener">Explore Role →</a>
       </div>
-    </section>
 
-    <section class="soft-band" id="engines">
-      <div class="container">
-        <div class="reveal">
-          <div class="kicker">AI Engines</div>
-          <h2>Specialist AI Engines That Power Each Deployment</h2>
-          <p class="muted" style="max-width:820px">
-            Engines are modular business systems. They can run independently or combine
-            inside an AI Employee to deliver a broader function.
-          </p>
-        </div>
-
-        <div class="grid grid-4" style="margin-top:1.5rem">
-          <div class="card engine-card reveal">
-            <div class="card-icon" style="background-image:url('prospecting.jpg');"></div>
-            <span class="tag">Sales</span>
-            <h3>FusedProspecting</h3>
-            <p>
-              Find, enrich, sort and engage prospects with structured outreach and
-              pipeline visibility.
-            </p>
-            <ul class="checklist">
-              <li>Domain and LinkedIn hunting</li>
-              <li>Prospect enrichment</li>
-              <li>Smart segmentation</li>
-            </ul>
-            <a class="btn btn-primary" href="ProspectFusedID/prospecting.html">Learn More →</a>
-          </div>
-
-          <div class="card engine-card reveal">
-            <div class="card-icon" style="background-image:url('talent.jpg');"></div>
-            <span class="tag">Hiring</span>
-            <h3>FusedTalent</h3>
-            <p>
-              Define roles, process applicants, conduct structured AI interviews and
-              generate ranked shortlists.
-            </p>
-            <ul class="checklist">
-              <li>Role and advert creation</li>
-              <li>Candidate screening</li>
-              <li>Shortlist generation</li>
-            </ul>
-            <a class="btn btn-primary" href="TalentFusedID/talent.html">Learn More →</a>
-          </div>
-
-          <div class="card engine-card reveal">
-            <div class="card-icon" style="background-image:url('knowledge.jpg');"></div>
-            <span class="tag">Knowledge</span>
-            <h3>FusedKnowledge</h3>
-            <p>
-              Turn policies, documents and tribal knowledge into a managed AI knowledge
-              base with cited answers.
-            </p>
-            <ul class="checklist">
-              <li>Document ingestion</li>
-              <li>Staff Q&A</li>
-              <li>Conflict detection</li>
-            </ul>
-            <a class="btn btn-primary" href="KnowledgeFusedID/knowledge.html">Learn More →</a>
-          </div>
-
-          <div class="card engine-card reveal">
-            <div class="card-icon" style="background-image:url('kaizen.jpg');"></div>
-            <span class="tag">Operations</span>
-            <h3>FusedKaizen</h3>
-            <p>
-              Capture improvements, calculate impact, run root-cause analysis and
-              support ISO-style continuous improvement.
-            </p>
-            <ul class="checklist">
-              <li>Kaizen tickets</li>
-              <li>ROI tracking</li>
-              <li>Root-cause workflows</li>
-            </ul>
-            <a class="btn btn-primary" href="KaizenFusedID/kaizen.html">Learn More →</a>
-          </div>
-        </div>
+      <div class="card employee-card reveal">
+        <div class="card-icon" style="background-image:url('kaia.jpg');"></div>
+        <span class="tag">Quality</span>
+        <h3>Kaia — Quality & Improvement Operator</h3>
+        <p>
+          Supports quality actions, improvement tickets, KPI tracking,
+          root-cause workflows and ISO-style governance.
+        </p>
+        <ul class="checklist">
+          <li>Quality actions</li>
+          <li>Improvement tracking</li>
+          <li>Root-cause support</li>
+          <li>KPI reporting</li>
+        </ul>
+        <a class="btn btn-primary" href="CV/kaia.html" target="_blank" rel="noopener">Explore Role →</a>
       </div>
-    </section>
 
-    <section class="section container" id="deployment-examples">
+      <div class="card employee-card reveal">
+        <div class="card-icon" style="background-image:url('lara.jpg');"></div>
+        <span class="tag">People</span>
+        <h3>Lara — People & Culture Operator</h3>
+        <p>
+          Supports hiring coordination, onboarding, reviews, engagement rhythms,
+          internal communication and compliance support.
+        </p>
+        <ul class="checklist">
+          <li>Hiring workflows</li>
+          <li>Onboarding support</li>
+          <li>People process coordination</li>
+          <li>Communication support</li>
+        </ul>
+        <a class="btn btn-primary" href="CV/Lara.html" target="_blank" rel="noopener">Explore Role →</a>
+      </div>
+
+      <div class="card employee-card reveal">
+        <div class="card-icon" style="background-image:url('nova.jpg');"></div>
+        <span class="tag">Custom</span>
+        <h3>Nova — Custom AI Operator</h3>
+        <p>
+          A flexible AI teammate configured around your workflows,
+          communication style, tools and operational priorities.
+        </p>
+        <ul class="checklist">
+          <li>Custom workflows</li>
+          <li>Admin support</li>
+          <li>Knowledge support</li>
+          <li>Operational coordination</li>
+        </ul>
+        <a class="btn btn-primary" href="CV/nova.html" target="_blank" rel="noopener">Explore Role →</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+    <section class="section container" id="engines">
       <div class="reveal">
-        <div class="kicker">Deployment examples</div>
-        <h2>How Employees and Engines combine in practice</h2>
-        <p class="muted" style="max-width:820px">
-          The client buys a deployment. Underneath, FUSED ID assembles the right mix
-          of Employees, Engines, workflows and human oversight.
+        <div class="kicker">Deployment Engines</div>
+        <h2>Specialist Skills Embedded Into the Deployment</h2>
+        <p class="muted" style="max-width:850px">
+          Engines are not separate products the client has to manage. They are capability modules FUSED ID can embed into an AI Employee or deploy as a targeted workflow.
         </p>
       </div>
 
       <div class="grid grid-4" style="margin-top:1.5rem">
-        <div class="card deployment-example reveal">
-          <span class="tag">Sales Deployment</span>
-          <h3>Ethan + FusedProspecting</h3>
-          <p>
-            Sales operator supported by lead intelligence, enrichment, outreach
-            workflows and reporting.
-          </p>
-          <p><strong>Outcome:</strong> Qualified pipeline and more consistent outreach.</p>
-          <a class="btn btn-outline-dark btn-slim" href="ProspectFusedID/prospecting.html">View Engine →</a>
+        <div class="card capability-card reveal">
+          <span class="tag">Sales</span>
+          <h3>FusedProspecting</h3>
+          <p>For finding, enriching, sorting and engaging prospects with better structure and reporting.</p>
+          <ul class="checklist">
+            <li>ICP definition</li>
+            <li>Domain hunting</li>
+            <li>LinkedIn hunting</li>
+            <li>Prospect enrichment</li>
+            <li>Smart segmentation</li>
+            <li>Pipeline reporting</li>
+          </ul>
         </div>
 
-        <div class="card deployment-example reveal">
-          <span class="tag">Hiring Deployment</span>
-          <h3>Lara + FusedTalent</h3>
-          <p>
-            People operator supported by role intake, candidate screening, interview
-            analysis and shortlist workflows.
-          </p>
-          <p><strong>Outcome:</strong> Faster hiring with less admin and clearer decisions.</p>
-          <a class="btn btn-outline-dark btn-slim" href="TalentFusedID/talent.html">View Engine →</a>
+        <div class="card capability-card reveal">
+          <span class="tag">Hiring</span>
+          <h3>FusedTalent</h3>
+          <p>For improving recruitment workflows from role intake through to shortlist preparation.</p>
+          <ul class="checklist">
+            <li>Role creation</li>
+            <li>Advert support</li>
+            <li>Candidate screening</li>
+            <li>Interview analysis</li>
+            <li>Sentiment and gap analysis</li>
+            <li>Shortlist generation</li>
+          </ul>
         </div>
 
-        <div class="card deployment-example reveal">
-          <span class="tag">Quality Deployment</span>
-          <h3>Kaia + FusedKaizen</h3>
-          <p>
-            Quality operator supported by improvement tickets, CAPA workflows,
-            root-cause analysis and KPI tracking.
-          </p>
-          <p><strong>Outcome:</strong> Stronger process control and measurable improvement.</p>
-          <a class="btn btn-outline-dark btn-slim" href="KaizenFusedID/kaizen.html">View Engine →</a>
+        <div class="card capability-card reveal">
+          <span class="tag">Knowledge</span>
+          <h3>FusedKnowledge</h3>
+          <p>For turning internal knowledge into a controlled, searchable and practical support layer.</p>
+          <ul class="checklist">
+            <li>Document ingestion</li>
+            <li>Policy retrieval</li>
+            <li>Staff Q&A</li>
+            <li>Source-backed answers</li>
+            <li>Conflict detection</li>
+            <li>Knowledge governance</li>
+          </ul>
         </div>
 
-        <div class="card deployment-example reveal">
-          <span class="tag">Knowledge Deployment</span>
-          <h3>Nova + FusedKnowledge</h3>
-          <p>
-            Custom operator supported by internal documents, Q&A, source citations
-            and managed knowledge workflows.
-          </p>
-          <p><strong>Outcome:</strong> Less dependency on key people and faster answers.</p>
-          <a class="btn btn-outline-dark btn-slim" href="KnowledgeFusedID/knowledge.html">View Engine →</a>
+        <div class="card capability-card reveal">
+          <span class="tag">Operations</span>
+          <h3>FusedKaizen</h3>
+          <p>For managing improvement, quality actions, root-cause workflows and operational visibility.</p>
+          <ul class="checklist">
+            <li>Improvement tickets</li>
+            <li>Approvals and ownership</li>
+            <li>ROI calculation</li>
+            <li>Root-cause analysis</li>
+            <li>KPI dashboards</li>
+            <li>Audit reporting</li>
+          </ul>
         </div>
       </div>
     </section>
 
-    <section class="soft-band" id="governance">
+    <section class="soft-band">
       <div class="container">
         <div class="split">
           <div class="media reveal">
-            <img src="executive-ops.jpg" alt="Reliable AI operations with human oversight">
+            <img src="microsoft-platform-workflow.jpg" alt="AI deployments working inside familiar Microsoft business platforms">
           </div>
 
           <div class="reveal">
-            <div class="kicker">Human-led delivery</div>
-            <h2>Configured. Monitored. Improved.</h2>
+            <div class="kicker">Trusted Platforms</div>
+            <h2>Built Around the Tools Your Team Already Uses</h2>
             <p>
-              FUSED ID is not positioned as a DIY agent platform. Every deployment is
-              structured, reviewed and improved by experienced operators.
+              Where practical, FUSED ID builds around Microsoft 365, Teams, Outlook, SharePoint, Power Automate, Power BI, Power Apps, Power Pages and Dynamics 365.
             </p>
             <p>
-              That gives clients the benefit of AI capacity without pushing the management
-              burden back onto their team.
+              This gives businesses a more familiar operating environment, stronger visibility and less dependency on obscure custom systems.
             </p>
             <ul class="checklist">
-              <li>Role and function definition</li>
-              <li>Workflow and prompt calibration</li>
-              <li>Output review and quality control</li>
-              <li>Continuous improvement rhythm</li>
-              <li>Clear escalation and accountability</li>
+              <li>Works with existing tools where practical</li>
+              <li>Supports visibility and governance</li>
+              <li>Reduces platform sprawl</li>
+              <li>Keeps the business closer to its own systems</li>
             </ul>
+            <a class="btn btn-primary" href="microsoft-ai-deployments.html">Explore Microsoft Platforms →</a>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="section container">
+      <div class="model-panel reveal">
+        <div class="kicker">Human-Led • AI-Enhanced</div>
+        <h2>AI Might Be Smart. It Is Not Wise.</h2>
+        <p style="max-width:900px">
+          Successful deployments still need leadership, judgement, governance, business experience and continuous improvement.
+        </p>
+        <p style="max-width:900px">
+          FUSED ID combines AI capability with experienced operators who understand the work itself — the judgement, risk, exceptions and real-world details of how work is done.
+        </p>
+
+        <div class="grid grid-3" style="margin-top:1.5rem">
+          <div class="card">
+            <h3>Business Context</h3>
+            <p>The deployment is shaped around the function, the people, the standards and what good looks like.</p>
+          </div>
+
+          <div class="card">
+            <h3>Governed Execution</h3>
+            <p>Systems include review points, escalation paths, quality checks and human oversight where it matters.</p>
+          </div>
+
+          <div class="card">
+            <h3>Improved Over Time</h3>
+            <p>Deployments are monitored, refined and improved as the business evolves.</p>
           </div>
         </div>
       </div>
@@ -897,12 +846,11 @@
 
   <section class="closing-cta">
     <div class="container">
-      <h2>Build the right AI deployment for your business.</h2>
+      <h2>Ready to Explore What AI Could Look Like in Your Business?</h2>
       <p>
-        Start with the business function. FUSED ID will design the right combination
-        of AI Employees, Engines, workflows and human oversight to deliver it.
+        Start with the business function. FUSED ID will design the right combination of AI Employees, Deployment Engines, workflows and human oversight to improve execution.
       </p>
-      <a href="contacts.html" class="btn btn-primary">Talk to an Operator →</a>
+      <a href="contacts.html" class="btn btn-primary">Book a Teams Call →</a>
     </div>
   </section>
 
@@ -910,8 +858,9 @@
     <div class="container foot">
       <span>© FUSED ID</span>
       <div style="display:flex;gap:1rem;flex-wrap:wrap">
-        <a href="index.html">Home</a>
-        <a href="contacts.html">Contact</a>
+        <a href="why-fused.html">Why FUSED</a>
+        <a href="microsoft-ai-deployments.html">Microsoft Platforms</a>
+        <a href="contacts.html">Book a Teams Call</a>
       </div>
     </div>
   </footer>

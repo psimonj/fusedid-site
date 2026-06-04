@@ -4,9 +4,9 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
 
-  <title>FUSED ID | Custom AI Deployments for Growing Businesses</title>
-  <meta name="description" content="FUSED ID designs, deploys and manages custom AI systems for sales, hiring, operations and knowledge management. Human-led, outcome-focused AI deployments for growing businesses.">
-  <meta name="keywords" content="custom AI deployments, AI engineering, AI automation, AI sales systems, AI hiring systems, AI operations, AI employees, AI engines, FUSED ID">
+  <title>FUSED ID | Bespoke AI Deployments for Growing Businesses</title>
+  <meta name="description" content="FUSED ID designs, deploys and manages bespoke AI systems built around real business workflows. Human-led, AI-enhanced deployments for sales, hiring, operations and knowledge management.">
+  <meta name="keywords" content="bespoke AI deployments, custom AI systems, AI automation, AI sales systems, AI hiring systems, AI operations, AI employees, AI engines, FUSED ID">
   <meta name="author" content="FUSED ID">
 
   <link rel="apple-touch-icon" href="/apple-touch-icon.png">
@@ -149,6 +149,7 @@
       background:transparent;
       color:#fff;
       font-size:22px;
+      cursor:pointer;
     }
 
     .btn{
@@ -198,21 +199,19 @@
       place-items:center;
       overflow:hidden;
     }
-.hero::before{
-  content:"";
-  position:absolute;
-  inset:0;
-  z-index:-2;
-  background:
-    linear-gradient(180deg, rgba(21,14,9,.42) 0%, rgba(21,14,9,.58) 58%, rgba(21,14,9,.78) 100%),
-    url('leadership-governance.jpg') center/cover no-repeat;
-  filter:saturate(1.18) contrast(1.05);
-  transform:scale(1.02);
-}
+    .hero::before{
+      content:"";
+      position:absolute;
+      inset:0;
+      z-index:-2;
+      background:
+        linear-gradient(180deg, rgba(21,14,9,.42) 0%, rgba(21,14,9,.58) 58%, rgba(21,14,9,.78) 100%),
+        url('leadership-governance.jpg') center/cover no-repeat;
+      filter:saturate(1.18) contrast(1.05);
+      transform:scale(1.02);
+    }
+    .hero::after{display:none}
 
-.hero::after{
-  display:none;
-}
     .hero-content{
       color:#fff;
       max-width:1020px;
@@ -234,7 +233,7 @@
       max-width:980px;
     }
     .hero p{
-      max-width:780px;
+      max-width:820px;
       font-size:clamp(1rem, 1vw + .6rem, 1.25rem);
       line-height:1.6;
       color:#f3f3f3;
@@ -380,7 +379,7 @@
       font-size:clamp(1.9rem,3vw,2.7rem);
       margin:0 0 .75rem;
     }
-    .closing-cta p{color:#f3f3f3;max-width:720px;margin:0 auto 1.4rem;line-height:1.6}
+    .closing-cta p{color:#f3f3f3;max-width:760px;margin:0 auto 1.4rem;line-height:1.6}
 
     footer{background:#0f0a07;color:#ddd}
     .foot{
@@ -418,22 +417,19 @@
       .arrow{transform:rotate(90deg)}
       .foot{flex-direction:column;align-items:flex-start}
     }
-
-
   </style>
 </head>
 
 <body>
   <div class="nav-overlay" id="overlayNav" aria-hidden="true">
     <button class="nav-close" aria-label="Close menu" onclick="toggleMenu(false)">×</button>
-    <div class="nav-panel">
-      <a href="index.html" onclick="toggleMenu(false)">Home</a>
-      <a href="#solutions" onclick="toggleMenu(false)">Solutions</a>
-      <a href="#deployments" onclick="toggleMenu(false)">Deployments</a>
-      <a href="ai-employees-engines.html" onclick="toggleMenu(false)">AI Employees & Engines</a>
-      <a href="contacts.html" onclick="toggleMenu(false)">Contact</a>
-      <a href="mailto:sales@fusedid.com" onclick="toggleMenu(false)" style="margin-top:.6rem;color:var(--copper-light)">sales@fusedid.com</a>
-    </div>
+<div class="nav-panel">
+  <a href="why-fused.html" onclick="toggleMenu(false)">Why FUSED</a>
+  <a href="ai-employees-engines.html" onclick="toggleMenu(false)">AI Employees & Engines</a>
+  <a href="microsoft-ai-deployments.html" onclick="toggleMenu(false)">Microsoft Platforms</a>
+  <a href="contacts.html" onclick="toggleMenu(false)">Book a Teams Call</a>
+  <a href="mailto:sales@fusedid.com" onclick="toggleMenu(false)" style="margin-top:.6rem;color:var(--copper-light)">sales@fusedid.com</a>
+</div>
   </div>
 
   <header>
@@ -443,12 +439,14 @@
         FUSED ID
       </a>
 
-      <nav class="primary" aria-label="Primary">
-        <a href="#solutions">Solutions</a>
-        <a href="#deployments">Deployments</a>
-        <a href="ai-employees-engines.html">AI Employees & Engines</a>
-        <a href="contacts.html" class="btn btn-primary btn-slim">Schedule A Consult</a>
-      </nav>
+<nav class="primary" aria-label="Primary">
+  <a href="why-fused.html">Why FUSED</a>
+  <a href="ai-employees-engines.html">AI Employees & Engines</a>
+  <a href="microsoft-ai-deployments.html">Microsoft Platforms</a>
+  <a href="contacts.html" class="btn btn-primary btn-slim">
+    Book a Teams Call
+  </a>
+</nav>
 
       <button class="hamburger" aria-label="Open menu" aria-controls="overlayNav" aria-expanded="false" onclick="toggleMenu(true)">
         <span></span>
@@ -461,86 +459,110 @@
       <div class="hero-content">
         <div class="kicker">Human-Led • AI-Enhanced</div>
         <h1>Bespoke AI Deployments</h1>
-<p>
-Most AI solutions are generic. Businesses are not. FUSED ID designs, manages and continuously improves bespoke AI systems tailored to how your organisation actually operates.
-</p>
+        <p>
+          Most AI solutions are generic. Businesses are not. FUSED ID designs, deploys and continuously improves bespoke AI systems tailored to how your organisation actually operates.
+        </p>
 
         <div class="hero-ctas">
           <a class="btn btn-primary" href="contacts.html">Book a Strategy Call →</a>
-          <a class="btn btn-outline" href="#deployments">See Example Deployments</a>
+          <a class="btn btn-outline" href="ai-employees-engines.html">Explore AI Employees & Engines</a>
         </div>
       </div>
     </div>
   </section>
 
   <main>
-    <section class="section container" id="solutions">
-      <div class="reveal">
-        <h2>Practical AI Systems Built Around Real Business Functions</h2>
-        <p class="muted" style="max-width:780px">
-          Most businesses do not need more software. They need systems that consistently
-          deliver outcomes. FUSED ID deploys AI into the functions that consume time,
-          create friction, or limit growth.
-        </p>
-      </div>
 
-      <div class="grid grid-4" style="margin-top:1.5rem">
-        <div class="card reveal">
-          <h3>AI Sales Deployments</h3>
-          <p>Generate leads, qualify opportunities, automate outreach, and create a more consistent sales pipeline.</p>
-          <a class="btn btn-dark-outline btn-slim" href="ProspectFusedID/prospecting.html">View Prospecting →</a>
-        </div>
 
-        <div class="card reveal">
-          <h3>AI Hiring Deployments</h3>
-          <p>Screen candidates, coordinate interviews, evaluate applicants, and streamline recruitment workflows.</p>
-          <a class="btn btn-dark-outline btn-slim" href="TalentFusedID/talent.html">View Talent →</a>
-        </div>
+<section class="section container" id="solutions">
+  <div class="reveal">
+    <h2>AI Is Powerful. The Hard Part Is Making It Useful.</h2>
+    <p class="muted" style="max-width:850px">
+      Most businesses already have access to AI. The challenge is applying it in a way
+      that fits how the business actually works — with the right judgement, controls,
+      workflows and human oversight.
+    </p>
+    <p class="muted" style="max-width:850px">
+      FUSED ID combines experienced operators, practical AI and trusted platforms to help
+      businesses turn AI into reliable execution.
+    </p>
+  </div>
 
-        <div class="card reveal">
-          <h3>AI Knowledge Deployments</h3>
-          <p>Turn documents, procedures, policies and company knowledge into searchable AI-powered systems.</p>
-          <a class="btn btn-dark-outline btn-slim" href="KnowledgeFusedID/knowledge.html">View Knowledge →</a>
-        </div>
+  <div class="grid grid-4" style="margin-top:1.5rem">
+    <div class="card reveal">
+      <h3>Wisdom, Not Just Intelligence</h3>
+      <p>
+        AI can process information quickly, but it does not understand judgement, risk,
+        exceptions or the real-world details of how work gets done.
+      </p>
+      <p>
+        FUSED ID deployments are shaped by experienced operators who understand the
+        business function itself.
+      </p>
+    </div>
 
-        <div class="card reveal">
-          <h3>AI Operations Deployments</h3>
-          <p>Improve quality, track KPIs, run root-cause analysis and automate operational workflows.</p>
-          <a class="btn btn-dark-outline btn-slim" href="KaizenFusedID/kaizen.html">View Kaizen →</a>
-        </div>
-      </div>
-    </section>
+    <div class="card reveal highlight">
+      <h3>You Stay In Control</h3>
+      <p>
+        AI should support leadership, not replace it. Your team keeps control of the
+        direction, decisions and standards.
+      </p>
+      <p>
+        We build systems that improve visibility, consistency and execution without
+        handing your business over to a black box.
+      </p>
+    </div>
 
-<section class="soft-band" id="why-fused">
-  <div class="container">
-    <div class="split">
-      <div class="reveal">
-        <h2>AI Should Reduce Work — Not Add Another Thing to Manage</h2>
-        <p>
-          Most AI tools make you think faster, but they do not automatically make the work disappear.
-          They create drafts, ideas and outputs — but someone still has to prompt, check, copy,
-          follow up, decide and keep the process moving.
-        </p>
-        <p>
-          FUSED ID exists to close that gap. We turn AI into managed business systems that understand
-          how your organisation operates, adapt as your business changes, and deliver outcomes without
-          adding another platform for your team to manage.
-        </p>
-        <ul class="checklist">
-          <li>No dashboards to babysit</li>
-          <li>No internal AI expert required</li>
-          <li>No disconnected tools creating extra noise</li>
-          <li>Managed execution with human oversight</li>
-          <li>Continuous improvement as your business evolves</li>
-        </ul>
-      </div>
+    <div class="card reveal">
+      <h3>Built Around Your Business</h3>
+      <p>
+        Every business has its own customers, priorities, processes and vision of success.
+        Generic AI rarely understands that.
+      </p>
+      <p>
+        We design bespoke deployments around your workflows, tools and operating reality.
+      </p>
+    </div>
 
-      <div class="media reveal">
-        <img src="managed-ai-systems.jpg" alt="Managed AI systems with human oversight">
-      </div>
+    <div class="card reveal">
+      <h3>Built On Trusted Platforms</h3>
+      <p>
+        Where practical, we build on familiar systems such as Microsoft 365, Teams,
+        Outlook, SharePoint, Power Automate, Power BI and Dynamics 365.
+      </p>
+      <p>
+        This gives your business visibility, flexibility and long-term control.
+      </p>
     </div>
   </div>
 </section>
+
+    <section class="soft-band" id="why-fused">
+      <div class="container">
+        <div class="split">
+          <div class="reveal">
+            <h2>AI Should Reduce Work — Not Add Another Thing to Manage</h2>
+            <p>
+              Most AI tools can write, summarise and automate parts of a process. But they do not automatically understand your business, your customers, your risks, or how the work should actually be done.
+            </p>
+            <p>
+              FUSED ID closes that gap by combining AI capability with experienced operators who understand the work itself. That experience helps shape what the system does, what good looks like, where checks are needed, and when human judgement should step in.
+            </p>
+            <ul class="checklist">
+              <li>No internal AI expert required</li>
+              <li>Designed around how your business works</li>
+              <li>Built with practical business experience behind it</li>
+              <li>Managed execution with human oversight</li>
+              <li>Improved continuously as your business evolves</li>
+            </ul>
+          </div>
+
+          <div class="media reveal">
+            <img src="managed-ai-systems.jpg" alt="Managed AI systems with human oversight">
+          </div>
+        </div>
+      </div>
+    </section>
 
     <section class="soft-band" id="how">
       <div class="container">
@@ -560,7 +582,7 @@ Most AI solutions are generic. Businesses are not. FUSED ID designs, manages and
           <div class="arrow">➝</div>
           <div class="pill-step reveal">
             <h3>2. Design</h3>
-            <p>We engineer a deployment tailored to your workflows, tools and objectives.</p>
+            <p>We design a deployment tailored to your workflows, tools and objectives.</p>
           </div>
           <div class="arrow">➝</div>
           <div class="pill-step reveal">
@@ -575,6 +597,60 @@ Most AI solutions are generic. Businesses are not. FUSED ID designs, manages and
         </div>
       </div>
     </section>
+
+<section class="section container" id="principles">
+  <div class="reveal">
+    <h2>Built on Three Principles</h2>
+    <p class="muted" style="max-width:780px">
+      FUSED ID combines business experience, practical AI and trusted platforms
+      so deployments are useful, understandable and built to last.
+    </p>
+  </div>
+
+  <div class="grid grid-3" style="margin-top:1.5rem">
+    <div class="card reveal">
+      <h3>Business Expertise</h3>
+      <p>
+        Successful AI deployments need more than technical skill. They need people
+        who understand the work, the risks, the exceptions and what good looks like
+        in the real world.
+      </p>
+      <p>
+        FUSED ID brings experienced operators into the design process so the system
+        is shaped around practical judgement, not just automation logic.
+      </p>
+    </div>
+
+    <div class="card highlight reveal">
+      <h3>Practical AI</h3>
+      <p>
+        We focus on AI systems that reduce manual work, improve consistency and
+        support better execution inside real business workflows.
+      </p>
+      <p>
+        The goal is not to add another tool. The goal is to embed AI where it can
+        help work move faster, cleaner and with fewer things falling through the cracks.
+      </p>
+    </div>
+
+    <div class="card reveal">
+      <h3>Trusted Platforms</h3>
+      <p>
+        Great AI deployments should feel like a natural extension of your business,
+        not another disconnected system to manage.
+      </p>
+      <p>
+        Where practical, we build on familiar platforms such as Microsoft 365,
+        Teams, Outlook, SharePoint, Power Automate, Power BI and Dynamics 365.
+      </p>
+      <p>
+        This gives your business greater visibility, lower complexity and more
+        control — while FUSED ID provides the expertise, deployment and ongoing
+        improvement.
+      </p>
+    </div>
+  </div>
+</section>
 
     <section class="section container" id="deployments">
       <div class="reveal">
@@ -600,7 +676,7 @@ Most AI solutions are generic. Businesses are not. FUSED ID designs, manages and
             <li>Pipeline visibility and test cycles</li>
           </ul>
           <p><strong>Outcome:</strong> More qualified conversations and a more predictable pipeline.</p>
-          <a class="btn btn-primary" href="ProspectFusedID/prospecting.html">Explore Prospecting Engine →</a>
+          <a class="btn btn-primary" href="ai-employees-engines.html#engines">Explore Prospecting Engine →</a>
         </div>
 
         <div class="card deployment-card reveal">
@@ -617,7 +693,7 @@ Most AI solutions are generic. Businesses are not. FUSED ID designs, manages and
             <li>Structured recruitment reporting</li>
           </ul>
           <p><strong>Outcome:</strong> Faster hiring with less management overhead.</p>
-          <a class="btn btn-primary" href="TalentFusedID/talent.html">Explore Talent Engine →</a>
+          <a class="btn btn-primary" href="ai-employees-engines.html#engines">Explore Talent Engine →</a>
         </div>
 
         <div class="card deployment-card reveal">
@@ -634,7 +710,7 @@ Most AI solutions are generic. Businesses are not. FUSED ID designs, manages and
             <li>Conflict detection and content updates</li>
           </ul>
           <p><strong>Outcome:</strong> Instant access to company knowledge and less dependence on key individuals.</p>
-          <a class="btn btn-primary" href="KnowledgeFusedID/knowledge.html">Explore Knowledge Engine →</a>
+          <a class="btn btn-primary" href="ai-employees-engines.html#engines">Explore Knowledge Engine →</a>
         </div>
 
         <div class="card deployment-card reveal">
@@ -651,7 +727,7 @@ Most AI solutions are generic. Businesses are not. FUSED ID designs, manages and
             <li>ISO-style governance and reporting</li>
           </ul>
           <p><strong>Outcome:</strong> Better operational performance and measurable improvement over time.</p>
-          <a class="btn btn-primary" href="KaizenFusedID/kaizen.html">Explore Kaizen Engine →</a>
+          <a class="btn btn-primary" href="ai-employees-engines.html#engines">Explore Kaizen Engine →</a>
         </div>
       </div>
     </section>
@@ -660,27 +736,25 @@ Most AI solutions are generic. Businesses are not. FUSED ID designs, manages and
       <div class="container">
         <div class="split">
           <div class="reveal">
-            <h2>Most AI Projects Fail Because Nobody Owns Them</h2>
+            <h2>Most AI Projects Fail Because They Don’t Understand the Work</h2>
             <p>
-              Many AI projects become abandoned software. Many consultants build solutions
-              and leave. Many businesses buy tools without changing how work actually gets done.
+              Many AI projects start with good technology but struggle to deliver lasting value. The issue is rarely the AI itself. The issue is that the system does not understand how the business operates, what good looks like, or where human judgement is required.
             </p>
             <p>
-              FUSED ID takes ownership of the deployment. We design it, deploy it,
-              monitor it, improve it and remain accountable for outcomes.
+              A successful AI deployment is not just about technology. It needs people who understand the judgement, risk, exceptions and real-world details of how the work is done.
             </p>
             <ul class="checklist">
-              <li>Human oversight</li>
-              <li>Continuous optimisation</li>
               <li>Business-first implementation</li>
-              <li>Executive-level accountability</li>
-              <li>No technical team required</li>
-              <li>No platform complexity</li>
+              <li>Experienced operators behind the deployment</li>
+              <li>Human oversight where judgement matters</li>
+              <li>Checks, escalation paths and governance</li>
+              <li>Continuous optimisation over time</li>
+              <li>No internal AI team required</li>
             </ul>
           </div>
 
           <div class="media reveal">
-            <img src="ai-governance-review.jpg" alt="AI deployment management and executive operating layer">
+            <img src="ai-governance-review.jpg" alt="AI deployment management and business oversight">
           </div>
         </div>
       </div>
@@ -725,33 +799,39 @@ Most AI solutions are generic. Businesses are not. FUSED ID designs, manages and
       </div>
     </section>
 
-    <section class="section container" id="employees-preview">
-      <div class="split">
-        <div class="media reveal">
-          <img src="executive-ops.jpg" alt="Reliable AI operations with human oversight">
-        </div>
+<section class="section container" id="trusted-platforms">
+  <div class="split">
+    <div class="media reveal">
+      <img src="microsoft-ai-deployments.jpg" alt="AI deployments built around familiar Microsoft business platforms">
+    </div>
 
-        <div class="reveal">
-          <h2>Powered by AI Employees & Engines</h2>
-          <p>
-            Behind every deployment is FUSED ID’s operating model: AI Engines provide
-            specialist capabilities, while AI Employees package those capabilities into
-            accountable roles and functions.
-          </p>
-          <p>
-            This means clients do not need to manage prompts, dashboards or disconnected
-            tools. They receive a managed system designed to deliver work.
-          </p>
-          <ul class="checklist">
-            <li>AI Employees for role-based execution</li>
-            <li>AI Engines for repeatable business capabilities</li>
-            <li>Human-led monitoring and improvement</li>
-            <li>Built for sales, hiring, knowledge and operations</li>
-          </ul>
-          <a class="btn btn-primary" href="ai-employees-engines.html">Explore AI Employees & Engines →</a>
-        </div>
-      </div>
-    </section>
+    <div class="reveal">
+      <h2>Built Around Platforms You Already Know</h2>
+      <p>
+        Great AI deployments should feel like a natural extension of your business,
+        not another disconnected system to manage.
+      </p>
+      <p>
+        Where practical, FUSED ID builds on familiar platforms such as Microsoft 365,
+        Teams, Outlook, SharePoint, Power Automate, Power BI and Dynamics 365. This
+        allows AI to integrate into the tools your team already uses every day.
+      </p>
+      <p>
+        The result is greater visibility, lower complexity and more control. Your
+        business retains ownership of the platform while FUSED ID provides the expertise,
+        deployment and ongoing improvement.
+      </p>
+      <ul class="checklist">
+        <li>Works alongside Microsoft 365</li>
+        <li>Leverages Teams, Outlook and SharePoint</li>
+        <li>Power Automate, Power BI and Dynamics integrations</li>
+        <li>Lower dependency on custom development</li>
+        <li>Built for visibility and long-term control</li>
+      </ul>
+      <a class="btn btn-primary" href="contacts.html">Discuss a Microsoft-Based Deployment →</a>
+    </div>
+  </div>
+</section>
 
     <section class="soft-band" id="trust">
       <div class="container">
@@ -766,8 +846,8 @@ Most AI solutions are generic. Businesses are not. FUSED ID designs, manages and
           </div>
 
           <div class="card reveal highlight">
-            <h3>Executive-Run Setup</h3>
-            <p>Every deployment is configured and monitored by experienced operators.</p>
+            <h3>Experienced Operators</h3>
+            <p>Deployments are shaped by people who understand the work, not just the technology.</p>
           </div>
 
           <div class="card reveal">
@@ -786,10 +866,10 @@ Most AI solutions are generic. Businesses are not. FUSED ID designs, manages and
 
   <section class="closing-cta">
     <div class="container">
-      <h2>Turn Repetitive Work Into Reliable Systems</h2>
+      <h2>Build AI Around How Your Business Works</h2>
       <p>
-        Stop adding complexity. Deploy AI where it creates measurable business value.
-        Book a strategy session and identify where AI can have the greatest impact inside your business.
+        Stop adding tools that create more management overhead. Deploy AI where it can reduce manual work,
+        improve consistency, and support the way your team already operates.
       </p>
       <a href="contacts.html" class="btn btn-primary">Schedule a Consultation →</a>
     </div>

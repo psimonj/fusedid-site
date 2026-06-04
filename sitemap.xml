@@ -1,54 +1,43 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
 
-  <!-- ===== Core pages ===== -->
+  <!-- Home -->
   <url>
     <loc>https://www.fusedid.com/</loc>
-    <lastmod>2026-02-19</lastmod>
+    <lastmod>2026-06-04</lastmod>
     <priority>1.0</priority>
     <changefreq>weekly</changefreq>
   </url>
 
+  <!-- Core positioning -->
   <url>
-    <loc>https://www.fusedid.com/ai-employees-engines.html</loc>
-    <lastmod>2026-02-19</lastmod>
+    <loc>https://www.fusedid.com/why-fused.html</loc>
+    <lastmod>2026-06-04</lastmod>
     <priority>0.9</priority>
-    <changefreq>weekly</changefreq>
+    <changefreq>monthly</changefreq>
   </url>
 
+  <!-- Solution architecture -->
   <url>
-    <loc>https://www.fusedid.com/contacts.html</loc>
-    <lastmod>2026-02-19</lastmod>
+    <loc>https://www.fusedid.com/ai-employees-engines.html</loc>
+    <lastmod>2026-06-04</lastmod>
+    <priority>0.9</priority>
+    <changefreq>monthly</changefreq>
+  </url>
+
+  <!-- Microsoft platform page -->
+  <url>
+    <loc>https://www.fusedid.com/microsoft-ai-deployments.html</loc>
+    <lastmod>2026-06-04</lastmod>
     <priority>0.8</priority>
     <changefreq>monthly</changefreq>
   </url>
 
-  <!-- ===== Engines (standalone pages) ===== -->
+  <!-- Contact -->
   <url>
-    <loc>https://www.fusedid.com/kaizen.html</loc>
-    <lastmod>2026-02-19</lastmod>
-    <priority>0.7</priority>
-    <changefreq>monthly</changefreq>
-  </url>
-
-  <url>
-    <loc>https://www.fusedid.com/prospecting.html</loc>
-    <lastmod>2026-02-19</lastmod>
-    <priority>0.7</priority>
-    <changefreq>monthly</changefreq>
-  </url>
-
-  <url>
-    <loc>https://www.fusedid.com/talent.html</loc>
-    <lastmod>2026-02-19</lastmod>
-    <priority>0.7</priority>
-    <changefreq>monthly</changefreq>
-  </url>
-
-  <url>
-    <loc>https://www.fusedid.com/knowledge.html</loc>
-    <lastmod>2026-02-19</lastmod>
-    <priority>0.7</priority>
+    <loc>https://www.fusedid.com/contacts.html</loc>
+    <lastmod>2026-06-04</lastmod>
+    <priority>0.8</priority>
     <changefreq>monthly</changefreq>
   </url>
 

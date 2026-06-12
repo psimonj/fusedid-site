@@ -153,21 +153,22 @@
   </style>
 </head>
 
-<body>
-<div id="overlayNav" class="nav-overlay">
-  <button class="nav-close" onclick="toggleMenu(false)">×</button>
 
-  <div class="nav-panel">
-    <a href="why-fused.html" onclick="toggleMenu(false)">Why FUSED</a>
-    <a href="ai-employees-engines.html" onclick="toggleMenu(false)">AI Employees & Engines</a>
-    <a href="microsoft-ai-deployments.html" onclick="toggleMenu(false)">Microsoft Platforms</a>
-    <a href="contacts.html" onclick="toggleMenu(false)">Book a Teams Call</a>
-    <a href="mailto:sales@fusedid.com" onclick="toggleMenu(false)"
-       style="margin-top:.6rem;color:var(--copper-light)">
-       sales@fusedid.com
-    </a>
+
+
+
+<body>
+  <div class="nav-overlay" id="overlayNav" aria-hidden="true">
+    <button class="nav-close" aria-label="Close menu" onclick="toggleMenu(false)">×</button>
+    <div class="nav-panel">
+      <a href="why-fused.html" onclick="toggleMenu(false)">Why FUSED</a>
+      <a href="ai-employees-engines.html" onclick="toggleMenu(false)">Intelligent Workflows</a>
+      <a href="ai-quality-systems-iso9001.html" onclick="toggleMenu(false)">ISO 9001 & Quality</a>
+      <a href="microsoft-ai-deployments.html" onclick="toggleMenu(false)">Microsoft AI</a>
+      <a href="contacts.html" onclick="toggleMenu(false)">Book a Teams Call</a>
+      <a href="mailto:sales@fusedid.com" onclick="toggleMenu(false)" style="margin-top:.6rem;color:var(--copper-light)">sales@fusedid.com</a>
+    </div>
   </div>
-</div>
 
   <header>
     <div class="container header-inner">
@@ -175,21 +176,20 @@
         <img src="fusedid logo -white bg.png" alt="FUSED ID Logo">
         FUSED ID
       </a>
-
-<nav class="primary" aria-label="Primary">
-  <a href="why-fused.html">Why FUSED</a>
-  <a href="ai-employees-engines.html">AI Employees & Engines</a>
-  <a href="microsoft-ai-deployments.html">Microsoft Platforms</a>
-  <a href="contacts.html" class="btn btn-primary btn-slim">
-    Book a Teams Call
-  </a>
-</nav>
-
-      <button class="hamburger" aria-label="Open menu" aria-controls="overlayNav" aria-expanded="false" onclick="toggleMenu(true)">
-        <span></span>
-      </button>
+      <nav class="primary" aria-label="Primary">
+        <a href="why-fused.html">Why FUSED</a>
+        <a href="ai-employees-engines.html">Intelligent Workflows</a>
+        <a href="ai-quality-systems-iso9001.html">ISO 9001 & Quality</a>
+        <a href="microsoft-ai-deployments.html">Microsoft AI</a>
+        <a href="contacts.html" class="btn btn-primary btn-slim">Book a Teams Call</a>
+      </nav>
+      <button class="hamburger" aria-label="Open menu" aria-controls="overlayNav" aria-expanded="false" onclick="toggleMenu(true)"><span></span></button>
     </div>
   </header>
+
+
+
+
 
   <section class="hero">
     <div class="container">
@@ -549,8 +549,6 @@
       <span>© FUSED ID</span>
       <div style="display:flex;gap:1rem;flex-wrap:wrap">
         <a href="index.html">Home</a>
-        <a href="why-fused.html">Why FUSED</a>
-        <a href="ai-employees-engines.html">AI Employees & Engines</a>
         <a href="contacts.html">Contact</a>
       </div>
     </div>

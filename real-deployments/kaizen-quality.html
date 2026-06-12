@@ -1,0 +1,445 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+
+  <title>Real Deployment: AI-Supported NCR, OFI & Continuous Improvement | FUSED ID</title>
+  <meta name="description" content="A real FUSED ID deployment example showing how AI-supported workflow design improved NCR, OFI, root-cause analysis and continuous improvement management in an industrial manufacturing environment.">
+  <meta name="author" content="FUSED ID">
+
+  <link rel="icon" type="image/x-icon" href="../favicon.ico">
+  <link rel="icon" type="image/png" sizes="32x32" href="../favicon.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="../favicon-16x16.png">
+
+<style>
+  :root{
+    --espresso:#150e09;
+    --copper:#ff8c32;
+    --copper-light:#ffb169;
+    --text:#111;
+    --muted:#555;
+    --soft:#f9f9f9;
+    --line:#eadfd7;
+  }
+
+  *{box-sizing:border-box}
+  html,body{margin:0;padding:0;overflow-x:hidden}
+  body{font-family:system-ui,-apple-system,Segoe UI,Roboto,Helvetica,Arial;color:var(--text);background:#fff;line-height:1.6}
+  a{color:inherit;text-decoration:none}
+  img{max-width:100%;height:auto;display:block}
+  .container{max-width:1200px;margin:0 auto;padding-inline:max(env(safe-area-inset-left),clamp(16px,5vw,32px))}
+
+  header{position:relative;z-index:5;background:#fff;border-bottom:1px solid #eee;box-shadow:0 4px 18px rgba(0,0,0,.04)}
+  .header-inner{display:flex;align-items:center;justify-content:space-between;padding:1rem 0}
+  .brand{display:flex;align-items:center;font-weight:800;letter-spacing:.06em;color:#000;font-size:1.1rem;white-space:nowrap}
+  .brand img{height:28px;margin-right:8px}
+  nav.primary{display:flex;gap:2rem;align-items:center}
+  nav.primary a{color:#000;font-weight:600;transition:color .25s ease}
+  nav.primary a:hover{color:var(--copper)}
+
+  .hamburger{display:none;width:40px;height:40px;border:1px solid #ddd;border-radius:8px;background:#fff;align-items:center;justify-content:center;cursor:pointer}
+  .hamburger span{display:block;width:18px;height:2px;background:#000;position:relative}
+  .hamburger span:before,.hamburger span:after{content:"";position:absolute;left:0;width:18px;height:2px;background:#000}
+  .hamburger span:before{top:-6px}
+  .hamburger span:after{top:6px}
+
+  .nav-overlay{position:fixed;inset:0;background:radial-gradient(60% 60% at 20% 10%,rgba(255,140,50,.18),transparent 60%),var(--espresso);display:none;z-index:1000;color:#fff}
+  .nav-overlay.open{display:block}
+  .nav-panel{height:100%;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:1.2rem;text-align:center;padding:2rem}
+  .nav-overlay a{font-size:1.55rem;font-weight:700;color:#fff}
+  .nav-overlay a:hover{color:var(--copper-light)}
+  .nav-close{position:absolute;top:16px;right:16px;width:44px;height:44px;border:1px solid rgba(255,255,255,.25);border-radius:10px;background:transparent;color:#fff;font-size:22px;cursor:pointer}
+
+  .btn{appearance:none;border:0;border-radius:10px;cursor:pointer;font-weight:800;padding:.95rem 1.2rem;font-size:1rem;letter-spacing:.02em;display:inline-flex;align-items:center;gap:.45rem;text-decoration:none}
+  .btn-primary{background:linear-gradient(180deg,var(--copper),#fa7c16);color:#220e05;box-shadow:0 6px 24px rgba(255,140,50,.35)}
+  .btn-outline{background:transparent;border:2px solid rgba(255,255,255,.75);color:#fff}
+  .btn-slim{padding:.55rem 1rem;font-size:.95rem;border-radius:8px}
+  nav.primary .btn-primary:hover{color:#fff;background:linear-gradient(180deg,#ff9c4a,#f97a10)}
+
+  .hero{position:relative;isolation:isolate;min-height:74vh;display:grid;place-items:center;overflow:hidden;background:#0f0a07}
+  .hero::before{content:"";position:absolute;inset:0;z-index:-2;background:linear-gradient(90deg,rgba(21,14,9,.94) 0%,rgba(21,14,9,.78) 44%,rgba(21,14,9,.46) 100%),url('../ncr-workflow.jpg') center/cover no-repeat;filter:saturate(1.08) contrast(1.05);transform:scale(1.02)}
+  .hero::after{content:"";position:absolute;inset:0;z-index:-1;background:radial-gradient(42% 36% at 18% 20%,rgba(255,140,50,.24),transparent 62%),radial-gradient(35% 28% at 85% 80%,rgba(255,177,105,.14),transparent 70%)}
+  .hero-content{color:#fff;max-width:920px;padding:7rem 0 5rem}
+  .kicker{color:var(--copper-light);text-transform:uppercase;letter-spacing:.14em;font-weight:1000;font-size:.82rem;margin-bottom:.8rem}
+  .hero h1{font-size:clamp(2.2rem,4.6vw,4.9rem);line-height:1.04;margin:0 0 1rem;font-weight:1000;max-width:900px}
+  .hero p{max-width:760px;font-size:clamp(1rem,1vw + .55rem,1.22rem);color:#f5f5f5;margin:0 0 1.4rem}
+  .hero-ctas{display:flex;gap:.75rem;flex-wrap:wrap}
+
+  .proof-strip{background:#fff;border-bottom:1px solid #eee;box-shadow:0 8px 28px rgba(0,0,0,.04)}
+  .proof-grid{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:1rem;padding:1.25rem 0}
+  .proof-item{border-left:3px solid var(--copper);padding:.45rem .85rem}
+  .proof-item strong{display:block;font-size:.95rem;color:#150e09}
+  .proof-item span{display:block;color:#555;font-size:.9rem}
+
+  .section{padding:4.5rem 1rem}
+  .section h2{font-size:clamp(1.85rem,2.7vw,2.7rem);line-height:1.12;margin:.2rem 0 1rem;font-weight:1000}
+  .section p{font-size:1rem;line-height:1.68;margin:0 0 1.2rem}
+  .muted{color:var(--muted)}
+  .grid{display:grid;gap:1.5rem}
+  .grid-2{grid-template-columns:repeat(2,minmax(0,1fr))}
+  .grid-3{grid-template-columns:repeat(3,minmax(0,1fr))}
+  .grid-4{grid-template-columns:repeat(4,minmax(0,1fr))}
+  .split{display:grid;grid-template-columns:1.05fr .95fr;gap:4rem;align-items:center}
+
+  .card{background:#fff;border:1px solid #eee;border-radius:16px;padding:1.55rem;box-shadow:0 8px 24px rgba(0,0,0,.04)}
+  .card h3{margin:.1rem 0 .65rem;font-size:1.18rem;line-height:1.25}
+  .card.highlight{border:1px solid rgba(255,140,50,.7);box-shadow:0 0 24px rgba(255,140,50,.2),0 8px 24px rgba(0,0,0,.04)}
+  .tag{display:inline-flex;align-self:flex-start;padding:.25rem .6rem;border-radius:999px;background:#fbf3ed;border:1px solid #eadfd7;color:#7a4a2e;font-weight:900;font-size:.78rem;margin-bottom:.8rem}
+
+  .soft-band{width:100vw;margin-left:calc(50% - 50vw);margin-right:calc(50% - 50vw);background:var(--soft);border-top:1px solid #eee;border-bottom:1px solid #eee}
+  .soft-band .container{padding-top:4.5rem;padding-bottom:4.5rem}
+
+  .dark-panel{background:var(--espresso);color:#fff;border-radius:28px;padding:2.2rem;position:relative;overflow:hidden}
+  .dark-panel::before{content:"";position:absolute;inset:0;background:radial-gradient(45% 45% at 20% 18%,rgba(255,140,50,.18),transparent 60%),radial-gradient(35% 35% at 85% 80%,rgba(255,177,105,.12),transparent 65%);pointer-events:none}
+  .dark-panel>*{position:relative}
+  .dark-panel h2,.dark-panel h3{color:#fff}
+  .dark-panel p{color:#f3f3f3}
+  .dark-panel .card{background:rgba(255,255,255,.06);border:1px solid rgba(255,140,50,.34);color:#fff;box-shadow:none}
+  .dark-panel .card h3{color:var(--copper-light)}
+  .dark-panel .card p{color:#f3f3f3}
+
+  .quote-card{background:#150e09;color:#fff;border-radius:24px;padding:2rem;box-shadow:0 14px 32px rgba(0,0,0,.18)}
+  .quote-card p{font-size:clamp(1.25rem,1.7vw,1.75rem);font-weight:1000;line-height:1.35;margin:0 0 1rem;color:#fff}
+  .quote-card span{color:var(--copper-light);font-weight:900}
+
+  .checklist{list-style:none;margin:0;padding:0}
+  .checklist li{position:relative;padding-left:1.45rem;margin:.55rem 0;line-height:1.6}
+  .checklist li::before{content:"✓";position:absolute;left:.1rem;top:.02rem;color:var(--copper);font-weight:1000}
+
+  .process{display:grid;gap:1rem;counter-reset:step}
+  .process-step{counter-increment:step;display:grid;grid-template-columns:auto 1fr;gap:1rem;align-items:start;background:#fff;border:1px solid #eee;border-radius:16px;padding:1.25rem;box-shadow:0 8px 22px rgba(0,0,0,.035)}
+  .process-step::before{content:counter(step);width:42px;height:42px;border-radius:999px;background:#150e09;color:var(--copper-light);display:grid;place-items:center;font-weight:1000}
+  .process-step h3{margin:0 0 .25rem}
+  .process-step p{margin:0;color:#555}
+
+  .before-after{display:grid;grid-template-columns:1fr 1fr;gap:1.5rem}
+  .before{border-top:5px solid #777}
+  .after{border-top:5px solid var(--copper)}
+
+  .metric{text-align:center;display:flex;flex-direction:column;justify-content:center;min-height:170px}
+  .metric strong{color:#150e09;font-size:clamp(2rem,3vw,3rem);line-height:1;display:block;margin-bottom:.45rem}
+  .metric span{color:#555;font-weight:700}
+
+  .media img{width:100%;border-radius:18px;box-shadow:0 12px 34px rgba(0,0,0,.16);object-fit:cover}
+
+  .closing-cta{background:#150e09;color:#fff;text-align:center;padding:4.8rem 1rem;position:relative;overflow:hidden}
+  .closing-cta::before{content:"";position:absolute;inset:0;background:radial-gradient(40% 50% at 20% 20%,rgba(255,140,50,.2),transparent 60%),radial-gradient(30% 40% at 80% 80%,rgba(255,177,105,.14),transparent 60%)}
+  .closing-cta .container{position:relative}
+  .closing-cta h2{color:var(--copper-light);font-size:clamp(1.9rem,3vw,2.8rem);margin:0 0 .8rem;line-height:1.15}
+  .closing-cta p{max-width:780px;margin:0 auto 1.5rem;color:#f3f3f3}
+
+  footer{background:#0f0a07;color:#ddd}
+  .foot{display:flex;justify-content:space-between;align-items:center;gap:1rem;padding:1rem 0}
+  footer a{color:#fff}
+
+  .reveal{opacity:0;transform:translateY(28px);transition:all .55s ease}
+  .reveal.visible{opacity:1;transform:none}
+
+  @media(max-width:960px){
+    nav.primary{display:none}
+    .hamburger{display:flex}
+    .brand{font-size:1rem}
+    .proof-grid,.grid-4,.grid-3{grid-template-columns:repeat(2,minmax(0,1fr))}
+    .split,.before-after{grid-template-columns:1fr;gap:2rem}
+    .hero{min-height:70vh}
+  }
+
+  @media(max-width:640px){
+    .proof-grid,.grid-4,.grid-3,.grid-2{grid-template-columns:1fr}
+    .hero-content{padding:5rem 0 4rem}
+    .section{padding:3.5rem 1rem}
+    .dark-panel{border-radius:22px;padding:1.35rem}
+    .foot{flex-direction:column;align-items:flex-start}
+    .process-step{grid-template-columns:1fr}
+  }
+
+
+header,
+.header-inner,
+.brand,
+nav.primary,
+nav.primary a,
+.btn,
+.hamburger{
+  line-height:normal;
+}
+
+</style>
+
+
+
+
+</head>
+
+
+
+
+
+
+
+<body>
+  <div class="nav-overlay" id="overlayNav" aria-hidden="true">
+    <button class="nav-close" aria-label="Close menu" onclick="toggleMenu(false)">×</button>
+    <div class="nav-panel">
+      <a href="../why-fused.html" onclick="toggleMenu(false)">Why FUSED</a>
+      <a href="../ai-employees-engines.html" onclick="toggleMenu(false)">Intelligent Workflows</a>
+      <a href="../ai-quality-systems-iso9001.html" onclick="toggleMenu(false)">ISO 9001 & Quality</a>
+      <a href="../microsoft-ai-deployments.html" onclick="toggleMenu(false)">Microsoft AI</a>
+      <a href="../contacts.html" onclick="toggleMenu(false)">Book a Teams Call</a>
+      <a href="mailto:sales@fusedid.com" onclick="toggleMenu(false)" style="margin-top:.6rem;color:var(--copper-light)">sales@fusedid.com</a>
+    </div>
+  </div>
+
+  <header>
+    <div class="container header-inner">
+      <a href="https://www.fusedid.com" class="brand">
+        <img src="../fusedid logo -white bg.png" alt="FUSED ID Logo">
+        FUSED ID
+      </a>
+
+      <nav class="primary" aria-label="Primary">
+        <a href="../why-fused.html">Why FUSED</a>
+        <a href="../ai-employees-engines.html">Intelligent Workflows</a>
+        <a href="../ai-quality-systems-iso9001.html">ISO 9001 & Quality</a>
+        <a href="../microsoft-ai-deployments.html">Microsoft AI</a>
+        <a href="../contacts.html" class="btn btn-primary btn-slim">Book a Teams Call</a>
+      </nav>
+
+      <button class="hamburger" aria-label="Open menu" aria-controls="overlayNav" aria-expanded="false" onclick="toggleMenu(true)">
+        <span></span>
+      </button>
+    </div>
+  </header>
+
+
+
+
+
+
+
+
+
+
+
+  <section class="hero">
+    <div class="container">
+      <div class="hero-content reveal">
+        <div class="kicker">Real Deployment Example • Quality & Continuous Improvement</div>
+        <h1>Turning NCRs From Blame Into Business Improvement</h1>
+        <p>A real industrial deployment that used AI-supported workflow design to improve NCR and OFI classification, guide root-cause analysis, prioritise corrective actions and make continuous improvement visible.</p>
+        <div class="hero-ctas">
+          <a class="btn btn-primary" href="../contacts.html">Discuss a Similar Deployment →</a>
+          <a class="btn btn-outline" href="../ai-quality-systems-iso9001.html">ISO 9001 & Quality</a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+
+
+
+
+
+
+
+  <section class="proof-strip">
+    <div class="container proof-grid">
+      <div class="proof-item"><strong>Client context</strong><span>Industrial manufacturer</span></div>
+      <div class="proof-item"><strong>Business function</strong><span>Quality & improvement</span></div>
+      <div class="proof-item"><strong>Core issue</strong><span>NCR reluctance and inconsistency</span></div>
+      <div class="proof-item"><strong>Deployment model</strong><span>AI-supported Kaizen workflow</span></div>
+    </div>
+  </section>
+
+  <main>
+    <section class="section container">
+      <div class="split">
+        <div class="reveal">
+          <div class="kicker">The Management Problem</div>
+          <h2>The issue was not that people did not care about quality.</h2>
+          <p>The business already cared about quality, compliance and improvement. The problem was that the quality system depended too heavily on people being willing to raise uncomfortable issues.</p>
+          <p>Non-conformance reports are necessary, but they carry emotional weight. People do not want to raise an NCR against themselves. They do not want to upset a colleague. They do not want to create the impression that someone has failed.</p>
+          <p>That created a predictable pattern: issues were delayed, softened, handled informally or reclassified as opportunities for improvement when the business really needed them treated as non-conformances.</p>
+        </div>
+        <div class="quote-card reveal">
+          <p>“Is this really an NCR, or should we just call it an OFI?”</p>
+          <span>That question was the signal. The process needed to remove the classification burden from the individual.</span>
+        </div>
+      </div>
+    </section>
+
+    <section class="soft-band">
+      <div class="container">
+        <div class="reveal">
+          <div class="kicker">What Changed</div>
+          <h2>Instead of asking people to classify the issue, the system guided them through it.</h2>
+          <p class="muted" style="max-width:900px">The Kaizen deployment used structured questions, predefined business logic and AI-supported reasoning to classify tickets more consistently as NCRs, OFIs or improvement opportunities.</p>
+        </div>
+        <div class="process" style="margin-top:1.5rem">
+          <div class="process-step reveal"><div><h3>User describes what happened</h3><p>The person raising the issue explains the event, observation or improvement opportunity in plain language.</p></div></div>
+          <div class="process-step reveal"><div><h3>The workflow asks structured questions</h3><p>The system gathers the facts needed to distinguish non-conformance, opportunity for improvement, risk, defect, customer issue or process weakness.</p></div></div>
+          <div class="process-step reveal"><div><h3>AI and logic classify the ticket</h3><p>The burden shifts away from the individual. The ticket is categorised using defined rules and reasoning rather than personal comfort or internal politics.</p></div></div>
+          <div class="process-step reveal"><div><h3>Actions, evidence and ownership are created</h3><p>Corrective actions, follow-up requirements, due dates and evidence trails are managed through the workflow.</p></div></div>
+        </div>
+      </div>
+    </section>
+
+    <section class="section container">
+      <div class="dark-panel reveal">
+        <div class="kicker">Root Cause Analysis</div>
+        <h2>The root-cause problem was human, not technical.</h2>
+        <p style="max-width:920px">Root-cause analysis had historically been shallow. The issue was not simply a lack of training. It was the natural tendency to avoid blame, avoid conflict and stop at an explanation that felt safe.</p>
+        <p style="max-width:920px">The deployed workflow introduced an AI-guided investigation process that asked better questions, challenged surface-level answers and helped users move towards the real cause of the issue.</p>
+        <div class="grid grid-3" style="margin-top:1.5rem">
+          <div class="card"><h3>Guided questioning</h3><p>Users were prompted through the investigation instead of being left to write a vague explanation.</p></div>
+          <div class="card"><h3>Less personal friction</h3><p>The system asked the difficult questions, reducing the feeling that one person was criticising another.</p></div>
+          <div class="card"><h3>Better corrective actions</h3><p>Actions became more connected to the real cause, not just the visible symptom.</p></div>
+        </div>
+      </div>
+    </section>
+
+    <section class="soft-band">
+      <div class="container">
+        <div class="before-after">
+          <div class="card before reveal">
+            <span class="tag">Before</span>
+            <h3>Quality activity relied on discipline and memory</h3>
+            <ul class="checklist">
+              <li>NCRs were avoided, delayed or softened</li>
+              <li>OFIs were sometimes used to avoid uncomfortable NCRs</li>
+              <li>Root-cause analysis was inconsistent</li>
+              <li>Actions were followed up manually</li>
+              <li>Repeat issues were hard to identify</li>
+              <li>Improvement activity felt administrative</li>
+            </ul>
+          </div>
+          <div class="card after highlight reveal">
+            <span class="tag">After</span>
+            <h3>The system made the right behaviour easier</h3>
+            <ul class="checklist">
+              <li>Users followed a guided issue capture process</li>
+              <li>AI and logic helped classify NCRs and OFIs</li>
+              <li>Root-cause analysis was prompted and structured</li>
+              <li>Actions had owners, due dates and evidence</li>
+              <li>Trends and repeat issues became visible</li>
+              <li>Improvement became measurable and positive</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="section container">
+      <div class="split">
+        <div class="reveal">
+          <div class="kicker">Prioritisation & ROI</div>
+          <h2>From isolated tickets to company-wide improvement intelligence.</h2>
+          <p>Before the deployment, decisions were often made on the merits of a single ticket. Whether further action was taken depended heavily on the person logging it, the manager reviewing it and the visibility available at the time.</p>
+          <p>The Kaizen workflow changed that. Tickets were categorised into set themes, prioritised, grouped and reviewed across the business. This allowed management to identify common issues, recurring failure modes and improvement opportunities with the greatest potential return.</p>
+          <p>ROI could be assessed through time saved, cost avoided, risk reduced, quality improved or efficiency gained. This helped leadership focus effort where it created the most value.</p>
+        </div>
+        <div class="grid grid-2">
+          <div class="card metric reveal"><strong>Trends</strong><span>Repeat issues and common themes surfaced faster</span></div>
+          <div class="card metric highlight reveal"><strong>ROI</strong><span>Improvements could be valued and prioritised</span></div>
+          <div class="card metric reveal"><strong>Owners</strong><span>Actions became visible and accountable</span></div>
+          <div class="card metric reveal"><strong>Evidence</strong><span>Audit trails became easier to retrieve</span></div>
+        </div>
+      </div>
+    </section>
+
+    <section class="soft-band">
+      <div class="container">
+        <div class="split">
+          <div class="media reveal">
+            <img src="../kaizen-kpi.jpg" alt="Continuous improvement dashboard showing quality and Kaizen performance">
+          </div>
+          <div class="reveal">
+            <div class="kicker">Cultural Shift</div>
+            <h2>Friendly competition changed the tone of quality improvement.</h2>
+            <p>The deployment deliberately moved the conversation away from blame. Dashboards and friendly competition helped highlight who was identifying valuable improvement opportunities, implementing solutions and creating measurable benefit for the business.</p>
+            <p>This reframed improvement from a negative activity into a positive contribution. It was no longer about who made the mistake or whose process was inferior. It became about who helped the business improve.</p>
+            <div class="card highlight">
+              <h3>The conversation shifted</h3>
+              <p><strong>From:</strong> “Who caused this problem?”</p>
+              <p><strong>To:</strong> “What improvement can we make so this works better next time?”</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="section container">
+      <div class="reveal">
+        <div class="kicker">Business Impact</div>
+        <h2>What this deployment solved</h2>
+      </div>
+      <div class="grid grid-4" style="margin-top:1.5rem">
+        <div class="card reveal"><h3>Reduced reluctance</h3><p>People no longer had to personally decide whether to label something as a non-conformance.</p></div>
+        <div class="card highlight reveal"><h3>Improved consistency</h3><p>Classification became more structured, repeatable and less dependent on individual confidence.</p></div>
+        <div class="card reveal"><h3>Better root cause</h3><p>The AI-guided process helped users move beyond safe answers and identify more meaningful causes.</p></div>
+        <div class="card reveal"><h3>Stronger leadership visibility</h3><p>Management could see trends, owners, overdue actions, ROI and recurring improvement themes.</p></div>
+      </div>
+    </section>
+
+    <section class="section container">
+      <div class="dark-panel reveal">
+        <div class="kicker">FUSED ID Perspective</div>
+        <h2>This was not just a quality app. It was behaviour-aware system design.</h2>
+        <p style="max-width:920px">The deployment worked because it recognised the real constraint: people were not avoiding NCRs because they did not care. They were avoiding them because the process carried social friction, blame and extra administrative weight.</p>
+        <p style="max-width:920px">The system reduced that friction. It made classification easier, root-cause analysis safer, actions clearer, evidence more visible and improvement more rewarding.</p>
+        <p style="max-width:920px">That is the type of operator-led AI deployment FUSED ID builds: practical systems that understand how work actually happens inside a business.</p>
+        <a class="btn btn-primary" href="../contacts.html">Discuss a Similar Deployment →</a>
+      </div>
+    </section>
+  </main>
+
+  <section class="closing-cta">
+    <div class="container">
+      <h2>Make the right way the easy way.</h2>
+      <p>FUSED ID helps quality-focused businesses use AI, workflow design and familiar platforms to improve NCRs, OFIs, root-cause analysis, corrective actions and continuous improvement.</p>
+      <a class="btn btn-primary" href="../contacts.html">Book a Teams Call →</a>
+    </div>
+  </section>
+
+  <footer>
+    <div class="container foot">
+      <span>© FUSED ID</span>
+      <div style="display:flex;gap:1rem;flex-wrap:wrap">
+        <a href="../why-fused.html">Why FUSED</a>
+        <a href="../ai-quality-systems-iso9001.html">ISO 9001 & Quality</a>
+        <a href="../microsoft-ai-deployments.html">Microsoft AI</a>
+        <a href="../contacts.html">Book a Teams Call</a>
+      </div>
+    </div>
+  </footer>
+
+  <script>
+    (function(){
+      const els = Array.from(document.querySelectorAll('.reveal'));
+      if(!('IntersectionObserver' in window)){
+        els.forEach(el => el.classList.add('visible'));
+        return;
+      }
+      const io = new IntersectionObserver((entries)=>{
+        entries.forEach(entry=>{
+          if(entry.isIntersecting){
+            entry.target.classList.add('visible');
+            io.unobserve(entry.target);
+          }
+        });
+      }, {threshold:.08, rootMargin:'0px 0px -5% 0px'});
+      els.forEach(el => io.observe(el));
+      window.addEventListener('load',()=>{
+        els.forEach(el=>{
+          const r = el.getBoundingClientRect();
+          if(r.top < window.innerHeight && r.bottom > 0){
+            el.classList.add('visible');
+            io.unobserve(el);
+          }
+        });
+      });
+    })();
+  </script>
+</body>
+</html>

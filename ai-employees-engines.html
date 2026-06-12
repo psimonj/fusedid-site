@@ -197,63 +197,75 @@
       background:linear-gradient(180deg,#ff9c4a,#f97a10);
     }
 
-    .hero{
-      position:relative;
-      isolation:isolate;
-      min-height:66vh;
-      display:grid;
-      place-items:center;
-      overflow:hidden;
-      background:#0f0a07;
-    }
-    .hero::before{
-      content:"";
-      position:absolute;
-      inset:0;
-      z-index:-2;
-      background:
-        linear-gradient(180deg, rgba(21,14,9,.60) 0%, rgba(21,14,9,.82) 58%, rgba(21,14,9,.96) 100%),
-        url('leadership-governance.jpg') center/cover no-repeat;
-      transform:scale(1.02);
-      filter:saturate(1.05) contrast(1.02);
-    }
-    .hero::after{
-      content:"";
-      position:absolute;
-      inset:0;
-      z-index:-1;
-      background:
-        radial-gradient(40% 25% at 20% 20%, rgba(255,140,50,.25), transparent 60%),
-        radial-gradient(30% 20% at 80% 75%, rgba(255,177,105,.15), transparent 70%);
-    }
-    .hero-content{
-      color:#fff;
-      max-width:1020px;
-      padding:6rem 0 4.5rem;
-    }
-    .kicker{
-      color:var(--copper-light);
-      text-transform:uppercase;
-      letter-spacing:.14em;
-      font-weight:900;
-      font-size:.82rem;
-      margin-bottom:.8rem;
-    }
-    .hero h1{
-      font-size:clamp(2.2rem, 4vw + 1rem, 4.1rem);
-      line-height:1.06;
-      margin:0 0 .75rem;
-      font-weight:1000;
-      max-width:980px;
-    }
-    .hero p{
-      max-width:820px;
-      font-size:clamp(1rem,1vw + .6rem,1.25rem);
-      line-height:1.6;
-      color:#f3f3f3;
-      margin:0 0 1.35rem;
-    }
-    .hero-ctas{display:flex;gap:.75rem;flex-wrap:wrap}
+
+
+
+
+.hero{
+  position:relative;
+  isolation:isolate;
+  min-height:66vh;
+  display:grid;
+  place-items:center;
+  overflow:hidden;
+}
+
+.hero::before{
+  content:"";
+  position:absolute;
+  inset:0;
+  z-index:-2;
+  background:
+    linear-gradient(180deg, rgba(21,14,9,.42) 0%, rgba(21,14,9,.58) 58%, rgba(21,14,9,.78) 100%),
+    url('intelligent-workflows.jpg') center/cover no-repeat;
+  filter:saturate(1.18) contrast(1.05);
+  transform:scale(1.02);
+}
+
+.hero::after{
+  display:none;
+}
+
+.hero-content{
+  color:#fff;
+  max-width:1020px;
+  padding:6rem 0 4.5rem;
+}
+
+.kicker{
+  color:var(--copper-light);
+  text-transform:uppercase;
+  letter-spacing:.14em;
+  font-weight:900;
+  font-size:.82rem;
+  margin-bottom:.8rem;
+}
+
+.hero h1{
+  font-size:clamp(2.2rem, 4vw + 1rem, 4.1rem);
+  line-height:1.06;
+  margin:0 0 .75rem;
+  font-weight:1000;
+  max-width:980px;
+}
+
+.hero p{
+  max-width:820px;
+  font-size:clamp(1rem,1vw + .6rem,1.25rem);
+  line-height:1.6;
+  color:#f3f3f3;
+  margin:0 0 1.35rem;
+}
+
+.hero-ctas{
+  display:flex;
+  gap:.75rem;
+  flex-wrap:wrap;
+}
+
+
+
+
 
     .section{padding:4rem 1rem}
     .section h2{
@@ -476,13 +488,17 @@
   </style>
 </head>
 
+
+
+
 <body>
   <div class="nav-overlay" id="overlayNav" aria-hidden="true">
     <button class="nav-close" aria-label="Close menu" onclick="toggleMenu(false)">×</button>
     <div class="nav-panel">
       <a href="why-fused.html" onclick="toggleMenu(false)">Why FUSED</a>
-      <a href="ai-employees-engines.html" onclick="toggleMenu(false)">AI Employees & Engines</a>
-      <a href="microsoft-ai-deployments.html" onclick="toggleMenu(false)">Microsoft Platforms</a>
+      <a href="ai-employees-engines.html" onclick="toggleMenu(false)">Intelligent Workflows</a>
+      <a href="ai-quality-systems-iso9001.html" onclick="toggleMenu(false)">ISO 9001 & Quality</a>
+      <a href="microsoft-ai-deployments.html" onclick="toggleMenu(false)">Microsoft AI</a>
       <a href="contacts.html" onclick="toggleMenu(false)">Book a Teams Call</a>
       <a href="mailto:sales@fusedid.com" onclick="toggleMenu(false)" style="margin-top:.6rem;color:var(--copper-light)">sales@fusedid.com</a>
     </div>
@@ -494,30 +510,31 @@
         <img src="fusedid logo -white bg.png" alt="FUSED ID Logo">
         FUSED ID
       </a>
-
       <nav class="primary" aria-label="Primary">
         <a href="why-fused.html">Why FUSED</a>
-        <a href="ai-employees-engines.html">AI Employees & Engines</a>
-        <a href="microsoft-ai-deployments.html">Microsoft Platforms</a>
+        <a href="ai-employees-engines.html">Intelligent Workflows</a>
+        <a href="ai-quality-systems-iso9001.html">ISO 9001 & Quality</a>
+        <a href="microsoft-ai-deployments.html">Microsoft AI</a>
         <a href="contacts.html" class="btn btn-primary btn-slim">Book a Teams Call</a>
       </nav>
-
-      <button class="hamburger" aria-label="Open menu" aria-controls="overlayNav" aria-expanded="false" onclick="toggleMenu(true)">
-        <span></span>
-      </button>
+      <button class="hamburger" aria-label="Open menu" aria-controls="overlayNav" aria-expanded="false" onclick="toggleMenu(true)"><span></span></button>
     </div>
   </header>
+
+
+
+
 
   <section class="hero">
     <div class="container">
       <div class="hero-content">
         <div class="kicker">Managed Execution • Human-Led • AI-Enhanced</div>
-        <h1>AI Employees & Deployment Engines</h1>
+        <h1>Intelligent Workflows & Processes</h1>
         <p>
           Practical AI systems built around real business functions. Some deployments take the form of AI Employees that support an ongoing role. Others use specialist Deployment Engines to automate a specific capability.
         </p>
         <p>
-          Most mature deployments combine both.
+          Many mature deployments combine both.
         </p>
         <div class="hero-ctas">
           <a class="btn btn-primary" href="contacts.html">Book a Teams Call →</a>
@@ -717,6 +734,10 @@
   </div>
 </section>
 
+
+
+
+
     <section class="section container" id="engines">
       <div class="reveal">
         <div class="kicker">Deployment Engines</div>
@@ -812,6 +833,40 @@
         </div>
       </div>
     </section>
+
+
+<section class="section container" id="real-deployment-examples">
+  <div class="reveal">
+    <div class="kicker">Real Deployment Examples</div>
+    <h2>See How These Systems Have Been Used</h2>
+  </div>
+
+  <div class="grid grid-3" style="margin-top:1.5rem">
+    <div class="card reveal">
+      <span class="tag">Kaia</span>
+      <h3>Quality & Continuous Improvement</h3>
+      <p>NCRs, OFIs, root-cause analysis, corrective actions and improvement visibility.</p>
+      <a class="btn btn-primary btn-slim" href="real-deployments/kaizen-quality.html">View Deployment →</a>
+    </div>
+
+    <div class="card reveal">
+      <span class="tag">Ethan</span>
+      <h3>Prospecting & Lead Intelligence</h3>
+      <p>AI-supported research, categorisation, prioritisation and outreach preparation.</p>
+      <a class="btn btn-primary btn-slim" href="real-deployments/prospecting-enhance.html">View Deployment →</a>
+    </div>
+
+    <div class="card reveal">
+      <span class="tag">Lara</span>
+      <h3>Talent Screening</h3>
+      <p>High-volume CV review, role-fit assessment, shortlisting and screening support.</p>
+      <a class="btn btn-primary btn-slim" href="real-deployments/talent-screening.html">View Deployment →</a>
+    </div>
+  </div>
+</section>
+
+
+
 
     <section class="section container">
       <div class="model-panel reveal">

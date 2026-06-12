@@ -1,0 +1,455 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+
+  <title>Real Deployment: AI-Supported Talent Screening & Shortlisting | FUSED ID</title>
+  <meta name="description" content="A real FUSED ID deployment example showing how AI-supported talent screening helped manage high CV volumes, improve shortlisting and assess candidate fit beyond the resume.">
+  <meta name="author" content="FUSED ID">
+
+  <link rel="icon" type="image/x-icon" href="../favicon.ico">
+  <link rel="icon" type="image/png" sizes="32x32" href="../favicon.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="../favicon-16x16.png">
+
+<style>
+  :root{
+    --espresso:#150e09;
+    --copper:#ff8c32;
+    --copper-light:#ffb169;
+    --text:#111;
+    --muted:#555;
+    --soft:#f9f9f9;
+    --line:#eadfd7;
+  }
+
+  *{box-sizing:border-box}
+  html,body{margin:0;padding:0;overflow-x:hidden}
+  body{font-family:system-ui,-apple-system,Segoe UI,Roboto,Helvetica,Arial;color:var(--text);background:#fff;line-height:1.6}
+  a{color:inherit;text-decoration:none}
+  img{max-width:100%;height:auto;display:block}
+  .container{max-width:1200px;margin:0 auto;padding-inline:max(env(safe-area-inset-left),clamp(16px,5vw,32px))}
+
+  header{position:relative;z-index:5;background:#fff;border-bottom:1px solid #eee;box-shadow:0 4px 18px rgba(0,0,0,.04)}
+  .header-inner{display:flex;align-items:center;justify-content:space-between;padding:1rem 0}
+  .brand{display:flex;align-items:center;font-weight:800;letter-spacing:.06em;color:#000;font-size:1.1rem;white-space:nowrap}
+  .brand img{height:28px;margin-right:8px}
+  nav.primary{display:flex;gap:2rem;align-items:center}
+  nav.primary a{color:#000;font-weight:600;transition:color .25s ease}
+  nav.primary a:hover{color:var(--copper)}
+
+  .hamburger{display:none;width:40px;height:40px;border:1px solid #ddd;border-radius:8px;background:#fff;align-items:center;justify-content:center;cursor:pointer}
+  .hamburger span{display:block;width:18px;height:2px;background:#000;position:relative}
+  .hamburger span:before,.hamburger span:after{content:"";position:absolute;left:0;width:18px;height:2px;background:#000}
+  .hamburger span:before{top:-6px}
+  .hamburger span:after{top:6px}
+
+  .nav-overlay{position:fixed;inset:0;background:radial-gradient(60% 60% at 20% 10%,rgba(255,140,50,.18),transparent 60%),var(--espresso);display:none;z-index:1000;color:#fff}
+  .nav-overlay.open{display:block}
+  .nav-panel{height:100%;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:1.2rem;text-align:center;padding:2rem}
+  .nav-overlay a{font-size:1.55rem;font-weight:700;color:#fff}
+  .nav-overlay a:hover{color:var(--copper-light)}
+  .nav-close{position:absolute;top:16px;right:16px;width:44px;height:44px;border:1px solid rgba(255,255,255,.25);border-radius:10px;background:transparent;color:#fff;font-size:22px;cursor:pointer}
+
+  .btn{appearance:none;border:0;border-radius:10px;cursor:pointer;font-weight:800;padding:.95rem 1.2rem;font-size:1rem;letter-spacing:.02em;display:inline-flex;align-items:center;gap:.45rem;text-decoration:none}
+  .btn-primary{background:linear-gradient(180deg,var(--copper),#fa7c16);color:#220e05;box-shadow:0 6px 24px rgba(255,140,50,.35)}
+  .btn-outline{background:transparent;border:2px solid rgba(255,255,255,.75);color:#fff}
+  .btn-slim{padding:.55rem 1rem;font-size:.95rem;border-radius:8px}
+  nav.primary .btn-primary:hover{color:#fff;background:linear-gradient(180deg,#ff9c4a,#f97a10)}
+
+  .hero{position:relative;isolation:isolate;min-height:74vh;display:grid;place-items:center;overflow:hidden;background:#0f0a07}
+  .hero::before{content:"";position:absolute;inset:0;z-index:-2;background:linear-gradient(90deg,rgba(21,14,9,.94) 0%,rgba(21,14,9,.78) 44%,rgba(21,14,9,.46) 100%),url('../ncr-workflow.jpg') center/cover no-repeat;filter:saturate(1.08) contrast(1.05);transform:scale(1.02)}
+  .hero::after{content:"";position:absolute;inset:0;z-index:-1;background:radial-gradient(42% 36% at 18% 20%,rgba(255,140,50,.24),transparent 62%),radial-gradient(35% 28% at 85% 80%,rgba(255,177,105,.14),transparent 70%)}
+  .hero-content{color:#fff;max-width:920px;padding:7rem 0 5rem}
+  .kicker{color:var(--copper-light);text-transform:uppercase;letter-spacing:.14em;font-weight:1000;font-size:.82rem;margin-bottom:.8rem}
+  .hero h1{font-size:clamp(2.2rem,4.6vw,4.9rem);line-height:1.04;margin:0 0 1rem;font-weight:1000;max-width:900px}
+  .hero p{max-width:760px;font-size:clamp(1rem,1vw + .55rem,1.22rem);color:#f5f5f5;margin:0 0 1.4rem}
+  .hero-ctas{display:flex;gap:.75rem;flex-wrap:wrap}
+
+  .proof-strip{background:#fff;border-bottom:1px solid #eee;box-shadow:0 8px 28px rgba(0,0,0,.04)}
+  .proof-grid{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:1rem;padding:1.25rem 0}
+  .proof-item{border-left:3px solid var(--copper);padding:.45rem .85rem}
+  .proof-item strong{display:block;font-size:.95rem;color:#150e09}
+  .proof-item span{display:block;color:#555;font-size:.9rem}
+
+  .section{padding:4.5rem 1rem}
+  .section h2{font-size:clamp(1.85rem,2.7vw,2.7rem);line-height:1.12;margin:.2rem 0 1rem;font-weight:1000}
+  .section p{font-size:1rem;line-height:1.68;margin:0 0 1.2rem}
+  .muted{color:var(--muted)}
+  .grid{display:grid;gap:1.5rem}
+  .grid-2{grid-template-columns:repeat(2,minmax(0,1fr))}
+  .grid-3{grid-template-columns:repeat(3,minmax(0,1fr))}
+  .grid-4{grid-template-columns:repeat(4,minmax(0,1fr))}
+  .split{display:grid;grid-template-columns:1.05fr .95fr;gap:4rem;align-items:center}
+
+  .card{background:#fff;border:1px solid #eee;border-radius:16px;padding:1.55rem;box-shadow:0 8px 24px rgba(0,0,0,.04)}
+  .card h3{margin:.1rem 0 .65rem;font-size:1.18rem;line-height:1.25}
+  .card.highlight{border:1px solid rgba(255,140,50,.7);box-shadow:0 0 24px rgba(255,140,50,.2),0 8px 24px rgba(0,0,0,.04)}
+  .tag{display:inline-flex;align-self:flex-start;padding:.25rem .6rem;border-radius:999px;background:#fbf3ed;border:1px solid #eadfd7;color:#7a4a2e;font-weight:900;font-size:.78rem;margin-bottom:.8rem}
+
+  .soft-band{width:100vw;margin-left:calc(50% - 50vw);margin-right:calc(50% - 50vw);background:var(--soft);border-top:1px solid #eee;border-bottom:1px solid #eee}
+  .soft-band .container{padding-top:4.5rem;padding-bottom:4.5rem}
+
+  .dark-panel{background:var(--espresso);color:#fff;border-radius:28px;padding:2.2rem;position:relative;overflow:hidden}
+  .dark-panel::before{content:"";position:absolute;inset:0;background:radial-gradient(45% 45% at 20% 18%,rgba(255,140,50,.18),transparent 60%),radial-gradient(35% 35% at 85% 80%,rgba(255,177,105,.12),transparent 65%);pointer-events:none}
+  .dark-panel>*{position:relative}
+  .dark-panel h2,.dark-panel h3{color:#fff}
+  .dark-panel p{color:#f3f3f3}
+  .dark-panel .card{background:rgba(255,255,255,.06);border:1px solid rgba(255,140,50,.34);color:#fff;box-shadow:none}
+  .dark-panel .card h3{color:var(--copper-light)}
+  .dark-panel .card p{color:#f3f3f3}
+
+  .quote-card{background:#150e09;color:#fff;border-radius:24px;padding:2rem;box-shadow:0 14px 32px rgba(0,0,0,.18)}
+  .quote-card p{font-size:clamp(1.25rem,1.7vw,1.75rem);font-weight:1000;line-height:1.35;margin:0 0 1rem;color:#fff}
+  .quote-card span{color:var(--copper-light);font-weight:900}
+
+  .checklist{list-style:none;margin:0;padding:0}
+  .checklist li{position:relative;padding-left:1.45rem;margin:.55rem 0;line-height:1.6}
+  .checklist li::before{content:"✓";position:absolute;left:.1rem;top:.02rem;color:var(--copper);font-weight:1000}
+
+  .process{display:grid;gap:1rem;counter-reset:step}
+  .process-step{counter-increment:step;display:grid;grid-template-columns:auto 1fr;gap:1rem;align-items:start;background:#fff;border:1px solid #eee;border-radius:16px;padding:1.25rem;box-shadow:0 8px 22px rgba(0,0,0,.035)}
+  .process-step::before{content:counter(step);width:42px;height:42px;border-radius:999px;background:#150e09;color:var(--copper-light);display:grid;place-items:center;font-weight:1000}
+  .process-step h3{margin:0 0 .25rem}
+  .process-step p{margin:0;color:#555}
+
+  .before-after{display:grid;grid-template-columns:1fr 1fr;gap:1.5rem}
+  .before{border-top:5px solid #777}
+  .after{border-top:5px solid var(--copper)}
+
+  .metric{text-align:center;display:flex;flex-direction:column;justify-content:center;min-height:170px}
+  .metric strong{color:#150e09;font-size:clamp(2rem,3vw,3rem);line-height:1;display:block;margin-bottom:.45rem}
+  .metric span{color:#555;font-weight:700}
+
+  .media img{width:100%;border-radius:18px;box-shadow:0 12px 34px rgba(0,0,0,.16);object-fit:cover}
+
+  .closing-cta{background:#150e09;color:#fff;text-align:center;padding:4.8rem 1rem;position:relative;overflow:hidden}
+  .closing-cta::before{content:"";position:absolute;inset:0;background:radial-gradient(40% 50% at 20% 20%,rgba(255,140,50,.2),transparent 60%),radial-gradient(30% 40% at 80% 80%,rgba(255,177,105,.14),transparent 60%)}
+  .closing-cta .container{position:relative}
+  .closing-cta h2{color:var(--copper-light);font-size:clamp(1.9rem,3vw,2.8rem);margin:0 0 .8rem;line-height:1.15}
+  .closing-cta p{max-width:780px;margin:0 auto 1.5rem;color:#f3f3f3}
+
+  footer{background:#0f0a07;color:#ddd}
+  .foot{display:flex;justify-content:space-between;align-items:center;gap:1rem;padding:1rem 0}
+  footer a{color:#fff}
+
+  .reveal{opacity:0;transform:translateY(28px);transition:all .55s ease}
+  .reveal.visible{opacity:1;transform:none}
+
+  @media(max-width:960px){
+    nav.primary{display:none}
+    .hamburger{display:flex}
+    .brand{font-size:1rem}
+    .proof-grid,.grid-4,.grid-3{grid-template-columns:repeat(2,minmax(0,1fr))}
+    .split,.before-after{grid-template-columns:1fr;gap:2rem}
+    .hero{min-height:70vh}
+  }
+
+  @media(max-width:640px){
+    .proof-grid,.grid-4,.grid-3,.grid-2{grid-template-columns:1fr}
+    .hero-content{padding:5rem 0 4rem}
+    .section{padding:3.5rem 1rem}
+    .dark-panel{border-radius:22px;padding:1.35rem}
+    .foot{flex-direction:column;align-items:flex-start}
+    .process-step{grid-template-columns:1fr}
+  }
+
+header,
+.header-inner,
+.brand,
+nav.primary,
+nav.primary a,
+.btn,
+.hamburger{
+  line-height:normal;
+}
+
+</style>
+
+
+
+
+
+
+</head>
+
+
+
+
+
+
+
+<body>
+  <div class="nav-overlay" id="overlayNav" aria-hidden="true">
+    <button class="nav-close" aria-label="Close menu" onclick="toggleMenu(false)">×</button>
+    <div class="nav-panel">
+      <a href="../why-fused.html" onclick="toggleMenu(false)">Why FUSED</a>
+      <a href="../ai-employees-engines.html" onclick="toggleMenu(false)">Intelligent Workflows</a>
+      <a href="../ai-quality-systems-iso9001.html" onclick="toggleMenu(false)">ISO 9001 & Quality</a>
+      <a href="../microsoft-ai-deployments.html" onclick="toggleMenu(false)">Microsoft AI</a>
+      <a href="../contacts.html" onclick="toggleMenu(false)">Book a Teams Call</a>
+      <a href="mailto:sales@fusedid.com" onclick="toggleMenu(false)" style="margin-top:.6rem;color:var(--copper-light)">sales@fusedid.com</a>
+    </div>
+  </div>
+
+  <header>
+    <div class="container header-inner">
+      <a href="https://www.fusedid.com" class="brand">
+        <img src="../fusedid logo -white bg.png" alt="FUSED ID Logo">
+        FUSED ID
+      </a>
+
+      <nav class="primary" aria-label="Primary">
+        <a href="../why-fused.html">Why FUSED</a>
+        <a href="../ai-employees-engines.html">Intelligent Workflows</a>
+        <a href="../ai-quality-systems-iso9001.html">ISO 9001 & Quality</a>
+        <a href="../microsoft-ai-deployments.html">Microsoft AI</a>
+        <a href="../contacts.html" class="btn btn-primary btn-slim">Book a Teams Call</a>
+      </nav>
+
+      <button class="hamburger" aria-label="Open menu" aria-controls="overlayNav" aria-expanded="false" onclick="toggleMenu(true)">
+        <span></span>
+      </button>
+    </div>
+  </header>
+
+
+
+
+
+
+
+
+
+
+
+  <section class="hero">
+    <div class="container">
+      <div class="hero-content reveal">
+        <div class="kicker">Real Deployment Example • Talent Screening & Shortlisting</div>
+        <h1>Finding the Right Candidate, Not Just the Best CV</h1>
+        <p>A real deployment that used AI-supported screening, structured pre-qualification and business-specific fit criteria to help leadership manage high applicant volumes without losing strong candidates in the pile.</p>
+        <div class="hero-ctas">
+          <a class="btn btn-primary" href="../contacts.html">Discuss a Similar Deployment →</a>
+          <a class="btn btn-outline" href="../ai-employees-engines.html">Intelligent Workflows</a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="proof-strip">
+    <div class="container proof-grid">
+      <div class="proof-item"><strong>Client context</strong><span>Growing operating business</span></div>
+      <div class="proof-item"><strong>Business function</strong><span>Hiring & talent</span></div>
+      <div class="proof-item"><strong>Core issue</strong><span>High CV volume and weak fit signals</span></div>
+      <div class="proof-item"><strong>Deployment model</strong><span>AI-supported talent workflow</span></div>
+    </div>
+  </section>
+
+  <main>
+    <section class="section container">
+      <div class="split">
+        <div class="reveal">
+          <div class="kicker">The Management Problem</div>
+          <h2>Hiring was not failing because leaders could not judge people. It was failing because the process hid the truth for too long.</h2>
+          <p>When a role attracts hundreds of applications, it is not practical for business leadership to carefully review every CV with equal depth. Some applicants are not serious. Some look excellent on paper but fail quickly in pre-screening. Others are strong candidates but are easy to miss because their value is not obvious in a standard resume format.</p>
+          <p>The business risk is real. A poor hire drains management time, damages team performance and creates training cost that may never return value. A missed hire means the right person was in the pile, but the system did not surface them.</p>
+          <p>The deployment was built to help leaders move beyond CV volume and towards structured evidence of role fit, personality fit, management fit and practical risk.</p>
+        </div>
+        <div class="quote-card reveal">
+          <p>“The right person for the job is not a universal answer. It is the right person for that job, in that company, under that manager.”</p>
+          <span>That belief shaped the entire talent workflow.</span>
+        </div>
+      </div>
+    </section>
+
+    <section class="soft-band">
+      <div class="container">
+        <div class="split">
+          <div class="story-box reveal">
+            <h3>The old car lesson</h3>
+            <p>A person tries to sell an old car. A mechanic offers a few hundred dollars. A car yard offers less. A scrap dealer offers almost nothing. Then the car is taken to a specialist show, where collectors recognise it as rare and valuable.</p>
+            <p>The lesson is simple: being undervalued in the wrong place does not mean someone has no value. It may mean they have not been assessed in the right context.</p>
+          </div>
+          <div class="reveal">
+            <div class="kicker">Hiring Context Matters</div>
+            <h2>Good hiring is not just about filtering people out.</h2>
+            <p>The strongest hiring systems do not simply reject faster. They identify where a person may genuinely fit, contribute and succeed.</p>
+            <p>That requires understanding the company, the manager, the team, the pressure points, the training risk and the traits that actually matter in the role.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="section container">
+      <div class="reveal">
+        <div class="kicker">What Changed</div>
+        <h2>The app turned applicant volume into structured hiring intelligence.</h2>
+        <p class="muted" style="max-width:900px">The talent deployment used AI to review applications, extract relevant information, compare candidates against role-specific criteria, identify risks, prepare screening questions and help managers focus on the candidates most worth their time.</p>
+      </div>
+      <div class="process" style="margin-top:1.5rem">
+        <div class="process-step reveal"><div><h3>Define the actual role requirement</h3><p>The workflow started with the business need: must-haves, deal-breakers, manager expectations, team dynamics, pressure points and success criteria.</p></div></div>
+        <div class="process-step reveal"><div><h3>Parse and structure every application</h3><p>CVs and supporting documents were reviewed consistently so relevant experience, skills, gaps, risks and claims could be compared.</p></div></div>
+        <div class="process-step reveal"><div><h3>Score against business-specific fit</h3><p>Candidates were assessed against the specific role and company context, not a generic view of what a good candidate looks like.</p></div></div>
+        <div class="process-step reveal"><div><h3>Prepare screening and shortlist evidence</h3><p>The system produced shortlist reasoning, risk flags and targeted questions to test whether the person matched the picture on paper.</p></div></div>
+      </div>
+    </section>
+
+    <section class="section container">
+      <div class="dark-panel reveal">
+        <div class="kicker">The Real Constraint</div>
+        <h2>CVs are useful, but they are not the truth.</h2>
+        <p style="max-width:920px">A CV shows what someone wants you to see. It rarely shows how they respond under pressure, how flexible they are, how they work with a particular manager, whether they can absorb training, or whether their personality will strengthen or strain the team.</p>
+        <p style="max-width:920px">The deployed workflow helped leadership treat the CV as the starting point, not the final answer. It used AI to identify what needed to be tested, clarified or explored before the business invested serious time in the candidate.</p>
+        <div class="grid grid-3" style="margin-top:1.5rem">
+          <div class="card"><h3>Personality fit</h3><p>Screening was shaped around how the candidate may operate inside the actual team and management style.</p></div>
+          <div class="card"><h3>Training risk</h3><p>The workflow helped identify whether the business would be investing in a realistic hire or carrying avoidable risk.</p></div>
+          <div class="card"><h3>Pressure response</h3><p>Screening questions were designed to uncover resilience, flexibility, ownership and judgement.</p></div>
+        </div>
+      </div>
+    </section>
+
+    <section class="soft-band">
+      <div class="container">
+        <div class="before-after">
+          <div class="card before reveal">
+            <span class="tag">Before</span>
+            <h3>Hiring relied on manual CV review and first impressions</h3>
+            <ul class="checklist">
+              <li>Hundreds of CVs were difficult to review fairly</li>
+              <li>Good candidates could be missed in the volume</li>
+              <li>Weak applicants consumed management time</li>
+              <li>Paper strength did not always survive screening</li>
+              <li>Personality and manager fit were assessed too late</li>
+              <li>Shortlisting varied depending on who reviewed the pile</li>
+            </ul>
+          </div>
+          <div class="card after highlight reveal">
+            <span class="tag">After</span>
+            <h3>The system created structured candidate intelligence</h3>
+            <ul class="checklist">
+              <li>Applications were reviewed against defined criteria</li>
+              <li>Shortlist reasoning became clearer and easier to compare</li>
+              <li>Risk flags and gaps were identified earlier</li>
+              <li>Screening questions were tailored to each candidate</li>
+              <li>Leadership could focus on the candidates most worth time</li>
+              <li>Fit was assessed against the actual business, not generic ideals</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="section container">
+      <div class="split">
+        <div class="reveal">
+          <div class="kicker">Fit, Risk & Leadership Time</div>
+          <h2>The goal was not to replace human judgement. It was to protect it.</h2>
+          <p>Hiring decisions should remain human because they involve judgement, trust, risk and leadership preference. But human judgement is at its best when leaders are not buried in repetitive administration.</p>
+          <p>The talent workflow reduced the time spent sifting, sorting and manually comparing applications. It helped surface the right questions earlier, so leadership could spend time assessing the candidate’s real fit rather than trying to decode the CV pile.</p>
+          <p>This made hiring more disciplined without making it robotic. The business still made the decision. The system made sure the decision was better informed.</p>
+        </div>
+        <div class="grid grid-2">
+          <div class="card metric reveal"><strong>Volume</strong><span>High applicant numbers became easier to manage</span></div>
+          <div class="card metric highlight reveal"><strong>Fit</strong><span>Candidates were assessed against the actual business context</span></div>
+          <div class="card metric reveal"><strong>Risk</strong><span>Gaps, concerns and training risks surfaced earlier</span></div>
+          <div class="card metric reveal"><strong>Focus</strong><span>Leadership time moved towards better-qualified candidates</span></div>
+        </div>
+      </div>
+    </section>
+
+    <section class="soft-band">
+      <div class="container">
+        <div class="split">
+          <div class="media reveal">
+            <img src="../talent-engine.jpg" alt="AI-supported recruitment and candidate shortlisting workflow">
+          </div>
+          <div class="reveal">
+            <div class="kicker">Better Questions Earlier</div>
+            <h2>The deployment helped uncover the person behind the paper.</h2>
+            <p>Some candidates look perfect until they are asked the right questions. Others look ordinary on paper but reveal experience, resilience or judgement that makes them valuable in the right environment.</p>
+            <p>The app helped create more targeted pre-screening by highlighting what needed to be clarified: motivation, communication style, stress response, practical experience, team fit, training needs and points of difference.</p>
+            <div class="card highlight">
+              <h3>The hiring conversation shifted</h3>
+              <p><strong>From:</strong> “Who has the best CV?”</p>
+              <p><strong>To:</strong> “Who is most likely to succeed here?”</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="section container">
+      <div class="reveal">
+        <div class="kicker">Business Impact</div>
+        <h2>What this deployment solved</h2>
+      </div>
+      <div class="grid grid-4" style="margin-top:1.5rem">
+        <div class="card reveal"><h3>Reduced review burden</h3><p>Managers no longer had to manually assess every application from scratch.</p></div>
+        <div class="card highlight reveal"><h3>Better shortlists</h3><p>Candidates were compared against role-specific and business-specific requirements.</p></div>
+        <div class="card reveal"><h3>Earlier risk detection</h3><p>Concerns, gaps and likely screening issues surfaced before leadership invested significant time.</p></div>
+        <div class="card reveal"><h3>Stronger fit assessment</h3><p>The workflow helped assess team fit, manager fit, resilience, flexibility and training risk.</p></div>
+      </div>
+    </section>
+
+    <section class="section container">
+      <div class="dark-panel reveal">
+        <div class="kicker">FUSED ID Perspective</div>
+        <h2>This was not just a CV screening app. It was hiring system design.</h2>
+        <p style="max-width:920px">The deployment worked because it recognised the real constraint: leaders do not just need to find qualified candidates. They need to find people who will succeed inside their actual business.</p>
+        <p style="max-width:920px">The system reduced repetitive screening work, improved shortlisting discipline and helped uncover the questions that matter before the wrong person consumed time, money and management bandwidth.</p>
+        <p style="max-width:920px">That is the type of operator-led AI deployment FUSED ID builds: practical systems that support human judgement where judgement matters most.</p>
+        <a class="btn btn-primary" href="../contacts.html">Discuss a Similar Deployment →</a>
+      </div>
+    </section>
+  </main>
+
+  <section class="closing-cta">
+    <div class="container">
+      <h2>Hire for the business you actually run.</h2>
+      <p>FUSED ID helps businesses use AI to screen, shortlist and evaluate candidates against the role, the team, the manager and the operating reality of the business.</p>
+      <a class="btn btn-primary" href="../contacts.html">Book a Teams Call →</a>
+    </div>
+  </section>
+
+  <footer>
+    <div class="container foot">
+      <span>© FUSED ID</span>
+      <div style="display:flex;gap:1rem;flex-wrap:wrap">
+        <a href="../why-fused.html">Why FUSED</a>
+        <a href="../ai-employees-engines.html">Intelligent Workflows</a>
+        <a href="../microsoft-ai-deployments.html">Microsoft AI</a>
+        <a href="../contacts.html">Book a Teams Call</a>
+      </div>
+    </div>
+  </footer>
+
+  <script>
+    (function(){
+      const els = Array.from(document.querySelectorAll('.reveal'));
+      if(!('IntersectionObserver' in window)){
+        els.forEach(el => el.classList.add('visible'));
+        return;
+      }
+      const io = new IntersectionObserver((entries)=>{
+        entries.forEach(entry=>{
+          if(entry.isIntersecting){
+            entry.target.classList.add('visible');
+            io.unobserve(entry.target);
+          }
+        });
+      }, {threshold:.08, rootMargin:'0px 0px -5% 0px'});
+      els.forEach(el => io.observe(el));
+      window.addEventListener('load',()=>{
+        els.forEach(el=>{
+          const r = el.getBoundingClientRect();
+          if(r.top < window.innerHeight && r.bottom > 0){
+            el.classList.add('visible');
+            io.unobserve(el);
+          }
+        });
+      });
+    })();
+  </script>
+</body>
+</html>

@@ -420,16 +420,22 @@
   </style>
 </head>
 
+
+
+
+
+
 <body>
   <div class="nav-overlay" id="overlayNav" aria-hidden="true">
     <button class="nav-close" aria-label="Close menu" onclick="toggleMenu(false)">×</button>
-<div class="nav-panel">
-  <a href="why-fused.html" onclick="toggleMenu(false)">Why FUSED</a>
-  <a href="ai-employees-engines.html" onclick="toggleMenu(false)">AI Employees & Engines</a>
-  <a href="microsoft-ai-deployments.html" onclick="toggleMenu(false)">Microsoft Platforms</a>
-  <a href="contacts.html" onclick="toggleMenu(false)">Book a Teams Call</a>
-  <a href="mailto:sales@fusedid.com" onclick="toggleMenu(false)" style="margin-top:.6rem;color:var(--copper-light)">sales@fusedid.com</a>
-</div>
+    <div class="nav-panel">
+      <a href="why-fused.html" onclick="toggleMenu(false)">Why FUSED</a>
+      <a href="ai-employees-engines.html" onclick="toggleMenu(false)">Intelligent Workflows</a>
+      <a href="ai-quality-systems-iso9001.html" onclick="toggleMenu(false)">ISO 9001 & Quality</a>
+      <a href="microsoft-ai-deployments.html" onclick="toggleMenu(false)">Microsoft AI</a>
+      <a href="contacts.html" onclick="toggleMenu(false)">Book a Teams Call</a>
+      <a href="mailto:sales@fusedid.com" onclick="toggleMenu(false)" style="margin-top:.6rem;color:var(--copper-light)">sales@fusedid.com</a>
+    </div>
   </div>
 
   <header>
@@ -438,21 +444,20 @@
         <img src="fusedid logo -white bg.png" alt="FUSED ID Logo">
         FUSED ID
       </a>
-
-<nav class="primary" aria-label="Primary">
-  <a href="why-fused.html">Why FUSED</a>
-  <a href="ai-employees-engines.html">AI Employees & Engines</a>
-  <a href="microsoft-ai-deployments.html">Microsoft Platforms</a>
-  <a href="contacts.html" class="btn btn-primary btn-slim">
-    Book a Teams Call
-  </a>
-</nav>
-
-      <button class="hamburger" aria-label="Open menu" aria-controls="overlayNav" aria-expanded="false" onclick="toggleMenu(true)">
-        <span></span>
-      </button>
+      <nav class="primary" aria-label="Primary">
+        <a href="why-fused.html">Why FUSED</a>
+        <a href="ai-employees-engines.html">Intelligent Workflows</a>
+        <a href="ai-quality-systems-iso9001.html">ISO 9001 & Quality</a>
+        <a href="microsoft-ai-deployments.html">Microsoft AI</a>
+        <a href="contacts.html" class="btn btn-primary btn-slim">Book a Teams Call</a>
+      </nav>
+      <button class="hamburger" aria-label="Open menu" aria-controls="overlayNav" aria-expanded="false" onclick="toggleMenu(true)"><span></span></button>
     </div>
   </header>
+
+
+
+
 
   <section class="hero">
     <div class="container">
@@ -465,7 +470,7 @@
 
         <div class="hero-ctas">
           <a class="btn btn-primary" href="contacts.html">Book a Strategy Call →</a>
-          <a class="btn btn-outline" href="ai-employees-engines.html">Explore AI Employees & Engines</a>
+          <a class="btn btn-outline" href="ai-employees-engines.html">Explore Intelligent Workflows</a>
         </div>
       </div>
     </div>
@@ -864,6 +869,40 @@
     </section>
   </main>
 
+<section class="section container" id="real-deployments">
+  <div class="reveal">
+    <div class="kicker">Real Deployments</div>
+    <h2>Built From Real Business Problems</h2>
+    <p class="muted" style="max-width:850px">
+      These examples are based on real deployments built inside operating businesses — practical systems designed to reduce manual work, improve visibility and support better execution.
+    </p>
+  </div>
+
+  <div class="grid grid-3" style="margin-top:1.5rem">
+    <div class="card reveal">
+      <span class="tag">Quality</span>
+      <h3>NCR, OFI & Continuous Improvement</h3>
+      <p>Turning quality issues from blame into structured improvement, root-cause analysis and leadership visibility.</p>
+      <a class="btn btn-primary btn-slim" href="real-deployments/kaizen-quality.html">View Deployment →</a>
+    </div>
+
+    <div class="card highlight reveal">
+      <span class="tag">Sales</span>
+      <h3>Prospecting & Lead Intelligence</h3>
+      <p>Reducing manual sales research by using AI to find, categorise, summarise and prioritise target businesses.</p>
+      <a class="btn btn-primary btn-slim" href="real-deployments/prospecting-enhance.html">View Deployment →</a>
+    </div>
+
+    <div class="card reveal">
+      <span class="tag">Talent</span>
+      <h3>Talent Screening & Shortlisting</h3>
+      <p>Helping leadership manage high CV volumes while assessing fit, risk and role-specific suitability.</p>
+      <a class="btn btn-primary btn-slim" href="real-deployments/talent-screening.html">View Deployment →</a>
+    </div>
+  </div>
+</section>
+
+
   <section class="closing-cta">
     <div class="container">
       <h2>Build AI Around How Your Business Works</h2>
@@ -879,11 +918,12 @@
     <div class="container foot">
       <span>© FUSED ID</span>
       <div style="display:flex;gap:1rem;flex-wrap:wrap">
-        <a href="ai-employees-engines.html">AI Employees & Engines</a>
+        <a href="index.html">Home</a>
         <a href="contacts.html">Contact</a>
       </div>
     </div>
   </footer>
+
 
   <script>
     function toggleMenu(open){

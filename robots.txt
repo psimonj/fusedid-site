@@ -1,19 +1,11 @@
-# Block crawlers from proposal decks
+# Search crawling is allowed. Generative-model training is a separate policy.
 User-agent: *
-Disallow: /Proposals/
-Disallow: /proposals/          # in case of lowercase URLs
+Allow: /
 
-# Still allow static assets globally
-Allow: /assets/
-Allow: /static/
-Allow: /images/
-Allow: /*.js$
-Allow: /*.css$
+User-agent: OAI-SearchBot
+Allow: /
 
-# Keep blocking non-prod areas
-Disallow: /preview/
-Disallow: /staging/
-Disallow: /sandbox/
+User-agent: GPTBot
+Disallow: /
 
-# Sitemap
 Sitemap: https://www.fusedid.com/sitemap.xml

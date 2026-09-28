@@ -1,500 +1,299 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1" />
-
-  <title>AI, Quality Systems & ISO 9001:2026 | FUSED ID</title>
-  <meta name="description" content="FUSED ID helps quality-focused businesses integrate AI into NCRs, CAPA, root-cause analysis, organisational knowledge, governance and continuous improvement.">
-  <meta name="author" content="FUSED ID">
-
-  <link rel="icon" type="image/x-icon" href="/favicon.ico">
-  <link rel="icon" type="image/png" sizes="32x32" href="/favicon.png">
-  <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
-
-  <script async src="https://www.googletagmanager.com/gtag/js?id=G-REPRFPPLDB"></script>
-  <script>
-    window.dataLayer = window.dataLayer || [];
-    function gtag(){dataLayer.push(arguments);}
-    gtag('js', new Date());
-    gtag('config', 'G-REPRFPPLDB');
-  </script>
-
-  <style>
-    :root{
-      --espresso:#150e09;
-      --copper:#ff8c32;
-      --copper-light:#ffb169;
-      --text:#000;
-      --muted:#555;
-      --bg:#fff;
-      --soft:#f9f9f9;
-      --line:#eadfd7;
+<!doctype html>
+<html lang="en-AU" class="no-js">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <title>AI, Quality Systems and ISO 9001 | FUSED ID</title>
+    <meta name="description" content="Build on your ISO 9001 quality system with managed cloud colleagues: maintain business knowledge, review procedure changes and support continual improvement.">
+    <meta name="theme-color" content="#fcfbf8">
+    <link rel="canonical" href="https://www.fusedid.com/ai-quality-systems-iso9001.html">
+    <meta property="og:type" content="website">
+    <meta property="og:locale" content="en_AU">
+    <meta property="og:site_name" content="FUSED ID">
+    <meta property="og:title" content="AI, Quality Systems and ISO 9001 | FUSED ID">
+    <meta property="og:description" content="Build on your ISO 9001 quality system with managed cloud colleagues: maintain business knowledge, review procedure changes and support continual improvement.">
+    <meta property="og:url" content="https://www.fusedid.com/ai-quality-systems-iso9001.html">
+    <meta property="og:image" content="https://www.fusedid.com/assets/images/fused-foundation-social.jpg">
+    <meta property="og:image:width" content="1200">
+    <meta property="og:image:height" content="675">
+    <meta property="og:image:alt" content="FUSED concept illustration: office, manufacturing and dispatch teams connected by a shared foundation">
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="apple-mobile-web-app-title" content="FUSED ID">
+    <link rel="icon" href="favicon.ico" sizes="16x16 32x32 48x48" type="image/x-icon">
+    <link rel="icon" href="assets/images/favicon-64.png" sizes="64x64" type="image/png">
+    <link rel="apple-touch-icon" href="assets/images/apple-touch-icon.png" sizes="180x180">
+    <link rel="stylesheet" href="assets/css/site.css?v=9dcd2589da5a">
+    <script type="application/ld+json">{
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@type": "Organization",
+      "@id": "https://www.fusedid.com/#organisation",
+      "name": "FUSED ID",
+      "legalName": "FUSED ID Pty Ltd",
+      "url": "https://www.fusedid.com/",
+      "slogan": "Managed Cloud Colleagues",
+      "email": "sales@fusedid.com",
+      "logo": {
+        "@type": "ImageObject",
+        "url": "https://www.fusedid.com/assets/images/fusedid-mark-light.webp",
+        "width": 192,
+        "height": 192
+      },
+      "address": {
+        "@type": "PostalAddress",
+        "addressLocality": "Melbourne",
+        "addressCountry": "AU"
+      }
+    },
+    {
+      "@type": "WebSite",
+      "@id": "https://www.fusedid.com/#website",
+      "name": "FUSED ID",
+      "url": "https://www.fusedid.com/",
+      "inLanguage": "en-AU",
+      "publisher": {
+        "@id": "https://www.fusedid.com/#organisation"
+      }
+    },
+    {
+      "@type": "WebPage",
+      "@id": "https://www.fusedid.com/ai-quality-systems-iso9001.html#webpage",
+      "name": "AI, Quality Systems and ISO 9001 | FUSED ID",
+      "url": "https://www.fusedid.com/ai-quality-systems-iso9001.html",
+      "description": "Build on your ISO 9001 quality system with managed cloud colleagues: maintain business knowledge, review procedure changes and support continual improvement.",
+      "inLanguage": "en-AU",
+      "isPartOf": {
+        "@id": "https://www.fusedid.com/#website"
+      },
+      "about": {
+        "@id": "https://www.fusedid.com/#organisation"
+      }
     }
-
-    *{box-sizing:border-box}
-    html,body{margin:0;padding:0;overflow-x:hidden}
-    body{font-family:system-ui,-apple-system,Segoe UI,Roboto,Helvetica,Arial;color:var(--text);background:var(--bg)}
-    a{color:inherit;text-decoration:none}
-    img{max-width:100%;height:auto;display:block}
-    .container{max-width:1200px;margin:0 auto;padding-inline:max(env(safe-area-inset-left),clamp(16px,5vw,32px))}
-
-    header{position:relative;z-index:5;background:#fff;border-bottom:1px solid #eee;box-shadow:0 4px 18px rgba(0,0,0,.04)}
-    .header-inner{display:flex;align-items:center;justify-content:space-between;padding:1rem 0}
-    .brand{display:flex;align-items:center;font-weight:800;letter-spacing:.06em;color:#000;font-size:1.1rem;white-space:nowrap}
-    .brand img{height:28px;margin-right:8px}
-    nav.primary{display:flex;gap:2rem;align-items:center}
-    nav.primary a{color:#000;font-weight:600;transition:color .25s ease}
-    nav.primary a:hover{color:var(--copper)}
-
-    .hamburger{display:none;width:40px;height:40px;border:1px solid #ddd;border-radius:8px;background:#fff;align-items:center;justify-content:center;cursor:pointer}
-    .hamburger span{display:block;width:18px;height:2px;background:#000;position:relative}
-    .hamburger span:before,.hamburger span:after{content:"";position:absolute;left:0;width:18px;height:2px;background:#000}
-    .hamburger span:before{top:-6px}.hamburger span:after{top:6px}
-
-    .nav-overlay{position:fixed;inset:0;background:radial-gradient(60% 60% at 20% 10%,rgba(255,140,50,.18),transparent 60%),var(--espresso);display:none;z-index:1000;color:#fff}
-    .nav-overlay.open{display:block}
-    .nav-panel{height:100%;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:1.2rem;text-align:center;padding:2rem}
-    .nav-overlay a{font-size:1.55rem;font-weight:700;color:#fff}
-    .nav-overlay a:hover{color:var(--copper-light)}
-    .nav-close{position:absolute;top:16px;right:16px;width:44px;height:44px;border:1px solid rgba(255,255,255,.25);border-radius:10px;background:transparent;color:#fff;font-size:22px;cursor:pointer}
-
-    .btn{appearance:none;border:0;border-radius:10px;cursor:pointer;font-weight:800;padding:.95rem 1.2rem;font-size:1rem;letter-spacing:.02em;display:inline-flex;align-items:center;gap:.45rem;text-decoration:none}
-    .btn-primary{background:linear-gradient(180deg,var(--copper),#fa7c16);color:#220e05;box-shadow:0 6px 24px rgba(255,140,50,.35)}
-    .btn-outline{background:transparent;border:2px solid rgba(255,255,255,.75);color:#fff}
-    .btn-slim{padding:.55rem 1rem;font-size:.95rem;border-radius:8px}
-    nav.primary .btn-primary:hover{color:#fff;background:linear-gradient(180deg,#ff9c4a,#f97a10)}
-
-    .hero{position:relative;isolation:isolate;min-height:68vh;display:grid;place-items:center;overflow:hidden;background:#0f0a07}
-    .hero::before{content:"";position:absolute;inset:0;z-index:-2;background:linear-gradient(180deg,rgba(21,14,9,.42),rgba(21,14,9,.62) 56%,rgba(21,14,9,.88)),url('quality-future-hero.jpg') center/cover no-repeat;filter:saturate(1.08) contrast(1.04);transform:scale(1.02)}
-    .hero::after{content:"";position:absolute;inset:0;z-index:-1;background:radial-gradient(40% 25% at 20% 20%,rgba(255,140,50,.22),transparent 60%),radial-gradient(30% 20% at 80% 75%,rgba(255,177,105,.12),transparent 70%)}
-    .hero-content{color:#fff;max-width:1040px;padding:7rem 0 5rem}
-    .kicker{color:var(--copper-light);text-transform:uppercase;letter-spacing:.14em;font-weight:900;font-size:.82rem;margin-bottom:.8rem}
-    .hero h1{font-size:clamp(2.25rem,4vw + 1rem,4.4rem);line-height:1.06;margin:0 0 .75rem;font-weight:1000;max-width:980px}
-    .hero p{max-width:850px;font-size:clamp(1rem,1vw + .6rem,1.25rem);line-height:1.6;color:#f3f3f3;margin:0 0 1.35rem}
-    .hero-ctas{display:flex;gap:.75rem;flex-wrap:wrap}
-
-    .section{padding:4rem 1rem}
-    .section h2{font-size:clamp(1.8rem,2.5vw,2.45rem);font-weight:1000;margin:.2rem 0 1rem;line-height:1.15}
-    .section p{font-size:1rem;line-height:1.65;margin:0 0 1.2rem}
-    .muted{color:var(--muted)}
-
-    .grid{display:grid;gap:1.5rem}
-    .grid-2{grid-template-columns:repeat(2,minmax(0,1fr))}
-    .grid-3{grid-template-columns:repeat(3,minmax(0,1fr))}
-    .grid-4{grid-template-columns:repeat(4,minmax(0,1fr))}
-    .card{border:1px solid #eee;border-radius:14px;padding:1.55rem;background:#fff;box-shadow:0 6px 20px rgba(0,0,0,.035)}
-    .card h3{margin:.1rem 0 .65rem;font-size:1.18rem}
-    .card.highlight{border:1px solid rgba(255,140,50,.75);box-shadow:0 0 20px rgba(255,140,50,.22),0 6px 22px rgba(0,0,0,.045)}
-
-    .checklist{list-style:none;margin:0;padding:0}
-    .checklist li{padding-left:1.45rem;position:relative;margin:.55rem 0;line-height:1.6}
-    .checklist li::before{content:"✓";position:absolute;left:.1rem;top:.02rem;color:var(--copper);font-weight:1000}
-
-    .split{display:grid;grid-template-columns:1fr 1fr;gap:4rem;align-items:center}
-    .media img{width:100%;border-radius:14px;box-shadow:0 8px 26px rgba(0,0,0,.14);object-fit:cover}
-
-    .soft-band{width:100vw;margin-left:calc(50% - 50vw);margin-right:calc(50% - 50vw);background:var(--soft);border-top:1px solid #eee;border-bottom:1px solid #eee}
-    .soft-band .container{padding-top:4rem;padding-bottom:4rem}
-
-    .model-panel{background:#150e09;color:#fff;border-radius:28px;padding:2rem;position:relative;overflow:hidden}
-    .model-panel::before{content:"";position:absolute;inset:0;background:radial-gradient(45% 40% at 20% 20%,rgba(255,140,50,.16),transparent 60%),radial-gradient(35% 35% at 80% 80%,rgba(255,177,105,.1),transparent 65%);pointer-events:none}
-    .model-panel>*{position:relative}
-    .model-panel h2,.model-panel h3{color:#fff}
-    .model-panel p{color:#f3f3f3}
-    .model-panel .card{background:rgba(255,255,255,.06);border:1px solid rgba(255,140,50,.35);color:#fff}
-    .model-panel .card h3{color:var(--copper-light)}
-    .model-panel .card p{color:#f3f3f3}
-
-    .quote-panel{border-left:5px solid var(--copper);background:#fff;border-radius:14px;padding:1.6rem;box-shadow:0 6px 20px rgba(0,0,0,.035)}
-    .quote-panel p{font-size:1.25rem;font-weight:900;line-height:1.35;margin:0;color:#150e09}
-
-    .step-list{display:grid;gap:1rem;margin-top:1.5rem}
-    .step{display:grid;grid-template-columns:auto 1fr;gap:1rem;align-items:start;padding:1.2rem;border:1px solid #eee;border-radius:14px;background:#fff;box-shadow:0 6px 18px rgba(0,0,0,.03)}
-    .step-number{width:38px;height:38px;border-radius:999px;background:var(--espresso);color:var(--copper-light);display:grid;place-items:center;font-weight:1000}
-    .step h3{margin:0 0 .25rem}
-    .step p{margin:0;color:#555}
-
-    .closing-cta{position:relative;background:#150e09;color:#fff;text-align:center;padding:4.5rem 1rem;overflow:hidden}
-    .closing-cta::before{content:"";position:absolute;inset:0;background:radial-gradient(40% 50% at 20% 20%,rgba(255,140,50,.2),transparent 60%),radial-gradient(30% 40% at 80% 80%,rgba(255,177,105,.14),transparent 60%);z-index:0}
-    .closing-cta .container{position:relative;z-index:1}
-    .closing-cta h2{color:var(--copper-light);font-size:clamp(1.9rem,3vw,2.7rem);margin:0 0 .75rem}
-    .closing-cta p{color:#f3f3f3;max-width:760px;margin:0 auto 1.4rem;line-height:1.6}
-
-    footer{background:#0f0a07;color:#ddd}
-    .foot{display:flex;justify-content:space-between;align-items:center;gap:1rem;padding:1rem 0}
-    footer a{color:#fff}
-
-    .reveal{opacity:0;transform:translateY(32px);transition:all .55s ease}
-    .reveal.visible{opacity:1;transform:none}
-
-    @media(max-width:960px){
-      nav.primary{display:none}
-      .hamburger{display:flex}
-      .brand{font-size:1rem}
-      .grid-4,.grid-3{grid-template-columns:repeat(2,minmax(0,1fr))}
-      .split{grid-template-columns:1fr;gap:2rem}
-      .media{order:-1}
-    }
-    @media(max-width:640px){
-      .grid-4,.grid-3,.grid-2{grid-template-columns:1fr}
-      .hero{min-height:72vh}
-      .hero-content{padding:5rem 0 4rem}
-      .foot{flex-direction:column;align-items:flex-start}
-      .model-panel{border-radius:22px;padding:1.35rem}
-      .step{grid-template-columns:1fr}
-    }
-  </style>
-</head>
-
-
-
-
-
-
-<body>
-  <div class="nav-overlay" id="overlayNav" aria-hidden="true">
-    <button class="nav-close" aria-label="Close menu" onclick="toggleMenu(false)">×</button>
-    <div class="nav-panel">
-      <a href="why-fused.html" onclick="toggleMenu(false)">Why FUSED</a>
-      <a href="ai-employees-engines.html" onclick="toggleMenu(false)">Intelligent Workflows</a>
-      <a href="ai-quality-systems-iso9001.html" onclick="toggleMenu(false)">ISO 9001 & Quality</a>
-      <a href="microsoft-ai-deployments.html" onclick="toggleMenu(false)">Microsoft AI</a>
-      <a href="contacts.html" onclick="toggleMenu(false)">Book a Teams Call</a>
-      <a href="mailto:sales@fusedid.com" onclick="toggleMenu(false)" style="margin-top:.6rem;color:var(--copper-light)">sales@fusedid.com</a>
-    </div>
-  </div>
-
-  <header>
-    <div class="container header-inner">
-      <a href="https://www.fusedid.com" class="brand">
-        <img src="fusedid logo -white bg.png" alt="FUSED ID Logo">
-        FUSED ID
-      </a>
-      <nav class="primary" aria-label="Primary">
-        <a href="why-fused.html">Why FUSED</a>
-        <a href="ai-employees-engines.html">Intelligent Workflows</a>
-        <a href="ai-quality-systems-iso9001.html">ISO 9001 & Quality</a>
-        <a href="microsoft-ai-deployments.html">Microsoft AI</a>
-        <a href="contacts.html" class="btn btn-primary btn-slim">Book a Teams Call</a>
+  ]
+}</script>
+    <script defer src="assets/js/site.js"></script>
+  </head>
+  <body class="inner-page">
+    <a class="skip-link" href="#main">Skip to content</a>
+    <header class="site-header">
+      <div class="container header-inner">
+        <a class="brand" href="index.html" aria-label="FUSED ID home"><img class="brand-mark" src="assets/images/fusedid-mark-light.webp" width="192" height="192" alt=""><span class="brand-lockup"><span class="brand-name"><img class="brand-wordmark" src="assets/images/fusedid-wordmark.svg?v=e12712262aec" width="395" height="84" alt="FUSED ID"></span><span class="brand-sub">Managed Cloud Colleagues</span></span></a>
+        <nav class="desktop-nav" aria-label="Primary navigation">
+          <a href="how-it-works.html">How it works</a><a href="capabilities.html">What it can do</a><a href="why-fused.html">Why FUSED</a><a href="about.html">Our team</a><a class="button button--dark" href="contact.html">Let’s talk <svg class="ui-icon" viewBox="0 0 24 24" width="24" height="24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M4 12h16m-6-6 6 6-6 6"/></svg></a>
+        </nav>
+        <details class="mobile-menu">
+          <summary aria-label="Navigation menu"><svg class="ui-icon" viewBox="0 0 24 24" width="24" height="24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M4 6h16M4 12h16M4 18h16"/></svg><span>Menu</span></summary>
+          <nav class="mobile-panel" aria-label="Mobile navigation">
+            <a href="how-it-works.html">How it works</a><a href="capabilities.html">What it can do</a><a href="why-fused.html">Why FUSED</a><a href="about.html">Our team</a><a href="what-we-do.html">Our service &amp; fees</a><a href="contact.html">Let’s talk →</a>
+          </nav>
+        </details>
+      </div>
+    </header>
+    <main id="main">
+      <section class="page-hero page-hero--quality">
+        <div class="container">
+          <p class="eyebrow eyebrow--light">AI · Quality systems · ISO 9001</p>
+          <h1>Keep your knowledge <br>and procedures current.</h1>
+          <p class="lead lead--light">Your business changes every day. FUSED helps your cloud colleague capture decisions, spot recurring issues and keep approved knowledge useful. Add skills to carry improvements through to procedures, documents and the people who use them.</p>
+        </div>
+      </section>
+      <nav class="page-contents" aria-label="On this page">
+        <div class="container">
+          <span>ON THIS PAGE</span><a href="#business-context">Current knowledge</a><a href="#controlled-updates">Controlled updates</a><a href="#section-5">Opportunities</a><a href="#section-6">Start small</a>
+        </div>
       </nav>
-      <button class="hamburger" aria-label="Open menu" aria-controls="overlayNav" aria-expanded="false" onclick="toggleMenu(true)"><span></span></button>
-    </div>
-  </header>
-
-
-
-
-
-
-  <section class="hero">
-    <div class="container">
-      <div class="hero-content">
-        <div class="kicker">AI • Quality Systems • ISO 9001:2026</div>
-        <h1>The Future of Quality Management Includes AI</h1>
-        <p>Quality systems have always helped businesses create consistent outcomes. The next generation of quality systems will need to manage not only people and processes, but also AI, automation and organisational knowledge.</p>
-        <p>FUSED ID helps quality-focused businesses integrate AI into their operating systems while maintaining control, accountability and continuous improvement.</p>
-        <div class="hero-ctas">
-          <a class="btn btn-primary" href="contacts.html">Discuss Your Quality System →</a>
-          <a class="btn btn-outline" href="#ncr">See NCR Workflow Example</a>
+      <div class="answer-bar">
+        <div class="container answer-bar-inner">
+          <strong>Already ISO 9001 certified?</strong>
+          <p>Your processes, records and responsibilities give your colleague a useful starting point. Build on that investment. You can also start with FUSED without an existing certification.</p>
         </div>
       </div>
-    </div>
-  </section>
-
-
-
- <main>
-
-  <section class="section container" id="iso-transition">
-    <div class="model-panel reveal">
-      <div class="kicker">ISO 9001:2026 Transition</div>
-      <h2>Use the Transition to Improve the Business, Not Just Update Documents</h2>
-      <p style="max-width:920px">
-        ISO 9001 is expected to be updated in 2026, with certified organisations likely to have a transition period to update their quality management systems.
-      </p>
-      <p style="max-width:920px">
-        For many businesses, this will be the first major review of their quality system in years. The opportunity is not just compliance. It is a chance to modernise how quality, knowledge, corrective actions and improvement are managed.
-      </p>
-
-      <div class="grid grid-4" style="margin-top:1.5rem">
-        <div class="card">
-          <h3>Review</h3>
-          <p>Identify manual processes, duplicated work, inconsistent records and workflows that are difficult to monitor.</p>
-        </div>
-
-        <div class="card">
-          <h3>Modernise</h3>
-          <p>Use the transition to improve how non-conformance reports, investigations, corrective actions and evidence are managed.</p>
-        </div>
-
-        <div class="card">
-          <h3>Embed AI</h3>
-          <p>Find repeatable workflows where AI can assist with documentation, analysis, reporting, routing and follow-up.</p>
-        </div>
-
-        <div class="card">
-          <h3>Improve</h3>
-          <p>Build a quality system that is easier to use, easier to monitor and better aligned to how the business operates.</p>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <section class="soft-band" id="quality-systems">
-    <div class="container">
-      <div class="split">
-        <div class="reveal">
-          <h2>Quality Systems Were Built For This</h2>
-          <p>
-            Quality-focused organisations already understand process ownership, risk management, documented knowledge, monitoring, measurement and continual improvement.
-          </p>
-          <p>
-            Those same disciplines are now required for AI. The businesses that benefit most will not simply add AI tools. They will build AI into their management systems with ownership, controls and clear improvement pathways.
-          </p>
-        </div>
-
-        <div class="card highlight reveal">
-          <h3>The shift</h3>
-          <p>
-            Traditional quality systems manage people, processes and risk.
-          </p>
-          <p>
-            The next generation of quality systems will also need to manage AI, automation, organisational knowledge and digital workflows.
-          </p>
-        </div>
-      </div>
-
-      <div class="grid grid-4" style="margin-top:1.5rem">
-        <div class="card reveal">
-          <h3>Process Control</h3>
-          <p>AI workflows need clear inputs, ownership, review points and defined outputs.</p>
-        </div>
-
-        <div class="card highlight reveal">
-          <h3>Risk-Based Thinking</h3>
-          <p>AI creates opportunity, but it also introduces risks that need governance and control.</p>
-        </div>
-
-        <div class="card reveal">
-          <h3>Organisational Knowledge</h3>
-          <p>AI can help capture, retrieve and apply knowledge that too often lives inside individual people.</p>
-        </div>
-
-        <div class="card reveal">
-          <h3>Continual Improvement</h3>
-          <p>AI-supported systems can identify trends, track actions and surface opportunities to improve.</p>
-        </div>
-      </div>
-    </div>
-  </section>
-
-    <section class="soft-band">
-      <div class="container">
-        <div class="split">
-          <div class="media reveal"><img src="wisdom-vs-smart-quality.jpg" alt="Experienced quality leader using AI data with human judgement"></div>
+      <section class="section" id="business-context">
+        <div class="container split">
           <div class="reveal">
-            <h2>AI May Be Smart. It Is Not Wise.</h2>
-            <p>AI can analyse information, identify patterns and automate repetitive tasks. But it does not understand your customers, your standards, your risks, or the judgement required when work does not follow the script.</p>
-            <p>Wisdom comes from experience. And capability only compounds when it is aligned to the company vision.</p>
-            <p>That is why successful AI deployments require more than technical expertise. They require operational expertise.</p>
+            <p class="eyebrow">Ongoing knowledge management</p>
+            <h2>A one-off upload <br>is only the beginning.</h2>
+            <p class="lead">Decisions change. Exceptions recur. Better ways of working emerge. Your colleague helps capture that knowledge, check its meaning and keep the right people informed through email and Teams.</p>
+            <p>ISO 9001 principles sit at the centre of FUSED’s method: clear responsibilities, controlled information and continual improvement. Your approved records remain the source of truth. The colleague helps maintain and use them, within the access and update rules you agree.</p>
+          </div>
+          <div class="system-stack reveal">
+            <div class="stack-layer">
+              <small>Current guidance</small>
+              <p>Distinguish approved instructions from suggestions, exceptions and superseded information.</p>
+            </div>
+            <div class="stack-layer">
+              <small>Clear ownership</small>
+              <p>Know who can confirm a decision, why it was made and when it takes effect.</p>
+            </div>
+            <div class="stack-layer">
+              <small>Appropriate access</small>
+              <p>Share relevant knowledge with authorised people at the agreed time.</p>
+            </div>
+            <div class="stack-layer">
+              <small>Useful history</small>
+              <p>Keep the sources, versions and change records needed to understand what happened.</p>
+            </div>
           </div>
         </div>
-      </div>
-    </section>
-
-    <section class="section container">
-      <div class="model-panel reveal">
-        <div class="kicker">The FUSED Difference</div>
-        <h2>Quality-Aware AI Deployments, Built By Operators</h2>
-        <p style="max-width:920px">Most AI deployments are designed by software developers and IT specialists. FUSED ID deployments are shaped by experienced business operators who understand quality management, root-cause analysis, corrective actions, governance, process ownership and continuous improvement.</p>
-        <p style="max-width:920px">We understand the work itself. That matters because AI should be embedded into business processes, not bolted onto the side of them.</p>
-        <div class="grid grid-3" style="margin-top:1.5rem">
-          <div class="card"><h3>Experienced Operators</h3><p>We understand what good looks like inside real business functions.</p></div>
-          <div class="card"><h3>Practical AI</h3><p>We focus on workflows that reduce manual work and improve consistency.</p></div>
-          <div class="card"><h3>Governed Execution</h3><p>We build with ownership, review points, escalation paths and human judgement in mind.</p></div>
-        </div>
-      </div>
-    </section>
-
-    <section class="soft-band" id="ncr">
-      <div class="container">
-        <div class="split">
-          <div class="reveal">
-            <div class="kicker">NCR & CAPA Workflow Example</div>
-            <h2>Making The Right Way The Easy Way</h2>
-            <p>Non-conformance reports are a perfect example of where quality systems often break down. In many businesses, NCRs are opened late, completed inconsistently, closed without proper root-cause analysis, and rarely reviewed for repeat patterns.</p>
-            <p>FUSED ID helps build AI-supported workflows that make the correct process easier to follow: capturing the issue, guiding the investigation, documenting evidence, supporting root-cause analysis, assigning corrective actions, tracking closure, and identifying repeat issues over time.</p>
-            <p>The goal is not more administration. The goal is better control.</p>
-            <div class="quote-panel"><p>We help quality-focused businesses make the right way to do something the easy way to do it.</p></div>
+      </section>
+      <section class="section section--cream" id="controlled-updates">
+        <div class="container">
+          <div class="section-head reveal">
+            <div>
+              <p class="eyebrow">With a document-update skill</p>
+              <h2>Turn an agreed change <br>into current guidance.</h2>
+            </div>
+            <p class="lead">Your colleague can prepare standard operating procedure (SOP) updates and carry approved revisions into connected documents. FUSED builds the workflow around your owners, approvals, access and records.</p>
           </div>
-          <div class="media reveal"><img src="ncr-workflow.jpg" alt="NCR and CAPA workflow review with quality team"></div>
-        </div>
-      </div>
-    </section>
-
-    <section class="section container">
-      <div class="reveal">
-        <h2>Typical AI Opportunities Within Quality Systems</h2>
-        <p class="muted" style="max-width:850px">These are examples of where AI can support quality-focused businesses today. The right deployment depends on your processes, risks, tools and operating rhythm.</p>
-      </div>
-      <div class="grid grid-3" style="margin-top:1.5rem">
-        <div class="card reveal"><h3>NCR & CAPA Management</h3><p>AI-supported capture, investigation, corrective action tracking and closure workflows.</p></div>
-        <div class="card highlight reveal"><h3>Root-Cause Analysis</h3><p>Guided investigations, repeated issue detection and better documentation of corrective actions.</p></div>
-        <div class="card reveal"><h3>Audit Preparation</h3><p>Evidence gathering, document support, audit trails and readiness checks.</p></div>
-        <div class="card reveal"><h3>Organisational Knowledge</h3><p>Searchable procedures, lessons learned, quality standards and staff Q&A.</p></div>
-        <div class="card reveal"><h3>Management Reviews</h3><p>KPI summaries, trend analysis, overdue action reporting and management pack preparation.</p></div>
-        <div class="card reveal"><h3>Continuous Improvement</h3><p>Improvement opportunity capture, action tracking, impact calculation and trend visibility.</p></div>
-      </div>
-    </section>
-
-    <section class="soft-band">
-      <div class="container">
-        <div class="split">
-          <div class="media reveal"><img src="ai-governance-leadership.jpg" alt="Leadership team reviewing AI governance and quality metrics"></div>
-          <div class="reveal">
-            <h2>AI Requires Management, Not Just Implementation</h2>
-            <p>Quality systems already manage risk, competency, training, documentation, corrective actions and continual improvement. AI requires the same discipline.</p>
-            <p>Unmanaged AI creates risk. Managed AI creates capability.</p>
-            <ul class="checklist">
-              <li>AI ownership and accountability</li>
-              <li>Use-case and risk assessment</li>
-              <li>Monitoring and review processes</li>
-              <li>Human approval and escalation points</li>
-              <li>Performance measurement and improvement</li>
-            </ul>
+          <p class="change-example"><strong>For example:</strong> NOVA learns that delivery dates need operations approval, then notices an older procedure still promising next-day dispatch. It flags the conflict and can prepare a correction for the document owner to approve.</p>
+          <div class="principle-grid reveal">
+            <article class="principle">
+              <span class="index">01 / CAPTURE</span>
+              <h3>Understand the decision</h3>
+              <p>Record what changed, why, who authorised it and when it applies. Clarify whether it is an exception or a new rule.</p>
+            </article>
+            <article class="principle">
+              <span class="index">02 / REVIEW</span>
+              <h3>Check the impact</h3>
+              <p>Identify affected procedures, people and work. Flag conflicts, missing controls or possible nonconformities for the responsible owner to review.</p>
+            </article>
+            <article class="principle">
+              <span class="index">03 / UPDATE</span>
+              <h3>Publish with approval</h3>
+              <p>Draft revisions, obtain the required approval and publish on the agreed date. Notify authorised people and retain the earlier versions and approval history.</p>
+            </article>
+            <article class="principle">
+              <span class="index">04 / IMPROVE</span>
+              <h3>Check the result</h3>
+              <p>Follow the agreed actions and review recurring exceptions. Bring evidence of what improved, or what still needs attention, back to the owner.</p>
+            </article>
           </div>
         </div>
-      </div>
-    </section>
-
-    <section class="section container">
-      <div class="split">
-        <div class="reveal">
-          <h2>Capturing Organisational Knowledge Before It Walks Out The Door</h2>
-          <p>Experienced people carry a huge amount of business knowledge: why things are done a certain way, what usually goes wrong, which customers need special care, and which issues are likely to repeat.</p>
-          <p>FUSED ID helps businesses capture, structure and make that knowledge easier to find, share and apply. This supports onboarding, decision-making, training, quality control and continuous improvement.</p>
-          <p>Stronger knowledge. Better decisions. Better outcomes.</p>
+      </section>
+      <section class="quote-band">
+        <div class="container reveal">
+          <blockquote>Make the right way the easy way.</blockquote>
+          <footer>
+            Good system design reduces friction around good behaviour
+          </footer>
         </div>
-        <div class="media reveal"><img src="organisational-knowledge.jpg" alt="Experienced employee sharing organisational knowledge with a younger team member"></div>
-      </div>
-    </section>
-
-    <section class="soft-band">
-      <div class="container">
-        <div class="reveal">
-          <h2>Building AI Into Existing Microsoft Platforms</h2>
-          <p class="muted" style="max-width:850px">Most quality-focused businesses already own many of the tools needed to start. Where practical, FUSED ID builds inside familiar platforms so your team can understand, manage and improve the system over time.</p>
+      </section>
+      <section class="section" id="section-5">
+        <div class="container">
+          <div class="section-head reveal">
+            <div>
+              <p class="eyebrow">Where AI can help</p>
+              <h2>Where does your quality team spend its time?</h2>
+            </div>
+            <p class="lead">Chasing actions, finding evidence and checking which procedure is current are all places to look. Choose one problem your team recognises.</p>
+          </div>
+          <div class="quality-opportunity-grid reveal">
+            <article>
+              <span>ISSUES &amp; CORRECTIVE ACTION</span>
+              <h3>Issue and action coordination</h3>
+              <p>Capture what happened, gather evidence, assign an owner and follow up the agreed actions.</p>
+            </article>
+            <article>
+              <span>ROOT CAUSE</span>
+              <h3>Better investigation support</h3>
+              <p>Ask useful follow-up questions and organise the evidence so the responsible person can investigate the cause.</p>
+            </article>
+            <article>
+              <span>AUDIT</span>
+              <h3>Evidence and readiness</h3>
+              <p>Bring relevant documents, records and open actions together for your quality team to review.</p>
+            </article>
+            <article>
+              <span>KNOWLEDGE</span>
+              <h3>Current guidance for the team</h3>
+              <p>Answer from approved sources, identify conflicting instructions and help turn confirmed changes into controlled document updates.</p>
+            </article>
+            <article>
+              <span>MANAGEMENT REVIEW</span>
+              <h3>Prepare for management review</h3>
+              <p>Assemble trends, overdue actions, recurring issues and the evidence leadership needs to review.</p>
+            </article>
+            <article>
+              <span>IMPROVEMENT</span>
+              <h3>Visible follow-through</h3>
+              <p>Keep proposed improvements, owners and dates together, with a clear view of what has changed.</p>
+            </article>
+          </div>
         </div>
-        <div class="grid grid-4" style="margin-top:1.5rem">
-          <div class="card reveal"><h3>SharePoint</h3><p>Procedures, forms, evidence, controlled documents and organisational knowledge.</p></div>
-          <div class="card reveal"><h3>Teams & Outlook</h3><p>Notifications, approvals, reminders, escalation points and communication workflows.</p></div>
-          <div class="card highlight reveal"><h3>Power Automate</h3><p>Process automation, handovers, task creation and repeatable workflow execution.</p></div>
-          <div class="card reveal"><h3>Power BI & Dynamics</h3><p>Dashboards, reporting, CRM data, operational visibility and management review support.</p></div>
+      </section>
+      <section class="section section--dark" id="section-6">
+        <div class="container">
+          <div class="section-head reveal">
+            <div>
+              <p class="eyebrow eyebrow--light">A focused starting point</p>
+              <h2>Start with one process <br>that needs attention.</h2>
+            </div>
+            <p class="lead lead--light">Begin with one workflow people recognise, one accountable owner and one outcome that can be reviewed.</p>
+          </div>
+          <div class="work-grid reveal">
+            <article class="work-block">
+              <span class="work-number">01 / MAP</span>
+              <h3>Understand the real workflow</h3>
+              <p>See how the work moves, where it stalls and what people actually do when the process leaves the neat diagram.</p>
+            </article>
+            <article class="work-block">
+              <span class="work-number">02 / DESIGN</span>
+              <h3>Agree who decides</h3>
+              <p>Agree which information it should use, what it may do and which decisions come back to the responsible person.</p>
+            </article>
+            <article class="work-block">
+              <span class="work-number">03 / OPERATE</span>
+              <h3>Launch, watch and improve</h3>
+              <p>Run the skill, review exceptions and strengthen the service using what happens in practice.</p>
+            </article>
+          </div>
+          <div class="support-band reveal">
+            <h3>See the quality thinking in action.</h3>
+            <p>See how a quality workflow made it easier for people to report an issue, investigate it and follow through on the fix.</p>
+            <a class="button button--light" href="quality-example.html">Read the applied-work story</a>
+          </div>
         </div>
-        <div style="margin-top:1.5rem"><a class="btn btn-primary" href="microsoft-ai-deployments.html">Explore Microsoft Platforms →</a></div>
-      </div>
-    </section>
-
-    <section class="section container">
-      <div class="model-panel reveal">
-        <div class="kicker">Practical Starting Points</div>
-        <h2>How A Quality AI Deployment Could Start</h2>
-        <p style="max-width:900px">You do not need to transform everything at once. The strongest deployments usually begin with one focused workflow where repeatable effort, quality risk and management visibility intersect.</p>
-        <div class="step-list">
-          <div class="step"><div class="step-number">1</div><div><h3>Map The Workflow</h3><p>We identify how the process currently works, where it breaks down, who owns each step and what good looks like.</p></div></div>
-          <div class="step"><div class="step-number">2</div><div><h3>Identify AI Leverage</h3><p>We identify where AI can assist with classification, research, documentation, analysis, routing, reporting or follow-up.</p></div></div>
-          <div class="step"><div class="step-number">3</div><div><h3>Build Governance In</h3><p>We define human review points, approval requirements, escalation paths, monitoring and performance measures.</p></div></div>
-          <div class="step"><div class="step-number">4</div><div><h3>Deploy, Monitor and Improve</h3><p>We help launch the workflow, review its performance, refine outputs and improve the system over time.</p></div></div>
+      </section>
+      <section class="section section--compact">
+        <div class="container--narrow">
+          <div class="notice reveal">
+            <strong>Supporting your quality team:</strong> FUSED can help identify potential issues and maintain the evidence for review. It does not issue ISO certification or guarantee conformity. Your responsible people and certification body retain those decisions. Confirm current edition and transition requirements with your certification body. <a href="https://www.iso.org/quality-management/iso-9001-2026">Read the official ISO overview.</a>
+          </div>
+        </div>
+      </section>
+      <section class="cta-band">
+        <div class="container cta-inner">
+          <div>
+            <p class="eyebrow">One useful conversation</p>
+            <h2>Start with one<br><em>cloud colleague.</em></h2>
+            <p>Tell us about your business. We’ll help you find a first role, explain the service and give you a clear proposal before you decide.</p>
+          </div>
+          <div class="cta-actions">
+            <a class="button button--dark" href="contact.html">Talk to FUSED <svg class="ui-icon" viewBox="0 0 24 24" width="24" height="24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M4 12h16m-6-6 6 6-6 6"/></svg></a><a class="text-link" href="role-brief.html">Or sketch a role in five minutes <svg class="ui-icon" viewBox="0 0 24 24" width="24" height="24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M4 12h16m-6-6 6 6-6 6"/></svg></a>
+          </div>
+        </div>
+      </section>
+    </main>
+    <footer class="site-footer">
+      <div class="container footer-main">
+        <div class="footer-intro">
+          <a class="footer-brand" href="index.html"><span class="footer-wordmark-wrap"><img class="footer-wordmark" src="assets/images/fusedid-wordmark-light.svg?v=bd745d1afdb0" width="395" height="84" alt="FUSED ID"></span><span class="footer-slogan">Managed Cloud Colleagues</span></a>
+          <p>Cloud colleagues that learn your business, keep up as it changes and help your team get work done.</p>
+          <a href="mailto:sales@fusedid.com">sales@fusedid.com</a>
+        </div>
+        <div class="footer-col">
+          <h2>Your colleague</h2>
+          <a href="how-it-works.html">How it works</a><a href="what-we-do.html">Our service &amp; fees</a><a href="capabilities.html">Skills &amp; capabilities</a><a href="existing-tools.html">Your existing tools</a><a href="nova.html">Meet NOVA</a><a href="role-brief.html">Design a role</a>
+        </div>
+        <div class="footer-col">
+          <h2>A closer look</h2>
+          <a href="why-fused.html">Why FUSED</a><a href="about.html">Our team</a><a href="examples.html">Examples &amp; applied work</a><a href="quality-and-governance.html">Quality &amp; control</a><a href="ai-quality-systems-iso9001.html">AI &amp; ISO 9001</a><a href="contact.html">Get in touch</a>
         </div>
       </div>
-    </section>
-
-    <section class="section container">
-      <div class="split">
-        <div class="reveal">
-          <h2>The Future Of Quality Management</h2>
-          <p>Historically, businesses learned how to manage people, processes and risk. Tomorrow’s quality-focused businesses must also learn how to manage AI.</p>
-          <p>The organisations that succeed will not be those with the most AI. They will be those with the strongest systems, governance and leadership.</p>
-          <p>FUSED ID helps quality-focused businesses build AI into the way they operate.</p>
-          <a class="btn btn-primary" href="contacts.html">Discuss Your Quality System & AI Strategy →</a>
-        </div>
-        <div class="card highlight reveal">
-          <h3>Best-fit organisations</h3>
-          <ul class="checklist">
-            <li>Manufacturers and fabricators</li>
-            <li>Engineering and technical businesses</li>
-            <li>Construction and project-based businesses</li>
-            <li>ISO-certified or quality-focused SMEs</li>
-            <li>Businesses with NCRs, CAPAs, audits or compliance workflows</li>
-            <li>Teams already using Microsoft 365</li>
-          </ul>
-        </div>
+      <div class="container footer-bottom">
+        <span>© <span data-current-year>2026</span> FUSED ID Pty Ltd · Melbourne, Australia</span><a href="privacy.html">Privacy</a><a href="#main">Back to top ↑</a>
       </div>
-    </section>
-  </main>
-
-  <section class="closing-cta">
-    <div class="container">
-      <h2>Prepare Your Quality System For The AI Era</h2>
-      <p>FUSED ID helps quality-focused businesses move from AI experimentation to practical execution — with workflows built around control, accountability, improvement and the way your business actually operates.</p>
-      <a href="contacts.html" class="btn btn-primary">Book a Teams Call →</a>
-    </div>
-  </section>
-
-  <footer>
-    <div class="container foot">
-      <span>© FUSED ID</span>
-      <div style="display:flex;gap:1rem;flex-wrap:wrap">
-        <a href="index.html">Home</a>
-        <a href="contacts.html">Contact</a>
-      </div>
-    </div>
-  </footer>
-
-  <script>
-    function toggleMenu(open){
-      const overlay = document.getElementById('overlayNav');
-      const btn = document.querySelector('.hamburger');
-      if(!overlay) return;
-      if(open){
-        overlay.classList.add('open');
-        overlay.setAttribute('aria-hidden','false');
-        if(btn) btn.setAttribute('aria-expanded','true');
-        document.body.style.overflow='hidden';
-      }else{
-        overlay.classList.remove('open');
-        overlay.setAttribute('aria-hidden','true');
-        if(btn) btn.setAttribute('aria-expanded','false');
-        document.body.style.overflow='';
-      }
-    }
-
-    (function(){
-      const els = Array.from(document.querySelectorAll('.reveal'));
-      if(!('IntersectionObserver' in window)){
-        els.forEach(el => el.classList.add('visible'));
-        return;
-      }
-      const io = new IntersectionObserver((entries)=>{
-        entries.forEach(entry=>{
-          if(entry.isIntersecting){
-            entry.target.classList.add('visible');
-            io.unobserve(entry.target);
-          }
-        });
-      }, { threshold:.08, rootMargin:'0px 0px -5% 0px' });
-      els.forEach(el => io.observe(el));
-      window.addEventListener('load', () => {
-        els.forEach(el => {
-          const r = el.getBoundingClientRect();
-          if(r.top < window.innerHeight && r.bottom > 0){
-            el.classList.add('visible');
-            io.unobserve(el);
-          }
-        });
-      });
-    })();
-  </script>
-</body>
+    </footer>
+  </body>
 </html>

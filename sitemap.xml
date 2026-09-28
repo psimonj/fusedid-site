@@ -1,67 +1,20 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
-
-  <url>
-    <loc>https://www.fusedid.com/</loc>
-    <lastmod>2026-06-12</lastmod>
-    <priority>1.0</priority>
-    <changefreq>weekly</changefreq>
-  </url>
-
-  <url>
-    <loc>https://www.fusedid.com/why-fused.html</loc>
-    <lastmod>2026-06-12</lastmod>
-    <priority>0.9</priority>
-    <changefreq>monthly</changefreq>
-  </url>
-
-  <url>
-    <loc>https://www.fusedid.com/ai-employees-engines.html</loc>
-    <lastmod>2026-06-12</lastmod>
-    <priority>0.9</priority>
-    <changefreq>monthly</changefreq>
-  </url>
-
-  <url>
-    <loc>https://www.fusedid.com/ai-quality-systems-iso9001.html</loc>
-    <lastmod>2026-06-12</lastmod>
-    <priority>0.9</priority>
-    <changefreq>monthly</changefreq>
-  </url>
-
-  <url>
-    <loc>https://www.fusedid.com/microsoft-ai-deployments.html</loc>
-    <lastmod>2026-06-12</lastmod>
-    <priority>0.8</priority>
-    <changefreq>monthly</changefreq>
-  </url>
-
-  <url>
-    <loc>https://www.fusedid.com/contacts.html</loc>
-    <lastmod>2026-06-12</lastmod>
-    <priority>0.8</priority>
-    <changefreq>monthly</changefreq>
-  </url>
-
-  <url>
-    <loc>https://www.fusedid.com/real-deployments/kaizen-quality.html</loc>
-    <lastmod>2026-06-12</lastmod>
-    <priority>0.75</priority>
-    <changefreq>monthly</changefreq>
-  </url>
-
-  <url>
-    <loc>https://www.fusedid.com/real-deployments/prospecting-enhance.html</loc>
-    <lastmod>2026-06-12</lastmod>
-    <priority>0.75</priority>
-    <changefreq>monthly</changefreq>
-  </url>
-
-  <url>
-    <loc>https://www.fusedid.com/real-deployments/talent-screening.html</loc>
-    <lastmod>2026-06-12</lastmod>
-    <priority>0.75</priority>
-    <changefreq>monthly</changefreq>
-  </url>
-
+  <url><loc>https://www.fusedid.com/nova.html</loc><lastmod>2026-09-28</lastmod></url>
+  <url><loc>https://www.fusedid.com/about.html</loc><lastmod>2026-09-28</lastmod></url>
+  <url><loc>https://www.fusedid.com/ai-quality-systems-iso9001.html</loc><lastmod>2026-09-28</lastmod></url>
+  <url><loc>https://www.fusedid.com/capabilities.html</loc><lastmod>2026-09-28</lastmod></url>
+  <url><loc>https://www.fusedid.com/contact.html</loc><lastmod>2026-09-28</lastmod></url>
+  <url><loc>https://www.fusedid.com/examples.html</loc><lastmod>2026-09-28</lastmod></url>
+  <url><loc>https://www.fusedid.com/existing-tools.html</loc><lastmod>2026-09-28</lastmod></url>
+  <url><loc>https://www.fusedid.com/how-it-works.html</loc><lastmod>2026-09-28</lastmod></url>
+  <url><loc>https://www.fusedid.com/</loc><lastmod>2026-09-28</lastmod></url>
+  <url><loc>https://www.fusedid.com/privacy.html</loc><lastmod>2026-09-18</lastmod></url>
+  <url><loc>https://www.fusedid.com/quality-and-governance.html</loc><lastmod>2026-09-28</lastmod></url>
+  <url><loc>https://www.fusedid.com/quality-example.html</loc><lastmod>2026-09-28</lastmod></url>
+  <url><loc>https://www.fusedid.com/prospecting-example.html</loc><lastmod>2026-09-28</lastmod></url>
+  <url><loc>https://www.fusedid.com/recruitment-example.html</loc><lastmod>2026-09-28</lastmod></url>
+  <url><loc>https://www.fusedid.com/role-brief.html</loc><lastmod>2026-09-28</lastmod></url>
+  <url><loc>https://www.fusedid.com/what-we-do.html</loc><lastmod>2026-09-28</lastmod></url>
+  <url><loc>https://www.fusedid.com/why-fused.html</loc><lastmod>2026-09-28</lastmod></url>
 </urlset>

@@ -53,6 +53,9 @@
       }
       form.reset();
       announce('Thanks — we’ve received your enquiry. We’ll be in touch using the details you provided.', 'success', true);
+      try {
+        window.fusedAnalytics?.enquiryReceived();
+      } catch { /* Analytics must never interrupt a successful enquiry. */ }
     } catch (error) {
       const message = error.status === 429
         ? 'Too many attempts just now. Please wait a few minutes before trying again, or email sales@fusedid.com. Your message is still here.'

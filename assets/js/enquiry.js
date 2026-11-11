@@ -27,7 +27,7 @@
     const captchaRequired = form.dataset?.captchaRequired === 'true' || captcha?.required === true;
     const captchaToken = captchaRequired ? captcha?.getToken() || '' : '';
     if (captchaRequired && !captchaToken) {
-      announce('Please complete the security check before sending your enquiry. You can retry the check or call our office using the number below.', 'error', true);
+      announce('Please complete the security check before sending your enquiry. Retry the check if needed; your message is still here.', 'error', true);
       return;
     }
     const payload = new URLSearchParams(new FormData(form));
@@ -66,10 +66,10 @@
       } catch { /* Analytics must never interrupt a successful enquiry. */ }
     } catch (error) {
       const message = error.status === 429
-        ? 'Too many attempts just now. Please wait a few minutes before trying again, or call 03 8669 1414. Your message is still here.'
+        ? 'Too many attempts just now. Please wait a few minutes before trying again. Your message is still here.'
         : error.status === 403
-        ? 'The security check could not be verified. Please complete the new check and try again, or call 03 8669 1414. Your message is still here.'
-        : 'We couldn’t confirm that your enquiry was received. Your message is still here. Please try again or call 03 8669 1414.';
+        ? 'The security check could not be verified. Please complete the new check and try again. Your message is still here.'
+        : 'We couldn’t confirm that your enquiry was received. Your message is still here. Please try again in a few minutes.';
       announce(message, 'error', true);
     } finally {
       clearTimeout(timeout);

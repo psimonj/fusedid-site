@@ -86,5 +86,4 @@
 .footer-contact { display: grid; justify-items: start; gap: 10px; margin-top: 24px; font-size: .9rem; }
 .footer-contact a { text-decoration: none; }
 .footer-contact a:hover { text-decoration: underline; }
-.footer-contact a[href^="tel:"] { font-weight: 650; }
 .footer-contact address { font-style: normal; color: #d7dfd9; line-height: 1.65; }

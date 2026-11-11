@@ -22,7 +22,7 @@
   function failed() {
     clearTimeout(timer);
     invalidate();
-    message('The security check could not finish. Please retry, or call our office using the number below.', true, 'unavailable');
+    message('The security check could not finish. Please retry. If it still fails, wait a few minutes and try again. Your enquiry has not been sent.', true, 'unavailable');
   }
   function size() { return mount.getBoundingClientRect().width < 300 ? 'compact' : 'flexible'; }
   function render() {

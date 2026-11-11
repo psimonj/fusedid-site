@@ -1,4 +1,18 @@
-/* Website service: show the design work and make the first AI step tangible. */
+/* Website service: design, managed expertise and a tangible first AI step. */
+.web-team { background:var(--white); }
+.web-expertise-grid { display:grid; grid-template-columns:repeat(3,minmax(0,1fr)); gap:30px; margin-top:36px; }
+.web-expertise-grid article { min-width:0; border-top:2px solid var(--orange); padding-top:18px; }
+.web-expertise-grid article > span { color:var(--orange-deep); font-size:.72rem; font-weight:700; }
+.web-expertise-grid h3 { font-size:1.15rem; line-height:1.3; margin:12px 0; }
+.web-expertise-grid p { font-size:.9rem; margin:0; }
+.web-team-connection { display:flex; align-items:center; justify-content:space-between; gap:30px; border-top:1px solid var(--line); padding-top:28px; margin-top:34px; }
+.web-team-connection > div { max-width:800px; }
+.web-team-connection h3 { font-size:1.15rem; margin:0 0 12px; }
+.web-team-connection p { font-size:.9rem; margin:0; }
+.web-team-connection .text-link { white-space:normal; flex-shrink:0; max-width:240px; }
+@media(max-width:900px) { .web-expertise-grid { grid-template-columns:repeat(2,minmax(0,1fr)); } .web-team-connection { display:block; } .web-team-connection .text-link { display:inline-block; margin-top:22px; max-width:100%; } }
+@media(max-width:540px) { .web-expertise-grid { grid-template-columns:1fr; gap:24px; } }
+
 .web-own-design { display:grid; grid-template-columns:minmax(0,.75fr) minmax(0,1.25fr); align-items:center; gap:clamp(30px,5vw,70px); margin-top:40px; padding-top:36px; border-top:1px solid var(--line); }
 .web-own-design-copy h3 { font-size:clamp(1.5rem,2.3vw,2.2rem); line-height:1.25; margin:16px 0 22px; }
 .web-own-design-copy > p:not(.eyebrow) { font-size:.93rem; }

@@ -1,0 +1,79 @@
+/* Connected tools, supported AI-platform access and optional specialist applications. */
+.catalogue-brands img { display: block; max-width: 200px; width: 100%; height: 52px; object-fit: contain; }
+.catalogue-brands img[alt="Zapier"] { transform: scale(2.4); }
+.catalogue-brands img[alt="Ahrefs"] { transform: scale(1.5); }
+.included-brand { display: flex; align-items: center; gap: 10px; }
+.included-brand img { object-fit: contain; flex: 0 0 38px; width: 38px; height: 38px; }
+.connection-step { display: block; margin-bottom: 12px; color: var(--orange-deep); font-size: .67rem; font-weight: 750; line-height: 1.5; letter-spacing: .11em; }
+.connection-path { display: grid; grid-template-columns: 1fr 1.15fr 1fr; gap: 28px; align-items: stretch; }
+.connection-path-node { position: relative; padding: 32px; background: var(--cream); border-top: 3px solid var(--line); min-width: 0; }
+.connection-path-node h3 { font-size: 1.5rem; }
+.connection-path-node p { margin-bottom: 20px; }
+.connection-path-node small { display: block; color: var(--muted); line-height: 1.55; }
+.connection-path-node:not(:nth-child(3))::after { position: absolute; content: '↔'; top: 50%; right: -25px; width: 22px; color: var(--orange-deep); font-size: 1.5rem; transform: translateY(-50%); }
+.connection-path-node--fused { background: var(--espresso); color: var(--white); border-color: var(--orange); }
+.connection-path-node--fused .connection-step { color: var(--highlight); }
+.connection-path-node--fused small { color: #d7dfd9; }
+.connection-path figcaption { grid-column: 1 / -1; margin-top: -10px; }
+.connection-footnote { display: grid; grid-template-columns: 1fr 1fr; gap: 40px; margin-top: 32px; padding-top: 24px; border-top: 1px solid var(--line); color: var(--muted); font-size: .88rem; }
+.connection-footnote p { margin: 0; }
+.connection-footnote strong { color: var(--ink); }
+.included-connections { display: grid; grid-template-columns: repeat(4, 1fr); border-top: 1px solid var(--line); border-bottom: 1px solid var(--line); }
+.included-connections article { padding: 32px 24px; border-right: 1px solid var(--line); min-width: 0; }
+.included-connections article:first-child { padding-left: 0; }
+.included-connections article:last-child { border-right: 0; padding-right: 0; }
+.included-connections h3 { font-size: 1.45rem; }
+.included-connections p { color: var(--muted); font-size: .93rem; }
+.website-channel { display: grid; grid-template-columns: 1.8fr 1fr; align-items: center; gap: 64px; padding: 40px 0 24px; }
+.website-channel .eyebrow { margin-bottom: 18px; }
+.website-channel > a { justify-self: end; }
+.catalogue-row { display: grid; grid-template-columns: .8fr 1.5fr; gap: 60px; padding: 34px 0; border-top: 1px solid var(--line); }
+.catalogue-row:last-child { border-bottom: 1px solid var(--line); }
+.catalogue-row h3 { margin-bottom: 12px; }
+.catalogue-row > div > p { margin-bottom: 0; color: var(--muted); font-size: .9rem; }
+.catalogue-brands { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 12px; align-content: center; margin: 0; padding: 0; list-style: none; }
+.catalogue-brands li { display: flex; flex-direction: column; align-items: center; justify-content: center; min-width: 0; overflow: hidden; min-height: 96px; padding: 20px 18px; margin: 0; background: #fff; border: 1px solid var(--line); font-size: 1rem; font-weight: 650; text-align: center; line-height: 1.35; }
+.catalogue-brands small { display: block; margin-top: 5px; color: var(--muted); font-size: .68rem; font-weight: 450; }
+.catalogue-note { max-width: 920px; margin-top: 22px; color: var(--muted); font-size: .82rem; }
+.fused-app-strip { display: grid; grid-template-columns: .8fr 1.5fr; align-items: center; gap: 60px; margin-top: 40px; padding: 30px; background: var(--soft); }
+.fused-app-strip h3 { margin-bottom: 0; }
+.fused-app-strip > div:last-child > p { font-size: 1.18rem; }
+.specialist-apps { display: grid; grid-template-columns: repeat(2, 1fr); gap: 0 48px; }
+.specialist-apps article { min-width: 0; padding: 30px 0; border-top: 1px solid #43554d; }
+.specialist-apps .connection-step { color: var(--highlight); }
+.specialist-apps h3 { font-size: 1.8rem; }
+.specialist-apps p { max-width: 520px; font-size: .97rem; }
+.apps-next { display: flex; align-items: center; justify-content: space-between; gap: 48px; margin-top: 28px; padding-top: 28px; border-top: 1px solid #43554d; }
+.apps-next p { max-width: 690px; margin: 0; font-size: .85rem; }
+.apps-next .text-link { flex-shrink: 0; max-width: 310px; }
+@media (max-width: 1000px) {
+  .connection-path-node { padding: 26px 22px; }
+  .included-connections { grid-template-columns: repeat(2, 1fr); }
+  .included-connections article { padding: 26px !important; }
+  .included-connections article:nth-child(2) { border-right: 0; }
+  .included-connections article:nth-child(-n+2) { border-bottom: 1px solid var(--line); }
+  .catalogue-row, .fused-app-strip { grid-template-columns: .85fr 1.4fr; gap: 32px; }
+  .catalogue-brands { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+  .apps-next { display: block; }
+  .apps-next .text-link { margin-top: 22px; max-width: none; }
+}
+@media (max-width: 700px) {
+  .connection-path { grid-template-columns: 1fr; gap: 26px; }
+  .connection-path-node { padding: 26px; }
+  .connection-path-node:not(:nth-child(3))::after { content: '↕'; top: auto; bottom: -29px; left: 50%; right: auto; height: 28px; transform: translateX(-50%); }
+  .connection-path figcaption { margin-top: -4px; }
+  .connection-footnote { grid-template-columns: 1fr; gap: 20px; }
+  .website-channel { grid-template-columns: 1fr; gap: 24px; }
+  .website-channel > a { justify-self: start; }
+  .catalogue-row, .fused-app-strip { grid-template-columns: 1fr; gap: 24px; }
+  .fused-app-strip { padding: 26px; }
+  .specialist-apps { grid-template-columns: 1fr; }
+  .included-connections article { padding: 24px 16px !important; }
+  .included-connections .connection-step { font-size: .6rem; }
+  .included-connections h3 { font-size: 1.25rem; }
+}
+@media (max-width: 380px) {
+  .included-connections { grid-template-columns: 1fr; }
+  .included-connections article { border-right: 0; border-bottom: 1px solid var(--line); padding: 24px 0 !important; }
+  .included-connections article:last-child { border-bottom: 0; }
+}

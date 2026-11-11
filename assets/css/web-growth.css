@@ -1,0 +1,39 @@
+/* Website navigation and the supporting hosting / advertising services. */
+.hosting-grid,.ads-layout { display: grid; grid-template-columns: minmax(0,1.1fr) minmax(0,.9fr); gap: clamp(32px,5vw,72px); align-items: start; }
+.hosting-services article { padding: 25px 0 12px; border-top: 1px solid var(--line); }
+.hosting-services article > span { font-size: .65rem; font-weight: 700; color: var(--orange-deep); letter-spacing: .07em; }
+.hosting-services h3,.ads-work h3 { font-size: 1.35rem; margin: 10px 0 14px; }
+.hosting-services p,.ads-work p { font-size: .93rem; }
+.hosting-responsibilities { background: var(--white); padding: 32px; border-top: 3px solid var(--orange); }
+.hosting-responsibilities h3 { font-size: 1.6rem; margin-bottom: 26px; }
+.hosting-responsibilities dl { margin: 0; }
+.hosting-responsibilities dl > div { border-top: 1px solid var(--line); padding: 20px 0; }
+.hosting-responsibilities dt { font-size: 1rem; font-weight: 650; margin-bottom: 8px; }
+.hosting-responsibilities dd { margin: 0; font-size: .86rem; line-height: 1.7; }
+.hosting-responsibilities > p:last-child { font-size: .78rem; color: var(--muted); border-top: 1px solid var(--line); padding-top: 20px; margin-bottom: 0; }
+.ads-work article { border-top: 1px solid var(--line); padding: 20px 0 8px; }
+.ads-example { background: var(--ink); color: var(--white); border-top: 3px solid var(--orange); padding: 32px; }
+.ads-example h3 { color: var(--white); font-size: 1.65rem; line-height: 1.3; }
+.ads-example .web-mini-label { color: var(--highlight); }
+.ads-example > div { border-top: 1px solid #688075; padding: 24px 0 10px; }
+.ads-example span,.ads-example strong { display: block; }
+.ads-example span { font-size: .64rem; font-weight: 700; letter-spacing: .07em; color: var(--highlight); margin-bottom: 12px; }
+.ads-example strong { font-size: 1.1rem; line-height: 1.45; }
+.ads-example p { font-size: .85rem; line-height: 1.7; color: #dce5df; }
+.ads-example .ads-example-note { font-size: .75rem; padding-top: 20px; margin-bottom: 0; border-top: 1px solid #688075; }
+.ads-commercial { display: grid; grid-template-columns: repeat(2,minmax(0,1fr)); gap: 30px 60px; border-top: 1px solid var(--line); padding-top: 30px; margin-top: 40px; }
+.ads-commercial h3 { font-size: 1.3rem; }
+.ads-commercial p { font-size: .9rem; }
+.web-service #google-ads > .container > .text-link { display: inline-block; margin-top: 24px; }
+.website-package-extras { margin-top: 25px; padding: 22px 25px; background: var(--white); border-left: 3px solid var(--orange); }
+.website-package-extras > strong { font-size: .9rem; }
+.website-package-extras p { font-size: .86rem; line-height: 1.7; margin: 8px 0 0; }
+@media (max-width:900px) {
+  .hosting-grid,.ads-layout { grid-template-columns: 1fr; }
+  .hosting-responsibilities,.ads-example { max-width: 760px; }
+}
+@media (max-width:640px) {
+  .hosting-responsibilities,.ads-example { padding: 24px; }
+  .ads-commercial { grid-template-columns: 1fr; gap: 15px; }
+  .website-package-extras { padding: 20px; }
+}

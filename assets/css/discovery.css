@@ -1,0 +1,46 @@
+/* Discovery: an included starting brief and a separately scoped deeper engagement. */
+.discovery-route-card { padding:32px; background:var(--paper); border:1px solid var(--line); border-top:3px solid var(--orange); border-radius:5px; }
+.discovery-route-card h2 { font-size:1.9rem; }
+.discovery-route-card > a { display:block; padding:24px 0; border-top:1px solid var(--line); text-decoration:none; }
+.discovery-route-card > a > span,.discovery-route-card > a > strong { display:block; }
+.discovery-route-label { color:var(--orange-deep); font-size:.65rem; letter-spacing:.06em; font-weight:700; margin-bottom:10px; }
+.discovery-route-card strong { font-size:1.13rem; line-height:1.4; margin-bottom:8px; }
+.discovery-route-card a > span:last-child { color:var(--muted); font-size:.88rem; line-height:1.7; }
+.discovery-route-card > a:hover strong { color:var(--orange-deep); }
+.discovery-route-card > a:focus-visible { outline:3px solid var(--orange-deep); outline-offset:5px; }
+.discovery-route-card > p:last-child { margin:0; padding-top:16px; border-top:1px solid var(--line); font-size:.82rem; color:var(--muted); }
+.discovery-starter-grid { display:grid; grid-template-columns:repeat(4,minmax(0,1fr)); gap:28px; }
+.discovery-starter-grid article { border-top:2px solid var(--orange); padding-top:24px; }
+.discovery-starter-grid article > span { font-size:.65rem; color:var(--orange-deep); letter-spacing:.06em; font-weight:700; }
+.discovery-starter-grid h3 { font-size:1.35rem; margin:14px 0; }
+.discovery-starter-grid p { font-size:.9rem; color:var(--muted); }
+.discovery-starter-result { display:flex; justify-content:space-between; align-items:center; gap:30px; padding:26px; background:var(--cream); margin-top:28px; }
+.discovery-starter-result p { margin:0; max-width:740px; font-size:.93rem; }
+.discovery-starter-result > a { flex-shrink:0; font-size:.86rem; }
+.discovery-study-grid { display:grid; grid-template-columns:minmax(0,1.35fr) minmax(0,1fr); gap:clamp(35px,6vw,85px); align-items:start; }
+.discovery-study-grid > div > p:not(.eyebrow):not(.lead) { color:var(--muted); }
+.discovery-study-steps { list-style:none; padding:0; margin:30px 0 0; }
+.discovery-study-steps li { padding:22px 0; border-top:1px solid var(--line); }
+.discovery-study-steps strong,.discovery-study-steps span { display:block; }
+.discovery-study-steps span { font-size:.9rem; color:var(--muted); margin-top:8px; }
+.discovery-investment { padding:36px; border-radius:6px; background:var(--ink); color:var(--paper); }
+.discovery-investment .eyebrow { color:var(--highlight); font-size:.66rem; }
+.discovery-investment .eyebrow::before { background:var(--highlight); }
+.discovery-investment h3 { font-size:1.7rem; }
+.discovery-investment p { font-size:.9rem; color:#d5dfd8; }
+.discovery-price > span,.discovery-price > strong { display:block; }
+.discovery-price strong { color:var(--paper); font-size:clamp(3rem,5vw,4.6rem); line-height:1.2; font-weight:600; letter-spacing:-.04em; margin:7px 0; }
+.discovery-investment .discovery-quote { color:var(--highlight); font-size:1rem; font-weight:650; }
+.discovery-investment .button { display:flex; text-align:center; justify-content:center; font-size:.85rem; margin-top:25px; }
+.discovery-investment .discovery-investment-note { border-top:1px solid #607268; padding-top:20px; margin:25px 0 0; font-size:.79rem; }
+.discovery-pricing-note { padding:55px 0; background:var(--cream); border-top:1px solid var(--line); border-bottom:1px solid var(--line); }
+.discovery-pricing-note > .container { display:grid; grid-template-columns:minmax(0,1fr) minmax(200px,.42fr); gap:50px; align-items:center; }
+.discovery-pricing-note h2 { font-size:1.9rem; }
+.discovery-pricing-note p:not(.eyebrow) { color:var(--muted); font-size:.93rem; max-width:800px; }
+.discovery-pricing-amount { border-left:3px solid var(--orange); padding-left:28px; }
+.discovery-pricing-amount strong,.discovery-pricing-amount span { display:block; }
+.discovery-pricing-amount strong { font-size:2rem; line-height:1.2; }
+.discovery-pricing-amount span { font-size:.85rem; margin:12px 0; }
+@media (max-width:1100px) { .discovery-starter-grid { grid-template-columns:repeat(2,minmax(0,1fr)); } .discovery-starter-result { display:block; } .discovery-starter-result > a { margin-top:20px; } }
+@media (max-width:900px) { .discovery-study-grid { grid-template-columns:minmax(0,1fr); } .discovery-investment { max-width:650px; } }
+@media (max-width:640px) { .discovery-starter-grid,.discovery-pricing-note > .container { grid-template-columns:minmax(0,1fr); } .discovery-route-card,.discovery-investment,.discovery-starter-result { padding:25px; } .discovery-starter-grid { gap:18px; } .discovery-pricing-note > .container { gap:24px; } .discovery-pricing-note h2 { font-size:1.65rem; } }

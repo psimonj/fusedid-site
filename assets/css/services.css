@@ -1,0 +1,23 @@
+/* Dedicated AI website and infrastructure service pages. */
+.service-hero { background: var(--cream); }
+.service-hero-grid { display: grid; grid-template-columns: minmax(0,1.1fr) minmax(0,.9fr); align-items: center; gap: clamp(32px,5vw,72px); }
+.service-hero h1 { font-size: clamp(2.5rem,4.8vw,4.7rem); line-height: 1.07; }
+.service-hero .lead { max-width: 650px; }
+.service-hero .hero-actions { margin-top: 30px; }
+.service-flow { padding: clamp(24px,3vw,36px); background: var(--white); border: 1px solid var(--line); border-top: 3px solid var(--orange); border-radius: 6px; }
+.service-flow > div { padding: 20px 0; border-bottom: 1px solid var(--line); }
+.service-flow > div > span { font-size: .67rem; font-weight: 700; color: var(--orange-deep); letter-spacing: .07em; }
+.service-flow h2, .service-flow h3 { font-size: 1.35rem; margin: 10px 0; line-height: 1.25; }
+.service-flow p { font-size: .88rem; color: var(--muted); margin-bottom: 0; }
+.service-flow .service-caption { font-size: .75rem; line-height: 1.6; margin-top: 20px; }
+.service-server { margin: 0; background: #172923; border-radius: 6px; overflow: hidden; }
+.service-server img { display: block; width: 100%; height: auto; }
+.service-server figcaption { padding: 17px 22px; font-size: .8rem; color: #fff; border-top: 2px solid var(--orange); }
+.service-two { grid-template-columns: repeat(2,minmax(0,1fr)); }
+.service-note { margin: 28px 0 0; max-width: 1050px; font-size: .86rem; line-height: 1.7; color: var(--muted); }
+@media (max-width:900px) { .service-hero-grid { grid-template-columns: 1fr; } .service-server { max-width: 700px; } }
+@media (max-width:640px) { .service-two { grid-template-columns: 1fr; } }
+
+.offer-cards article { display: flex; flex-direction: column; align-items: flex-start; }
+.offer-cards article > a { margin-top: auto; }
+.offer-cards .button { font-size: .83rem; padding: 14px 16px; }

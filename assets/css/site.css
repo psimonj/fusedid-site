@@ -167,7 +167,7 @@ p, li, dd, figcaption { overflow-wrap: anywhere; }
 .record-next .ui-icon { width: 18px; }
 .record-next p { font-size: .81rem; margin: 8px 0 0; }
 .knowledge-record figcaption { padding: 14px 24px; font-size: .7rem; }
-.start-section { padding: 0 0 var(--space); }
+.start-section { padding: var(--space) 0; }
 .start-composition { display: grid; grid-template-columns: 1fr 1fr; gap: clamp(40px, 7vw, 100px); align-items: stretch; }
 .start-photo { position: relative; min-height: 580px; overflow: hidden; background: var(--cream); }
 .start-photo > img { width: 100%; height: 100%; object-fit: cover; object-position: 46% center; }
@@ -178,7 +178,7 @@ p, li, dd, figcaption { overflow-wrap: anywhere; }
 .start-content { padding: 18px 0; }
 .start-timeline { list-style: none; margin: 32px 0; padding: 0; }
 .start-timeline li { display: flex; gap: 22px; padding: 20px 0; margin: 0; border-top: 1px solid var(--line); }
-.start-timeline li > span { font-size: .72rem; color: var(--orange-deep); padding-top: 3px; font-weight: 750; }
+.start-timeline li > span { flex: 0 0 24px; white-space: nowrap; font-size: .72rem; color: var(--orange-deep); padding-top: 3px; font-weight: 750; }
 .start-timeline h3 { font-size: 1.16rem; margin-bottom: 9px; }
 .start-timeline p { font-size: .88rem; color: var(--muted); }
 .work-section { border-top: 1px solid var(--line); background: var(--cream); }
@@ -960,8 +960,9 @@ textarea { min-height: 100px; resize: vertical; }
 .knowledge-section .point-of-view-intro { color: var(--ink); font-size: 1.08rem; }
 .knowledge-section .knowledge-story h3 { color: var(--orange-deep); }
 .start-visual { display: grid; gap: 28px; align-content: start; min-width: 0; }
-.start-visual .start-photo { height: 295px; min-height: 0; border-radius: 3px; }
-.start-visual .photo-message { padding: 22px; }
+.start-visual .start-photo { height: auto; min-height: 0; border-radius: 3px; }
+.start-visual .start-photo > img { display: block; width: 100%; height: auto; object-fit: contain; }
+.start-visual .photo-message { position: static; padding: 28px; }
 .start-visual .photo-message strong { font-size: 1.8rem; }
 .start-suggestion > .eyebrow { margin-bottom: 14px; }
 .start-suggestion .suggestion-label { padding: 17px 21px; }
@@ -973,8 +974,8 @@ textarea { min-height: 100px; resize: vertical; }
 .start-composition { align-items: start; }
 .start-content { position: static; }
 .founder-card { display: flex; flex-direction: column; }
-.founder-card > div { display: flex; flex-direction: column; flex: 1; }
-.founder-contribution { padding-top: 18px; margin-top: auto; border-top: 2px solid var(--orange); }
+.founder-card > div { display: block; min-width: 0; }
+.founder-contribution { padding-top: 18px; margin-top: 22px; border-top: 2px solid var(--orange); }
 .founder-card .founder-contribution > span { display: block; font-size: .68rem; font-weight: 750; letter-spacing: .05em; color: var(--orange-deep); margin: 0 0 9px; padding: 0; border: 0; }
 .founder-card .founder-contribution p { color: var(--ink); font-size: .86rem; margin-bottom: 0; }
 .point-of-view-section { background: var(--cream); border-bottom: 1px solid var(--line); }
@@ -997,9 +998,10 @@ textarea { min-height: 100px; resize: vertical; }
   .home-hero--foundation .foundation-hero-art { max-width: 760px; }
   .workplace-intro { max-width: 650px; }
   .workplace-demo { padding: 24px; }
-  .start-content { position: static; grid-row: 1; }
-  .start-visual { grid-template-columns: 1fr 1fr; gap: 24px; align-items: start; }
-  .start-visual .start-photo { min-height: 360px; height: 100%; }
+  .start-composition { grid-template-columns: minmax(0, 1fr); }
+  .start-content { position: static; grid-column: 1; grid-row: 1; min-width: 0; }
+  .start-visual { grid-column: 1; grid-row: 2; grid-template-columns: minmax(0, 1fr); gap: 24px; align-items: start; }
+  .start-visual .start-photo { min-height: 0; height: auto; }
   .start-suggestion > .eyebrow { font-size: .62rem; }
   .point-of-view-layout h2 { max-width: 650px; }
 }
@@ -1013,7 +1015,7 @@ textarea { min-height: 100px; resize: vertical; }
   .workplace-demo { padding: 16px; }
   .workplace-demo .ready-workspace-heading strong { font-size: 1.05rem; }
   .start-visual { grid-template-columns: 1fr; }
-  .start-visual .start-photo { height: 260px; min-height: 0; }
+  .start-visual .start-photo { height: auto; min-height: 0; }
   .founder-card { display: grid; grid-template-columns: 90px minmax(0, 1fr); gap: 18px; }
   .founder-contribution { margin-top: 8px; padding-top: 14px; }
   .founder-card .founder-contribution > span { font-size: .65rem; }

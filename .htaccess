@@ -1,1 +1,4 @@
 ErrorDocument 404 /404.html
+
+# Specialist roles now live within Managed Cloud Colleagues.
+Redirect 301 /specialist-colleagues.html /what-we-do.html

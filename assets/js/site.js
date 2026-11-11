@@ -6,26 +6,25 @@
     node.textContent = String(new Date().getFullYear());
   });
 
-  var menu = document.querySelector('.mobile-menu');
-  if (menu) {
-    menu.addEventListener('click', function (event) {
-      if (event.target.closest('.mobile-panel a')) menu.removeAttribute('open');
-    });
-    document.addEventListener('keydown', function (event) {
-      if (event.key === 'Escape' && menu.hasAttribute('open')) {
-        menu.removeAttribute('open');
-        var summary = menu.querySelector('summary');
-        if (summary) summary.focus();
-      }
-    });
-    document.addEventListener('click', function (event) {
-      if (menu.hasAttribute('open') && !menu.contains(event.target)) menu.removeAttribute('open');
-    });
-  }
-
   var printButtons = document.querySelectorAll('[data-print-page]');
   printButtons.forEach(function (button) {
+    button.hidden = false;
     button.addEventListener('click', function () { window.print(); });
+  });
+
+  function revealSpecialist(hash, focusSummary) {
+    var id;
+    try { id = decodeURIComponent(hash.replace(/^#/, '')); } catch (_) { return; }
+    var detail = document.getElementById(id);
+    if (!detail || !detail.matches('details.specialist-role-detail')) return;
+    detail.open = true;
+    detail.scrollIntoView({ block: 'start' });
+    if (focusSummary) detail.querySelector('summary').focus({ preventScroll: true });
+  }
+  revealSpecialist(window.location.hash, false);
+  window.addEventListener('hashchange', function () { revealSpecialist(window.location.hash, false); });
+  document.querySelectorAll('a[href^="#"]').forEach(function (link) {
+    link.addEventListener('click', function () { revealSpecialist(link.getAttribute('href'), true); });
   });
 
   var brief = document.querySelector('.role-brief-sheet');
@@ -42,7 +41,7 @@
     ['first-responsibility', 'Possible first responsibility'],
     ['teachers-and-sources', 'People and approved knowledge'],
     ['role-name', 'Possible role name'], ['reports-to', 'Reports to'],
-    ['workplace', 'Likely workplace'], ['human-boundary', 'Decisions that stay human']
+    ['workplace', 'Preferred channels'], ['human-boundary', 'Decisions that stay human']
   ];
 
   if (copyButton && copyStatus && fallback && copyOutput) {
@@ -52,12 +51,12 @@
         var input = brief.querySelector('[name="' + field[0] + '"]');
         return field[1] + ':\n' + ((input && input.value.trim()) || '(To discuss)');
       });
-      var text = 'FUSED ID — CLOUD-COLLEAGUE ROLE BRIEF\n\n' + completed.join('\n\n');
+      var text = 'FUSED ID — AI COLLEAGUE ROLE BRIEF\n\n' + completed.join('\n\n');
       try {
         if (!navigator.clipboard || !window.isSecureContext) throw new Error('Clipboard unavailable');
         await navigator.clipboard.writeText(text);
         fallback.hidden = true;
-        copyStatus.textContent = 'Brief copied. Paste it into your email when you are ready. Nothing has been sent.';
+        copyStatus.textContent = 'Brief copied. Paste it into the enquiry form when you are ready. Nothing has been sent.';
       } catch (_) {
         copyOutput.value = text;
         fallback.hidden = false;

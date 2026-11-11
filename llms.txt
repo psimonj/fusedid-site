@@ -1,35 +1,91 @@
 # FUSED ID
 
-> Managed Cloud Colleagues
+> AI that comes to work.
 
-FUSED sets up and manages AI colleagues that learn a business, keep their knowledge current and help its team get work done. Ask it about products, processes and confirmed decisions through Outlook and Teams. Answers, research and ongoing learning about its role are part of the starting service. FUSED manages setup, ongoing learning and support. Additional skills are optional and quoted separately.
+FUSED ID Pty Ltd is an Australian AI services business based in Melbourne. FUSED builds and manages AI colleagues around real business work, with workflow design, an AI workplace and the specialist capability each role needs. Outputs include enquiry replies, research, review-ready drafts, current records and agreed routine actions. Customers can choose a standalone workflow in their own suitable AI tools, a FUSED-managed workplace or a separately licensed workplace on their own infrastructure.
 
-A colleague researches the business and its market within agreed access, asks questions when something is unclear and remembers confirmed guidance. It can suggest useful skills. The business chooses what work it may do and which results need approval. Learning more does not grant permission to do more.
+The workplace brings together business knowledge, skills, connections, communication channels, controlled file access and work coordination. A managed plan adds ongoing operation, maintenance and reviewed improvement. People can email a colleague, message it in Teams or use a supported AI platform such as ChatGPT or Claude through an agreed connection. Website chat is another channel. Compatibility, provider requirements, identity and permissions are confirmed before connecting.
 
-## Service and examples
+## Main services
 
-- [Home](https://www.fusedid.com/): Fuse your business with AI.
-- [Our service and fees](https://www.fusedid.com/what-we-do.html): Initial setup, ongoing managed service and separately scoped skills. Fees are agreed in a proposal.
-- [How it works](https://www.fusedid.com/how-it-works.html): Define a role, introduce the colleague and use it for business questions as it builds understanding. Add skills as needed.
-- [Skills](https://www.fusedid.com/capabilities.html): Enquiries, marketing, sales research, administration, quality improvement, recruitment support and business knowledge. Illustrative workflows show the work, outputs and human decisions.
-- [Your existing tools](https://www.fusedid.com/existing-tools.html): Outlook, Teams and other suitable business systems, with access and connections agreed for the role.
-- [Examples and experience](https://www.fusedid.com/examples.html): NOVA’s illustrative profile and separate accounts from businesses the founders have operated in. These are not FUSED client case studies.
-- [Quality and continuous improvement](https://www.fusedid.com/quality-example.html): Applied experience with investigation and action ownership.
-- [Prospecting and lead intelligence](https://www.fusedid.com/prospecting-example.html): Applied experience with repeatable sales research.
-- [Talent screening](https://www.fusedid.com/recruitment-example.html): Applied experience with evidence and human hiring decisions.
-- [Meet NOVA](https://www.fusedid.com/nova.html): An illustrative AI colleague profile with an example working style and conversation; not a real person or client result.
+- [Managed Cloud Colleagues](https://www.fusedid.com/what-we-do.html): the AI workplace and standard or specialist roles, operated and maintained by FUSED.
+- [Discovery & Workflow Design](https://www.fusedid.com/discovery.html): define the work, sources, human decisions and acceptance checks before building.
+- [Self-hosted AI Workplace](https://www.fusedid.com/self-hosted-ai.html): a perpetual software licence, supported infrastructure and operator handover.
+- [AI Website Design & Management](https://www.fusedid.com/ai-website-design.html): new website builds or existing-site migration and optimisation, supported by a Web Growth Architect.
 
-## People and quality
+## Specialist AI colleagues
 
-- [Our team](https://www.fusedid.com/about.html): Wayne, James and Simon bring business, technology and engineering experience.
-- [Why FUSED](https://www.fusedid.com/why-fused.html): Business understanding, practical engineering and ongoing management.
-- [Quality and control](https://www.fusedid.com/quality-and-governance.html): Knowledge ownership, approvals, review and earned responsibility.
-- [AI and ISO 9001](https://www.fusedid.com/ai-quality-systems-iso9001.html): Current knowledge, controlled procedure updates and continual improvement. Certification is not required to use FUSED. FUSED does not provide ISO certification.
+A standard colleague starts with one focused workflow. Specialist services add developed methods and an agreed programme of work, with outputs, workload, review frequency and improvement allowance defined in the proposal. Web growth includes enquiry-source analysis; sales includes approved follow-up of quiet leads; recruitment includes approved role questions; quality includes evidence to review whether corrective actions worked.
 
-## Get started
+[Specialist AI colleagues](https://www.fusedid.com/what-we-do.html#specialist-colleagues) add developed roles, skills, workflows and working methods to a workplace plan. FUSED configures them with the customer's knowledge, tools and corporate guardrails. Specialist service fees are separate from workplace management. Web Growth Architect starts from $650/month AUD ex GST; other specialist roles are quoted to scope. Standard configuration can use included onboarding and available plan capacity. Additional roles, custom development and specialist integrations may require more setup or a larger plan. Required third-party software licences, external services and usage are separate where required.
 
-- [Talk to FUSED](https://www.fusedid.com/contact.html): Discuss a role or part of your business that needs help.
-- [Design a role](https://www.fusedid.com/role-brief.html): A private worksheet that does not submit information to FUSED.
-- [Privacy](https://www.fusedid.com/privacy.html): Website information handling and engagement-specific arrangements.
+- [Web Growth Architect](https://www.fusedid.com/what-we-do.html#web-growth-architect): website architecture and care, existing-site improvements, layered content, SEO, sampled AI visibility, analytics, customer chat, message-based updates, Shopify and Google Ads within the agreed scope. New website builds are separate projects. Publishing, account permissions and budgets remain controlled.
+- [Sales Hunter](https://www.fusedid.com/what-we-do.html#sales-hunter): prospect and contact research, reasons for fit, personalised outreach drafts, approved follow-up and connected CRM updates. People control sending rules, relationships and commercial commitments. The customer's connected CRM can support the workflow.
+- [Talent Acquisition Manager](https://www.fusedid.com/what-we-do.html#talent-acquisition-manager): organise applications, compare evidence with job requirements, ask approved questions, prepare interview packs and follow onboarding actions. People decide progression and appointment.
+- [Kaizen QMS Manager](https://www.fusedid.com/what-we-do.html#kaizen-qms-manager): issue capture, investigation support, action tracking, evidence, procedure drafts and quality review packs. People confirm causes, assess risk, approve changes and accept closure. FUSED does not provide certification.
 
-FUSED ID Pty Ltd is based in Melbourne, Australia. Contact: sales@fusedid.com.
+## Workplace pricing and operation
+
+[Pricing](https://www.fusedid.com/pricing.html): all published prices AUD ex GST. Small is $450/month with $2,700 one-off standard setup. The first three workplace subscription months are included from go-live; normal workplace billing begins in month four. These introductory terms do not make specialist services or third-party charges complimentary.
+
+Small includes one scoped AI colleague, website chat, core SharePoint/Teams/Outlook and supported AI-platform connections, one additional standard external connection, an agreed AI processing allowance, weekly knowledge refresh, monthly skills review and technical assistance. Setup configures and tests the agreed standard role and includes one hour of online team training. Every AI workplace package includes Starter Discovery & Design in its setup. Managed packages cover one focused workflow per included colleague, with agreed sources, permissions and acceptance checks. Self-hosted deployment covers the first colleague and additional setup stated in the quote. Comprehensive discovery starts from $8,000 AUD ex GST, quoted based on scope. Bespoke pilots, substantial development and specialist integrations are quoted separately. Medium and Large add capacity, with pricing and implementation scoped privately.
+
+A customer's AI subscription covers work performed by that platform. FUSED-run work uses the agreed workplace processing allowance. Required Microsoft, AI-platform and other third-party licences remain separate. The connection catalogue shows possibilities to scope, not a claim that every integration is prebuilt or vendor-certified.
+
+## Website design and Web Growth Architect
+
+[AI website design and management](https://www.fusedid.com/ai-website-design.html) can begin with a new build or a suitable existing site. The Web Growth Architect is the specialist responsible for the agreed ongoing website and growth work; the FUSED workplace supplies its operating environment, knowledge, connections and permissions.
+
+[New website builds](https://www.fusedid.com/ai-website-design.html#delivery) start from $2,500 AUD ex GST for an agreed standard website. Scope covers customer journeys, UI/UX, responsive layouts, agreed pages and forms, supplied-content development and structure, metadata/sitemap, domain and hosting connection, launch checks, editing access and handover. Build the foundation for AI-readable content, approved public knowledge and controlled publishing. Live AI configuration is part of the workplace setup. Shopify builds, complex migrations, bespoke features, substantial new content production and specialist integrations are quoted separately. Domain fees, hosting and third-party licences are itemised.
+
+[Website cost structure](https://www.fusedid.com/ai-website-design.html#managed-website): one-off website design/build from $2,500 plus Small workplace setup $2,700 gives a combined starting investment from $5,200 AUD ex GST. Standard specialist configuration uses the plan's included onboarding where capacity and scope allow. Existing FUSED customers use their available workplace capacity rather than automatically paying for a second Small plan.
+
+For a suitable existing website, standard Small workplace setup is $2,700 AUD ex GST with no new website build fee. The agreed scope includes migration or connection, SEO and AI content refinements, customer chatbot integration, analytics setup and initial Web Growth Architect configuration. Substantial redesign, complex migrations and custom development are quoted separately. New website design/build from $2,500 plus $2,700 Small setup totals from $5,200. Either route uses the same ongoing fees. Existing workplace capacity can be reused; a second Small workplace is not automatic.
+
+Ongoing costs are Small workplace management at $450/month plus Web Growth Architect from $650/month: combined from $1,100/month AUD ex GST. The first three Small workplace subscription months are included under standard setup terms; specialist fees and third-party costs are not included in that introductory offer. Agree review frequency, hands-on improvement allowance, website hosting arrangements, campaign workload and tools. Required domain, third-party hosting/commerce, app and search/analytics licences, advertising spend and excess usage are additional.
+
+[Website security](https://www.fusedid.com/ai-website-design.html#security) includes least-privilege access, verified staff requests, public/private knowledge separation, system-enforced action permissions, controlled publishing, updates, testing, rate/usage limits and recovery arrangements. Public chat cannot grant itself staff privileges. Security controls and response coverage are scoped; no claim of immunity from attack.
+
+[Web Growth Architect requests](https://www.fusedid.com/ai-website-design.html#web-manager) let authorised staff message feedback and receive proposed changes for review. Approved updates follow a defined publishing process, with change records and recovery. Customer-facing website chat and private website management have separate permissions; role and capacity requirements are agreed.
+
+[Analysis and improvement](https://www.fusedid.com/ai-website-design.html#measurement) combines relevant search queries, keyword rankings, competitor coverage, backlinks, crawl issues, available analytics, customer questions and identifiable AI referrals. AI-answer visibility is sampled for specified providers, questions and dates, not a universal rank. Reports inform a prioritised work list, approved changes and outcome review. Licences, tracking permissions and measurement gaps are identified. No ranking, traffic or sales guarantee.
+
+[Google Ads](https://www.fusedid.com/ai-website-design.html#google-ads) can form part of the Web Growth Architect's agreed role: keyword/intent research, available search-term review, negative keywords, match types, targeting, bids, ad copy, landing pages and consent-aware conversion tracking. Setup, workload and fees are agreed. The customer owns the Ads account and approves budgets. Ad spend is separate and paid to Google. Some search terms are not disclosed; attribution and data gaps are explained. No return or lead-volume guarantee.
+
+[Domains and hosting](https://www.fusedid.com/ai-website-design.html#hosting): registration/connection, DNS, renewal oversight, HTTPS, monitoring, backups, recovery and migration coordination. The customer retains account ownership. Small operates the AI workplace; the website's hosting environment and charges are specified alongside it. Domain fees, email hosting and third-party platform charges remain separate.
+
+[Shopify](https://www.fusedid.com/ai-website-design.html#commerce): new or existing stores, design, catalogue, variants, navigation, cart/checkout, order handover and supported integrations. Shopify hosts its stores. Customers retain store accounts and data. Builds and integrations are project work; ongoing store activity can be part of the specialist's agreed scope. Shopify plans, themes/apps and payment fees are separate. Private order information requires verified identity and restricted access.
+
+## Discovery, independent workflows and self-hosting
+
+[Discovery & Workflow Design](https://www.fusedid.com/discovery.html) has two levels. Starter Discovery & Design is included in each AI workplace package setup: one focused workflow per included managed colleague, or the first colleague and any additional setup agreed for a self-hosted deployment. The sources, permissions and checks are defined before configuration. [Comprehensive Discovery & Design](https://www.fusedid.com/discovery.html#comprehensive-discovery) is a separate one-off engagement from $8,000 AUD ex GST, quoted based on scope. It investigates more involved work across workflows, teams or systems and delivers an editable workflow/source map, baseline, requirements, corporate guardrails, acceptance checks and costed implementation plan. The fee depends on scope and complexity; pilot builds and deployment are separate. A separately quoted pilot builds and tests prompts, skills and examples, with training for the customer's suitable AI tools. Measure the whole job: quality, time, review effort, rework and usage cost. Neither stage requires a FUSED subscription. A standalone pilot excludes production automation and ongoing maintenance unless scoped; platform costs and terms apply.
+
+[Self-hosted AI Workplace](https://www.fusedid.com/self-hosted-ai.html) starts from $12,000 AUD ex GST for licence and deployment, quoted to scope. It includes the delivered software version, a configured first role and agreed operator documentation/training. Unlimited licensed users, colleagues and API connections apply within the agreed organisation; configuration work and compute are not unlimited. Customer accounts and supported infrastructure host the workplace. FUSED can assess, design and build required infrastructure as separately itemised work.
+
+Self-hosting provides control over the environment, internal IT alignment and choice of capable operator. Customers manage security, backups, monitoring, recovery, connections, knowledge and skills upkeep and pay provider usage/third-party charges. Future FUSED software updates and optional support are separate purchases. No FUSED subscription is required to run the licensed version. FUSED retains software IP and source code. Self-hosting does not imply all model processing stays on-premises; data flows and local-processing requirements are assessed before deployment. Specialist configuration, third-party licences and optional support for a self-hosted role are separately scoped.
+
+[Self-hosted infrastructure](https://www.fusedid.com/self-hosted-ai.html#architecture) can include cloud and network architecture, AWS, Windows Server/Linux systems, identity and access management, SSO/MFA, encryption, Infrastructure as Code (Terraform or AWS CloudFormation), CI/CD, API integration, monitoring, patching and disaster recovery with agreed RPO/RTO. Technologies and compatibility are selected during design; these are scoped engineering services, not a promise that every component is included or supported in every installation. Handover includes the agreed configuration, data-flow records, runbooks and operator training. External AI processing and ongoing operating costs remain explicit.
+
+## Knowledge, control and ownership
+
+[FUSED Intelligence](https://www.fusedid.com/intelligence.html) keeps knowledge with sources, reasons and history. Confirmed feedback can improve customer knowledge; changes to skills and workflows are reviewed and tested before release. Learning does not mean retraining a public foundation model and never expands permissions.
+
+Customers keep their knowledge, outputs, tailored workflows and agreed customer-specific skills, including agreed improvements. Export formats and handover are confirmed upfront. FUSED retains its reusable platform and methods. Managed operation, connections and improvement end with the service; retained customer material remains theirs. Running the FUSED software independently requires a perpetual licence and supported deployment.
+
+[Corporate guardrails](https://www.fusedid.com/quality-and-governance.html) define access, action limits, approvals, escalation and evidence. People retain commercial commitments, hiring decisions, policy changes and quality authority. [ISO 9001 and quality systems](https://www.fusedid.com/ai-quality-systems-iso9001.html) explains controlled procedure changes and improvement; certification is not required to use FUSED.
+
+## Explore and contact
+
+- [Put AI to Work](https://www.fusedid.com/capabilities.html): tasks, outputs, example roles and supporting tools.
+- [Products & Services](https://www.fusedid.com/products-services.html): discovery, workplaces, specialists, self-hosting and website projects.
+- [Getting started](https://www.fusedid.com/how-it-works.html): wish list, design, test drive and deployment.
+- [Existing tools](https://www.fusedid.com/existing-tools.html): supported AI platforms, Microsoft 365 and connected applications.
+- [Examples](https://www.fusedid.com/examples.html): fictional workflows and separately identified founder experience, not FUSED client case studies.
+- [NOVA](https://www.fusedid.com/nova.html): an example AI colleague, not a human employee.
+- [Workspace preview](https://www.fusedid.com/workspace.html): sample knowledge and working guidance, not a live customer login.
+- [About FUSED](https://www.fusedid.com/about.html): Wayne, James and Simon's business and technology experience.
+- [Contact](https://www.fusedid.com/contact.html): discuss the work and request a proposal.
+- [Role brief](https://www.fusedid.com/role-brief.html): optional local worksheet; it does not submit or save entered information.
+- [Privacy](https://www.fusedid.com/privacy.html): website data handling and service-specific arrangements.
+
+FUSED ID Pty Ltd is based in Melbourne, Australia. Contact sales@fusedid.com.

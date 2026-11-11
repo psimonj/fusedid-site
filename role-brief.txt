@@ -1,4 +1,4 @@
-FUSED ID — FIVE-MINUTE CLOUD-COLLEAGUE ROLE BRIEF
+FUSED ID — FIVE-MINUTE AI COLLEAGUE ROLE BRIEF
 
 Business:
 Date:
@@ -22,7 +22,7 @@ List the people, website pages, documents, examples or systems that hold useful 
 5. HOW WOULD YOUR TEAM WORK WITH THE COLLEAGUE?
 Possible role name:
 Reports to:
-Likely workplace (for example Outlook, Teams or approved shared documents):
+Preferred channels (for example Outlook, Teams, your existing AI platform or website chat):
 
 
 6. WHAT MUST REMAIN A HUMAN DECISION?

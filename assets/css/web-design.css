@@ -1,5 +1,8 @@
 /* Website service: show the design work and make the first AI step tangible. */
-.web-service .web-hero h1 { font-size:clamp(2.65rem,4.4vw,4.3rem); line-height:1.08; }
+.web-own-design { display:grid; grid-template-columns:minmax(0,.75fr) minmax(0,1.25fr); align-items:center; gap:clamp(30px,5vw,70px); margin-top:40px; padding-top:36px; border-top:1px solid var(--line); }
+.web-own-design-copy h3 { font-size:clamp(1.5rem,2.3vw,2.2rem); line-height:1.25; margin:16px 0 22px; }
+.web-own-design-copy > p:not(.eyebrow) { font-size:.93rem; }
+.web-own-design-example { min-width:0; }
 .web-design-preview { min-width:0; margin:0; }
 .web-design-devices { position:relative; padding:24px 26px 64px 0; }
 .web-design-desktop { display:block; overflow:hidden; background:#081b13; border:7px solid #fff; border-radius:9px; box-shadow:0 20px 48px #17292324; text-decoration:none; }
@@ -27,12 +30,13 @@
 .web-start-links a { font-size:.84rem; }
 .web-start-links > * { min-width:0; max-width:100%; }
 @media (max-width:900px) {
+ .web-own-design { grid-template-columns:1fr; gap:22px; }
+ .web-own-design-copy { max-width:620px; }
  .web-design-preview { max-width:760px; width:100%; }
  .web-design-devices { padding-top:4px; }
  .web-start-steps { gap:22px; }
 }
 @media (max-width:640px) {
- .web-service .web-hero h1 { font-size:clamp(2.5rem,8vw,3.5rem); }
  .web-design-devices { padding-right:18px; padding-bottom:52px; }
  .web-design-desktop { border-width:5px; }
  .web-design-phone { width:26%; border-width:4px; border-radius:13px; }

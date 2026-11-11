@@ -1,0 +1,80 @@
+/* Homepage composition. Keep the established opening, image and section order. */
+.work-section-note.website-entry { display:grid; grid-template-columns:minmax(0,1.3fr) minmax(0,1fr); align-items:center; gap:30px 64px; padding:30px 32px; margin-top:36px; background:var(--cream); border-left:3px solid var(--orange); }
+.website-entry h3 { font-size:1.55rem; line-height:1.3; color:var(--ink); margin:12px 0; }
+.work-section-note.website-entry .eyebrow { font-size:.67rem; color:var(--orange-deep); }
+.work-section-note.website-entry p:not(.eyebrow) { font-size:.9rem; max-width:none; }
+.website-entry-next .text-link { display:inline-block; font-size:.87rem; margin-top:18px; }
+@media (max-width:760px) { .work-section-note.website-entry { grid-template-columns:1fr; gap:20px; padding:24px; } }
+.home-hero--fusion {
+  background: #081b13;
+  padding-top: clamp(40px, 4vw, 64px);
+  overflow: hidden;
+}
+.home-hero--fusion .hero-composition {
+  position: relative;
+  isolation: isolate;
+  display: block;
+  min-height: 620px;
+}
+.home-hero--fusion .hero-copy { position: relative; z-index: 2; width: 48%; max-width: 560px; }
+.home-hero--fusion .fusion-prelude { margin-bottom: 24px; }
+.home-hero--fusion .hero-copy .fusion-title { margin-bottom: 26px; font-size: clamp(68px, 6.4vw, 94px); }
+.home-hero--fusion .hero-intro { max-width: 490px; line-height: 1.65; }
+.home-hero--fusion .hero-support { max-width: 465px; color: #c8d3cb; }
+.home-hero--fusion .fusion-art {
+  position: absolute;
+  z-index: 0;
+  top: -24px;
+  bottom: -24px;
+  left: 8%;
+  right: -2%;
+  width: auto;
+  max-width: none;
+  pointer-events: none;
+}
+.home-hero--fusion .fusion-art img { width: 100%; height: 100%; aspect-ratio: auto; object-fit: cover; object-position: center; border-radius: 0; }
+.home-hero--fusion .fusion-art::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(90deg, #081b13 0%, rgba(8,27,19,.96) 22%, rgba(8,27,19,.55) 39%, rgba(8,27,19,0) 57%), linear-gradient(0deg, #081b13 0%, rgba(8,27,19,0) 15%, rgba(8,27,19,0) 88%, #081b13 100%);
+}
+.home-hero--fusion .hero-bottom { position: relative; z-index: 2; margin-top: 30px; border-color: #405047; }
+.home-hero--fusion .hero-bottom p { color: #c8d3cb; }
+@media (min-width: 1600px) {
+  .home-hero--fusion .hero-composition { min-height: 650px; }
+}
+@media (min-width: 861px) and (max-width: 1100px) {
+  .home-hero--fusion .hero-composition { min-height: 600px; }
+  .home-hero--fusion .hero-copy { width: 52%; }
+  .home-hero--fusion .hero-copy .fusion-title { font-size: 68px; }
+  .home-hero--fusion .fusion-art { left: 0; right: 0; }
+  .home-hero--fusion .fusion-art img { object-fit: contain; object-position: right center; }
+  .home-hero--fusion .fusion-art::after { background: linear-gradient(90deg, #081b13 0%, rgba(8,27,19,.98) 36%, rgba(8,27,19,.9) 52%, rgba(8,27,19,0) 72%), linear-gradient(0deg, #081b13 0%, rgba(8,27,19,0) 15%, rgba(8,27,19,0) 88%, #081b13 100%); }
+}
+@media (max-width: 860px) {
+  .home-hero--fusion { padding-top: 36px; }
+  .home-hero--fusion .hero-composition { display: block; min-height: 0; }
+  .home-hero--fusion .hero-copy { display: block; width: 100%; max-width: 620px; }
+  .home-hero--fusion .fusion-prelude { margin-bottom: 20px; font-size: 20px; }
+  .home-hero--fusion .hero-copy .fusion-title { font-size: clamp(56px, 10vw, 80px); margin-bottom: 28px; }
+  .home-hero--fusion .fusion-art { position: relative; inset: auto; width: 100%; height: clamp(220px, 48vw, 370px); margin: 24px 0 0; }
+  .home-hero--fusion .fusion-art img { object-fit: cover; object-position: right center; }
+  .home-hero--fusion .fusion-art::after { background: linear-gradient(0deg, #081b13 0%, rgba(8,27,19,0) 14%, rgba(8,27,19,0) 88%, #081b13 100%); }
+  .home-hero--fusion .hero-intro { max-width: 620px; }
+  .home-hero--fusion .hero-support { max-width: 620px; }
+  .home-hero--fusion .hero-actions { margin-top: 8px; }
+  .home-hero--fusion .hero-bottom { margin-top: 32px; }
+}
+@media (max-width: 420px) {
+  .home-hero--fusion .hero-copy .fusion-title { font-size: 56px; }
+  .home-hero--fusion .fusion-art { height: 235px; }
+}
+@media print {
+  .home-hero--fusion { background: white; overflow: visible; padding-top: 12px; }
+  .home-hero--fusion .hero-composition { display: block; min-height: 0; }
+  .home-hero--fusion .hero-copy { display: block; width: 100%; max-width: none; }
+  .home-hero--fusion .hero-copy .fusion-title { font-size: 30pt; }
+  .home-hero--fusion .fusion-art { display: none; }
+  .home-hero--fusion .hero-support, .home-hero--fusion .hero-bottom p { color: black; }
+}

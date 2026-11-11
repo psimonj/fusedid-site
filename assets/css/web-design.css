@@ -1,0 +1,45 @@
+/* Website service: show the design work and make the first AI step tangible. */
+.web-service .web-hero h1 { font-size:clamp(2.65rem,4.4vw,4.3rem); line-height:1.08; }
+.web-design-preview { min-width:0; margin:0; }
+.web-design-devices { position:relative; padding:24px 26px 64px 0; }
+.web-design-desktop { display:block; overflow:hidden; background:#081b13; border:7px solid #fff; border-radius:9px; box-shadow:0 20px 48px #17292324; text-decoration:none; }
+.web-browser-bar { display:flex; align-items:center; gap:5px; padding:10px 12px; background:#fff; color:#59625d; font-size:.58rem; line-height:1; }
+.web-browser-bar i { display:block; width:5px; height:5px; border-radius:50%; background:#c7cfc7; }
+.web-browser-bar > span { margin:auto; padding-right:25px; }
+.web-design-desktop img { display:block; width:100%; height:auto; }
+.web-design-phone { position:absolute; right:0; bottom:10px; width:25%; height:69%; overflow:hidden; background:#081b13; border:6px solid #fff; border-radius:19px; box-shadow:0 14px 32px #17292335; }
+.web-design-phone > span { display:block; height:12px; background:#fff; }
+.web-design-phone img { display:block; width:100%; max-width:none; height:auto; }
+.web-design-preview figcaption { display:grid; gap:6px; padding:8px 0 0; font-size:.77rem; }
+.web-design-preview figcaption strong { color:var(--ink); font-weight:650; }
+.web-design-preview figcaption a { justify-self:start; color:var(--orange-deep); margin-top:5px; }
+.web-start-path { background:var(--ink); color:var(--white); }
+.web-start-path h2,.web-start-path h3 { color:var(--white); }
+.web-start-path .eyebrow,.web-start-path .text-link { color:var(--highlight); }
+.web-start-path .lead { color:#dce5df; }
+.web-start-steps { display:grid; grid-template-columns:repeat(3,minmax(0,1fr)); gap:32px; list-style:none; padding:0; margin:44px 0 0; }
+.web-start-steps li { padding-top:24px; border-top:1px solid #61746b; }
+.web-start-steps span { display:block; color:var(--highlight); font-size:.68rem; letter-spacing:.045em; text-transform:uppercase; font-weight:650; }
+.web-start-steps h3 { font-size:1.4rem; line-height:1.3; margin:18px 0 14px; }
+.web-start-steps p { color:#dce5df; font-size:.92rem; margin:0; }
+.web-start-links { display:flex; flex-wrap:wrap; align-items:center; justify-content:space-between; gap:20px 40px; border-top:1px solid #61746b; margin-top:40px; padding-top:26px; }
+.web-start-links p { font-size:.83rem; max-width:550px; color:#dce5df; margin:0; }
+.web-start-links a { font-size:.84rem; }
+.web-start-links > * { min-width:0; max-width:100%; }
+@media (max-width:900px) {
+ .web-design-preview { max-width:760px; width:100%; }
+ .web-design-devices { padding-top:4px; }
+ .web-start-steps { gap:22px; }
+}
+@media (max-width:640px) {
+ .web-service .web-hero h1 { font-size:clamp(2.5rem,8vw,3.5rem); }
+ .web-design-devices { padding-right:18px; padding-bottom:52px; }
+ .web-design-desktop { border-width:5px; }
+ .web-design-phone { width:26%; border-width:4px; border-radius:13px; }
+ .web-browser-bar { padding:8px; font-size:.5rem; }
+ .web-start-steps { grid-template-columns:1fr; gap:28px; margin-top:30px; }
+ .web-start-steps h3 { margin-top:12px; }
+ .web-start-links { display:block; }
+ .web-start-links p { max-width:100%; }
+ .web-start-links a { display:inline-block; margin-top:18px; white-space:normal; }
+}

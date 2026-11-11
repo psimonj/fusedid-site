@@ -28,3 +28,20 @@
 @media (max-width: 540px) { .enquiry-fields { grid-template-columns: 1fr; } .enquiry-form button { width: 100%; justify-content: center; } }
 
 .contact-grid .brief-list li > strong { flex: 0 0 24px; white-space: nowrap; }
+.enquiry-captcha { margin-top: 24px; min-width: 0; padding: 18px; border: 1px solid #a9b3aa; border-radius: 4px; background: #fffdf9; }
+.enquiry-captcha[hidden], .captcha-retry[hidden] { display: none; }
+.enquiry-captcha [data-captcha-widget] { min-width: 0; margin-top: 14px; }
+.enquiry-captcha [data-captcha-widget]:empty { margin: 0; }
+.captcha-heading { display: flex; align-items: center; flex-wrap: wrap; gap: 8px 10px; color: var(--ink); font-size: .86rem; }
+.captcha-heading svg { flex: 0 0 24px; color: var(--orange-deep); }
+.captcha-badge { margin-left: auto; padding: 3px 7px; background: #f2eee5; color: #5c574d; border-radius: 3px; font-size: .67rem; line-height: 1.5; }
+.enquiry-captcha[data-state="verified"] .captcha-badge { color: #174830; background: #eef6ed; }
+.enquiry-captcha[data-state="unavailable"] .captcha-badge { color: #8b241b; background: #fff5ef; }
+.enquiry-captcha .enquiry-hint { margin: 10px 0 0; }
+.enquiry-form .captcha-retry { padding: 6px 0; min-height: 44px; background: transparent; color: var(--orange-deep); font-size: .85rem; text-decoration: underline; text-underline-offset: 3px; }
+.contact-details { display: flex; flex-wrap: wrap; gap: 22px 64px; margin-top: 32px; padding-top: 24px; border-top: 1px solid var(--line); color: var(--ink); }
+.contact-details > div { min-width: 0; }
+.contact-details span { display: block; color: var(--orange-deep); font-size: .74rem; font-weight: 650; margin-bottom: 7px; }
+.contact-details a { font-size: 1.2rem; font-weight: 650; text-decoration: none; }
+.contact-details address { font-style: normal; font-size: 1rem; line-height: 1.6; }
+@media (max-width: 420px) { .captcha-badge { margin-left: 34px; } .enquiry-captcha { padding: 14px; } }

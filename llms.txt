@@ -2,7 +2,7 @@
 
 > AI that comes to work.
 
-FUSED ID Pty Ltd is an Australian AI services business based in Melbourne. FUSED builds and manages AI colleagues around real business work, with workflow design, an AI workplace and the specialist capability each role needs. Outputs include enquiry replies, research, review-ready drafts, current records and agreed routine actions. Customers can choose a standalone workflow in their own suitable AI tools, a FUSED-managed workplace or a separately licensed workplace on their own infrastructure.
+FUSED ID Pty Ltd is an Australian AI services business based in Keysborough, Melbourne. FUSED builds and manages AI colleagues around real business work, with workflow design, an AI workplace and the specialist capability each role needs. Outputs include enquiry replies, research, review-ready drafts, current records and agreed routine actions. Customers can choose a standalone workflow in their own suitable AI tools, a FUSED-managed workplace or a separately licensed workplace on their own infrastructure.
 
 The workplace brings together business knowledge, skills, connections, communication channels, controlled file access and work coordination. A managed plan adds ongoing operation, maintenance and reviewed improvement. People can email a colleague, message it in Teams or use a supported AI platform such as ChatGPT or Claude through an agreed connection. Website chat is another channel. Compatibility, provider requirements, identity and permissions are confirmed before connecting.
 
@@ -11,7 +11,7 @@ The workplace brings together business knowledge, skills, connections, communica
 - [Managed Cloud Colleagues](https://www.fusedid.com/what-we-do.html): the AI workplace and standard or specialist roles, operated and maintained by FUSED.
 - [Discovery & Workflow Design](https://www.fusedid.com/discovery.html): define the work, sources, human decisions and acceptance checks before building.
 - [Self-hosted AI Workplace](https://www.fusedid.com/self-hosted-ai.html): a perpetual software licence, supported infrastructure and operator handover.
-- [AI Website Design & Management](https://www.fusedid.com/ai-website-design.html): new website builds or existing-site migration and optimisation, supported by a Web Growth Architect.
+- [AI Website Design & Management](https://www.fusedid.com/ai-website-design.html): visual website design, Shopify stores, new builds or existing-site improvements, supported by customer chat and a Web Growth Architect.
 
 ## Specialist AI colleagues
 
@@ -34,7 +34,7 @@ A customer's AI subscription covers work performed by that platform. FUSED-run w
 
 ## Website design and Web Growth Architect
 
-[AI website design and management](https://www.fusedid.com/ai-website-design.html) can begin with a new build or a suitable existing site. The Web Growth Architect is the specialist responsible for the agreed ongoing website and growth work; the FUSED workplace supplies its operating environment, knowledge, connections and permissions.
+[AI website design and management](https://www.fusedid.com/ai-website-design.html) can begin with a new build or a suitable existing site. Visual direction, typography, imagery, responsive UI/UX, clear content and the customer journey form part of the scoped design work. The website page uses FUSED’s own website as its design example. The Web Growth Architect is the specialist responsible for the agreed ongoing website and growth work; the FUSED workplace supplies its operating environment, knowledge, connections and permissions.
 
 [New website builds](https://www.fusedid.com/ai-website-design.html#delivery) start from $2,500 AUD ex GST for an agreed standard website. Scope covers customer journeys, UI/UX, responsive layouts, agreed pages and forms, supplied-content development and structure, metadata/sitemap, domain and hosting connection, launch checks, editing access and handover. Build the foundation for AI-readable content, approved public knowledge and controlled publishing. Live AI configuration is part of the workplace setup. Shopify builds, complex migrations, bespoke features, substantial new content production and specialist integrations are quoted separately. Domain fees, hosting and third-party licences are itemised.
 
@@ -43,6 +43,8 @@ A customer's AI subscription covers work performed by that platform. FUSED-run w
 For a suitable existing website, standard Small workplace setup is $2,700 AUD ex GST with no new website build fee. The agreed scope includes migration or connection, SEO and AI content refinements, customer chatbot integration, analytics setup and initial Web Growth Architect configuration. Substantial redesign, complex migrations and custom development are quoted separately. New website design/build from $2,500 plus $2,700 Small setup totals from $5,200. Either route uses the same ongoing fees. Existing workplace capacity can be reused; a second Small workplace is not automatic.
 
 Ongoing costs are Small workplace management at $450/month plus Web Growth Architect from $650/month: combined from $1,100/month AUD ex GST. The first three Small workplace subscription months are included under standard setup terms; specialist fees and third-party costs are not included in that introductory offer. Agree review frequency, hands-on improvement allowance, website hosting arrangements, campaign workload and tools. Required domain, third-party hosting/commerce, app and search/analytics licences, advertising spend and excess usage are additional.
+
+[Start with a website](https://www.fusedid.com/ai-website-design.html#website-first): a new or suitable existing website, customer chat and the Web Growth Architect offer a tangible first use for the AI workplace. Customers can assess answers, enquiries and approved improvements before considering further colleagues. Existing workplace capacity and relevant approved knowledge can be reused; additional roles, permissions and costs are scoped separately. Private information does not become public automatically, and content work is subject to the agreed improvement allowance.
 
 [Website security](https://www.fusedid.com/ai-website-design.html#security) includes least-privilege access, verified staff requests, public/private knowledge separation, system-enforced action permissions, controlled publishing, updates, testing, rate/usage limits and recovery arrangements. Public chat cannot grant itself staff privileges. Security controls and response coverage are scoped; no claim of immunity from attack.
 
@@ -80,7 +82,7 @@ Customers keep their knowledge, outputs, tailored workflows and agreed customer-
 - [Products & Services](https://www.fusedid.com/products-services.html): discovery, workplaces, specialists, self-hosting and website projects.
 - [Getting started](https://www.fusedid.com/how-it-works.html): wish list, design, test drive and deployment.
 - [Existing tools](https://www.fusedid.com/existing-tools.html): supported AI platforms, Microsoft 365 and connected applications.
-- [Examples](https://www.fusedid.com/examples.html): fictional workflows and separately identified founder experience, not FUSED client case studies.
+- [Examples](https://www.fusedid.com/examples.html): example workflows and applied business experience in quality management, sales research and recruitment.
 - [NOVA](https://www.fusedid.com/nova.html): an example AI colleague, not a human employee.
 - [Workspace preview](https://www.fusedid.com/workspace.html): sample knowledge and working guidance, not a live customer login.
 - [About FUSED](https://www.fusedid.com/about.html): Wayne, James and Simon's business and technology experience.
@@ -88,4 +90,7 @@ Customers keep their knowledge, outputs, tailored workflows and agreed customer-
 - [Role brief](https://www.fusedid.com/role-brief.html): optional local worksheet; it does not submit or save entered information.
 - [Privacy](https://www.fusedid.com/privacy.html): website data handling and service-specific arrangements.
 
-FUSED ID Pty Ltd is based in Melbourne, Australia. Contact sales@fusedid.com.
+FUSED ID Pty Ltd
+Office: 5/134 Indian Drive, Keysborough VIC 3173, Australia.
+Telephone: 03 8669 1414 (+61 3 8669 1414).
+Enquiries: https://www.fusedid.com/contact.html#enquiry-form

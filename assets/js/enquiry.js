@@ -23,7 +23,15 @@
       field.setCustomValidity(field.value.trim() ? '' : 'Please complete this field.');
     }
     if (!form.reportValidity()) return;
+    const captcha = window.fusedCaptcha;
+    const captchaRequired = form.dataset?.captchaRequired === 'true' || captcha?.required === true;
+    const captchaToken = captchaRequired ? captcha?.getToken() || '' : '';
+    if (captchaRequired && !captchaToken) {
+      announce('Please complete the security check before sending your enquiry. You can retry the check or call our office using the number below.', 'error', true);
+      return;
+    }
     const payload = new URLSearchParams(new FormData(form));
+    if (captchaRequired) payload.set('cf-turnstile-response', captchaToken);
     for (const name of ['name', 'company', 'email', 'phone', 'message']) {
       payload.set(name, (payload.get(name) || '').trim());
     }
@@ -58,8 +66,10 @@
       } catch { /* Analytics must never interrupt a successful enquiry. */ }
     } catch (error) {
       const message = error.status === 429
-        ? 'Too many attempts just now. Please wait a few minutes before trying again, or email sales@fusedid.com. Your message is still here.'
-        : 'We couldn’t confirm that your enquiry was received. Your message is still here. Please try again or email sales@fusedid.com.';
+        ? 'Too many attempts just now. Please wait a few minutes before trying again, or call 03 8669 1414. Your message is still here.'
+        : error.status === 403
+        ? 'The security check could not be verified. Please complete the new check and try again, or call 03 8669 1414. Your message is still here.'
+        : 'We couldn’t confirm that your enquiry was received. Your message is still here. Please try again or call 03 8669 1414.';
       announce(message, 'error', true);
     } finally {
       clearTimeout(timeout);
@@ -68,6 +78,8 @@
       fields.forEach(field => { field.disabled = false; });
       button.textContent = originalLabel;
       form.removeAttribute('aria-busy');
+      // Tokens are single-use; obtain a fresh check after every attempted POST.
+      try { if (captcha?.required) captcha.reset(); } catch { /* The next send still requires a token. */ }
     }
   });
   form.addEventListener('input', (event) => {

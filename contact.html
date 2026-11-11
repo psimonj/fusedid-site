@@ -24,13 +24,14 @@
     <link rel="icon" href="assets/images/favicon-64.png" sizes="64x64" type="image/png">
     <link rel="apple-touch-icon" href="assets/images/apple-touch-icon.png" sizes="180x180">
     <link rel="stylesheet" href="assets/css/site.css?v=fbc61997dd6c">
-    <link rel="stylesheet" href="assets/css/additions.css?v=6a42f0f25f74">
+    <link rel="stylesheet" href="assets/css/additions.css?v=e2090cac1ca5">
     <link rel="stylesheet" href="assets/css/navigation.css?v=c164d5475d4d">
     <script defer src="assets/js/navigation.js?v=244989d1e0f2"></script>
     <link rel="stylesheet" href="assets/css/depth.css?v=cf501291daac">
     <link rel="stylesheet" href="assets/css/workplace.css?v=24e87071f023">
-    <link rel="stylesheet" href="assets/css/enquiry.css?v=90fdda15d5c3">
-    <script defer src="assets/js/enquiry.js?v=76f8a8f6e3a1"></script>
+    <link rel="stylesheet" href="assets/css/enquiry.css?v=2d0407aee430">
+    <script defer src="assets/js/captcha.js?v=f188b321096f" data-sitekey=""></script>
+    <script defer src="assets/js/enquiry.js?v=d86c580738f7"></script>
     <script type="application/ld+json">{
   "@context": "https://schema.org",
   "@graph": [
@@ -41,7 +42,13 @@
       "legalName": "FUSED ID Pty Ltd",
       "url": "https://www.fusedid.com/",
       "slogan": "AI that comes to work.",
-      "email": "sales@fusedid.com",
+      "telephone": "+61386691414",
+      "contactPoint": {
+        "@type": "ContactPoint",
+        "contactType": "customer enquiries",
+        "telephone": "+61386691414",
+        "url": "https://www.fusedid.com/contact.html#enquiry-form"
+      },
       "logo": {
         "@type": "ImageObject",
         "url": "https://www.fusedid.com/assets/images/fusedid-mark-light.webp",
@@ -50,7 +57,10 @@
       },
       "address": {
         "@type": "PostalAddress",
-        "addressLocality": "Melbourne",
+        "streetAddress": "5/134 Indian Drive",
+        "addressLocality": "Keysborough",
+        "addressRegion": "VIC",
+        "postalCode": "3173",
         "addressCountry": "AU"
       }
     },
@@ -94,7 +104,7 @@
             <div class="products-panel" id="products-panel-desktop">
               <a class="products-overview" href="products-services.html">All Products &amp; Services <span aria-hidden="true">→</span></a>
               <div class="products-links">
-                <a href="discovery.html"><strong>Discovery &amp; Workflow Design</strong><span>Define the first role or map a more complex workflow.</span></a><a href="what-we-do.html"><strong>Managed Cloud Colleagues</strong><span>Standard and specialist roles, with FUSED running the workplace.</span></a><a href="self-hosted-ai.html"><strong>Self-hosted AI Workplace</strong><span>Your infrastructure. A workplace your team can run.</span></a><a href="ai-website-design.html"><strong>AI Website Design &amp; Management</strong><span>New websites and ongoing Web Growth Architect support.</span></a>
+                <a href="discovery.html"><strong>Discovery &amp; Workflow Design</strong><span>Define the first role or map a more complex workflow.</span></a><a href="what-we-do.html"><strong>Managed Cloud Colleagues</strong><span>Standard and specialist roles, with FUSED running the workplace.</span></a><a href="self-hosted-ai.html"><strong>Self-hosted AI Workplace</strong><span>Your infrastructure. A workplace your team can run.</span></a><a href="ai-website-design.html"><strong>AI Website Design &amp; Management</strong><span>Websites, Shopify and ongoing Web Growth Architect support.</span></a>
               </div>
               <a class="products-next" href="how-it-works.html">How we work with you <span aria-hidden="true">→</span></a>
             </div>
@@ -110,7 +120,7 @@
               <div class="products-panel" id="products-panel-mobile">
                 <a class="products-overview" href="products-services.html">All Products &amp; Services <span aria-hidden="true">→</span></a>
                 <div class="products-links">
-                  <a href="discovery.html"><strong>Discovery &amp; Workflow Design</strong><span>Define the first role or map a more complex workflow.</span></a><a href="what-we-do.html"><strong>Managed Cloud Colleagues</strong><span>Standard and specialist roles, with FUSED running the workplace.</span></a><a href="self-hosted-ai.html"><strong>Self-hosted AI Workplace</strong><span>Your infrastructure. A workplace your team can run.</span></a><a href="ai-website-design.html"><strong>AI Website Design &amp; Management</strong><span>New websites and ongoing Web Growth Architect support.</span></a>
+                  <a href="discovery.html"><strong>Discovery &amp; Workflow Design</strong><span>Define the first role or map a more complex workflow.</span></a><a href="what-we-do.html"><strong>Managed Cloud Colleagues</strong><span>Standard and specialist roles, with FUSED running the workplace.</span></a><a href="self-hosted-ai.html"><strong>Self-hosted AI Workplace</strong><span>Your infrastructure. A workplace your team can run.</span></a><a href="ai-website-design.html"><strong>AI Website Design &amp; Management</strong><span>Websites, Shopify and ongoing Web Growth Architect support.</span></a>
                 </div>
                 <a class="products-next" href="how-it-works.html">How we work with you <span aria-hidden="true">→</span></a>
               </div>
@@ -130,6 +140,14 @@
             <a class="button" href="#enquiry-form">Send an enquiry <span aria-hidden="true">→</span></a><a class="button button--light" href="#first-conversation">What happens next</a>
           </div>
           <p class="contact-action-note">A few details are enough to start the conversation.</p>
+          <div class="contact-details" aria-label="Contact details">
+            <div>
+              <span>Call our office</span><a href="tel:+61386691414">03 8669 1414</a>
+            </div>
+            <div>
+              <span>Our office</span><address>5/134 Indian Drive<br>Keysborough VIC 3173, Australia</address>
+            </div>
+          </div>
         </div>
       </section>
       <section class="section" id="section-2">
@@ -155,7 +173,7 @@
             <p class="eyebrow">Start a conversation</p>
             <h2>What could we help with?</h2>
             <p>A rough idea is enough. Fields marked * are required.</p>
-            <form class="enquiry-form" action="/api/enquiry" method="post" accept-charset="UTF-8" data-enquiry-form>
+            <form class="enquiry-form" action="/api/enquiry" method="post" accept-charset="UTF-8" data-enquiry-form data-captcha-required="false">
             <div class="enquiry-fields">
               <div class="enquiry-field">
                 <label for="enquiry-name">Your name *</label><input id="enquiry-name" name="name" type="text" autocomplete="name" required maxlength="120">
@@ -178,11 +196,20 @@
             <div class="enquiry-trap" aria-hidden="true">
               <label for="enquiry-website">Leave this field blank</label><input id="enquiry-website" name="website" type="text" tabindex="-1" autocomplete="off">
             </div>
+            <div class="enquiry-captcha" data-captcha data-state="pending">
+              <div class="captcha-heading">
+                <svg viewBox="0 0 24 24" width="24" height="24" fill="none" stroke="currentColor" stroke-width="1.6" aria-hidden="true"><path d="M12 3 4 6v6c0 4 4 7 8 9 4-2 8-5 8-9V6Z"/></svg><strong>Security check</strong><span class="captcha-badge" data-captcha-badge>Pending activation</span>
+              </div>
+              <div data-captcha-widget>
+              </div>
+              <p class="enquiry-hint" data-captcha-status role="status" aria-live="polite">CAPTCHA is not active yet. You can still send your enquiry.</p>
+              <button class="captcha-retry" type="button" data-captcha-retry hidden>Retry security check</button>
+            </div>
             <p class="enquiry-privacy">We’ll use your details to respond to your enquiry. Read our <a href="privacy.html">privacy notice</a>.</p>
             <button class="button button--dark" type="submit">Send enquiry <span aria-hidden="true">→</span></button>
             <p class="enquiry-status" data-enquiry-status role="status" aria-live="polite" aria-atomic="true" tabindex="-1"></p>
             </form>
-            <p class="enquiry-alternative">Prefer email? <a href="mailto:sales@fusedid.com">sales@fusedid.com</a></p>
+            <p class="enquiry-alternative">Prefer to call? <a href="tel:+61386691414">03 8669 1414</a></p>
           </div>
         </div>
       </section>
@@ -297,7 +324,7 @@
             <details>
               <summary>Does this page collect my information?</summary>
               <div>
-                When you submit the form, we receive the contact details and message you provide so we can respond. This site has no advertising tracker or analytics script. Ordinary hosting logs may still be kept; see our <a href="privacy.html">privacy page</a>.
+                When you submit the form, we receive the contact details and message you provide so we can respond. Google Analytics measures site use and confirmed enquiries without receiving the details you enter. When enabled, Cloudflare Turnstile checks for automated submissions. Ordinary hosting logs may also be kept; see our <a href="privacy.html">privacy page</a>.
               </div>
             </details>
           </div>
@@ -309,7 +336,11 @@
         <div class="footer-intro">
           <a class="footer-brand" href="index.html"><span class="footer-wordmark-wrap"><img class="footer-wordmark" src="assets/images/fusedid-wordmark-light.svg?v=bd745d1afdb0" width="395" height="84" alt="FUSED ID"></span><span class="footer-slogan">AI that comes to work.</span></a>
           <p>Put AI to work with your knowledge, methods and tools. Choose a FUSED-managed workplace, a licensed deployment or a workflow your team runs.</p>
-          <a href="mailto:sales@fusedid.com">sales@fusedid.com</a>
+          <div class="footer-contact">
+            <a href="contact.html#enquiry-form">Send an enquiry →</a>
+        <a href="tel:+61386691414">03 8669 1414</a>
+        <address>5/134 Indian Drive<br>Keysborough VIC 3173, Australia</address>
+          </div>
         </div>
         <div class="footer-col">
           <h2>Products &amp; Services</h2>
@@ -323,7 +354,7 @@
         </div>
       </div>
       <div class="container footer-bottom">
-        <span>© <span data-current-year>2026</span> FUSED ID Pty Ltd · Melbourne, Australia</span><a href="privacy.html">Privacy</a><a href="#main">Back to top ↑</a>
+        <span>© 2025–<span data-current-year>2026</span> FUSED ID Pty Ltd</span><a href="privacy.html">Privacy</a><a href="#main">Back to top ↑</a>
       </div>
     </footer>
   </body>

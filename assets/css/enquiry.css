@@ -45,3 +45,8 @@
 .contact-details a { font-size: 1.2rem; font-weight: 650; text-decoration: none; }
 .contact-details address { font-style: normal; font-size: 1rem; line-height: 1.6; }
 @media (max-width: 420px) { .captcha-badge { margin-left: 34px; } .enquiry-captcha { padding: 14px; } }
+
+.enquiry-panel > .enquiry-alternative { margin: 12px 0; padding: 0; border: 0; }
+.enquiry-actions { display: flex; flex-wrap: wrap; align-items: center; gap: 8px 20px; }
+.enquiry-form .enquiry-copy { padding: 6px 2px; border: 0; background: transparent; color: var(--ink); text-decoration: underline; text-underline-offset: 3px; }
+.enquiry-form[hidden], .enquiry-form [hidden], [data-draft-intro][hidden] { display: none; }

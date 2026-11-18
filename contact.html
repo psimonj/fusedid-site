@@ -29,9 +29,8 @@
     <script defer src="assets/js/navigation.js?v=244989d1e0f2"></script>
     <link rel="stylesheet" href="assets/css/depth.css?v=cf501291daac">
     <link rel="stylesheet" href="assets/css/workplace.css?v=24e87071f023">
-    <link rel="stylesheet" href="assets/css/enquiry.css?v=2d0407aee430">
-    <script defer src="assets/js/captcha.js?v=40d9f50e33c1" data-sitekey=""></script>
-    <script defer src="assets/js/enquiry.js?v=476e3fc9bea1"></script>
+    <link rel="stylesheet" href="assets/css/enquiry.css?v=21498c2200c8">
+    <script defer src="assets/js/enquiry.js?v=39fec47d40c3"></script>
     <script type="application/ld+json">{
   "@context": "https://schema.org",
   "@graph": [
@@ -167,8 +166,9 @@
           <div class="enquiry-panel reveal" id="enquiry-form">
             <p class="eyebrow">Start a conversation</p>
             <h2>What could we help with?</h2>
-            <p>A rough idea is enough. Fields marked * are required.</p>
-            <form class="enquiry-form" action="/api/enquiry" method="post" accept-charset="UTF-8" data-enquiry-form data-captcha-required="false">
+            <p class="enquiry-alternative">Email <a href="mailto:sales@fusedid.com">sales@fusedid.com</a> directly<span data-draft-intro hidden> or fill in the details below to prepare an email. You can review and send it in your email app</span>.</p>
+            <form class="enquiry-form" action="mailto:sales@fusedid.com" method="post" enctype="text/plain" data-enquiry-form hidden>
+            <p class="enquiry-hint">Fields marked * are required.</p>
             <div class="enquiry-fields">
               <div class="enquiry-field">
                 <label for="enquiry-name">Your name *</label><input id="enquiry-name" name="name" type="text" autocomplete="name" required maxlength="120">
@@ -188,20 +188,15 @@
               <textarea id="enquiry-message" name="message" rows="6" maxlength="10000" required aria-describedby="enquiry-hint"></textarea>
               <p class="enquiry-hint" id="enquiry-hint">Tell us about the task, website or result you have in mind. For website work, include your public website address if you have one. Please leave out sensitive or confidential information.</p>
             </div>
-            <div class="enquiry-trap" aria-hidden="true">
-              <label for="enquiry-website">Leave this field blank</label><input id="enquiry-website" name="website" type="text" tabindex="-1" autocomplete="off">
-            </div>
-            <div class="enquiry-captcha" data-captcha data-state="pending">
-              <div class="captcha-heading">
-                <svg viewBox="0 0 24 24" width="24" height="24" fill="none" stroke="currentColor" stroke-width="1.6" aria-hidden="true"><path d="M12 3 4 6v6c0 4 4 7 8 9 4-2 8-5 8-9V6Z"/></svg><strong>Security check</strong><span class="captcha-badge" data-captcha-badge>Pending activation</span>
-              </div>
-              <div data-captcha-widget>
-              </div>
-              <p class="enquiry-hint" data-captcha-status role="status" aria-live="polite">CAPTCHA is not active yet. You can still send your enquiry.</p>
-              <button class="captcha-retry" type="button" data-captcha-retry hidden>Retry security check</button>
-            </div>
             <p class="enquiry-privacy">We’ll use your details to respond to your enquiry. Read our <a href="privacy.html">privacy notice</a>.</p>
-            <button class="button button--dark" type="submit">Send enquiry <span aria-hidden="true">→</span></button>
+            <div class="enquiry-actions">
+              <button class="button button--dark" type="submit">Open email draft <span aria-hidden="true">→</span></button>
+            <button type="button" class="enquiry-copy" data-copy-enquiry>Copy enquiry</button>
+            </div>
+            <div class="enquiry-field" data-manual-copy hidden>
+              <label for="enquiry-copy-text">Select and copy your enquiry into an email</label>
+              <textarea id="enquiry-copy-text" readonly rows="6"></textarea>
+            </div>
             <p class="enquiry-status" data-enquiry-status role="status" aria-live="polite" aria-atomic="true" tabindex="-1"></p>
             </form>
           </div>
@@ -318,7 +313,7 @@
             <details>
               <summary>Does this page collect my information?</summary>
               <div>
-                When you submit the form, we receive the contact details and message you provide so we can respond. Google Analytics measures site use and confirmed enquiries without receiving the details you enter. When enabled, Cloudflare Turnstile checks for automated submissions. Ordinary hosting logs may also be kept; see our <a href="privacy.html">privacy page</a>.
+                Your details stay in your browser while you fill in the form. Opening a draft passes them to your email app. We receive your enquiry when you send the email to us. For more about website analytics and hosting logs, see our <a href="privacy.html">privacy page</a>.
               </div>
             </details>
           </div>
